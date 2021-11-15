@@ -10,15 +10,11 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 			<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
-<<<<<<< HEAD
+
 			<property name="url" value="jdbc:oracle:this:@112.221.156.36:1521:orcl"/>
 			<property name="username" value="loanplan"/>
 			<property name="password" value="LOANPLAN"/>
-=======
-			<property name="url" value="jdbc:oracle:this:@localhost:1521:orcl"/>
-			<property name="username" value="tiger"/>
-			<property name="password" value="gyoung"/>
->>>>>>> remotes/origin/main
+
 		</bean>
 		
 		<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
