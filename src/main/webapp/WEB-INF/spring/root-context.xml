@@ -1,8 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+			<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+			<property name="url" value="jdbc:oracle:this:@localhost:1521:orcl"/>
+			<property name="username" value="SCOTT"/>
+			<property name="password" value="TIGER"/>
+		</bean>
+		
+		<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+			<property name="configLocation" value="classpath:mybatis-config.xml"/>
+			<property name="dataSource" ref="dataSource"/>
+		</bean>
+		
+		<bean class="org.mybatis.spring.SqlSessionTemplate">
+			<constructor-arg ref="sqlSession"/>
+		</bean>
+		
+		<!-- TransactionManager 정의하여 Commit, Rollback 제어 -->
+		<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+			<property name="dataSource" ref="dataSource"/>
+		</bean>
+		
+		<!-- Transaction 대상 설정 -->
+		<tx:advice id="txAdvice" transaction-manager="transactionManager">
+			<tx:attributes>
+				<!-- Transaction의 대상이 되는 메소드 정의 -->
+				<tx:method name="select*" read-only="true" rollback-for="Exception"/>
+				<tx:method name="insert*" rollback-for="Exception"/>
+				<tx:method name="update*" rollback-for="Exception"/>
+				<tx:method name="delete*" rollback-for="Exception"/>
+			</tx:attributes>
+		</tx:advice>
+		
+		<!-- AOP를 통해 Transaction의 pointcut 설정 -->
+		<aop:config proxy-target-class="true">
+			<aop:pointcut id="daoMethod" expression="execution(*com.mycompany.loanplan..*Impl.*(..)))" />
+			<aop:advisor id="transactionAdvisor" pointcut-ref="daoMethod" advice-ref="txAdvice"/>
+		</aop:config>
 		
 </beans>
