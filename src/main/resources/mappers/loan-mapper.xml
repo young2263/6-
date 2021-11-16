@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="RecommendLoan">
+	<resultMap type="RecommendLoan" id="recommendloanRM">
+		<id property="RL_NUM" column="RL_NUM"/>
+		<result property="RL_NAME" column="RL_NAME"/>
+		<result property="RL_BANK" column="RL_BANK"/>
+		<result property="RL_DATE" column="RL_DATE"/>
+		<result property="RL_SUM" column="RL_SUM"/>
+		<result property="RL_PS" column="RL_PS"/>
+		<result property="RL_MTD" column="RL_MTD"/>
+		<result property="RL_ICMTD" column="RL_ICMTD"/>
+		<result property="RL_CMTD" column="RL_CMTD"/>
+		<result property="RL_IL" column="RL_IL"/>
+		<result property="RL_CATEGORY" column="RL_CATEGORY"/>
+		<result property="RL_IMG" column="RL_IMG"/>
+		<result property="RL_URL" column="RL_URL"/>
+		<result property="RL_PHN" column="RL_PHN"/>
+	</resultMap>
+	
+	<!-- recommendloanlist -->
+	<select id="listRecommendLoan" resultMap="recommendloanRM">
+		select * from RECOMMEND_LOAN order by RL_NUM
+	</select>
+	
+	<!-- recommendloanlist 카테고리별 조회 -->
+	<select id="categoryLoanList" resultMap="recommendLoanRm">
+		select * from RECOMMEND_LOAN where RL_CATEGORY=?
+	</select>
+	
+	
+
+</mapper>
