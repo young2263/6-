@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="RecommendLoanCredit">
+  <resultMap type="RecommendLoanCredit" id="recommendLoanCreditRM">
+  	<id property="RL_CR_NUM" column="RL_CR_NUM"/>
+  	<result property="RL_CR_IMG" column="RL_CR_IMG"/>
+  	<result property="RL_CR_URL" column="RL_CR_URL"/>
+  	<result property="DCLS_MONTH" column="DCLS_MONTH"/>
+  	<result property="KOR_CO_NM" column="KOR_CO_NM"/>
+  	<result property="CRDT_PRDT_TYPE_NM" column="CRDT_PRDT_TYPE_NM"/>
+  	<result property="CRDT_GRAD_1" column="CRDT_GRAD_1"/>
+  	<result property="CRDT_GRAD_4" column="CRDT_GRAD_4"/>
+  	<result property="CRDT_GRAD_5" column="CRDT_GRAD_5"/>
+  	<result property="CRDT_GRAD_6" column="CRDT_GRAD_6"/>
+  	<result property="CRDT_GRAD_10" column="CRDT_GRAD_10"/>
+  	<result property="CRDT_GRAD_12" column="CRDT_GRAD_12"/>
+  	<result property="CRDT_GRAD_13" column="CRDT_GRAD_13"/>
+  	<result property="CRDT_GRAD_AVG" column="CRDT_GRAD_AVG"/>
+  </resultMap>
+  
+  <!-- recommendloancreditlist -->
+  <select id="listRecommendLoanCredit" resultMap="recommendLoanCreditRM">
+  	select * from RECOMMEND_LOAN_CREDIT order by RL_CR_NUM
+  </select>
+</mapper>
