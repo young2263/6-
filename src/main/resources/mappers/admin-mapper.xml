@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Administor">
+
+  <resultMap type="Administor" id="Administor">
+		<id property="aId" column="A_ID"/>
+		<result property="aPwd" column="A_PWD"/>
+		<result property="aName" column="A_NAME"/>
+		<result property="aEmail" column="A_EMAIL"/>
+		<result property="aPhn" column="A_PHN"/>
+		<result property="aGender" column="A_GENDER"/>
+		<result property="aAge" column="A_AGE"/>
+		<result property="aAddress" column="A_ADDRESS"/>
+	</resultMap>
+	
+	<!-- 대출 정보 조회 -->
+	<select id="listAdmin" resultMap="Administor">
+	select * from administor
+	</select>
+	
+	<!-- 카테고리별 대출 정보 조회 -->
+	<select id="listAdminCategory" resultMap="Administor">
+		
+	</select>
+</mapper>

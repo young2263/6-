@@ -5,9 +5,11 @@
 		<setting name="jdbcTypeForNull" value="NULL"/>
 	</settings>
 	<typeAliases>
+	<typeAlias type="com.mycompany.loanplan.admin.model.vo.Administor" alias="Administor"/>
 		<typeAlias type="com.mycompany.loanplan.loan.model.vo.RecommendLoan" alias="RecommendLoan"/>
 	</typeAliases>
 	<mappers>
+		<mapper resource="mappers/admin-mapper.xml"/>
 		<mapper resource="mappers/recommendloan-mapper.xml"/>
 	</mappers>
 </configuration>
