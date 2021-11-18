@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.mycompany.loanplan.admin.model.dao.AdministorDao;
 import com.mycompany.loanplan.admin.model.vo.Administor;
+import com.mycompany.loanplan.loan.model.vo.RecommendLoan;
 
 @Service("adminService")
 public class AdministorServiceImpl implements AdministorService {
@@ -15,7 +16,7 @@ public class AdministorServiceImpl implements AdministorService {
 	private AdministorDao adminDao;
 	
 	@Override
-	public List<Administor> selectList(){
+	public List<RecommendLoan> selectList(){
 		return adminDao.listLoan();
 	}
 	

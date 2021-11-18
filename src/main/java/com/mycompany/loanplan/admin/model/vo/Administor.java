@@ -1,103 +1,150 @@
 package com.mycompany.loanplan.admin.model.vo;
 
+import java.sql.Date;
+
 import org.springframework.stereotype.Component;
 
 @Component
 public class Administor {
-	private static final long serialVersionUID = 20001L;
-	private String aId;
-	private String aName;
-	private String aPwd;
-	private String aEmail;
-	private String aPhn;
-	private String aGender;
-	private int aAge;
-	private String aAddress;
+	private static final long serialVersionUID = 1111L;
+	private int RL_NUM;
+	private String RL_CATEGORY;
+	private String RL_IMG;
+	private String RL_URL;
+	private Date DCLS_MONTH;
+	private String KOR_CO_NM;
+	private String FIN_PRDT_NM;
+	private String LEND_RATE_TYPE_NM;
+	private String RPAY_TYPE_NM;
+	private String ERLY_RPAY_FEE;
+	private String DLY_RATE;
+	private String LOAN_LMT;
 
 	public Administor() {
 
 	}
 
-	public Administor(String aId, String aName, String aPwd, String aEmail, String aPhn, String aGender, int aAge,
-			String aAddress) {
+	public Administor(int rL_NUM, String rL_CATEGORY, String rL_IMG, String rL_URL, Date dCLS_MONTH, String kOR_CO_NM,
+			String fIN_PRDT_NM, String lEND_RATE_TYPE_NM, String rPAY_TYPE_NM, String eRLY_RPAY_FEE, String dLY_RATE,
+			String lOAN_LMT) {
 		super();
-		this.aId = aId;
-		this.aName = aName;
-		this.aPwd = aPwd;
-		this.aEmail = aEmail;
-		this.aPhn = aPhn;
-		this.aGender = aGender;
-		this.aAge = aAge;
-		this.aAddress = aAddress;
+		RL_NUM = rL_NUM;
+		RL_CATEGORY = rL_CATEGORY;
+		RL_IMG = rL_IMG;
+		RL_URL = rL_URL;
+		DCLS_MONTH = dCLS_MONTH;
+		KOR_CO_NM = kOR_CO_NM;
+		FIN_PRDT_NM = fIN_PRDT_NM;
+		LEND_RATE_TYPE_NM = lEND_RATE_TYPE_NM;
+		RPAY_TYPE_NM = rPAY_TYPE_NM;
+		ERLY_RPAY_FEE = eRLY_RPAY_FEE;
+		DLY_RATE = dLY_RATE;
+		LOAN_LMT = lOAN_LMT;
 	}
 
 	@Override
 	public String toString() {
-		return "Administor [aId=" + aId + ", aName=" + aName + ", aPwd=" + aPwd + ", aEmail=" + aEmail + ", aPhn="
-				+ aPhn + ", aGender=" + aGender + ", aAge=" + aAge + ", aAddress=" + aAddress + "]";
+		return "Administor [RL_NUM=" + RL_NUM + ", RL_CATEGORY=" + RL_CATEGORY + ", RL_IMG=" + RL_IMG + ", RL_URL="
+				+ RL_URL + ", DCLS_MONTH=" + DCLS_MONTH + ", KOR_CO_NM=" + KOR_CO_NM + ", FIN_PRDT_NM=" + FIN_PRDT_NM
+				+ ", LEND_RATE_TYPE_NM=" + LEND_RATE_TYPE_NM + ", RPAY_TYPE_NM=" + RPAY_TYPE_NM + ", ERLY_RPAY_FEE="
+				+ ERLY_RPAY_FEE + ", DLY_RATE=" + DLY_RATE + ", LOAN_LMT=" + LOAN_LMT + "]";
 	}
 
-	public String getaId() {
-		return aId;
+	public int getRL_NUM() {
+		return RL_NUM;
 	}
 
-	public void setaId(String aId) {
-		this.aId = aId;
+	public void setRL_NUM(int rL_NUM) {
+		RL_NUM = rL_NUM;
 	}
 
-	public String getaName() {
-		return aName;
+	public String getRL_CATEGORY() {
+		return RL_CATEGORY;
 	}
 
-	public void setaName(String aName) {
-		this.aName = aName;
+	public void setRL_CATEGORY(String rL_CATEGORY) {
+		RL_CATEGORY = rL_CATEGORY;
 	}
 
-	public String getaPwd() {
-		return aPwd;
+	public String getRL_IMG() {
+		return RL_IMG;
 	}
 
-	public void setaPwd(String aPwd) {
-		this.aPwd = aPwd;
+	public void setRL_IMG(String rL_IMG) {
+		RL_IMG = rL_IMG;
 	}
 
-	public String getaEmail() {
-		return aEmail;
+	public String getRL_URL() {
+		return RL_URL;
 	}
 
-	public void setaEmail(String aEmail) {
-		this.aEmail = aEmail;
+	public void setRL_URL(String rL_URL) {
+		RL_URL = rL_URL;
 	}
 
-	public String getaPhn() {
-		return aPhn;
+	public Date getDCLS_MONTH() {
+		return DCLS_MONTH;
 	}
 
-	public void setaPhn(String aPhn) {
-		this.aPhn = aPhn;
+	public void setDCLS_MONTH(Date dCLS_MONTH) {
+		DCLS_MONTH = dCLS_MONTH;
 	}
 
-	public String getaGender() {
-		return aGender;
+	public String getKOR_CO_NM() {
+		return KOR_CO_NM;
 	}
 
-	public void setaGender(String aGender) {
-		this.aGender = aGender;
+	public void setKOR_CO_NM(String kOR_CO_NM) {
+		KOR_CO_NM = kOR_CO_NM;
 	}
 
-	public int getaAge() {
-		return aAge;
+	public String getFIN_PRDT_NM() {
+		return FIN_PRDT_NM;
 	}
 
-	public void setaAge(int aAge) {
-		this.aAge = aAge;
+	public void setFIN_PRDT_NM(String fIN_PRDT_NM) {
+		FIN_PRDT_NM = fIN_PRDT_NM;
 	}
 
-	public String getaAddress() {
-		return aAddress;
+	public String getLEND_RATE_TYPE_NM() {
+		return LEND_RATE_TYPE_NM;
 	}
 
-	public void setaAddress(String aAddress) {
-		this.aAddress = aAddress;
+	public void setLEND_RATE_TYPE_NM(String lEND_RATE_TYPE_NM) {
+		LEND_RATE_TYPE_NM = lEND_RATE_TYPE_NM;
 	}
+
+	public String getRPAY_TYPE_NM() {
+		return RPAY_TYPE_NM;
+	}
+
+	public void setRPAY_TYPE_NM(String rPAY_TYPE_NM) {
+		RPAY_TYPE_NM = rPAY_TYPE_NM;
+	}
+
+	public String getERLY_RPAY_FEE() {
+		return ERLY_RPAY_FEE;
+	}
+
+	public void setERLY_RPAY_FEE(String eRLY_RPAY_FEE) {
+		ERLY_RPAY_FEE = eRLY_RPAY_FEE;
+	}
+
+	public String getDLY_RATE() {
+		return DLY_RATE;
+	}
+
+	public void setDLY_RATE(String dLY_RATE) {
+		DLY_RATE = dLY_RATE;
+	}
+
+	public String getLOAN_LMT() {
+		return LOAN_LMT;
+	}
+
+	public void setLOAN_LMT(String lOAN_LMT) {
+		LOAN_LMT = lOAN_LMT;
+	}
+
+	
 }

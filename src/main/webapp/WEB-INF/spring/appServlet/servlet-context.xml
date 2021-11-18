@@ -23,7 +23,7 @@
 	
 	<context:component-scan base-package="com.mycompany.loanplan" />
 	
-	<!-- 
+	
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
 		<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
@@ -37,6 +37,6 @@
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg ref="sqlSessionFactory"/>
 	</beans:bean>
-	 -->	
+
 	
 </beans:beans>

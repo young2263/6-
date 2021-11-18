@@ -3,19 +3,23 @@
 <mapper namespace="Administor">
 
   <resultMap type="Administor" id="Administor">
-		<id property="aId" column="A_ID"/>
-		<result property="aPwd" column="A_PWD"/>
-		<result property="aName" column="A_NAME"/>
-		<result property="aEmail" column="A_EMAIL"/>
-		<result property="aPhn" column="A_PHN"/>
-		<result property="aGender" column="A_GENDER"/>
-		<result property="aAge" column="A_AGE"/>
-		<result property="aAddress" column="A_ADDRESS"/>
+		<id property="RL_NUM" column="RL_NUM"/>
+		<result property="RL_CATEGORY" column="RL_CATEGORY"/>
+		<result property="RL_IMG" column="RL_IMG"/>
+		<result property="RL_URL" column="RL_URL"/>
+		<result property="DCLS_MONTH" column="DCLS_MONTH"/>
+		<result property="KOR_CO_NM" column="KOR_CO_NM"/>
+		<result property="FIN_PRDT_NM" column="FIN_PRDT_NM"/>
+		<result property="LEND_RATE_TYPE_NM" column="LEND_RATE_TYPE_NM"/>
+		<result property="RPAY_TYPE_NM" column="RPAY_TYPE_NM"/>
+		<result property="ERLY_RPAY_FEE" column="ERLY_RPAY_FEE"/>
+		<result property="DLY_RATE" column="DLY_RATE"/>
+		<result property="LOAN_LMT" column="LOAN_LMT"/>
 	</resultMap>
 	
 	<!-- 대출 정보 조회 -->
 	<select id="listAdmin" resultMap="Administor">
-	select * from administor
+	select * from recommend_loan
 	</select>
 	
 	<!-- 카테고리별 대출 정보 조회 -->

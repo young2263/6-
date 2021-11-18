@@ -19,7 +19,7 @@ public class AdministorController {
 	private AdministorService adminService;
 
 	
-	@RequestMapping(value = "/admin/main", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView adminList(ModelAndView mv) {
 		System.out.println("admin진입");
 		System.out.println(adminService.selectList());
