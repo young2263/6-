@@ -7,8 +7,9 @@
 	<typeAliases>
 	<typeAlias type="com.mycompany.loanplan.admin.model.vo.Administor" alias="Administor"/>
 		<typeAlias type="com.mycompany.loanplan.loan.model.vo.RecommendLoan" alias="RecommendLoan"/>
-		<typeAlias type="com.mycompany.loanplan.loan.model.vo.RecommendLoanCharter" alias="RecommendLoan"/>
-		<typeAlias type="com.mycompany.loanplan.loan.model.vo.RecommendLoanCredit" alias="RecommendLoan"/>
+		<typeAlias type="com.mycompany.loanplan.loan.model.vo.RecommendLoanCharter" alias="RecommendLoanCharter"/>
+		<typeAlias type="com.mycompany.loanplan.loan.model.vo.RecommendLoanCredit" alias="RecommendLoanCredit"/>
+		
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/admin-mapper.xml"/>
