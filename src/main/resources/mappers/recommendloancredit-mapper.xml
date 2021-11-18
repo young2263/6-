@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="RecommendLoanCredit">
-  <resultMap type="RecommendLoanCredit" id="recommendLoanCreditRM">
+  <resultMap type="RecommendLoanCredit" id="recommendloancreditRM">
   	<id property="RL_CR_NUM" column="RL_CR_NUM"/>
   	<result property="RL_CR_IMG" column="RL_CR_IMG"/>
   	<result property="RL_CR_URL" column="RL_CR_URL"/>
@@ -19,7 +19,7 @@
   </resultMap>
   
   <!-- recommendloancreditlist -->
-  <select id="listRecommendLoanCredit" resultMap="recommendLoanCreditRM">
+  <select id="listRecommendLoanCredit" resultMap="recommendloancreditRM">
   	select * from RECOMMEND_LOAN_CREDIT order by RL_CR_NUM
   </select>
 </mapper>
