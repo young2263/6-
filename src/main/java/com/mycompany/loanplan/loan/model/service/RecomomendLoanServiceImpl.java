@@ -15,7 +15,7 @@ public class RecomomendLoanServiceImpl implements RecommendLoanService {
 	@Autowired
 	private RecommendLoanDao recommendLoanDao;
 	
-	public List<RecommendLoan> getRecommendLoans(RecommendLoan vo) throws Exception {
+	public List<RecommendLoan> getRecommendLoansList(RecommendLoan vo) throws Exception {
 		List<RecommendLoan> volist = null;
 		System.out.println(volist);
 		

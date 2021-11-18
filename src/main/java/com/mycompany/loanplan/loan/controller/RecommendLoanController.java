@@ -17,7 +17,7 @@ public class RecommendLoanController {
 	@Autowired
 	private RecommendLoanService recommendLoanService;
 	
-	@RequestMapping(value = "recommendloanlist", method = RequestMethod.POST)
+	@RequestMapping(value = "recommendloanlist", method = RequestMethod.GET)
 	public ModelAndView getRecommendLoans(ModelAndView mv
 			, @RequestParam(value = "msg") String msg
 			,@RequestParam(value = "pagenum") int pagenum
@@ -27,7 +27,7 @@ public class RecommendLoanController {
 		RecommendLoan vo = new RecommendLoan();
 		List<RecommendLoan> volist = null;
 		try {
-			volist = recommendLoanService.getRecommendLoans(vo);
+			volist = recommendLoanService.getRecommendLoansList(vo);
 			viewpage = "recommendloanlist";
 			mv.addObject("volist", volist);
 		} catch(Exception e) {

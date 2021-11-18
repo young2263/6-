@@ -14,10 +14,10 @@
 <script src="/js/jquery-1.11.1.min.js"></script>
 <script>
 var xmlhttp ;
-var url = "http://finlife.fss.or.kr/finlifeapi/rentHouseLoanProductsSearch.xml?auth=ca671628ffa24c972229e54f6db94508&topFinGrpNo=020000&pageNo=1";
+var url = "http://finlife.fss.or.kr/finlifeapi/rentHouseLoanProductsSearch.json?auth=ca671628ffa24c972229e54f6db94508&topFinGrpNo=020000&pageNo=1";
 //페이지 번호 클릭
 var goPage = function(pageNum) { 
-	url = "http://finlife.fss.or.kr/finlifeapi/rentHouseLoanProductsSearch.xml?auth=ca671628ffa24c972229e54f6db94508&topFinGrpNo=020000&pageNo="+pageNum;
+	url = "http://finlife.fss.or.kr/finlifeapi/rentHouseLoanProductsSearch.json?auth=ca671628ffa24c972229e54f6db94508&topFinGrpNo=020000&pageNo="+pageNum;
 	startRequest();
 }
 
@@ -33,7 +33,7 @@ var startRequest= function() {
 	createXMLHttpRequest();
 	
 	xmlhttp.onreadystatechange = handleStateChange;
-	xmlhttp.open("POST", url, true);
+	xmlhttp.open("GET", url, true);
 	xmlhttp.send(null);
 }
 

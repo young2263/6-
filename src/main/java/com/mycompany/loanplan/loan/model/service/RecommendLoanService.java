@@ -6,5 +6,5 @@ import com.mycompany.loanplan.loan.model.vo.RecommendLoan;
 
 public interface RecommendLoanService {
 
-	public List<RecommendLoan> getRecommendLoans(RecommendLoan vo) throws Exception;
+	public List<RecommendLoan> getRecommendLoansList(RecommendLoan vo) throws Exception;
 }
