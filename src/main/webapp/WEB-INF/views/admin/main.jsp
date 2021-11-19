@@ -6,12 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/loanplan/resources/css/adminMain.css" type="text/css"/> 
+<link rel="stylesheet" href="./resources/css/admin/adminMain.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
 
 <header>
-	<div>${volist}</div> <!-- 관리자 정보 예시로 들고왔음 -->
         <div class="logo"> logo </div>
         <div class="admin">
             관리자 정보
@@ -44,93 +44,18 @@
                         <th>이자율</th>
                         <th>은행</th>
                     </tr>
+                    <c:forEach var="vo" items="${volist}" varStatus="status">
                     <tr>
-                       <td>sdfsd</td>
-                       <td>sdfsd</td>
-                       <td>sdfsd</td>
-                       <td>sdfsd</td>
-                       <td>sdfsd</td>
+                       <td>${vo.FIN_PRDT_NM }</td>
+                       <td>${vo.LEND_RATE_TYPE_NM }</td>
+                       <td>${vo.RPAY_TYPE_NM }</td>
+                       <td>${vo.DLY_RATE }</td>
+                       <td>${vo.KOR_CO_NM }</td>
                     </tr>
-                    <tr>
-                        <td>sdfsd</td>
-                       <td>sdfsd</td>
-                       <td>sdfsd</td>
-                       <td>sdfsd</td>
-                       <td>sdfsd</td>
-                    </tr>
-                    <tr>
-                        <td>sdfsd</td>
-                       <td>sdfsd</td>
-                       <td>sdfsd</td>
-                       <td>sdfsd</td>
-                       <td>sdfsd</td>
-                    </tr>
-                    <tr>
-                        <td>sdfsd</td>
-                       <td>sdfsd</td>
-                       <td>sdfsd</td>
-                       <td>sdfsd</td>
-                       <td>sdfsd</td>
-                    </tr>
-                    <tr>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                     </tr>
-                     <tr>
-                         <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                     </tr>
-                     <tr>
-                         <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                     </tr>
-                     <tr>
-                         <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                     </tr>
-                     <tr>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                     </tr>
-                     <tr>
-                         <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                     </tr>
-                     <tr>
-                         <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                     </tr>
-                     <tr>
-                         <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                        <td>sdfsd</td>
-                     </tr>
+                    </c:forEach>
                 </div>
                 <div class="addBtn">
-                    <button>추가</button>
+                    <button><a herf="dsdf">추가</a></button>
                 </div>
             </div>
         </div>
