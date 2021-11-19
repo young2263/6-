@@ -18,7 +18,6 @@ public class AdministorController {
 	@Autowired
 	private AdministorService adminService;
 
-	
 	@RequestMapping(value = "/admin/main", method = RequestMethod.GET)
 	public ModelAndView adminList(ModelAndView mv) {
 		System.out.println("admin진입");
