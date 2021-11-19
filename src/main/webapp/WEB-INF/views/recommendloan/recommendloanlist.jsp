@@ -9,7 +9,7 @@
 <title>recommendloanlist</title>
 </head>
 <body>
-<h1>주택담보대출상품 조회</h1>
-	
+<h3 class="Serch-Result-head"> ▣ 주택담보대출상품 조회결과</h3>
+	${rllist }
 </body> 
 </html>

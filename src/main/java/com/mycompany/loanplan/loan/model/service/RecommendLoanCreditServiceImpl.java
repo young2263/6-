@@ -15,10 +15,7 @@ public class RecommendLoanCreditServiceImpl implements RecommendLoanCreditServic
 	@Autowired
 	private RecommendLoanCreditDao recommendLoanCreditDao;
 	
-	public List<RecommendLoanCredit> getRecommendLoanList(RecommendLoanCredit vo) throws Exception {
-		List<RecommendLoanCredit> volist = null;
-		System.out.println(volist);
-		
-		return volist;
+	public List<RecommendLoanCredit> selectRecommendLoanCredits() {
+		return recommendLoanCreditDao.selectRecommendLoanCredits();
 	}
 }

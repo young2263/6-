@@ -8,10 +8,9 @@ import org.springframework.stereotype.Component;
 public class RecommendLoan {
 	private static final long serialVersionUID = 1111L;
 	private int RL_NUM;
-	private String RL_CATEGORY;
 	private String RL_IMG;
 	private String RL_URL;
-	private Date DCLS_MONTH;
+	private String DCLS_MONTH;
 	private String KOR_CO_NM;
 	private String FIN_PRDT_NM;
 	private String LEND_RATE_TYPE_NM;
@@ -24,10 +23,9 @@ public class RecommendLoan {
 		
 	}
 	
-	public RecommendLoan(int rlnum, String rlcategory, String rlimg, String rlurl, Date dclsmonth, String korconm, String finprdtnm, String lendratetypenm, String rpaytypenm, String erlyrpayfee, String dlyrate, String loanlmt) {
+	public RecommendLoan(int rlnum, String rlimg, String rlurl, String dclsmonth, String korconm, String finprdtnm, String lendratetypenm, String rpaytypenm, String erlyrpayfee, String dlyrate, String loanlmt) {
 		super();
 		this.RL_NUM = rlnum;
-		this.RL_CATEGORY = rlcategory;
 		this.RL_IMG = rlimg;
 		this.RL_URL = rlurl;
 		this.DCLS_MONTH = dclsmonth;
@@ -42,10 +40,10 @@ public class RecommendLoan {
 
 	@Override
 	public String toString() {
-		return "RecommendLoan [RL_NUM=" + RL_NUM + ", RL_CATEGORY=" + RL_CATEGORY + ", RL_IMG=" + RL_IMG + ", RL_URL="
-				+ RL_URL + ", DCLS_MONTH=" + DCLS_MONTH + ", KOR_CO_NM=" + KOR_CO_NM + ", FIN_PRDT_NM=" + FIN_PRDT_NM
-				+ ", LEND_RATE_TYPE_NM=" + LEND_RATE_TYPE_NM + ", RPAY_TYPE_NM=" + RPAY_TYPE_NM + ", ERLY_RPAY_FEE="
-				+ ERLY_RPAY_FEE + ", DLY_RATE=" + DLY_RATE + ", LOAN_LMT=" + LOAN_LMT + "]";
+		return "RecommendLoan [RL_NUM=" + RL_NUM + ", RL_IMG=" + RL_IMG + ", RL_URL=" + RL_URL + ", DCLS_MONTH="
+				+ DCLS_MONTH + ", KOR_CO_NM=" + KOR_CO_NM + ", FIN_PRDT_NM=" + FIN_PRDT_NM + ", LEND_RATE_TYPE_NM="
+				+ LEND_RATE_TYPE_NM + ", RPAY_TYPE_NM=" + RPAY_TYPE_NM + ", ERLY_RPAY_FEE=" + ERLY_RPAY_FEE
+				+ ", DLY_RATE=" + DLY_RATE + ", LOAN_LMT=" + LOAN_LMT + "]";
 	}
 
 	public int getRL_NUM() {
@@ -54,14 +52,6 @@ public class RecommendLoan {
 
 	public void setRL_NUM(int rL_NUM) {
 		RL_NUM = rL_NUM;
-	}
-
-	public String getRL_CATEGORY() {
-		return RL_CATEGORY;
-	}
-
-	public void setRL_CATEGORY(String rL_CATEGORY) {
-		RL_CATEGORY = rL_CATEGORY;
 	}
 
 	public String getRL_IMG() {
@@ -80,11 +70,11 @@ public class RecommendLoan {
 		RL_URL = rL_URL;
 	}
 
-	public Date getDCLS_MONTH() {
+	public String getDCLS_MONTH() {
 		return DCLS_MONTH;
 	}
 
-	public void setDCLS_MONTH(Date dCLS_MONTH) {
+	public void setDCLS_MONTH(String dCLS_MONTH) {
 		DCLS_MONTH = dCLS_MONTH;
 	}
 
@@ -143,6 +133,8 @@ public class RecommendLoan {
 	public void setLOAN_LMT(String lOAN_LMT) {
 		LOAN_LMT = lOAN_LMT;
 	}
+
+
 
 	
 }

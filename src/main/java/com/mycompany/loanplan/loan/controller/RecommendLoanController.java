@@ -16,9 +16,9 @@ public class RecommendLoanController {
 	@Autowired
 	private RecommendLoanService recommendLoanService;
 	
-	@RequestMapping(value = "recommendloanlist", method = RequestMethod.GET)
+	@RequestMapping(value = "/recommendloan/recommendloanlist", method = RequestMethod.GET)
 	public ModelAndView recommendloanlist(ModelAndView mv) {
-		mv.setViewName("recommendloanlist");
+		mv.setViewName("recommendloan/recommendloanlist");
 		mv.addObject("rllist", recommendLoanService.selectRecommendLoans());
 		return mv;
 	}
