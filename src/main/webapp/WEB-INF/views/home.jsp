@@ -15,6 +15,7 @@
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/fontawesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
 <!-- Start Top Nav -->
@@ -23,15 +24,12 @@
             <div class="w-100 d-flex justify-content-between">
                 <div>
                     <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">#</a>
                     <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">#</a>
                 </div>
                 <div>
-                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                    <a class="text-light" href="${pageContext.request.contextPath}/admin" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
                 </div>
             </div>
         </div>
@@ -55,16 +53,16 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">추천대출</a>
+                            <a class="nav-link" href="#">추천대출</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">계산기</a>
+                            <a class="nav-link" href="#">계산기</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="shop.html">내대출 관리</a>
+                            <a class="nav-link" href="#">내대출 관리</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">공지사항</a>
+                            <a class="nav-link" href="#">공지사항</a>
                         </li>
                     </ul>
                 </div>
