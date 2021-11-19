@@ -14,10 +14,10 @@
 <script src="/js/jquery-1.11.1.min.js"></script>
 <script>
 var xmlhttp ;
-var url = "http://finlife.fss.or.kr/finlifeapi/creditLoanProductsSearch.json?auth=ca671628ffa24c972229e54f6db94508&topFinGrpNo=050000&pageNo=1";
+var url = "http://finlife.fss.or.kr/finlifeapi/creditLoanProductsSearch.xml?auth=ca671628ffa24c972229e54f6db94508&topFinGrpNo=050000&pageNo=1";
 //페이지 번호 클릭
 var goPage = function(pageNum) { 
-	url = "http://finlife.fss.or.kr/finlifeapi/creditLoanProductsSearch.json?auth=ca671628ffa24c972229e54f6db94508&topFinGrpNo=050000&pageNo="+pageNum;
+	url = "http://finlife.fss.or.kr/finlifeapi/creditLoanProductsSearch.xml?auth=ca671628ffa24c972229e54f6db94508&topFinGrpNo=050000&pageNo="+pageNum;
 	startRequest();
 }
 
@@ -33,7 +33,7 @@ var startRequest= function() {
 	createXMLHttpRequest();
 	
 	xmlhttp.onreadystatechange = handleStateChange;
-	xmlhttp.open("POST", url, true);
+	xmlhttp.open("GET", url, true);
 	xmlhttp.send(null);
 }
 
@@ -166,7 +166,7 @@ var handleStateChange = function() {
 </script>
 </head>
 <body onload="startRequest();">
-    <h3 class="Serch-Result-head"> ▣ 주택담보대출상품 조회결과</h3>
+    <h3 class="Serch-Result-head"> ▣ 개인신용대출상품 조회결과</h3>
 	<br></br>   
     <div id="tableDiv"></div>
 </body> 

@@ -145,8 +145,8 @@ var handleStateChange = function() {
 </script>
 </head>
 <body onload="startRequest();">
-    <h3 class="Serch-Result-head"> ▣ 주택담보대출상품 조회결과</h3>
+    <h3 class="Serch-Result-head"> ▣ 전세자금대출상품 조회결과</h3>
 	<br></br>   
     <div id="tableDiv"></div>
 </body> 
-</html>
+</html>>

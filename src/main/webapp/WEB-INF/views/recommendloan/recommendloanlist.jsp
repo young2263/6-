@@ -10,6 +10,6 @@
 </head>
 <body>
 <h1>주택담보대출상품 조회</h1>
-	${volist }   
+	
 </body> 
 </html>

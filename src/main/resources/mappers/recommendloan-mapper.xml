@@ -3,7 +3,6 @@
 <mapper namespace="RecommendLoan">
 	<resultMap type="RecommendLoan" id="recommendloanRM">
 		<id property="RL_NUM" column="RL_NUM"/>
-		<result property="RL_CATEGORY" column="RL_CATEGORY"/>  <!-- 제거하기 -->
 		<result property="RL_IMG" column="RL_IMG"/>
 		<result property="RL_URL" column="RL_URL"/>
 		<result property="DCLS_MONTH" column="DCLS_MONTH"/>
@@ -17,7 +16,7 @@
 	</resultMap>
 	
 	<!-- recommendloanlist -->
-	<select id="listRecommendLoan" resultMap="recommendloanRM">
+	<select id="listRecommendLoan" resultType="arraylist" resultMap="recommendloanRM">
 		select * from RECOMMEND_LOAN order by RL_NUM
 	</select>
 	
