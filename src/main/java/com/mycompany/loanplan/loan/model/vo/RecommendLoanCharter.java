@@ -8,10 +8,9 @@ import org.springframework.stereotype.Component;
 public class RecommendLoanCharter {
 	private static final long serialVersionUID = 1111L;
 	private int RL_CH_NUM;
-	private String RL_CH_CATEGORY;
 	private String RL_CH_IMG;
 	private String RL_CH_URL;
-	private Date DCLS_MONTH;
+	private String DCLS_MONTH;
 	private String KOR_CO_NM;
 	private String FIN_PRDT_NM;
 	private String LEND_RATE_TYPE_NM;
@@ -24,10 +23,9 @@ public class RecommendLoanCharter {
 		
 	}
 	
-	public RecommendLoanCharter(int rlchnum, String rlchcategory, String rlchimg, String rlchurl, Date dclsmonth, String korconm, String finprdtnm, String lendratetypenm, String rpaytypenm, String erlyrpayfee, String dlyrate, String loanlmt) {
+	public RecommendLoanCharter(int rlchnum, String rlchcategory, String rlchimg, String rlchurl, String dclsmonth, String korconm, String finprdtnm, String lendratetypenm, String rpaytypenm, String erlyrpayfee, String dlyrate, String loanlmt) {
 		super();
 		this.RL_CH_NUM = rlchnum;
-		this.RL_CH_CATEGORY = rlchcategory;
 		this.RL_CH_IMG = rlchimg;
 		this.RL_CH_URL = rlchurl;
 		this.DCLS_MONTH = dclsmonth;
@@ -42,11 +40,10 @@ public class RecommendLoanCharter {
 
 	@Override
 	public String toString() {
-		return "RecommendLoanCharter [RL_CH_NUM=" + RL_CH_NUM + ", RL_CH_CATEGORY=" + RL_CH_CATEGORY + ", RL_CH_IMG="
-				+ RL_CH_IMG + ", RL_CH_URL=" + RL_CH_URL + ", DCLS_MONTH=" + DCLS_MONTH + ", KOR_CO_NM=" + KOR_CO_NM
-				+ ", FIN_PRDT_NM=" + FIN_PRDT_NM + ", LEND_RATE_TYPE_NM=" + LEND_RATE_TYPE_NM + ", RPAY_TYPE_NM="
-				+ RPAY_TYPE_NM + ", ERLY_RPAY_FEE=" + ERLY_RPAY_FEE + ", DLY_RATE=" + DLY_RATE + ", LOAN_LMT="
-				+ LOAN_LMT + "]";
+		return "RecommendLoanCharter [RL_CH_NUM=" + RL_CH_NUM + ", RL_CH_IMG=" + RL_CH_IMG + ", RL_CH_URL=" + RL_CH_URL
+				+ ", DCLS_MONTH=" + DCLS_MONTH + ", KOR_CO_NM=" + KOR_CO_NM + ", FIN_PRDT_NM=" + FIN_PRDT_NM
+				+ ", LEND_RATE_TYPE_NM=" + LEND_RATE_TYPE_NM + ", RPAY_TYPE_NM=" + RPAY_TYPE_NM + ", ERLY_RPAY_FEE="
+				+ ERLY_RPAY_FEE + ", DLY_RATE=" + DLY_RATE + ", LOAN_LMT=" + LOAN_LMT + "]";
 	}
 
 	public int getRL_CH_NUM() {
@@ -55,14 +52,6 @@ public class RecommendLoanCharter {
 
 	public void setRL_CH_NUM(int rL_CH_NUM) {
 		RL_CH_NUM = rL_CH_NUM;
-	}
-
-	public String getRL_CH_CATEGORY() {
-		return RL_CH_CATEGORY;
-	}
-
-	public void setRL_CH_CATEGORY(String rL_CH_CATEGORY) {
-		RL_CH_CATEGORY = rL_CH_CATEGORY;
 	}
 
 	public String getRL_CH_IMG() {
@@ -81,11 +70,11 @@ public class RecommendLoanCharter {
 		RL_CH_URL = rL_CH_URL;
 	}
 
-	public Date getDCLS_MONTH() {
+	public String getDCLS_MONTH() {
 		return DCLS_MONTH;
 	}
 
-	public void setDCLS_MONTH(Date dCLS_MONTH) {
+	public void setDCLS_MONTH(String dCLS_MONTH) {
 		DCLS_MONTH = dCLS_MONTH;
 	}
 
@@ -144,6 +133,8 @@ public class RecommendLoanCharter {
 	public void setLOAN_LMT(String lOAN_LMT) {
 		LOAN_LMT = lOAN_LMT;
 	}
+
+	
 	
 	
 }

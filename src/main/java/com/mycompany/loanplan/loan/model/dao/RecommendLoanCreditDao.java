@@ -13,7 +13,7 @@ public class RecommendLoanCreditDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public List<RecommendLoanCredit> seleList() {
+	public List<RecommendLoanCredit> selectRecommendLoanCredits() {
 		return sqlSession.selectList("RecommendLoanCredit.listRecommendLoanCredit");
 	}
 }

@@ -15,11 +15,8 @@ public class RecommendLoanCharterServiceImpl implements RecommendLoanCharterServ
 	@Autowired
 	private RecommendLoanCharterDao recommendLoanCharterDao;
 	
-	public List<RecommendLoanCharter> getRecommendLoanList(RecommendLoanCharter vo) throws Exception {
-		List<RecommendLoanCharter> volist = null;
-		System.out.println(volist);
-		
-		return volist;
+	public List<RecommendLoanCharter> selectRecommendLoanCharters() {
+		return recommendLoanCharterDao.selectRecommendLoanCharters();
 	}
 
 }

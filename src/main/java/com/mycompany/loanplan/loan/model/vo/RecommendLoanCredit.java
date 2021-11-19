@@ -10,7 +10,7 @@ public class RecommendLoanCredit {
 	private int RL_CR_NUM;
 	private String RL_CR_IMG;
 	private String RL_CR_URL;
-	private Date DCLS_MONTH;
+	private String DCLS_MONTH;
 	private String KOR_CO_NM;
 	private String CRDT_PRDT_TYPE_NM;
 	private int CRDT_GRAD_1;
@@ -24,7 +24,7 @@ public class RecommendLoanCredit {
 	
 	public RecommendLoanCredit() {}
 	
-	public RecommendLoanCredit(int rlcrnum, String rlcrimg, String rlcrurl, Date dclsmonth, String korconm, String crdtprdttypenm, int crdtgrad1, int crdtgrad4, int crdtgrad5, int crdtgrad6, int crdtgrad10, int crdtgrad12, int crdtgrad13, int crdtgradavg) {
+	public RecommendLoanCredit(int rlcrnum, String rlcrimg, String rlcrurl, String dclsmonth, String korconm, String crdtprdttypenm, int crdtgrad1, int crdtgrad4, int crdtgrad5, int crdtgrad6, int crdtgrad10, int crdtgrad12, int crdtgrad13, int crdtgradavg) {
 		super();
 		this.RL_CR_NUM = rlcrnum;
 		this.RL_CR_IMG = rlcrimg;
@@ -75,11 +75,11 @@ public class RecommendLoanCredit {
 		RL_CR_URL = rL_CR_URL;
 	}
 
-	public Date getDCLS_MONTH() {
+	public String getDCLS_MONTH() {
 		return DCLS_MONTH;
 	}
 
-	public void setDCLS_MONTH(Date dCLS_MONTH) {
+	public void setDCLS_MONTH(String dCLS_MONTH) {
 		DCLS_MONTH = dCLS_MONTH;
 	}
 
