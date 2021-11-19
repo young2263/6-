@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.loanplan.question.Question;
 import com.mycompany.loanplan.question.service.QuestionService;
+import com.mycompany.loanplan.question.service.QuestionServiceImpl;
 
 @Controller
 public class QuestionController {
@@ -49,7 +50,7 @@ public class QuestionController {
 		try {
 			int currentPage = page;
 			
-			mv.addObject("question", qService.selectquestion(0, question_num));
+//			mv.addObject("question", qService.selectquestion(0));  여기가 무슨 내용인지 모르겠어서 오류잡는데 필요할 것 같아 주석처리 해놨습니다
 			mv.addObject("currentPage", currentPage);
 			mv.setViewName("question/questionDetail");
 		} catch (Exception e) {
@@ -62,7 +63,7 @@ public class QuestionController {
 	@RequestMapping(value = "bRenew.do", method = RequestMethod.GET)
 	public ModelAndView questionDetail(@RequestParam(name = "question_num") String question_num, ModelAndView mv) {
 		try {
-			mv.addObject("question", qService.selectquestion(1, question_num));
+//			mv.addObject("question", qService.selectquestion(1, question_num));
 			mv.setViewName("question/questionRenew");
 		} catch (Exception e) {
 			mv.addObject("msg", e.getMessage());

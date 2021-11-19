@@ -7,15 +7,15 @@ import com.mycompany.loanplan.question.Question;
 public interface QuestionService {
 	int totalCount();
 
-	Question selectquestion(int chk, String question_num);
+	Question selectquestion(int chk);
 
 	List<Question> selectList(int startPage, int limit);
 
 	List<Question> selectSearch(String keyword);
 
-	void insertquestion(Question q);
+	int insertquestion(Question q);
 
-	Question updatequestion(Question q);
+	int updatequestion(Question q);
 
-	void deletequestion(int question_num);
+	int deletequestion(int question_num);
 }

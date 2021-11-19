@@ -16,7 +16,5 @@
 		<mapper resource="mappers/recommendloan-mapper.xml"/>
 		<mapper resource="mappers/recommendloancharter-mapper.xml"/>
 		<mapper resource="mappers/recommendloancredit-mapper.xml"/>
-		
-		
 	</mappers>
 </configuration>
