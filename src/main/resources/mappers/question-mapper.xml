@@ -11,4 +11,5 @@
 	<select id="questionlist" resultMap="questionRM">
 		select * from QUESTION where QUESTION_NUM=?
 	</select>
+	
 </mapper>

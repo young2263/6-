@@ -14,10 +14,10 @@
 <script src="/js/jquery-1.11.1.min.js"></script>
 <script>
 var xmlhttp ;
-var url = "http://finlife.fss.or.kr/finlifeapi/rentHouseLoanProductsSearch.xml?auth=ca671628ffa24c972229e54f6db94508&topFinGrpNo=020000&pageNo=1";
+var url = "http://finlife.fss.or.kr/finlifeapi/rentHouseLoanProductsSearch.json?auth=ca671628ffa24c972229e54f6db94508&topFinGrpNo=020000&pageNo=1";
 //페이지 번호 클릭
 var goPage = function(pageNum) { 
-	url = "http://finlife.fss.or.kr/finlifeapi/rentHouseLoanProductsSearch.xml?auth=ca671628ffa24c972229e54f6db94508&topFinGrpNo=020000&pageNo="+pageNum;
+	url = "http://finlife.fss.or.kr/finlifeapi/rentHouseLoanProductsSearch.json?auth=ca671628ffa24c972229e54f6db94508&topFinGrpNo=020000&pageNo="+pageNum;
 	startRequest();
 }
 
@@ -33,7 +33,7 @@ var startRequest= function() {
 	createXMLHttpRequest();
 	
 	xmlhttp.onreadystatechange = handleStateChange;
-	xmlhttp.open("POST", url, true);
+	xmlhttp.open("GET", url, true);
 	xmlhttp.send(null);
 }
 
@@ -67,15 +67,12 @@ var handleStateChange = function() {
 	        html += "<tr>";
 	        html += "<th class='liveTh'>공시제출월</th>";
 	        html += "<th class='liveTh'>금융회사 명</th>";
-	        html += "<th class='liveTh'>대출종류명</th>";
-            html += "<th class='liveTh'>900점초과 금리</th>";
-            html += "<th class='liveTh'>801~900점 금리</th>";
-            html += "<th class='liveTh'>701~800점 금리</th>";
-            html += "<th class='liveTh'>601~700점 금리</th>";
-            html += "<th class='liveTh'>401~500점 금리</th>";
-            html += "<th class='liveTh'>301~400점 금리</th>";
-            html += "<th class='liveTh'>300점 이하 금리</th>";
-            html += "<th class='liveTh'>평균 금리</th>";
+	        html += "<th class='liveTh'>금융상품 명</th>";
+            html += "<th class='liveTh'>대출 금리 유형</th>";
+            html += "<th class='liveTh'>대출 상환 유형</th>";
+            html += "<th class='liveTh'>중도상환 수수료</th>";
+            html += "<th class='liveTh'>연체 이자율</th>";
+            html += "<th class='liveTh'>대출 한도</th>";
 	        
 	        html += "</tr>";
 	        var list = results.getElementsByTagName("products")[0];     
@@ -92,64 +89,46 @@ var handleStateChange = function() {
 				var dcls_month = baseRow.getElementsByTagName("dcls_month")[0].childNodes[0].nodeValue;  //공지제출월
 				var kor_co_nm = baseRow.getElementsByTagName("kor_co_nm")[0].childNodes[0].nodeValue;  //금융회사명
 				var fin_prdt_nm = "";
-				if (baseRow.getElementsByTagName("crdt_prdt_type_nm")[0].childNodes[0] != null) {    //금융상품명
-					fin_prdt_nm = baseRow.getElementsByTagName("crdt_prdt_type_nm")[0].childNodes[0].nodeValue;
+				if (baseRow.getElementsByTagName("fin_prdt_nm")[0].childNodes[0] != null) {    //금융상품명
+					fin_prdt_nm = baseRow.getElementsByTagName("fin_prdt_nm")[0].childNodes[0].nodeValue;
 				}
 			    html += "<tr>"; 
 			    html += "	<td rowspan=" + rowSpanCnt + ">" + dcls_month.substring(0,4)+"."+dcls_month.substring(4) + "</td>";         
 			    html += "	<td rowspan=" + rowSpanCnt + ">" + kor_co_nm + "</td>";          
-			    html += "	<td rowspan=" + rowSpanCnt + ">" + crdt_prdt_type_nm + "</td>";                 
+			    html += "	<td rowspan=" + rowSpanCnt + ">" + fin_prdt_nm + "</td>";                 
 			    for(var subIdx=0; subIdx<rowSpanCnt; subIdx++) {         
 					var opRow = optionRow.getElementsByTagName("option")[subIdx];
 					
 					var intr_rate_type_nm = "-";
-					if (opRow.getElementsByTagName("crdt_grad_1")[0].childNodes[0] != null) {   //900점초과 금리
-						intr_rate_type_nm = opRow.getElementsByTagName("crdt_grad_1")[0].childNodes[0].nodeValue;
+					if (opRow.getElementsByTagName("lend_rate_type_nm")[0].childNodes[0] != null) {   //대출금리유형
+						intr_rate_type_nm = opRow.getElementsByTagName("lend_rate_type_nm")[0].childNodes[0].nodeValue;
 					}
 				
 					var save_trm  = "-";
-					if (opRow.getElementsByTagName("crdt_grad_4")[0].childNodes[0] != null) {     //801~900점 금리
-						save_trm  = opRow.getElementsByTagName("crdt_grad_4")[0].childNodes[0].nodeValue;
+					if (opRow.getElementsByTagName("rpay_type_nm")[0].childNodes[0] != null) {     //대출상환유형
+						save_trm  = opRow.getElementsByTagName("rpay_type_nm")[0].childNodes[0].nodeValue;
 					}
 
                     var intr_rate = "-";
-					if (opRow.getElementsByTagName("crdt_grad_5")[0].childNodes[0] != null) {      //701~800점 금리
-						intr_rate = opRow.getElementsByTagName("crdt_grad_5")[0].childNodes[0].nodeValue;
+					if (opRow.getElementsByTagName("erly_rpay_fee")[0].childNodes[0] != null) {      //중도상환수수료
+						intr_rate = opRow.getElementsByTagName("erly_rpay_fee")[0].childNodes[0].nodeValue;
 					}
 
                     var intr_rate = "-";
-					if (opRow.getElementsByTagName("crdt_grad_6")[0].childNodes[0] != null) {     //601~700점 금리
-						intr_rate = opRow.getElementsByTagName("crdt_grad_6")[0].childNodes[0].nodeValue;
+					if (opRow.getElementsByTagName("dly_rate")[0].childNodes[0] != null) {     //연체이자율
+						intr_rate = opRow.getElementsByTagName("dly_rate")[0].childNodes[0].nodeValue;
 					}
 
                     var intr_rate = "-";
-					if (opRow.getElementsByTagName("crdt_grad_10")[0].childNodes[0] != null) {     //401~500점 금리
-						intr_rate = opRow.getElementsByTagName("crdt_grad_10")[0].childNodes[0].nodeValue;
+					if (opRow.getElementsByTagName("loan_lmt")[0].childNodes[0] != null) {     //대출한도
+						intr_rate = opRow.getElementsByTagName("loan_lmt")[0].childNodes[0].nodeValue;
 					}
 					
-					var intr_rate = "-";
-					if (opRow.getElementsByTagName("crdt_grad_12")[0].childNodes[0] != null) {     //301~400점 금리
-						intr_rate = opRow.getElementsByTagName("crdt_grad_12")[0].childNodes[0].nodeValue;
-					}
-					
-					var intr_rate = "-";
-					if (opRow.getElementsByTagName("crdt_grad_13")[0].childNodes[0] != null) {     //300점이하 금리
-						intr_rate = opRow.getElementsByTagName("crdt_grad_13")[0].childNodes[0].nodeValue;
-					}
-					
-					var intr_rate = "-";
-					if (opRow.getElementsByTagName("crdt_grad_avg")[0].childNodes[0] != null) {     //평균 금리
-						intr_rate = opRow.getElementsByTagName("crdt_grad_avg")[0].childNodes[0].nodeValue;
-					}
-					
-					html += "	<td>" + crdt_grad_1 + "</td>";             
-					html += "	<td>" + crdt_grad_4 + "</td>";          
-					html += "	<td>" + crdt_grad_5 + "</td>";
-                    html += "	<td>" + crdt_grad_6 + "</td>";
-                    html += "	<td>" + crdt_grad_10 + "</td>";
-                    html += "	<td>" + crdt_grad_12 + "</td>";
-                    html += "	<td>" + crdt_grad_13 + "</td>";
-                    html += "	<td>" + crdt_grad_avg + "</td>";
+					html += "	<td>" + lend_rate_type_nm + "</td>";             
+					html += "	<td>" + rpay_type_nm + "</td>";          
+					html += "	<td>" + erly_rpay_fee + "</td>";
+                    html += "	<td>" + dly_rate + "</td>";
+                    html += "	<td>" + loan_lmt + "</td>";
 					
 					html += "</tr>"; 
 					if (subIdx < rowSpanCnt) html += "<tr>";
@@ -166,8 +145,8 @@ var handleStateChange = function() {
 </script>
 </head>
 <body onload="startRequest();">
-    <h3 class="Serch-Result-head"> ▣ 주택담보대출상품 조회결과</h3>
+    <h3 class="Serch-Result-head"> ▣ 전세자금대출상품 조회결과</h3>
 	<br></br>   
     <div id="tableDiv"></div>
 </body> 
-</html>
+</html>>

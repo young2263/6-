@@ -148,6 +148,27 @@
 			<version>1.4</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/org.jasypt/jasypt-spring4 -->
+		<dependency>
+			<groupId>org.jasypt</groupId>
+			<artifactId>jasypt-spring31</artifactId>
+			<version>1.9.2</version>
+		</dependency>
+		
+		<!-- json -->
+ 		<dependency> 
+ 			<groupId>net.sf.json-lib</groupId> 
+ 			<artifactId>json-lib-ext-spring</artifactId> 
+ 			<version>1.0.2</version> 
+ 		</dependency> 
+ 		
+ 		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple --> 
+ 		<dependency> 
+ 			<groupId>com.googlecode.json-simple</groupId> 
+ 			<artifactId>json-simple</artifactId> 
+ 			<version>1.1.1</version> 
+ 		</dependency>
+		
 		       
 	</dependencies>
     <build>

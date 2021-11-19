@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,14 +11,15 @@
 <title>Document</title>
 
 <script language="JavaScript">
+/* 원리금균등상환 계산기(monthly 일정) */ 
 function calculate() {
   
     var principal = document.loandata.principal.value;
     var interest = document.loandata.interest.value / 100 / 12;
-    var payments = document.loandata.years.value * 12;
+    var payments = (document.loandata.years.value - tyears * 12) * 12;
 
-  
-    var x = Math.pow(1 + interest, payments);
+  /* tyears * 12 => 거치기간개월수  */
+    var x = Math.pow(1 + interest, payments- tyears*12);
     var monthly = (principal*x*interest)/(x-1);
 
   
@@ -36,7 +39,65 @@ function calculate() {
         document.loandata.totalinterest.value = "";
     }
 }
+/* 원금균등상환계산기 (납입원금일정) (미완)*/
+function calculate() {
+  
+   var principal = document.loandata.principal.value;	//원금
+   var interest = document.loandata.interest.value / 100 / 12;	//이자
+   var payments = document.loandata.years.value * 12;	//대출상환개월수
 
+  	var x = principal-monthly;
+	var monthly = principal / payments;	//매월갚을 원금금액(fix)
+	var interest = document.loandata.interest.value / 12;
+ 	var payment = (principal-monthly) / payments;
+	/* 첫달      이자금액 principal * interest /12 
+	두번쨰달 이자금액 (principal-monthly) * interest / 12 */
+    
+
+ 
+    if (!isNaN(monthly) && 
+        (monthly != Number.POSITIVE_INFINITY) &&
+        (monthly != Number.NEGATIVE_INFINITY)) {
+	monthly = tyears * 12 -
+        document.loandata.payment.value = round(monthly+interest);	//매월상환금
+        document.loandata.total.value = round(monthly * payments);
+        document.loandata.totalinterest.value = 
+            round((monthly * payments) - principal);
+    }
+	// 잘못된값 입력시 아무값도 나오지않게
+    else {
+        document.loandata.payment.value = "";
+        document.loandata.total.value = "";
+        document.loandata.totalinterest.value = "";
+    }
+}
+/* 만기일시상환 계산기  */
+function calculate() {
+	
+    var principal = document.loandata.principal.value;
+    var interest = document.loandata.interest.value / 100 / 12;
+    var payments = document.loandata.years.value * 12;
+	
+  
+   
+    var monthly = (principal * ( 1+ interest ) * payments  - principal) / payments ;	//월상환금액
+
+  
+    if (!isNaN(monthly) && 
+        (monthly != Number.POSITIVE_INFINITY) &&
+        (monthly != Number.NEGATIVE_INFINITY)) {
+		
+        document.loandata.payment.value = round(monthly);
+        document.loandata.total.value = principal * ( 1+ interest ) * payments;	//총원금
+        document.loandata.totalinterest.value = principal * ( 1+ interest ) * payments  - principal; //총이자
+    }
+	// 잘못된값 입력시 아무값도 나오지않게
+    else {
+        document.loandata.payment.value = "";
+        document.loandata.total.value = "";
+        document.loandata.totalinterest.value = "";
+    }
+}
 
 	function round(x) {
 	  return Math.round(x*100)/100;

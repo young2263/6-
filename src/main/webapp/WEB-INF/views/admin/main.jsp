@@ -6,13 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<link href="${pageContext.request.contextPath}/resources/adminMain.css" type="text/css" rel="stylesheet"/> 
+<link href="/loanplan/resources/css/adminMain.css" type="text/css"/> 
 </head>
 <body>
 
 <header>
-
+	<div>${volist}</div> <!-- 관리자 정보 예시로 들고왔음 -->
         <div class="logo"> logo </div>
         <div class="admin">
             관리자 정보
@@ -37,11 +36,7 @@
                 </select>
             </div>
             <div>
-            
-
-
                 <table class="tableBox">
-                
                     <tr>
                         <th>대출상품명</th>
                         <th>대출 유형</th>
@@ -49,16 +44,90 @@
                         <th>이자율</th>
                         <th>은행</th>
                     </tr>
-                    <c:forEach var="vo" items="${volist}" varStatus="status">
                     <tr>
-                       <td>${vo.RL_CATEGORY}</td>
-                       <td>${vo.KOR_CO_NM}</td>
-                       <td>${vo.FIN_PRDT_NM}</td>
-                       <td>${vo.LEND_RATE_TYPE_NM}</td>
-                       <td>${vo.RPAY_TYPE_NM}</td>
+                       <td>sdfsd</td>
+                       <td>sdfsd</td>
+                       <td>sdfsd</td>
+                       <td>sdfsd</td>
+                       <td>sdfsd</td>
                     </tr>
-                    </c:forEach>
-           
+                    <tr>
+                        <td>sdfsd</td>
+                       <td>sdfsd</td>
+                       <td>sdfsd</td>
+                       <td>sdfsd</td>
+                       <td>sdfsd</td>
+                    </tr>
+                    <tr>
+                        <td>sdfsd</td>
+                       <td>sdfsd</td>
+                       <td>sdfsd</td>
+                       <td>sdfsd</td>
+                       <td>sdfsd</td>
+                    </tr>
+                    <tr>
+                        <td>sdfsd</td>
+                       <td>sdfsd</td>
+                       <td>sdfsd</td>
+                       <td>sdfsd</td>
+                       <td>sdfsd</td>
+                    </tr>
+                    <tr>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                     </tr>
+                     <tr>
+                         <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                     </tr>
+                     <tr>
+                         <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                     </tr>
+                     <tr>
+                         <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                     </tr>
+                     <tr>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                     </tr>
+                     <tr>
+                         <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                     </tr>
+                     <tr>
+                         <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                     </tr>
+                     <tr>
+                         <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                        <td>sdfsd</td>
+                     </tr>
                 </div>
                 <div class="addBtn">
                     <button>추가</button>

@@ -1,20 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
 	<title>Home</title>
-	<link rel="apple-touch-icon" href="assets/img/apple-icon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/templatemo.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/custom.css">
-
-    <!-- Load fonts style after rendering the layout styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/fontawesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
@@ -53,16 +41,16 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">ì¶”ì²œëŒ€ì¶œ</a>
+                            <a class="nav-link" href="#">ÃßÃµ´ëÃâ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">ê³„ì‚°ê¸°</a>
+                            <a class="nav-link" href="#">°è»ê±â</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">ë‚´ëŒ€ì¶œ ê´€ë¦¬</a>
+                            <a class="nav-link" href="#">³»´ëÃâ °ü¸®</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">ê³µì§€ì‚¬í•­</a>
+                            <a class="nav-link" href="#">°øÁö»çÇ×</a>
                         </li>
                     </ul>
                 </div>
@@ -116,7 +104,7 @@
         <div class="container">
             <div class="row align-items-center py-5">
                 <div class="col-md-8 text-white">
-                    <h1>ê´‘ê³  ë„£ëŠ” ê³³</h1>
+                    <h1>±¤°í ³Ö´Â °÷</h1>
                 </div>
             </div>
         </div>
@@ -127,7 +115,7 @@
     <section class="container py-5">
         <div class="row text-center pt-5 pb-3">
             <div class="col-lg-6 m-auto">
-                <h1 class="h1">ì–¸ë¡ ê³¼ ëŒ€í”Œ</h1>
+                <h1 class="h1">¾ð·Ð°ú ´ëÇÃ</h1>
             </div>
         </div>
         <div class="row">
@@ -369,8 +357,5 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
-    <!-- End Script -->
-
-
-</body>
+    <!-- End Script --></body>
 </html>
