@@ -19,7 +19,7 @@
   </resultMap>
   
   <!-- recommendloancreditlist -->
-  <select id="listRecommendLoanCredit" resultMap="recommendloancreditRM">
+  <select id="listRecommendLoanCredit" resultType="arraylist" resultMap="recommendloancreditRM">
   	select * from RECOMMEND_LOAN_CREDIT order by RL_CR_NUM
   </select>
 </mapper>
