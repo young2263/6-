@@ -38,7 +38,7 @@ header .admin {
 }
 
 .body .navbar {
-    flex-grow: 1;
+	 width: 20rem;
     background-color: #59ab6e;
 }
 
@@ -55,12 +55,12 @@ header .admin {
 
 
 .body .content {
-   flex-grow: 7;
+   width: 100%;
    padding: 0 1rem;
 }
 
 .body .content .tableBox {
-    width: 80%;
+    
     margin: auto;
 }
 

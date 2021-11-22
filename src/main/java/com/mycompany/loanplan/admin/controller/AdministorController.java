@@ -1,7 +1,12 @@
 package com.mycompany.loanplan.admin.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import java.io.PrintWriter;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
@@ -17,6 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.loanplan.admin.model.service.AdministorService;
 import com.mycompany.loanplan.admin.model.vo.Administor;
+import com.mycompany.loanplan.loan.model.vo.RecommendLoanCharter;
+import com.mycompany.loanplan.loan.model.vo.RecommendLoanCredit;
 
 @Controller
 public class AdministorController {
@@ -52,24 +59,48 @@ public class AdministorController {
 	}
 	@RequestMapping(value = "/loanSelect", method = RequestMethod.POST)
 	@ResponseBody
-	public String loanSelect(HttpServletRequest request,
-			@RequestBody String param) throws Exception {
+	public void loanSelect(@RequestParam(name="page",defaultValue = "1") int page, HttpServletRequest request,
+			@RequestBody String param, HttpServletResponse response) throws Exception {
+		JSONObject sendJson = new JSONObject();
+		JSONArray jarr = new JSONArray();
 		
 		try {
+			int currentPage = page;
+			int listCount = adminService.loanCount();
+			int maxPage = (int)((double) listCount / LIMIT +0.9);
+			
 			JSONParser parser = new JSONParser();
 			JSONObject job = (JSONObject) parser.parse(param);
+			
+			PrintWriter out = response.getWriter();
+			
+			
 			String text = (String) job.get("text");
-			if(text == "주택담보대출") {
-				
-			}else if(text=="전세자금대출") {
-				
-			}else if(text=="개인신용대출") {
-				
+			System.out.println(text);
+			if(text.equals("주택담보대출")) { 
+				List<Administor> list = adminService.recommendLoan(currentPage, LIMIT);
+				sendJson.put("list", list);
+				out.println(sendJson.toJSONString());
+				System.out.println(list);
+			}else if(text.equals("전세자금대출")) {
+				List<RecommendLoanCharter> chlist = adminService.recommendLoanCharterList(currentPage, LIMIT);
+				sendJson.put("list", chlist);
+				out.println(sendJson.toJSONString());
+				System.out.println(chlist);
+			}else if(text.equals("개인신용대출")) {
+				List<RecommendLoanCredit> crlist = adminService.recommendLoanCreditList(currentPage, LIMIT);
+				sendJson.put("list", crlist);
+				out.println(sendJson.toJSONString());
+				System.out.println(crlist);
+			}else {
+				System.out.println("end");
 			}
+			out.flush();
+			out.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		return "success";
+		
 	}
 
 	@RequestMapping(value = "/admin/list", method = RequestMethod.GET)

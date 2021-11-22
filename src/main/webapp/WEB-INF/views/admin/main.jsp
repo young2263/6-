@@ -43,14 +43,14 @@
 						<th>은행</th>
 					</tr>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
-						<tr>
+						<tr class="loanBox1">
 							<td>${vo.FIN_PRDT_NM }</td>
 							<td>${vo.LEND_RATE_TYPE_NM }</td>
 							<td>${vo.RPAY_TYPE_NM }</td>
 							<td>${vo.DLY_RATE }</td>
 							<td>${vo.KOR_CO_NM }</td>
 						</tr>
-					</c:forEach>
+						</c:forEach>
 				</table>
 			</div>
 			<div>
@@ -86,11 +86,11 @@
 				</c:if>
 
 			</div>
-			<div class="addBtn">
-				<button>
-					<a herf="dsdf">추가</a>
-				</button>
-			</div>
+			<a href="loanAdd">
+				<div class="addBtn">
+					추가
+				</div>
+			</a>
 		</div>
 	</div>
 
@@ -103,9 +103,16 @@
 				data : JSON.stringify(job), 
 				 type : "post", 
 				 contentType : "application/json; charset=utf-8",  
-				 success : function(result){ 
-					 console.log("전송 성공")
-					 console.log(job.text);
+				 success : function(data){ 
+					 console.log(data)
+					 console.log(typeof(data))
+					 const text = "<td></td><td>home</td>"+
+					 				"<td>${vo.RPAY_TYPE_NM }</td>"+
+					 				"<td>${vo.DLY_RATE }</td>"+
+					 				"<td>${vo.KOR_CO_NM }</td>";
+					 
+					$(".loanBox1").html(text);
+					
 				 }
 				,
 				 error : function(request, status, errorData){ 

@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mycompany.loanplan.admin.model.vo.Administor;
+import com.mycompany.loanplan.loan.model.vo.RecommendLoanCharter;
+import com.mycompany.loanplan.loan.model.vo.RecommendLoanCredit;
 
 @Repository
 public class AdministorDao {
@@ -25,7 +27,30 @@ public class AdministorDao {
 		int startRow = (startPage-1)*limit;
 		RowBounds row = new RowBounds(startRow, limit);
 		List<Administor> volist =  sqlSession.selectList("Administor.selectList",null,row);
-		System.out.println(volist);
+		
+		return volist;
+	}
+	
+	public List<RecommendLoanCharter> recommendLoanCharterList(int startPage, int limit){
+		int startRow = (startPage-1)*limit;
+		RowBounds row = new RowBounds(startRow, limit);
+		List<RecommendLoanCharter> volist =  sqlSession.selectList("Administor.recommendLoanCharterList",null,row);
+		
+		return volist;
+	}
+	
+	public List<RecommendLoanCredit> recommendLoanCreditList(int startPage, int limit){
+		int startRow = (startPage-1)*limit;
+		RowBounds row = new RowBounds(startRow, limit);
+		List<RecommendLoanCredit> volist =  sqlSession.selectList("Administor.recommendLoanCreditList",null,row);
+	
+		return volist;
+	}
+	
+	public List<Administor> recommendLoan(int startPage, int limit){
+		int startRow = (startPage-1)*limit;
+		RowBounds row = new RowBounds(startRow, limit);
+		List<Administor> volist =  sqlSession.selectList("Administor.recommendLoan",null,row);
 		return volist;
 	}
 	

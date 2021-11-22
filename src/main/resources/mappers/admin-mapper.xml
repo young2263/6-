@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="Administor">
-
+<!-- 주택담보 대출 매핑 -->
   <resultMap type="Administor" id="Administor">
 		<id property="RL_NUM" column="RL_NUM"/>
 		<result property="RL_IMG" column="RL_IMG"/>
@@ -15,15 +15,56 @@
 		<result property="DLY_RATE" column="DLY_RATE"/>
 		<result property="LOAN_LMT" column="LOAN_LMT"/>
 	</resultMap>
+	<!-- 전세자금 대출 매핑 -->
+	<resultMap type="RecommendLoanCharter" id="recommendloancharterRM">
+		<id property="RL_CH_NUM" column="RL_CH_NUM"/>
+		<result property="RL_CH_CATEGORY" column="RL_CH_CATEGORY"/>
+		<result property="RL_CH_IMG" column="RL_CH_IMG"/>
+		<result property="RL_CH_URL" column="RL_CH_URL"/>
+		<result property="DCLS_MONTH" column="DCLS_MONTH"/>
+		<result property="KOR_CO_NM" column="KOR_CO_NM"/>
+		<result property="FIN_PRDT_NM" column="FIN_PRDT_NM"/>
+		<result property="LEND_RATE_TYPE_NM" column="LEND_RATE_TYPE_NM"/>
+		<result property="RPAY_TYPE_NM" column="RPAY_TYPE_NM"/>
+		<result property="ERLY_RPAY_FEE" column="ERLY_RPAY_FEE"/>
+		<result property="DLY_RATE" column="DLY_RATE"/>
+		<result property="LOAN_LMT" column="LOAN_LMT"/>
+	</resultMap>
+	<!-- 신용 대출 매핑 -->
+	<resultMap type="RecommendLoanCredit" id="recommendloancreditRM">
+  	<id property="RL_CR_NUM" column="RL_CR_NUM"/>
+  	<result property="RL_CR_IMG" column="RL_CR_IMG"/>
+  	<result property="RL_CR_URL" column="RL_CR_URL"/>
+  	<result property="DCLS_MONTH" column="DCLS_MONTH"/>
+  	<result property="KOR_CO_NM" column="KOR_CO_NM"/>
+  	<result property="CRDT_PRDT_TYPE_NM" column="CRDT_PRDT_TYPE_NM"/>
+  	<result property="CRDT_GRAD_1" column="CRDT_GRAD_1"/>
+  	<result property="CRDT_GRAD_4" column="CRDT_GRAD_4"/>
+  	<result property="CRDT_GRAD_5" column="CRDT_GRAD_5"/>
+  	<result property="CRDT_GRAD_6" column="CRDT_GRAD_6"/>
+  	<result property="CRDT_GRAD_10" column="CRDT_GRAD_10"/>
+  	<result property="CRDT_GRAD_12" column="CRDT_GRAD_12"/>
+  	<result property="CRDT_GRAD_13" column="CRDT_GRAD_13"/>
+  	<result property="CRDT_GRAD_AVG" column="CRDT_GRAD_AVG"/>
+  </resultMap>
 	
 	
-	
-	<!-- 대출 정보 조회 -->
-	<select id="listAdmin" resultMap="Administor">
+	<!-- 주택 담보 정보 조회 -->
+	<select id="recommendLoan" resultMap="Administor">
 	select * from RECOMMEND_LOAN
 	</select>
 	
-	<!-- 페이지별 대출 정보 조회 -->
+	<!-- 전세자금 정보 조회 -->
+	<select id="recommendLoanCharterList" resultMap="recommendloancharterRM">
+	select * from RECOMMEND_LOAN_CHARTER
+	</select>
+	
+	<!-- 신용 대출 정보 조회 -->
+	<select id="recommendLoanCreditList" resultMap="recommendloancreditRM">
+	select * from RECOMMEND_LOAN_CREDIT
+	</select>
+	
+	<!-- 페이지별 모든 대출 정보 조회 -->
 	<select id="selectList" resultMap="Administor">
 	select * from RECOMMEND_LOAN
 	</select>

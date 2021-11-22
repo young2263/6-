@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.mycompany.loanplan.admin.model.dao.AdministorDao;
 import com.mycompany.loanplan.admin.model.vo.Administor;
+import com.mycompany.loanplan.loan.model.vo.RecommendLoanCharter;
+import com.mycompany.loanplan.loan.model.vo.RecommendLoanCredit;
 
 @Service("adminService")
 public class AdministorServiceImpl implements AdministorService {
@@ -21,6 +23,21 @@ public class AdministorServiceImpl implements AdministorService {
 	
 	@Override
 	public List<Administor> selectList(int startPage, int limit){
+		return adminDao.selectList(startPage, limit);
+	}
+	
+	@Override
+	public List<RecommendLoanCharter> recommendLoanCharterList(int startPage, int limit){
+		return adminDao.recommendLoanCharterList(startPage, limit);
+	}
+	
+	@Override
+	public List<RecommendLoanCredit> recommendLoanCreditList(int startPage, int limit){
+		return adminDao.recommendLoanCreditList(startPage, limit);
+	}
+	
+	@Override
+	public List<Administor> recommendLoan(int startPage, int limit){
 		return adminDao.selectList(startPage, limit);
 	}
 	

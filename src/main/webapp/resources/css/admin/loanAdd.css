@@ -10,11 +10,15 @@ ul,li{
     list-style: none;
 }
 
+input {
+	height:40px;
+	text-align: center;
+}
 
 header {
     width: 100%;
     height: 100px;
-    background-color: aquamarine;
+    background-color: #59ab6e;
     display: flex;
     justify-content: space-between;
 }
@@ -30,12 +34,12 @@ header .admin {
 
 .body {
     display: flex;
-    height: 800px;
+    height: 900px;
 }
 
 .body .navbar {
     width: 20rem;
-    background-color: cornflowerblue;
+    background-color: #59ab6e;
 }
 
 .body .navbar .navbarItem {

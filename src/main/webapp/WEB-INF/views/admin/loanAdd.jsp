@@ -14,7 +14,7 @@
   </head>
   <body>
     <header>
-      <div class="logo">logo</div>
+      <div class="logo"><img src="resources/img/logo.png" /></div>
       <div class="admin">관리자 정보</div>
     </header>
     <div class="body">
@@ -105,85 +105,85 @@
               <tr>
                 <th>801~900점 금리</th>
                  <td>
-                  <select id="loanrate" name="loanrate">
+                  <select id="loanrate1" name="loanrate">
                     <option value="">2.17</option>
                     <option value="">1.7</option>
                     <option value="">1.22</option>
                     <option value="direct">직접입력</option>
                   </select>
-                  <input type="text" id="selboxDirect" name="selboxDirect" />
+                  <input type="text" id="selboxDirect1" name="selboxDirect" />
                 </td>
               </tr>
               <tr>
                 <th>701~800점 금리</th>
                  <td>
-                  <select id="loanrate" name="loanrate">
+                  <select id="loanrate2" name="loanrate">
                     <option value="">2.17</option>
                     <option value="">1.7</option>
                     <option value="">1.22</option>
                     <option value="direct">직접입력</option>
                   </select>
-                  <input type="text" id="selboxDirect" name="selboxDirect" />
+                  <input type="text" id="selboxDirect2" name="selboxDirect" />
                 </td>
               </tr>
               <tr>
                 <th>601~700점 금리</th>
                  <td>
-                  <select id="loanrate" name="loanrate">
+                  <select id="loanrate3" name="loanrate">
                     <option value="">2.17</option>
                     <option value="">1.7</option>
                     <option value="">1.22</option>
                     <option value="direct">직접입력</option>
                   </select>
-                  <input type="text" id="selboxDirect" name="selboxDirect" />
+                  <input type="text" id="selboxDirect3" name="selboxDirect" />
                 </td>
               </tr>
               <tr>
                 <th>401~500점 금리</th>
                  <td>
-                  <select id="loanrate" name="loanrate">
+                  <select id="loanrate4" name="loanrate">
                     <option value="">2.17</option>
                     <option value="">1.7</option>
                     <option value="">1.22</option>
                     <option value="direct">직접입력</option>
                   </select>
-                  <input type="text" id="selboxDirect" name="selboxDirect" />
+                  <input type="text" id="selboxDirect4" name="selboxDirect" />
                 </td>
               </tr>
               <tr>
                 <th>301~400점 금리</th>
                  <td>
-                  <select id="loanrate" name="loanrate">
+                  <select id="loanrate5" name="loanrate">
                     <option value="">2.17</option>
                     <option value="">1.7</option>
                     <option value="">1.22</option>
                     <option value="direct">직접입력</option>
                   </select>
-                  <input type="text" id="selboxDirect" name="selboxDirect" />
+                  <input type="text" id="selboxDirect5" name="selboxDirect" />
                 </td>
               </tr>
               <tr>
                 <th>300점 이하 금리</th>
                  <td>
-                  <select id="loanrate" name="loanrate">
+                  <select id="loanrate6" name="loanrate">
                     <option value="">2.17</option>
                     <option value="">1.7</option>
                     <option value="">1.22</option>
                     <option value="direct">직접입력</option>
                   </select>
-                  <input type="text" id="selboxDirect" name="selboxDirect" />
+                  <input type="text" id="selboxDirect6" name="selboxDirect" />
                 </td>
               </tr>
               <tr>
                 <th>평균 금리</th>
                  <td>
-                  <select id="loanrate" name="loanrate">
+                  <select id="loanrate7" name="loanrate">
                     <option value="">2.17</option>
                     <option value="">1.7</option>
                     <option value="">1.22</option>
                     <option value="direct">직접입력</option>
                   </select>
-                  <input type="text" id="selboxDirect" name="selboxDirect" />
+                  <input type="text" id="selboxDirect8" name="selboxDirect" />
                 </td>
               </tr>
             </table>
@@ -203,35 +203,23 @@
                 <td><input type="text" /></td>
               </tr>
               <tr>
-                <th>900점초과 금리</th>
+                <th>대출금리유형</th>
                 <td><input type="text" /></td>
               </tr>
               <tr>
-                <th>801~900점 금리</th>
+                <th>대출상환유형</th>
                 <td><input type="text" /></td>
               </tr>
               <tr>
-                <th>701~800점 금리</th>
+                <th>중도상환수수료</th>
                 <td><input type="text" /></td>
               </tr>
               <tr>
-                <th>601~700점 금리</th>
+                <th>연체이자율</th>
                 <td><input type="text" /></td>
               </tr>
               <tr>
-                <th>401~500점 금리</th>
-                <td><input type="text" /></td>
-              </tr>
-              <tr>
-                <th>301~400점 금리</th>
-                <td><input type="text" /></td>
-              </tr>
-              <tr>
-                <th>300점 이하 금리</th>
-                <td><input type="text" /></td>
-              </tr>
-              <tr>
-                <th>평균 금리</th>
+                <th>대출한도</th>
                 <td><input type="text" /></td>
               </tr>
             </table>
@@ -242,7 +230,18 @@
     </div>
 
     <script>
-      $("#selboxDirect").hide();
+    $("#selboxDirect").hide();
+    	for(let i =1; i<9; i++){
+    		 $("#selboxDirect"+i).hide();
+    		 $("#loanrate"+i).change(function () {
+    		        if ($("#loanrate").val() == "direct") {
+    		          $("#selboxDirect"+i).show();
+    		        } else {
+    		          $("#selboxDirect"+i).hide();
+    		        }
+    		      });
+    	}
+     
 
       $("#loanrate").change(function () {
         if ($("#loanrate").val() == "direct") {
@@ -256,16 +255,16 @@
       $(".jeon_inputBox").hide();
       $(".credit_btn").click(function () {
         $(".jeon_inputBox").hide();
-        $(".credit_inputBox").show();
-        $(".guar_inputBox").hide();
+        $(".guar_inputBox").show();
+        $(".credit_inputBox").hide();
         $(".credit_btn").css("opacity", "1.2");
         $(".guar_btn").css("opacity", "0.5");
         $(".jeon_btn").css("opacity", "0.5");
       });
       $(".guar_btn").click(function () {
         $(".jeon_inputBox").hide();
-        $(".credit_inputBox").hide();
-        $(".guar_inputBox").show();
+        $(".guar_inputBox").hide();
+        $(".credit_inputBox").show();
         $(".guar_btn").css("opacity", "1.2");
         $(".credit_btn").css("opacity", "0.5");
         $(".jeon_btn").css("opacity", "0.5");
