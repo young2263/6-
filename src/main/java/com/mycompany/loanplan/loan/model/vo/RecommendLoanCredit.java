@@ -13,18 +13,18 @@ public class RecommendLoanCredit {
 	private String DCLS_MONTH;
 	private String KOR_CO_NM;
 	private String CRDT_PRDT_TYPE_NM;
-	private int CRDT_GRAD_1;
-	private int CRDT_GRAD_4;
-	private int CRDT_GRAD_5;
-	private int CRDT_GRAD_6;
-	private int CRDT_GRAD_10;
-	private int CRDT_GRAD_12;
-	private int CRDT_GRAD_13;
-	private int CRDT_GRAD_AVG;
+	private String CRDT_GRAD_1;
+	private String CRDT_GRAD_4;
+	private String CRDT_GRAD_5;
+	private String CRDT_GRAD_6;
+	private String CRDT_GRAD_10;
+	private String CRDT_GRAD_12;
+	private String CRDT_GRAD_13;
+	private String CRDT_GRAD_AVG;
 	
 	public RecommendLoanCredit() {}
 	
-	public RecommendLoanCredit(int rlcrnum, String rlcrimg, String rlcrurl, String dclsmonth, String korconm, String crdtprdttypenm, int crdtgrad1, int crdtgrad4, int crdtgrad5, int crdtgrad6, int crdtgrad10, int crdtgrad12, int crdtgrad13, int crdtgradavg) {
+	public RecommendLoanCredit(int rlcrnum, String rlcrimg, String rlcrurl, String dclsmonth, String korconm, String crdtprdttypenm, String crdtgrad1, String crdtgrad4, String crdtgrad5, String crdtgrad6, String crdtgrad10, String crdtgrad12, String crdtgrad13, String crdtgradavg) {
 		super();
 		this.RL_CR_NUM = rlcrnum;
 		this.RL_CR_IMG = rlcrimg;
@@ -99,69 +99,71 @@ public class RecommendLoanCredit {
 		CRDT_PRDT_TYPE_NM = cRDT_PRDT_TYPE_NM;
 	}
 
-	public int getCRDT_GRAD_1() {
+	public String getCRDT_GRAD_1() {
 		return CRDT_GRAD_1;
 	}
 
-	public void setCRDT_GRAD_1(int cRDT_GRAD_1) {
+	public void setCRDT_GRAD_1(String cRDT_GRAD_1) {
 		CRDT_GRAD_1 = cRDT_GRAD_1;
 	}
 
-	public int getCRDT_GRAD_4() {
+	public String getCRDT_GRAD_4() {
 		return CRDT_GRAD_4;
 	}
 
-	public void setCRDT_GRAD_4(int cRDT_GRAD_4) {
+	public void setCRDT_GRAD_4(String cRDT_GRAD_4) {
 		CRDT_GRAD_4 = cRDT_GRAD_4;
 	}
 
-	public int getCRDT_GRAD_5() {
+	public String getCRDT_GRAD_5() {
 		return CRDT_GRAD_5;
 	}
 
-	public void setCRDT_GRAD_5(int cRDT_GRAD_5) {
+	public void setCRDT_GRAD_5(String cRDT_GRAD_5) {
 		CRDT_GRAD_5 = cRDT_GRAD_5;
 	}
 
-	public int getCRDT_GRAD_6() {
+	public String getCRDT_GRAD_6() {
 		return CRDT_GRAD_6;
 	}
 
-	public void setCRDT_GRAD_6(int cRDT_GRAD_6) {
+	public void setCRDT_GRAD_6(String cRDT_GRAD_6) {
 		CRDT_GRAD_6 = cRDT_GRAD_6;
 	}
 
-	public int getCRDT_GRAD_10() {
+	public String getCRDT_GRAD_10() {
 		return CRDT_GRAD_10;
 	}
 
-	public void setCRDT_GRAD_10(int cRDT_GRAD_10) {
+	public void setCRDT_GRAD_10(String cRDT_GRAD_10) {
 		CRDT_GRAD_10 = cRDT_GRAD_10;
 	}
 
-	public int getCRDT_GRAD_12() {
+	public String getCRDT_GRAD_12() {
 		return CRDT_GRAD_12;
 	}
 
-	public void setCRDT_GRAD_12(int cRDT_GRAD_12) {
+	public void setCRDT_GRAD_12(String cRDT_GRAD_12) {
 		CRDT_GRAD_12 = cRDT_GRAD_12;
 	}
 
-	public int getCRDT_GRAD_13() {
+	public String getCRDT_GRAD_13() {
 		return CRDT_GRAD_13;
 	}
 
-	public void setCRDT_GRAD_13(int cRDT_GRAD_13) {
+	public void setCRDT_GRAD_13(String cRDT_GRAD_13) {
 		CRDT_GRAD_13 = cRDT_GRAD_13;
 	}
 
-	public int getCRDT_GRAD_AVG() {
+	public String getCRDT_GRAD_AVG() {
 		return CRDT_GRAD_AVG;
 	}
 
-	public void setCRDT_GRAD_AVG(int cRDT_GRAD_AVG) {
+	public void setCRDT_GRAD_AVG(String cRDT_GRAD_AVG) {
 		CRDT_GRAD_AVG = cRDT_GRAD_AVG;
 	}
+
+	
 	
 	
 }
