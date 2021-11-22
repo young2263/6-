@@ -6,5 +6,8 @@ import com.mycompany.loanplan.loan.model.vo.RecommendLoanCharter;
 
 public interface RecommendLoanCharterService {
 
-	public List<RecommendLoanCharter> selectRecommendLoanCharters();
+	List<RecommendLoanCharter> listLoan();
+	List<RecommendLoanCharter> selectList(int startPage, int limit);
+	int loanCount();
 }
+
