@@ -35,9 +35,9 @@
 					</tr>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
-							<td>${vo.RL_IMG }</td>
-							<td>${vo.FIN_PRDT_NM }</td>
-							<td>${vo.KOR_CO_NM }</td>
+							<td><a href="recommendloandt?no=${vo.RL_NUM}">${vo.RL_IMG }</a></td>
+							<td><a href="recommendloandt?no=${vo.RL_NUM}">${vo.FIN_PRDT_NM }</a></td>
+							<td><a href="recommendloandt?no=${vo.RL_NUM}">${vo.KOR_CO_NM }</a></td>
 						</tr>
 					</c:forEach>
 				</table>
