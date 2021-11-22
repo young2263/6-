@@ -15,8 +15,28 @@ public class AdministorServiceImpl implements AdministorService {
 	private AdministorDao adminDao;
 	
 	@Override
-	public List<Administor> selectList(){
+	public List<Administor> listLoan(){
 		return adminDao.listLoan();
+	}
+	
+	@Override
+	public List<Administor> selectList(int startPage, int limit){
+		return adminDao.selectList(startPage, limit);
+	}
+	
+	@Override
+	public int loanCount(){
+		return adminDao.loanCount();
+	}
+	
+	@Override
+	public int loancreditCount(){
+		return adminDao.loancreditCount();
+	}
+	
+	@Override
+	public int loancharterCount(){
+		return adminDao.loancharterCount();
 	}
 	
 }

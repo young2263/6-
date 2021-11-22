@@ -6,5 +6,9 @@ import com.mycompany.loanplan.admin.model.vo.Administor;
 
 public interface AdministorService {
 
-	List<Administor> selectList();
+	List<Administor> listLoan();
+	List<Administor> selectList(int startPage, int limit);
+	int loanCount();
+	int loancreditCount();
+	int loancharterCount();
 }
