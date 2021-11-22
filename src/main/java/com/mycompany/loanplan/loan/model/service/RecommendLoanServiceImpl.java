@@ -14,7 +14,18 @@ public class RecommendLoanServiceImpl implements RecommendLoanService {
 	@Autowired
 	private RecommendLoanDao recommendLoanDao;
 	
-	public List<RecommendLoan> selectRecommendLoans() {
-		return recommendLoanDao.selectRecommendLoans();
+	@Override
+	public List<RecommendLoan> listLoan() {
+		return recommendLoanDao.listLoan();
+	}
+	
+	@Override
+	public List<RecommendLoan> selectList(int startPage, int limit) {
+		return recommendLoanDao.selectList(startPage, limit);
+	}
+	
+	@Override
+	public int loanCount() {
+		return recommendLoanDao.loanCount();
 	}
 }

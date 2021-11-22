@@ -15,9 +15,19 @@
 		<result property="LOAN_LMT" column="LOAN_LMT"/>
 	</resultMap>
 	
-	<!-- recommendloanlist -->
+	<!-- 대출정보 조회 -->
 	<select id="listRecommendLoan" resultType="arraylist" resultMap="recommendloanRM">
 		select * from RECOMMEND_LOAN order by RL_NUM
+	</select>
+	
+	<!-- 페이지별 대출 정보 조회 -->
+	<select id="selectList" resultMap="recommendloanRM">
+		select * from RECOMMEND_LOAN order by RL_NUM
+	</select>
+	
+	<!-- 대출 정보 totalCount -->
+	<select id="loanCount" resultType="int">
+		select count(*) from RECOMMEND_LOAN
 	</select>
 	
 </mapper>

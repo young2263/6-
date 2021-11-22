@@ -14,34 +14,33 @@ public class QuestionDao {
 	@Autowired
 	private SqlSession sqlSession;
 
-	public int listCount() {
-		return sqlSession.selectOne("question.listCount");
+
+	public List<Question> selectList() { 
+		return sqlSession.selectList("Question.selectQuestion");
 	}
 
 	public Question selectOne(int question_num) {
-		return sqlSession.selectOne("question.selectOne", question_num);
+		return sqlSession.selectOne("Question.selectViewQuestion", question_num);
 	}
+	
+	public void insertquestion(Question q) { 
+		sqlSession.insert("Question.insertQuestion",q); 
+	 }
 
+	public void updatequestion(Question q) { 
+		 sqlSession.update("Question.updateQuestion", q); 
+		 }
+
+	public void deletequestion(int question_num) {
+		 sqlSession.delete("Question.deleteQuestion", question_num);
+		 }
+	
+	public int listCount() {
+		return sqlSession.selectOne("Question.listCount");
+	}
+	
+	
 	public List<Question> searchList(String keyword) {
 		return sqlSession.selectList("question.searchList", keyword);
 	}
-
-	public List<Question> selectList(int startPage, int limit) { 
-
-	int startRow = (startPage - 1) * limit;
-	RowBounds row = new RowBounds(startRow, limit);
-	return sqlSession.selectList("question.selectList",null,row);
-	}
-
-	public int insertquestion(Question q) { 
-	 return sqlSession.insert("question.insertquestion",q); 
-	 }
-
-	public int updatequestion(Question q) { 
-		 return sqlSession.update("question.updatequestion", q); 
-		 }
-
-	public int deletequestion(int question_num) {
-		 return sqlSession.delete("question.deletequestion", question_num);
-		 }
 }

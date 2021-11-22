@@ -18,8 +18,18 @@
   	<result property="CRDT_GRAD_AVG" column="CRDT_GRAD_AVG"/>
   </resultMap>
   
-  <!-- recommendloancreditlist -->
-  <select id="listRecommendLoanCredit" resultType="arraylist" resultMap="recommendloancreditRM">
-  	select * from RECOMMEND_LOAN_CREDIT order by RL_CR_NUM
-  </select>
+  	<!-- 대출정보 조회 -->
+  	<select id="listRecommendLoanCredit" resultType="arraylist" resultMap="recommendloancreditRM">
+  		select * from RECOMMEND_LOAN_CREDIT order by RL_CR_NUM
+  	</select>
+  	
+  	<!-- 페이지별 대출정보 조회 -->
+  	<select id="selectList" resultMap="recommendloancreditRM">
+  		select * from RECOMMEND_LOAN_CREDIT order by RL_CR_NUM
+  	</select>
+  	
+  	<!-- 대출정보 totalCount -->
+  	<select id="loanCount" resultType="int">
+  		select count(*) from RECOMMEND_LOAN_CREDIT
+  	</select>
 </mapper>
