@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.mycompany.loanplan.question.Question;
 import com.mycompany.loanplan.question.dao.QuestionDao;
 
-@Service("qService")
+@Service("questionService")
 public class QuestionServiceImpl implements QuestionService {
 
 	@Autowired
@@ -21,8 +21,8 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 
 	@Override
-	public List<Question> selectList(int startPage, int limit) {
-		return qDao.selectList(startPage, limit);
+	public List<Question> selectList() {
+		return qDao.selectList();
 	}
 
 	@Override
@@ -31,18 +31,18 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 
 	@Override
-	public int insertquestion(Question q) {
-		return qDao.insertquestion(q);
+	public void insertquestion(Question q) {
+		qDao.insertquestion(q);
 	}
 
 	@Override
-	public int updatequestion(Question q) {
-		return qDao.updatequestion(q);
+	public void updatequestion(Question q) {
+		qDao.updatequestion(q);
 	}
 
 	@Override
-	public int deletequestion(int question_num) {
-		return qDao.deletequestion(question_num);
+	public void deletequestion(int question_num) {
+		qDao.deletequestion(question_num);
 	}
 
 	@Override
