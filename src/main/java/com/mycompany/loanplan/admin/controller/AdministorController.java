@@ -24,7 +24,6 @@ public class AdministorController {
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView adminList(ModelAndView mv) {
 		System.out.println("admin진입");
-		System.out.println(adminService.selectList());
 		try {
 			mv.addObject("volist", adminService.selectList());
 			mv.setViewName("admin/main");
