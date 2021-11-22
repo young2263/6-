@@ -7,11 +7,12 @@
 <html lang="ko">
 <head>
     <title>LOANPLAN</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="apple-touch-icon" href="resources/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="resources/img/favicon.ico">
 
     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="resources/css/templatemo.css">
@@ -65,7 +66,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/banner_img_01.jpg" alt="">
+                            <img class="img-fluid" src="./resources/img/banner_img_01.jpg" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left align-self-center">
@@ -81,7 +82,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/banner_img_02.jpg" alt="">
+                            <img class="img-fluid" src="./resources/img/banner_img_02.jpg" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
@@ -100,7 +101,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/banner_img_03.jpg" alt="">
+                            <img class="img-fluid" src="./resources/img/banner_img_03.jpg" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
@@ -136,17 +137,17 @@ https://templatemo.com/tm-559-zay-shop
         </div>
         <div class="row">
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
+                <a href="#"><img src="./resources/img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">Watches</h5>
                 <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/category_img_02.jpg" class="rounded-circle img-fluid border"></a>
+                <a href="#"><img src="./resources/img/category_img_02.jpg" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">Shoes</h2>
                 <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/category_img_03.jpg" class="rounded-circle img-fluid border"></a>
+                <a href="#"><img src="./resources/img/category_img_03.jpg" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
                 <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
             </div>
@@ -171,7 +172,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
                         <a href="shop-single.html">
-                            <img src="./assets/img/feature_prod_01.jpg" class="card-img-top" alt="...">
+                            <img src="./resources/img/feature_prod_01.jpg" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
                             <ul class="list-unstyled d-flex justify-content-between">
@@ -195,7 +196,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
                         <a href="shop-single.html">
-                            <img src="./assets/img/feature_prod_02.jpg" class="card-img-top" alt="...">
+                            <img src="./resources/img/feature_prod_02.jpg" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
                             <ul class="list-unstyled d-flex justify-content-between">
@@ -219,7 +220,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
                         <a href="shop-single.html">
-                            <img src="./assets/img/feature_prod_03.jpg" class="card-img-top" alt="...">
+                            <img src="./resources/img/feature_prod_03.jpg" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
                             <ul class="list-unstyled d-flex justify-content-between">
@@ -251,11 +252,12 @@ https://templatemo.com/tm-559-zay-shop
     <!-- End Footer -->
 
     <!-- Start Script -->
-    <!-- <script src="assets/js/jquery-1.11.0.min.js"></script>
-    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/templatemo.js"></script>
-    <script src="assets/js/custom.js"></script> -->
+    <!-- <script src="resources/js/jquery-1.11.0.min.js"></script>
+    <script src="resources/js/jquery-migrate-1.2.1.min.js"></script>
+     -->
+    <script src="resources/js/bootstrap.bundle.min.js"></script>
+    <script src="resources/js/templatemo.js"></script>
+    <script src="resources/js/custom.js"></script>
     <!-- End Script -->
 </body>
 </html>
