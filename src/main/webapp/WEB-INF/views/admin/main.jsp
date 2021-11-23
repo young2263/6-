@@ -12,7 +12,9 @@
 <body>
 
 	<header>
-		<div class="logo">logo</div>
+		<div class="logo">
+			logo <img src="resources/img/logo.png" width="100px" height="100px" />
+		</div>
 		<div class="admin">관리자 정보</div>
 	</header>
 	<div class="body">
@@ -41,8 +43,10 @@
 						<th>대출 상환 방식</th>
 						<th>이자율</th>
 						<th>은행</th>
+					
 					</tr>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
+					
 						<tr class="loanBox1">
 							<td>${vo.FIN_PRDT_NM }</td>
 							<td>${vo.LEND_RATE_TYPE_NM }</td>
@@ -50,7 +54,9 @@
 							<td>${vo.DLY_RATE }</td>
 							<td>${vo.KOR_CO_NM }</td>
 						</tr>
-						</c:forEach>
+						
+					</c:forEach>
+					</div>
 				</table>
 			</div>
 			<div>
@@ -87,41 +93,43 @@
 
 			</div>
 			<a href="loanAdd">
-				<div class="addBtn">
-					추가
-				</div>
+				<div class="addBtn">추가</div>
 			</a>
 		</div>
 	</div>
 
 	<script>
-		$(".loanSelectBox").on("change",function(){
-			var job = new Object();
-			job.text = $(".loanSelectBox").val()
-			$.ajax({
-				url:"loanSelect",
-				data : JSON.stringify(job), 
-				 type : "post", 
-				 contentType : "application/json; charset=utf-8",  
-				 success : function(data){ 
-					 console.log(data)
-					 console.log(typeof(data))
-					 const text = "<td></td><td>home</td>"+
-					 				"<td>${vo.RPAY_TYPE_NM }</td>"+
-					 				"<td>${vo.DLY_RATE }</td>"+
-					 				"<td>${vo.KOR_CO_NM }</td>";
-					 
-					$(".loanBox1").html(text);
-					
-				 }
-				,
-				 error : function(request, status, errorData){ 
-					 alert("error code : " + request.status + "\n" 
-							 + "message : " + request.responseText + "\n" 
-							 + "error : " + errorData); 
-				 } 
-			})
-		})
+		$(".loanSelectBox").on(
+				"change",
+				function() {
+					var job = new Object();
+					job.text = $(".loanSelectBox").val()
+					$.ajax({
+						url : "loanSelect",
+						data : JSON.stringify(job),
+						type : "post",
+						contentType : "application/json; charset=utf-8",
+						dataType: "json",
+						success : function(data) {
+							const text
+							for(let i in data){
+								const text = "<tr>"+
+								"<td>"+data[i]["FIN_PRDT_NM"]+"</td>"+
+							"</tr>"
+							$(".loanBox1").html(text)
+							text=null
+							console.log(data[i])
+							console.log(data[i]["FIN_PRDT_NM"])
+							}
+
+						},
+						error : function(request, status, errorData) {
+							console.log("error code : " + request.status + "\n"
+									+ "message : " + request.responseText
+									+ "\n" + "error : " + errorData);
+						}
+					})
+				})
 	</script>
 </body>
 </html>

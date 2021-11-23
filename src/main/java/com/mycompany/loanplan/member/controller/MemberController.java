@@ -1,8 +1,14 @@
 package com.mycompany.loanplan.member.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +20,8 @@ import com.mycompany.loanplan.member.model.vo.Member;
 
 @Controller
 public class MemberController {
+	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	
 	@Autowired
 	private MemberService memberService;
 	
@@ -22,7 +30,55 @@ public class MemberController {
 	public ModelAndView memberlist(ModelAndView mv) {
 		//mv.setViewName("a/b");
 		mv.setViewName("member/memberlist");
-		mv.addObject("mlist", memberService.selectMembers());
+		mv.addObject("mlist", memberService.memberlist());
+		return mv;
+	}
+	
+	@RequestMapping(value = "login", method = RequestMethod.GET)
+	public ModelAndView loginMember(ModelAndView mv) {
+		mv.setViewName("member/login");
+		return mv;
+	}
+	
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+	public String login(Member vo, HttpServletRequest request) throws Exception {
+		logger.info("post login");
+		
+		HttpSession session = request.getSession();
+		
+		Member login = memberService.login(vo);
+		
+		if(login == null) {
+			session.setAttribute("member", null);
+		
+		} else {
+			session.setAttribute("member", login);
+		}
+		System.out.println(login);
+		
+		return "redirect:/login";
+	}
+	
+	@RequestMapping(value = "logout.do", method= RequestMethod.GET)
+	public ModelAndView logout(HttpSession session) {
+		memberService.logout(session);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/login");
+		mv.addObject("msg", "logout");
+		return mv;
+	}
+	
+	@RequestMapping(value = "loginCheck.do", method = RequestMethod.GET)
+	public ModelAndView loginCheck(@ModelAttribute Member vo, HttpSession session) {
+		boolean result = memberService.loginCheck(vo, session);
+		ModelAndView mv = new ModelAndView();
+		if (result == true) {
+			mv.setViewName("main");
+			mv.addObject("msg", "success");
+		} else {
+			mv.setViewName("member/login");
+			mv.addObject("msg", "failure");
+		}
 		return mv;
 	}
 	
@@ -55,6 +111,5 @@ public class MemberController {
 	public int idCheck(@RequestParam("m_id") String m_id) {
 		return memberService.userIdCheck(m_id);
 	}
-	
 	
 }

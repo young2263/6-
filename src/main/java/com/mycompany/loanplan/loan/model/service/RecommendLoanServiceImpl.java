@@ -28,4 +28,9 @@ public class RecommendLoanServiceImpl implements RecommendLoanService {
 	public int loanCount() {
 		return recommendLoanDao.loanCount();
 	}
+	
+	@Override
+	public String recommendLoanDt() {
+		return recommendLoanDao.recommendLoanDt();
+	}
 }
