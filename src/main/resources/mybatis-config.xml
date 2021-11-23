@@ -5,13 +5,15 @@
 		<setting name="jdbcTypeForNull" value="NULL"/>
 	</settings>
 	<typeAliases>
-	<typeAlias type="com.mycompany.loanplan.admin.model.vo.Administor" alias="Administor"/>
+		<typeAlias type="com.mycompany.loanplan.admin.model.vo.Administor" alias="Administor"/>
+		<typeAlias type="com.mycompany.loanplan.member.model.vo.Member" alias="Member"/>
 		<typeAlias type="com.mycompany.loanplan.loan.model.vo.RecommendLoan" alias="RecommendLoan"/>
 		<typeAlias type="com.mycompany.loanplan.loan.model.vo.RecommendLoanCharter" alias="RecommendLoanCharter"/>
 		<typeAlias type="com.mycompany.loanplan.loan.model.vo.RecommendLoanCredit" alias="RecommendLoanCredit"/>
 		
 	</typeAliases>
 	<mappers>
+		<mapper resource="mappers/member-mapper.xml"/>
 		<mapper resource="mappers/admin-mapper.xml"/>
 		<mapper resource="mappers/recommendloan-mapper.xml"/>
 		<mapper resource="mappers/recommendloancharter-mapper.xml"/>
