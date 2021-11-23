@@ -31,4 +31,8 @@ public class RecommendLoanDao {
 	public int loanCount() {
 		return sqlSession.selectOne("RecommendLoan.loanCount");
 	}
+	
+	public String recommendLoanDt() {
+		return sqlSession.selectOne("RecommendLoan.recommendLoanDt");
+	}
 }
