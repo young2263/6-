@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.mycompany.loanplan.admin.model.service.AdministorService;
 import com.mycompany.loanplan.admin.model.vo.Administor;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoanCharter;
@@ -69,38 +71,37 @@ public class AdministorController {
 			int listCount = adminService.loanCount();
 			int maxPage = (int)((double) listCount / LIMIT +0.9);
 			
+			Gson gson = new GsonBuilder().create();
+			
 			JSONParser parser = new JSONParser();
 			JSONObject job = (JSONObject) parser.parse(param);
 			
 			PrintWriter out = response.getWriter();
 			
-			
 			String text = (String) job.get("text");
 			System.out.println(text);
 			if(text.equals("주택담보대출")) { 
 				List<Administor> list = adminService.recommendLoan(currentPage, LIMIT);
-				sendJson.put("list", list);
-				out.println(sendJson.toJSONString());
+				String rLlist = gson.toJson(list);
+				out.println(rLlist);
 				System.out.println(list);
 			}else if(text.equals("전세자금대출")) {
 				List<RecommendLoanCharter> chlist = adminService.recommendLoanCharterList(currentPage, LIMIT);
-				sendJson.put("list", chlist);
-				out.println(sendJson.toJSONString());
-				System.out.println(chlist);
+				String rLlist = gson.toJson(chlist);
+				out.println(rLlist);
+				
 			}else if(text.equals("개인신용대출")) {
 				List<RecommendLoanCredit> crlist = adminService.recommendLoanCreditList(currentPage, LIMIT);
-				sendJson.put("list", crlist);
-				out.println(sendJson.toJSONString());
-				System.out.println(crlist);
+				String rLlist = gson.toJson(crlist);
+				out.println(rLlist);
 			}else {
 				System.out.println("end");
 			}
 			out.flush();
 			out.close();
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
-		
 	}
 
 	@RequestMapping(value = "/admin/list", method = RequestMethod.GET)
