@@ -111,13 +111,15 @@
 						contentType : "application/json; charset=utf-8",
 						dataType: "json",
 						success : function(data) {
+							const text
 							for(let i in data){
 								const text = "<tr>"+
 								"<td>"+data[i]["FIN_PRDT_NM"]+"</td>"+
 							"</tr>"
 							$(".loanBox1").html(text)
-								console.log(data[i])
-								console.log(data[i]["FIN_PRDT_NM"])
+							text=null
+							console.log(data[i])
+							console.log(data[i]["FIN_PRDT_NM"])
 							}
 
 						},
