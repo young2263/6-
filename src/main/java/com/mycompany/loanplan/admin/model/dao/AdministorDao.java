@@ -27,7 +27,6 @@ public class AdministorDao {
 		int startRow = (startPage-1)*limit;
 		RowBounds row = new RowBounds(startRow, limit);
 		List<Administor> volist =  sqlSession.selectList("Administor.selectList",null,row);
-		
 		return volist;
 	}
 	
@@ -35,7 +34,6 @@ public class AdministorDao {
 		int startRow = (startPage-1)*limit;
 		RowBounds row = new RowBounds(startRow, limit);
 		List<RecommendLoanCharter> volist =  sqlSession.selectList("Administor.recommendLoanCharterList",null,row);
-		
 		return volist;
 	}
 	
@@ -43,7 +41,6 @@ public class AdministorDao {
 		int startRow = (startPage-1)*limit;
 		RowBounds row = new RowBounds(startRow, limit);
 		List<RecommendLoanCredit> volist =  sqlSession.selectList("Administor.recommendLoanCreditList",null,row);
-	
 		return volist;
 	}
 	

@@ -9,4 +9,5 @@ public interface RecommendLoanService {
 	List<RecommendLoan> listLoan();
 	List<RecommendLoan> selectList(int startPage, int limit);
 	int loanCount();
+	String recommendLoanDt();
 }

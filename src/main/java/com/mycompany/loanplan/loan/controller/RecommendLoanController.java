@@ -44,5 +44,10 @@ public class RecommendLoanController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "/recommendloan/recommendloandt", method = RequestMethod.GET)
+		public ModelAndView recommendLoanDt(ModelAndView mv) {
+		mv.setViewName("recommendloan/recommendloandt");
+		return mv;
+	}
 
 }
