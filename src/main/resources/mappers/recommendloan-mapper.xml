@@ -32,8 +32,7 @@
 	
 	<!-- 대출 세부 정보 조회 -->
 	<select id="recommendLoanDt" parameterType="String" resultMap="recommendloanRM">
-		select * from RECOMMEND_LOAN
-		where RL_NUM = #{RL_NUM}
+		select * from RECOMMEND_LOAN where RL_NUM = #{RL_NUM}
 	</select>
 	
 </mapper>

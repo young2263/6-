@@ -6,8 +6,8 @@ import com.mycompany.loanplan.loan.model.vo.RecommendLoan;
 
 public interface RecommendLoanService {
 
-	List<RecommendLoan> listLoan();
-	List<RecommendLoan> selectList(int startPage, int limit);
-	int loanCount();
-	String recommendLoanDt();
+	public List<RecommendLoan> listLoan();
+	public List<RecommendLoan> selectList(int startPage, int limit);
+	public int loanCount();
+	int recommendLoanDt(int rlnum);
 }

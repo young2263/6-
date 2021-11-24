@@ -30,7 +30,7 @@ public class RecommendLoanServiceImpl implements RecommendLoanService {
 	}
 	
 	@Override
-	public String recommendLoanDt() {
-		return recommendLoanDao.recommendLoanDt();
+	public int recommendLoanDt(int rlnum) {
+		return recommendLoanDao.recommendLoanDT(rlnum);
 	}
 }

@@ -32,7 +32,7 @@ public class RecommendLoanDao {
 		return sqlSession.selectOne("RecommendLoan.loanCount");
 	}
 	
-	public String recommendLoanDt() {
-		return sqlSession.selectOne("RecommendLoan.recommendLoanDt");
+	public int recommendLoanDT(int rlnum) {
+		return sqlSession.selectOne("RecommendLoan.recommendLoanDt", rlnum);
 	}
 }
