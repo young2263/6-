@@ -46,6 +46,7 @@ public class RecommendLoanController {
 	
 	@RequestMapping(value = "/recommendloan/recommendloandt", method = RequestMethod.GET)
 		public ModelAndView recommendLoanDt(ModelAndView mv) {
+		System.out.println("recommendloandt 진입");
 		mv.setViewName("recommendloan/recommendloandt");
 		return mv;
 	}
