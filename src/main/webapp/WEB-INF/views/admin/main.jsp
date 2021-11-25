@@ -111,16 +111,16 @@
 						contentType : "application/json; charset=utf-8",
 						dataType: "json",
 						success : function(data) {
-							const text
 							for(let i in data){
-								const text = "<tr>"+
+								let text ="<tr>"+
 								"<td>"+data[i]["FIN_PRDT_NM"]+"</td>"+
-							"</tr>"
+							"</tr>";
 							$(".loanBox1").html(text)
-							text=null
+							text=null;
 							console.log(data[i])
 							console.log(data[i]["FIN_PRDT_NM"])
 							}
+							
 
 						},
 						error : function(request, status, errorData) {
