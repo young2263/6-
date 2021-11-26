@@ -7,12 +7,16 @@ import org.springframework.stereotype.Service;
 
 import com.mycompany.loanplan.loan.model.dao.RecommendLoanDao;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoan;
+import com.mycompany.loanplan.loan.model.vo.RecommendLoanReview;
 
 @Service("recommendLoanService")
 public class RecommendLoanServiceImpl implements RecommendLoanService {
 	
 	@Autowired
 	private RecommendLoanDao recommendLoanDao;
+	
+	
+	@Autowired
 	
 	@Override
 	public List<RecommendLoan> listLoan() {

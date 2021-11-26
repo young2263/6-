@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta name='viewpoint' content='width=device-width, initial-scale=1'>
-<title>주택담보대출</title>
+<title>전세자금대출</title>
 <!-- <link rel="stylesheet" href="./resources/css/admin/templatemo.css">   -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
@@ -75,38 +75,6 @@
 		overflow: hidden;
 		text-overflow: eclipsis;
 	}
-	
-/* 별점 */	
-.star-rating {
-  display: flex;
-  flex-direction: row-reverse;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-  justify-content: space-around;
-  padding: 0 0.2em;
-  text-align: center;
-  width: 5em;
-}
- 
-.star-rating input {
-  display: none;
-}
- 
-.star-rating label {
-  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 2.3px;
-  -webkit-text-stroke-color: #2b2a29;
-  cursor: pointer;
-}
- 
-.star-rating :checked ~ label {
-  -webkit-text-fill-color: gold;
-}
- 
-.star-rating label:hover,
-.star-rating label:hover ~ label {
-  -webkit-text-fill-color: #fff58c;
-}
 </style>
 </head>
 <body>
@@ -124,6 +92,7 @@
 	
 	
 <div class="body">
+	
 	<table class="tableBox">
 		<c:forEach var="vo" items="${volist}" varStatus="status">
 			<tr>
@@ -247,7 +216,7 @@
         
         <!-- 리뷰 -->
         <div class="tab_item">
-        	<form action="recommendloanreview" method="get">
+        	<form action="recommendloancharterreview" method="get">
             <table border="1" width="500px">
 		<tr>
 			<th>제목</th>
@@ -264,13 +233,13 @@
 		
 		
 		<tr>
-			<td colspan="3">
+			<td colspan="2">
 				<button class="btnUpdate">수정</button>
 				<button class="btnDelete">삭제</button>
 			</td>
 		</tr>
 		
-				<button onclick="location='insertrecommendloanreview.jsp'" class="btnInsert">리뷰 쓰기</button>
+				<button class="btnInsert">리뷰 쓰기</button>
 		</table>
 		
 		<!-- 별점 -->
@@ -288,6 +257,8 @@
 		</div>
         </form>
         </div>
+        
+        
         
 	</div>
 </aside>

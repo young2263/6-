@@ -3,6 +3,7 @@ package com.mycompany.loanplan.loan.model.service;
 import java.util.List;
 
 import com.mycompany.loanplan.loan.model.vo.RecommendLoan;
+import com.mycompany.loanplan.loan.model.vo.RecommendLoanReview;
 
 public interface RecommendLoanService {
 

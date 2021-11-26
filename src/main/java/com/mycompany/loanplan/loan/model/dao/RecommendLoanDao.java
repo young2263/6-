@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mycompany.loanplan.loan.model.vo.RecommendLoan;
+import com.mycompany.loanplan.loan.model.vo.RecommendLoanReview;
 
 @Repository("recommendLoanDao")
 public class RecommendLoanDao {

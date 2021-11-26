@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="RecommendLoanCharterReview">
+	<resultMap id="resultRecommendLoanCharterReview" type="RecommendLoanCharterReview">
+		<id property="RLR_NUM" column="RLR_NUM"/>
+		<result property="RLR_AST" column="RLR_AST"/>
+		<result property="RLR_COMMENT" column="RLR_COMMENT"/>
+		<result property="RL_CH_NUM" column="RL_CH_NUM"/>
+		<result property="M_ID" column="M_ID"/>
+	</resultMap>
+	
+	<!-- 해당 대출에 대한 리뷰 리스트 조회 -->
+	<select id="listRecommendLoanCharterReview" parameterType="string" resultType="arraylist" resultMap="resultRecommendLoanCharterReview">
+		select * from RECOMMEND_LOAN_CH_REVIEW where RL_CH_NUM = #{RL_CH_NUM}
+	</select>
+	
+	<!-- 페이지별 -->
+	<select id="selectCharterReviewList" parameterType="String" resultType="arraylist" resultMap="RecommendLoanCharterReview">
+		select * from RECOMMEND_LOAN_CH_REVIEW where RL_CH_NUM = #{RL_CH_NUM}
+	</select>
+	
+	<!-- 리뷰 정보 totalCount -->
+	<select id="loanCharterReviewCount" resultType="int">
+		select count(*) from RECOMMEND_LOAN_CH_REVIEW
+	</select>
+	<!-- 리뷰 입력 -->
+	<insert id="insertRecommendLoanCharterReview" parameterType="RecommendLoanCharterReview" flushCache="true" statementType="PREPARED" timeout="20">
+		insert into RECOMMEND_LOAN_CH_REVIEW VALUES(
+			'RLCHR'||LPAD(RECOMMEND_LOAN_CH_REVIEW_SEQ.NEXTVAL,2,'0'),
+			#{RLR_NUM}, #{RLR_AST}, #{RLR_COMMENT}, #{RL_CH_NUM}, #{M_ID}
+		)
+	</insert>
+
+</mapper>

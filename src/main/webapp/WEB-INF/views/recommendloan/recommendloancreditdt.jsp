@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta name='viewpoint' content='width=device-width, initial-scale=1'>
-<title>주택담보대출</title>
+<title>개인신용대출</title>
 <!-- <link rel="stylesheet" href="./resources/css/admin/templatemo.css">   -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
@@ -75,38 +75,6 @@
 		overflow: hidden;
 		text-overflow: eclipsis;
 	}
-	
-/* 별점 */	
-.star-rating {
-  display: flex;
-  flex-direction: row-reverse;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-  justify-content: space-around;
-  padding: 0 0.2em;
-  text-align: center;
-  width: 5em;
-}
- 
-.star-rating input {
-  display: none;
-}
- 
-.star-rating label {
-  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 2.3px;
-  -webkit-text-stroke-color: #2b2a29;
-  cursor: pointer;
-}
- 
-.star-rating :checked ~ label {
-  -webkit-text-fill-color: gold;
-}
- 
-.star-rating label:hover,
-.star-rating label:hover ~ label {
-  -webkit-text-fill-color: #fff58c;
-}
 </style>
 </head>
 <body>
@@ -124,6 +92,7 @@
 	
 	
 <div class="body">
+	
 	<table class="tableBox">
 		<c:forEach var="vo" items="${volist}" varStatus="status">
 			<tr>
@@ -133,6 +102,8 @@
 			</tr>
 		</c:forEach>
 	</table>
+	
+	
 	
 <aside>		
 	<div class="bodyunder">
@@ -154,32 +125,50 @@
                 </li>
                 <li class="item">
         		    <div class="description">
-						<b>대출 금리 유형</b>	
-						<br><p>${vo.LEND_RATE_TYPE_NM }</p>
+						<b>900점 초과 금리</b>	
+						<br><p>${vo.CRDT_GRAD_1 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
-						<b>대출 상환 유형</b>	
-						<br><p>${vo.RPAY_TYPE_NM }</p>
+						<b>801~900점 금리</b>	
+						<br><p>${vo.CRDT_GRAD_4 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
-						<b>중도 상환 수수료</b>	
-						<br><p>${vo.ERLY_RPAY_FEE }</p>
+						<b>701~800점 금리</b>	
+						<br><p>${vo.CRDT_GRAD_5 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
-						<b>연체 이자율</b>	
-						<br><p>${vo.DLY_RATE }</p>
+						<b>601~700점 금리</b>	
+						<br><p>${vo.CRDT_GRAD_6 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
-						<b>대출 한도</b>
-						<br><p>${vo.LOAN_LMT }</p>
+						<b>401~500점 금리</b>
+						<br><p>${vo.CRDT_GRAD_10 }</p>
+                    </div>
+                </li>
+                <li class="item">
+        		    <div class="description">
+						<b>301~400점 금리</b>
+						<br><p>${vo.CRDT_GRAD_12 }</p>
+                    </div>
+                </li>
+                <li class="item">
+        		    <div class="description">
+						<b>300점 이하 금리</b>
+						<br><p>${vo.CRDT_GRAD_13 }</p>
+                    </div>
+                </li>
+                <li class="item">
+        		    <div class="description">
+						<b>평균 금리</b>
+						<br><p>${vo.CRDT_GRAD_AVG }</p>
                     </div>
                 </li>
             </ul>
@@ -247,7 +236,7 @@
         
         <!-- 리뷰 -->
         <div class="tab_item">
-        	<form action="recommendloanreview" method="get">
+        	<form action="recommendloancreditreview" method="get">
             <table border="1" width="500px">
 		<tr>
 			<th>제목</th>
@@ -258,19 +247,19 @@
 		<tr>
 			<td>${vo.RLR_NUM}</td>
 			<td>${vo.RLR_TITLE}</td>
-			<td>${vo.RLR_COMMENT}</td>			
+			<td>${vo.RLR_COMMENT}</td>		
 		</tr>
 		</c:forEach>	
 		
 		
 		<tr>
-			<td colspan="3">
+			<td colspan="2">
 				<button class="btnUpdate">수정</button>
 				<button class="btnDelete">삭제</button>
 			</td>
 		</tr>
 		
-				<button onclick="location='insertrecommendloanreview.jsp'" class="btnInsert">리뷰 쓰기</button>
+				<button class="btnInsert">리뷰 쓰기</button>
 		</table>
 		
 		<!-- 별점 -->
@@ -288,6 +277,8 @@
 		</div>
         </form>
         </div>
+        
+        
         
 	</div>
 </aside>
