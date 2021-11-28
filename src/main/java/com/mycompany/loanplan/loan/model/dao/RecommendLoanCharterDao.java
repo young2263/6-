@@ -16,7 +16,7 @@ public class RecommendLoanCharterDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public List<RecommendLoanCharter> listLoan() {
+	public List<RecommendLoanCharter> listLoanCharter() {
 		List<RecommendLoanCharter> rmc = new ArrayList<RecommendLoanCharter>();
 		return sqlSession.selectList("RecommendLoanCharter.listRecommendLoanCharter");
 	}
@@ -35,26 +35,5 @@ public class RecommendLoanCharterDao {
 	
 	public int recommendLoanCharterDt(int rlchnum) {
 		return sqlSession.selectOne("RecommendLoanCharter.recommendLoanCharterDt", rlchnum);
-	}
-	
-	public List<RecommendLoanCharterReview> listLoanCharterReview() {
-		List<RecommendLoanCharterReview> rmhv = new ArrayList<RecommendLoanCharterReview>();
-		return sqlSession.selectList("RecommendLoanCharterReview.listRecommendLoanCharterReview");
-	}
-	
-	public List<RecommendLoanCharterReview> selectChReviewList(int startPage, int limit) {
-		int StartRow = (startPage-1)*limit;
-		RowBounds row = new RowBounds(StartRow, limit);
-		List<RecommendLoanCharterReview> volist = sqlSession.selectList("RecommendLoanCharterReview.selectChReviewList", null, row);
-		System.out.println(volist);
-		return volist;
-	}
-	
-	public int loanChReviewCount() {
-		return sqlSession.selectOne("RecommendLoanCharterReview.loanChReviewCount");
-	}
-	
-	public int insertRecommendLoanChReview(int rlchnum) {
-		return sqlSession.insert("RecommendLoanCharterReview.insertRecommendLoanChReview", rlchnum);
 	}
 }

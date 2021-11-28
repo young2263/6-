@@ -96,9 +96,9 @@
 	<table class="tableBox">
 		<c:forEach var="vo" items="${volist}" varStatus="status">
 			<tr>
-				<td>${vo.RL_IMG }</td>
-				<td>${vo.FIN_PRDT_NM }</td>
-				<td>${vo.KOR_CO_NM }</td>
+				<td>${volist.RL_IMG }</td>
+				<td>${volist.FIN_PRDT_NM }</td>
+				<td>${volist.KOR_CO_NM }</td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -116,62 +116,64 @@
         
         <!-- 세부정보 -->
         <div class="tab_item">
+        	<c:forEach var="vo" items="${volist}" varStatus="status">
             <ul>
                 <li class="item">
         		    <div class="description">
 						<b>공시 제출월</b>
-                        <br><p>${vo.DCLS_MONTH }</p>
+                        <br><p>${volist.DCLS_MONTH }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>900점 초과 금리</b>	
-						<br><p>${vo.CRDT_GRAD_1 }</p>
+						<br><p>${volist.CRDT_GRAD_1 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>801~900점 금리</b>	
-						<br><p>${vo.CRDT_GRAD_4 }</p>
+						<br><p>${volist.CRDT_GRAD_4 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>701~800점 금리</b>	
-						<br><p>${vo.CRDT_GRAD_5 }</p>
+						<br><p>${volist.CRDT_GRAD_5 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>601~700점 금리</b>	
-						<br><p>${vo.CRDT_GRAD_6 }</p>
+						<br><p>${volist.CRDT_GRAD_6 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>401~500점 금리</b>
-						<br><p>${vo.CRDT_GRAD_10 }</p>
+						<br><p>${volist.CRDT_GRAD_10 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>301~400점 금리</b>
-						<br><p>${vo.CRDT_GRAD_12 }</p>
+						<br><p>${volist.CRDT_GRAD_12 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>300점 이하 금리</b>
-						<br><p>${vo.CRDT_GRAD_13 }</p>
+						<br><p>${volist.CRDT_GRAD_13 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>평균 금리</b>
-						<br><p>${vo.CRDT_GRAD_AVG }</p>
+						<br><p>${volist.CRDT_GRAD_AVG }</p>
                     </div>
                 </li>
             </ul>
+            </c:forEach>
 		</div>
 
 

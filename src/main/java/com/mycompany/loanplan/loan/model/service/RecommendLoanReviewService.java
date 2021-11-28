@@ -9,6 +9,8 @@ public interface RecommendLoanReviewService {
 	public List<RecommendLoanReview> listLoanReview();
 	public List<RecommendLoanReview> selectReviewList(int startPage, int limit);
 	public int loanReviewCount();
-	public int insertRecommendLoanReview(int rlnum);
+	public int insertRecommendLoanReview(RecommendLoanReview r);
+	public void updateRecommendLoanReview(RecommendLoanReview r);
+	public void deleteRecommendLoanReview(RecommendLoanReview r);
 
 }

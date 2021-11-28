@@ -9,7 +9,7 @@ import com.mycompany.loanplan.loan.model.dao.RecommendLoanReviewDao;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoanReview;
 
 
-@Service("recommendLoanService")
+@Service("recommendLoanReviewService")
 public class RecommendLoanReviewServiceImpl implements RecommendLoanReviewService {
 	
 	@Autowired
@@ -31,7 +31,17 @@ public class RecommendLoanReviewServiceImpl implements RecommendLoanReviewServic
 	}
 	
 	@Override
-	public int insertRecommendLoanReview(int rlnum) {
-		return recommendLoanReviewDao.insertRecommendLoanReview(rlnum);
+	public int insertRecommendLoanReview(RecommendLoanReview r) {
+		return recommendLoanReviewDao.insertRecommendLoanReview(r);
+	}
+	
+	@Override
+	public void updateRecommendLoanReview(RecommendLoanReview r) {
+		recommendLoanReviewDao.updateRecommendLoanReview(r);
+	}
+	
+	@Override
+	public void deleteRecommendLoanReview(RecommendLoanReview r) {
+		recommendLoanReviewDao.deleteRecommendLoanReview(r);
 	}
 }

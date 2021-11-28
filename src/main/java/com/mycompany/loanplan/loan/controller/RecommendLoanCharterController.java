@@ -51,39 +51,5 @@ public class RecommendLoanCharterController {
 	System.out.println("recommendloancharterdt 진입");
 	mv.setViewName("recommendloan/recommendloancharterdt");
 	return mv;
-}
-	
-	@RequestMapping(value = "/recommendloan/recommendloancharterreview", method = RequestMethod.GET)
-	public ModelAndView recommendLoanCharterReviewList(
-			@RequestParam(name = "page", defaultValue = "1") int page,
-			@RequestParam(name = "keyword", required = false) String keyword,
-			ModelAndView mv) {
-		System.out.println("recommendloancharterreview 진입");
-		try {
-			int currentPage = page;
-			int listCount = recommendLoanCharterService.loanChReviewCount();
-			int maxPage = (int)((double) listCount / LIMIT + 0.9);
-			mv.addObject("volist", recommendLoanCharterService.selectChReviewList(currentPage, LIMIT));
-			mv.addObject("currentPage", currentPage);
-			mv.addObject("maxPage", maxPage);
-			mv.addObject("listCount", listCount);
-			mv.setViewName("recommendloan/recommendloancharterreview");
-		} catch (Exception e) {
-			mv.addObject("msg", e.getMessage());
-			e.printStackTrace();
-		}
-		return mv;
 	}
-	
-	@RequestMapping(value = "/recommendloan/insertrecommendloanchartereview", method = RequestMethod.GET)
-	public ModelAndView insertRecommendLoanChReview(ModelAndView mv) {
-		try {
-			mv.setViewName("recommendloan/insertrecommendloanchartereview");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return mv;
-	}
-	
-
 }

@@ -33,7 +33,15 @@ public class RecommendLoanReviewDao {
 		return sqlSession.selectOne("RecommendLoanReview.loanReviewCount");
 	}
 	
-	public int insertRecommendLoanReview(int rlnum) {
-		return sqlSession.insert("RecommendLoanReview.insertRecommendLoanReview", rlnum);
+	public int insertRecommendLoanReview(RecommendLoanReview r ) {
+		return sqlSession.insert("RecommendLoanReview.insertRecommendLoanReview", r);
+	}
+	
+	public void updateRecommendLoanReview(RecommendLoanReview r) {
+		sqlSession.update("RecommendLoanReview.updateRecommendLoanReview", r);
+	}
+	
+	public void deleteRecommendLoanReview(RecommendLoanReview r) {
+		sqlSession.delete("RecommendLoanReview.deleteRecommendLoanReview", r);
 	}
 }

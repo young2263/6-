@@ -15,17 +15,17 @@
 	</select>
 	
 	<!-- 페이지별 -->
-	<select id="selectCrReviewList" resultMap="RecommendLoanCreditReview">
+	<select id="selectCreditReviewList" resultMap="RecommendLoanCreditReview">
 		select * from RECOMMEND_LOAN_CR_REVIEW where RL_CR_NUM = #{RL_CR_NUM}
 	</select>
 	
 	<!-- 리뷰 정보 totalCount -->
-	<select id="loanCrReviewCount" resultType="int">
+	<select id="loanCreditReviewCount" resultType="int">
 		select count(*) from RECOMMEND_LOAN_CR_REVIEW
 	</select>
 	
 	<!-- 리뷰 입력 -->
-	<insert id="insertRecommendLoanCrReview" parameterType="RecommendLoanCharterReview" flushCache="true" statementType="PREPARED" timeout="20">
+	<insert id="insertRecommendLoanCreditReview" parameterType="RecommendLoanCharterReview" flushCache="true" statementType="PREPARED" timeout="20">
 		insert into RECOMMEND_LOAN_CR_REVIEW VALUES(
 			'RLCRR'||LPAD(RECOMMEND_LOAN_CR_REVIEW_SEQ.NEXTVAL,2,'0'),
 			#{RLR_NUM}, #{RLR_AST}, #{RLR_COMMENT}, #{RL_CR_NUM}, #{M_ID}

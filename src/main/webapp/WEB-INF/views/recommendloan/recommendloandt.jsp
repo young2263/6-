@@ -146,6 +146,7 @@
         <!-- 세부정보 -->
         <div class="tab_item">
             <ul>
+        	<c:forEach var="vo" items="${volist}" varStatus="status">
                 <li class="item">
         		    <div class="description">
 						<b>공시 제출월</b>
@@ -182,6 +183,7 @@
 						<br><p>${vo.LOAN_LMT }</p>
                     </div>
                 </li>
+            </c:forEach>
             </ul>
 		</div>
 
@@ -248,30 +250,31 @@
         <!-- 리뷰 -->
         <div class="tab_item">
         	<form action="recommendloanreview" method="get">
-            <table border="1" width="500px">
-		<tr>
-			<th>제목</th>
-			<th>별점</th>
-			<th>리뷰</th>
-		</tr>
-		<c:forEach var="row" items="${volist}">
-		<tr>
-			<td>${vo.RLR_NUM}</td>
-			<td>${vo.RLR_TITLE}</td>
-			<td>${vo.RLR_COMMENT}</td>			
-		</tr>
-		</c:forEach>	
-		
-		
-		<tr>
-			<td colspan="3">
-				<button class="btnUpdate">수정</button>
-				<button class="btnDelete">삭제</button>
-			</td>
-		</tr>
-		
-				<button onclick="location='insertrecommendloanreview.jsp'" class="btnInsert">리뷰 쓰기</button>
-		</table>
+            <div class="content">
+            	<table>
+            		<tr>
+            			<td>작성자</td>
+            			<td>내용</td>
+            		</tr>
+            		
+            		<c:if test="${volist != null }">
+            			<c:forEach items="${volist }" var="vo">
+            				<tr>
+            					<td>${vo.M_ID }</td>
+            					<td>${vo.RLR_COMMENT }</td>
+            				</tr>
+            			</c:forEach>
+            		</c:if>
+            	</table>
+            </div>
+            <div class="paging">
+				<c:if test="${startPage >1 }"> 이전 </c:if>
+				<c:forEach begin="${startPage }" end="${endPage }" step="1" var="i">
+					<a href="recommendloanreviewlist?pagenum=${i}">${i}</a>
+				</c:forEach>
+				<c:if test="${endPage < pageCount }"> 다음 </c:if>
+				<br> <a href="insertrecommendloanreview">글쓰기</a>
+			</div>
 		
 		<!-- 별점 -->
 		<div class="star-rating space-x-4 mx-auto">

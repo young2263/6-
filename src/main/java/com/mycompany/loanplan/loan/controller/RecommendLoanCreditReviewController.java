@@ -7,31 +7,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycompany.loanplan.loan.model.service.RecommendLoanCharterReviewService;
+import com.mycompany.loanplan.loan.model.service.RecommendLoanCreditReviewService;
 
 @Controller
-public class RecommendLoanCharterReviewController {
+public class RecommendLoanCreditReviewController {
 
-	private static final int LIMIT = 10;
+private static final int LIMIT = 10;
 	
 	@Autowired
-	private RecommendLoanCharterReviewService recommendLoanCharterReviewService;
+	private RecommendLoanCreditReviewService recommendLoanCreditReviewService;
 	
-	@RequestMapping(value = "/recommendloan/recommendloancharterreview", method = RequestMethod.GET)
-	public ModelAndView recommendLoanCharterReviewList(
+	@RequestMapping(value = "/recommendloan/recommendloancreditreview", method = RequestMethod.GET)
+	public ModelAndView recommendLoanCreditReviewList(
 			@RequestParam(name = "page", defaultValue = "1") int page,
 			@RequestParam(name = "keyword", required = false) String keyword,
 			ModelAndView mv) {
-		System.out.println("recommendloancharterreview 진입");
+		System.out.println("recommendloancreditreview 진입");
 		try {
 			int currentPage = page;
-			int listCount = recommendLoanCharterReviewService.loanCharterReviewCount();
+			int listCount = recommendLoanCreditReviewService.loanCreditReviewCount();
 			int maxPage = (int)((double) listCount / LIMIT + 0.9);
-			mv.addObject("volist", recommendLoanCharterReviewService.selectCharterReviewList(currentPage, LIMIT));
+			mv.addObject("volist", recommendLoanCreditReviewService.selectCreditReviewList(currentPage, LIMIT));
 			mv.addObject("currentPage", currentPage);
 			mv.addObject("maxPage", maxPage);
 			mv.addObject("listCount", listCount);
-			mv.setViewName("recommendloan/recommendloancharterreview");
+			mv.setViewName("recommendloan/recommendloancreditreview");
 		}catch (Exception e) {
 			mv.addObject("msg", e.getMessage());
 			e.printStackTrace();
@@ -39,10 +39,10 @@ public class RecommendLoanCharterReviewController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/recommendloan/insertrecommendloancharterreview")
+	@RequestMapping(value = "/recommendloan/insertrecommendloancreditreview")
 	public ModelAndView insertRecommendLoanCharterReview(ModelAndView mv) {
 		try {
-			mv.setViewName("recommendloan/insertrecommendloancharterreview");
+			mv.setViewName("recommendloan/insertrecommendloancreditreview");
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -114,6 +114,7 @@
         
         <!-- 세부정보 -->
         <div class="tab_item">
+        	<c:forEach var="vo" items="${volist}" varStatus="status">
             <ul>
                 <li class="item">
         		    <div class="description">
@@ -152,6 +153,7 @@
                     </div>
                 </li>
             </ul>
+            </c:forEach>
 		</div>
 
 

@@ -47,43 +47,10 @@ public class RecommendLoanCreditController {
 	}
 	
 	@RequestMapping(value = "/recommendloan/recommendloancreditdt", method = RequestMethod.GET)
-		public ModelAndView recommendLoanCreditDt(ModelAndView mv) {
+		public ModelAndView selectLoanDt(ModelAndView mv) {
 		System.out.println("recommendloancreditdt 진입");
 		mv.setViewName("recommendloan/recommendloancreditdt");
+		mv.addObject("volist", recommendLoanCreditService.selectLoanDt());
 		return mv;
 	}
-	
-	@RequestMapping(value = "/recommendloan/recommendloancreditreview", method = RequestMethod.GET)
-	public ModelAndView listRecommendLoanCreditReview(
-			@RequestParam(name = "page", defaultValue = "1") int page,
-			@RequestParam(name = "keyword", required = false) String keyword,
-			ModelAndView mv) {
-		System.out.println("recommendloancreditreview 진입");
-		try {
-			int currentPage = page;
-			int listCount = recommendLoanCreditService.loanCrReviewCount();
-			int maxPage = (int)((double) listCount / LIMIT + 0.9);
-			mv.addObject("volist", recommendLoanCreditService.selectCrReviewList(currentPage, LIMIT));
-			mv.addObject("currentPage", currentPage);
-			mv.addObject("maxPage", maxPage);
-			mv.addObject("listCount", listCount);
-			mv.setViewName("recommendloan/recommendloancreditreview");
-		} catch (Exception e) {
-			mv.addObject("msg", e.getMessage());
-			e.printStackTrace();
-		}
-		return mv;
-	}
-	
-	@RequestMapping(value = "/recommendloan/insertrecomendloancreditreview")
-	public ModelAndView insertRecommendLoanCrReview(ModelAndView mv) {
-		try {
-			mv.setViewName("recommendloan/insertrecomendloancreditreview");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return mv;
-	}
-	
-
 }

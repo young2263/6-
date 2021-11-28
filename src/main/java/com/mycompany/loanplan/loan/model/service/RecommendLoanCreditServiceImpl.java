@@ -31,27 +31,7 @@ public class RecommendLoanCreditServiceImpl implements RecommendLoanCreditServic
 	}
 	
 	@Override
-	public int recommendLoanCreditDt(int rlchnum) {
-		return recommendLoanCreditDao.recommendLoanCreditDt(rlchnum);
-	}
-	
-	@Override
-	public List<RecommendLoanCreditReview> listLoanCretitReview() {
-		return recommendLoanCreditDao.listLoanCretitReview();
-	}
-	
-	@Override
-	public List<RecommendLoanCreditReview> selectCrReviewList(int startPage, int limit) {
-		return recommendLoanCreditDao.selectCrReviewList(startPage, limit);
-	}
-	
-	@Override
-	public int loanCrReviewCount() {
-		return recommendLoanCreditDao.loanCrReviewCount();
-	}
-	
-	@Override
-	public int insertRecommendLoanCrReview(int rlcrnum) {
-		return recommendLoanCreditDao.insertRecommendLoanCrReview(rlcrnum);
+	public List<RecommendLoanCredit> selectLoanDt() {
+		return recommendLoanCreditDao.selectLoanDt();
 	}
 }

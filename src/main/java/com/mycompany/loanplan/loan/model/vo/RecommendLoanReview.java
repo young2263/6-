@@ -13,13 +13,13 @@ public class RecommendLoanReview implements java.io.Serializable {
 	
 	public RecommendLoanReview() {}
 	
-	public RecommendLoanReview(int RLR_NUM, int RLR_AST, String RLR_COMMENT, int RL_NUM, String M_ID) {
+	public RecommendLoanReview(int RLRNUM, int RLRAST, String RLRCOMMENT, int RLNUM, String MID) {
 		super();
-		this.RLR_NUM = RLR_NUM;
-		this.RLR_AST = RLR_AST;
-		this.RLR_COMMENT = RLR_COMMENT;
-		this.RL_NUM = RL_NUM;
-		this.M_ID = M_ID;
+		this.RLR_NUM = RLRNUM;
+		this.RLR_AST = RLRAST;
+		this.RLR_COMMENT = RLRCOMMENT;
+		this.RL_NUM = RLNUM;
+		this.M_ID = MID;
 	}
 
 	@Override
@@ -67,6 +67,8 @@ public class RecommendLoanReview implements java.io.Serializable {
 	public void setM_ID(String m_ID) {
 		M_ID = m_ID;
 	}
+
+	
 	
 	
 }

@@ -26,10 +26,18 @@
 	
 	<!-- 리뷰 입력 -->
 	<insert id="insertRecommendLoanReview" parameterType="RecommendLoanReview" flushCache="true" statementType="PREPARED" timeout="20">
-		insert into RECOMMEND_LOAN_REVIEW VALUES(
-			'RLR'||LPAD(RECOMMEND_LOAN_REVIEW_SEQ.NEXTVAL,2,'0'),
-			#{RLR_NUM}, #{RLR_AST}, #{RLR_COMMENT}, #{RL_NUM}, #{M_ID}
-		)
+		insert into RECOMMEND_LOAN_REVIEW (RLR_NUM, RLR_AST, RLR_COMMENT, RL_NUM, M_ID)
+		values ((select NVL(MAX(RLR_NUM)+1, 1)from RECOMMEND_LOAN_REVIEW), #{RLR_AST}, #{RLR_COMMENT}, #{RL_NUM}, #{M_ID})
 	</insert>
-
+	
+	<!-- 리뷰 수정 -->
+	<select id="updateRecommendLoanReview">
+		update RECOMMEND_LOAN_REVIEW set RLR_NUM=?, RLR_AST=?, RLR_COMMEND=?
+		where RLR_NUM=?
+	</select>
+	
+	<!-- 리뷰 삭제 -->
+	<delete id="deleteRecommendLoanReview">
+		delete from RECOMMEND_LOAN_REVIEW where RLR_NUM=?
+	</delete>
 </mapper>

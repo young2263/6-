@@ -29,11 +29,11 @@ public class RecommendLoanCharterReviewDao {
 		return volist;
 	}
 	
-	public int loanReviewCount() {
-		return sqlSession.selectOne("RecommendLoanReview.loanCharterReviewCount");
+	public int loanCharterReviewCount() {
+		return sqlSession.selectOne("RecommendLoanCharterReview.loanCharterReviewCount");
 	}
 	
-	public int insertRecommendLoanReview(int rlchnum) {
-		return sqlSession.insert("RecommendLoanReview.insertRecommendLoanCharterReview", rlchnum);
+	public int insertRecommendLoanCharterReview(int rlchnum) {
+		return sqlSession.insert("RecommendLoanCharterReview.insertRecommendLoanCharterReview", rlchnum);
 	}
 }

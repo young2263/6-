@@ -35,28 +35,7 @@ public class RecommendLoanCreditDao {
 		return sqlSession.selectOne("RecommendLoanCredit.loanCount");
 	}
 	
-	public int recommendLoanCreditDt(int rlchnum) {
-		return sqlSession.selectOne("RecommendLoan.recommendLoanCreditDt", rlchnum);
-	}
-	
-	public List<RecommendLoanCreditReview> listLoanCretitReview() {
-		List<RecommendLoanCreditReview> rmrv = new ArrayList<RecommendLoanCreditReview>();
-		return sqlSession.selectList("RecommendLoanCreditReview.listRecommendLoanCreditReview");
-	}
-	
-	public List<RecommendLoanCreditReview> selectCrReviewList(int startPage, int limit) {
-		int StartRow = (startPage-1)*limit;
-		RowBounds row = new RowBounds(StartRow, limit);
-		List<RecommendLoanCreditReview> volist = sqlSession.selectList("RecommendLoanCreditReview.selectCrReviewList", null, row);
-		System.out.println(volist);
-		return volist;
-	}
-	
-	public int loanCrReviewCount() {
-		return sqlSession.selectOne("RecommendLoanCreditReview.loanCrReviewCount");
-	}
-	
-	public int insertRecommendLoanCrReview(int rlcrnum) {
-		return sqlSession.insert("RecommendLoanCreditReview.insertRecommendLoanCrReview", rlcrnum);
+	public List<RecommendLoanCredit> selectLoanDt() {
+		return sqlSession.selectList("RecommendLoanCredit.recommendLoanCreditDt");
 	}
 }

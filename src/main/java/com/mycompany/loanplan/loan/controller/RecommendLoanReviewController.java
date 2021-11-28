@@ -1,13 +1,19 @@
 package com.mycompany.loanplan.loan.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.loanplan.loan.model.service.RecommendLoanReviewService;
+import com.mycompany.loanplan.loan.model.vo.RecommendLoanReview;
 
 @Controller
 public class RecommendLoanReviewController {
@@ -17,12 +23,12 @@ public class RecommendLoanReviewController {
 		@Autowired
 		private RecommendLoanReviewService recommendLoanReviewService;
 		
-		@RequestMapping(value = "/recommendloan/recommendloanreview", method = RequestMethod.GET)
+		@RequestMapping(value = "/recommendloan/recommendloanreviewlist", method = RequestMethod.GET)
 		public ModelAndView recommendLoanReviewList(
 				@RequestParam(name = "page", defaultValue = "1") int page,
 				@RequestParam(name = "keyword", required = false) String keyword,
 				ModelAndView mv) {
-			System.out.println("recommendloanreview 진입");
+			System.out.println("recommendloanReviewlist 진입");
 			try {
 				int currentPage = page;
 				int listCount = recommendLoanReviewService.loanReviewCount();
@@ -31,8 +37,8 @@ public class RecommendLoanReviewController {
 				mv.addObject("currentPage", currentPage);
 				mv.addObject("maxPage", maxPage);
 				mv.addObject("listCount", listCount);
-				mv.setViewName("recommendloan/recommendloanreview");
-			}catch (Exception e) {
+				mv.setViewName("recommendloan/recommendloanlist");
+			} catch (Exception e) {
 				mv.addObject("msg", e.getMessage());
 				e.printStackTrace();
 			}
@@ -40,12 +46,17 @@ public class RecommendLoanReviewController {
 		}
 		
 		@RequestMapping(value = "/recommendloan/insertrecommendloanreview")
-		public ModelAndView insertRecommendLoanReview(ModelAndView mv) {
-			try {
-				mv.setViewName("recommendloan/insertrecommendloanreview");
-			}catch (Exception e) {
-				e.printStackTrace();
-			}
+		public ModelAndView insertRecommendLoanReview(RecommendLoanReview vo, ModelAndView mv) {
+			recommendLoanReviewService.insertRecommendLoanReview(vo);
+			mv.setViewName("recommendloan/insertrecommendloanreview");
 			return mv;
 		}
+		
+		@RequestMapping(value = "recommendLoan/updaterecommendloanreview")
+		public String update(@ModelAttribute RecommendLoanReview r) {
+			recommendLoanReviewService.updateRecommendLoanReview(r);
+			return "redirect:recommendloanreview";
+		}
+		
+
 }
