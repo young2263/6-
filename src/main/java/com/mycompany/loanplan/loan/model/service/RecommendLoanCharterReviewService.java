@@ -6,8 +6,9 @@ import com.mycompany.loanplan.loan.model.vo.RecommendLoanCharterReview;
 
 public interface RecommendLoanCharterReviewService {
 	
-	public List<RecommendLoanCharterReview> listLoanCharterReview();
-	public List<RecommendLoanCharterReview> selectCharterReviewList(int startPage, int limit);
-	public int loanCharterReviewCount();
-	public int insertRecommendLoanCharterReview(int rlchnum);
+	RecommendLoanCharterReview selectRecommendLoanCharterReview(String m_id);
+	List<RecommendLoanCharterReview> selectList(int rl_ch_num);
+	int insertRecommendLoanCharterReview(RecommendLoanCharterReview rlcr);
+	int updateRecommendLoanCharterReview(RecommendLoanCharterReview rlcr);
+	int deleteRecommendLoanCharterReview(RecommendLoanCharterReview rlcr);
 }

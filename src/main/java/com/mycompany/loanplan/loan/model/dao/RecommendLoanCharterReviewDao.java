@@ -16,24 +16,25 @@ public class RecommendLoanCharterReviewDao {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	public List<RecommendLoanCharterReview> listLoanCharterReview() {
-		List<RecommendLoanCharterReview> rmctr = new ArrayList<RecommendLoanCharterReview>();
-		return sqlSession.selectList("RecommendLoanCharterReview.listRecommendLoanCharterReview");
+	public List<RecommendLoanCharterReview> selectList(int rl_ch_num) {  //그 대출에 해당하는 리뷰 조회
+		return sqlSession.selectList("RecommendLoanCharterReview.listRecommendLoanCharterReview", rl_ch_num);
 	}
 	
-	public List<RecommendLoanCharterReview> selectCharterReviewList(int startPage, int limit) {
-		int StartRow = (startPage-1)*limit;
-		RowBounds row = new RowBounds(StartRow, limit);
-		List<RecommendLoanCharterReview> volist = sqlSession.selectList("RecommendLoanCharterReview.selectCharterReviewList", null, row);
-		System.out.println(volist);
-		return volist;
+	public RecommendLoanCharterReview selectOne(String m_id) {  //단일 리뷰 조회
+		return sqlSession.selectOne("RecommendLoanCharterReview.selectRecommendLoanCharterReview", m_id);
 	}
 	
-	public int loanCharterReviewCount() {
-		return sqlSession.selectOne("RecommendLoanCharterReview.loanCharterReviewCount");
+	public int insertRecommendLoanCharterReview(RecommendLoanCharterReview rlcr) {  //리뷰 입력
+		return sqlSession.insert("RecommendLoanCharterReview.insertRecommendLoanCharterReview", rlcr);
 	}
 	
-	public int insertRecommendLoanCharterReview(int rlchnum) {
-		return sqlSession.insert("RecommendLoanCharterReview.insertRecommendLoanCharterReview", rlchnum);
+	public int updateRecommendLoanCharterReview(RecommendLoanCharterReview rlcr) {  //리뷰 수정
+		System.out.println(rlcr);
+		return sqlSession.update("RecommendLoanCharterReview.updateRecommendLoanCharterReview", rlcr);
+	}
+	
+	public int deleteRecommendLoanCharterReview(RecommendLoanCharterReview rlcr) {  //리뷰 삭제
+		System.out.println(rlcr);
+		return sqlSession.delete("RecommendLoanCharterReview.deleteRecommendLoanCharterReview", rlcr);
 	}
 }

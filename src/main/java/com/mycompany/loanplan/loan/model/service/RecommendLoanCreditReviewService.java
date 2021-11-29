@@ -6,8 +6,9 @@ import com.mycompany.loanplan.loan.model.vo.RecommendLoanCreditReview;
 
 public interface RecommendLoanCreditReviewService {
 
-	public List<RecommendLoanCreditReview> listLoanCreditReview();
-	public List<RecommendLoanCreditReview> selectCreditReviewList(int startPage, int limit);
-	public int loanCreditReviewCount();
-	public int insertRecommendLoanCharterReview(int rlcrnum);
+	RecommendLoanCreditReview selectRecommendLoanCreditReview(String m_id);
+	List<RecommendLoanCreditReview> selectList(int rl_cr_num);
+	int insertRecommendLoanCreditReview(RecommendLoanCreditReview rlcrr);
+	int updateRecommendLoanCreditReview(RecommendLoanCreditReview rlcrr);
+	int deleteRecommendLoanCreditReview(RecommendLoanCreditReview rlcrr);
 }

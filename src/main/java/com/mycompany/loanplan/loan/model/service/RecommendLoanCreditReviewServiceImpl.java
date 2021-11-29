@@ -15,22 +15,27 @@ public class RecommendLoanCreditReviewServiceImpl implements RecommendLoanCredit
 	private RecommendLoanCreditReviewDao recommendLoanCreditReviewDao;
 	
 	@Override
-	public List<RecommendLoanCreditReview> listLoanCreditReview() {
-		return recommendLoanCreditReviewDao.listLoanCreditReview();
+	public RecommendLoanCreditReview selectRecommendLoanCreditReview(String m_id) {
+		return recommendLoanCreditReviewDao.selectOne(m_id);
 	}
 	
 	@Override
-	public List<RecommendLoanCreditReview> selectCreditReviewList(int startPage, int limit) {
-		return recommendLoanCreditReviewDao.selectCreditReviewList(startPage, limit);
+	public List<RecommendLoanCreditReview> selectList(int rl_cr_num) {
+		return recommendLoanCreditReviewDao.selectList(rl_cr_num);
 	}
 	
 	@Override
-	public int loanCreditReviewCount() {
-		return recommendLoanCreditReviewDao.loanCreditReviewCount();
+	public int insertRecommendLoanCreditReview(RecommendLoanCreditReview rlcrr) {
+		return recommendLoanCreditReviewDao.insertRecommendLoanCreditReview(rlcrr);
+	}
+
+	@Override
+	public int updateRecommendLoanCreditReview(RecommendLoanCreditReview rlcrr) {
+		return recommendLoanCreditReviewDao.updateRecommendLoanCreditReview(rlcrr);
 	}
 	
 	@Override
-	public int insertRecommendLoanCharterReview(int rlcrnum) {
-		return recommendLoanCreditReviewDao.insertRecommendLoanCharterReview(rlcrnum);
+	public int deleteRecommendLoanCreditReview(RecommendLoanCreditReview rlcrr) {
+		return recommendLoanCreditReviewDao.deleteRecommendLoanCreditReview(rlcrr);
 	}
 }

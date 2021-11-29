@@ -16,32 +16,26 @@ public class RecommendLoanReviewDao {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 		
-	public List<RecommendLoanReview> listLoanReview() {
-		List<RecommendLoanReview> rmr = new ArrayList<RecommendLoanReview>();
-		return sqlSession.selectList("RecommendLoanReview.listRecommendLoanReview");
+	public List<RecommendLoanReview> selectList(int rl_num) {  //그 대출에 해당하는 리뷰 조회
+		return sqlSession.selectList("RecommendLoanReview.listRecommendLoanReview", rl_num);
+	}
+
+	public RecommendLoanReview selectOne(String m_id) {   //단일 리뷰 조회
+		return sqlSession.selectOne("RecommendLoanReview.selectRecommendLoanReview", m_id);
 	}
 	
-	public List<RecommendLoanReview> selectReviewList(int startPage, int limit) {
-		int StartRow = (startPage-1)*limit;
-		RowBounds row = new RowBounds(StartRow, limit);
-		List<RecommendLoanReview> volist = sqlSession.selectList("RecommendLonaReview.selectReviewList", null, row);
-		System.out.println(volist);
-		return volist;
+	public int insertRecommendLoanReview(RecommendLoanReview rlr) {  //리뷰 입력 
+		return sqlSession.insert("RecommendLoanReview.insertRecommendLoanReview", rlr);
 	}
 	
-	public int loanReviewCount() {
-		return sqlSession.selectOne("RecommendLoanReview.loanReviewCount");
+	public int updateRecommendLoanReview(RecommendLoanReview rlr) {   //리뷰 수정
+		System.out.println(rlr);
+		return sqlSession.update("RecommendLoanReview.updateRecommendLoanReview", rlr);
 	}
 	
-	public int insertRecommendLoanReview(RecommendLoanReview r ) {
-		return sqlSession.insert("RecommendLoanReview.insertRecommendLoanReview", r);
+	public int deleteRecommendLoanReview(RecommendLoanReview rlr) {  //리뷰 삭제
+		System.out.println(rlr);
+		return sqlSession.delete("RecommendLoanReview.deleteRecommendLoanReview", rlr);
 	}
-	
-	public void updateRecommendLoanReview(RecommendLoanReview r) {
-		sqlSession.update("RecommendLoanReview.updateRecommendLoanReview", r);
-	}
-	
-	public void deleteRecommendLoanReview(RecommendLoanReview r) {
-		sqlSession.delete("RecommendLoanReview.deleteRecommendLoanReview", r);
-	}
+
 }

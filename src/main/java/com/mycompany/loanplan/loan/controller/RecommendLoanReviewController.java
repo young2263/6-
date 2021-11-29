@@ -1,11 +1,14 @@
 package com.mycompany.loanplan.loan.controller;
 
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,41 +26,58 @@ public class RecommendLoanReviewController {
 		private static final int LIMIT = 10;
 		
 		@Autowired
+		private RecommendLoanReview rlr;
+		
+		@Autowired
 		private RecommendLoanReviewService recommendLoanReviewService;
 		
-		@RequestMapping(value = "/recommendloan/recommendloanreviewlist", method = RequestMethod.GET)
-		public ModelAndView recommendLoanReviewList(
+		@RequestMapping(value = "/recommendloan/recommendloanreviewinsert", method = RequestMethod.GET)
+		public ModelAndView recommendLoanReviewInsert(
+				@RequestParam(name = "rl_num") int rl_num,
 				@RequestParam(name = "page", defaultValue = "1") int page,
-				@RequestParam(name = "keyword", required = false) String keyword,
-				ModelAndView mv) {
-			System.out.println("recommendloanReviewlist 진입");
+				RecommendLoanReview rlr, ModelAndView mv) {
 			try {
-				int currentPage = page;
-				int listCount = recommendLoanReviewService.loanReviewCount();
-				int maxPage = (int)((double) listCount / LIMIT + 0.9);
-				mv.addObject("volist", recommendLoanReviewService.selectReviewList(currentPage, LIMIT));
-				mv.addObject("currentPage", currentPage);
-				mv.addObject("maxPage", maxPage);
-				mv.addObject("listCount", listCount);
-				mv.setViewName("recommendloan/recommendloanlist");
+				recommendLoanReviewService.insertRecommendLoanReview(rlr);
+				mv.addObject("rl_num", rl_num);
+				mv.addObject("page", page);
+				mv.setViewName("redirect:recommendloan/recommendloandt");
 			} catch (Exception e) {
 				mv.addObject("msg", e.getMessage());
-				e.printStackTrace();
+				mv.setViewName("errorPage");
 			}
 			return mv;
 		}
 		
-		@RequestMapping(value = "/recommendloan/insertrecommendloanreview")
-		public ModelAndView insertRecommendLoanReview(RecommendLoanReview vo, ModelAndView mv) {
-			recommendLoanReviewService.insertRecommendLoanReview(vo);
-			mv.setViewName("recommendloan/insertrecommendloanreview");
-			return mv;
+		@RequestMapping(value = "/recommendloan/recommendloanreviewupdate", method = RequestMethod.GET)
+		public void recommendLoanReviewUpdate(HttpServletResponse response, RecommendLoanReview rlr) {
+			PrintWriter out = null;
+			JSONObject job = new JSONObject();
+			try {
+				job.put("ack", recommendLoanReviewService.updateRecommendLoanReview(rlr));
+				out = response.getWriter();
+				out.append(job.toJSONString());
+			} catch (Exception e) {
+				job.put("ack", -1);
+			} finally {
+				out.flush();
+				out.close();
+			}
 		}
 		
-		@RequestMapping(value = "recommendLoan/updaterecommendloanreview")
-		public String update(@ModelAttribute RecommendLoanReview r) {
-			recommendLoanReviewService.updateRecommendLoanReview(r);
-			return "redirect:recommendloanreview";
+		@RequestMapping(value = "/recommendloan/recommendloanreviewdelete", method = RequestMethod.GET)
+		public void recommendLoanReviewDelete(HttpServletResponse response, RecommendLoanReview rlr) {
+			PrintWriter out = null;
+			JSONObject job = new JSONObject();
+			try {
+				job.put("ack", recommendLoanReviewService.deleteRecommendLoanReview(rlr));
+				out = response.getWriter();
+				out.append(job.toJSONString());
+			} catch (Exception e) {
+				job.put("ack", -1);
+			} finally {
+				out.flush();
+				out.close();
+			}
 		}
 		
 //		// 평점 옵션
