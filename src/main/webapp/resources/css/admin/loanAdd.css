@@ -86,22 +86,23 @@ header .admin {
 
 .body .content .inputBox table {
     width: 80%;
+ 
     margin: 0 auto;
 }
 
 .body .content .credit_inputBox input,
 .body .content .guar_inputBox input,
 .body .content .jeon_inputBox input  {
-    width: 50%;
+    width: 100%;
 }
 
 .addBtn {
     border: 1px solid black;
-    width: 50px;
+    width: 50px !important;
     padding: 0.5rem;
     cursor: pointer;
     border-radius: 5px;
     margin-left: 85rem;
-    background-color: #59ab6e !important;
+    background-color: #59ab6e;
 }
 

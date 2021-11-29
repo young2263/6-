@@ -31,9 +31,8 @@
 		select * from RECOMMEND_LOAN order by RL_NUM
 	</select>
 	
-	
 	<!-- 대출 세부 정보 단일 조회 -->
-	<select id="recommendLoanDt" parameterType="string" resultMap="recommendloanRM">
+	<select id="recommendLoanDt" parameterType="int" resultMap="recommendloanRM">
 		select * from RECOMMEND_LOAN where RL_NUM = #{RL_NUM}
 	</select>
 	

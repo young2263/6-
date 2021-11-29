@@ -55,8 +55,9 @@ public class RecommendLoanController {
 	}
 	
 	@RequestMapping(value = "/recommendloan/recommendloandt", method = RequestMethod.GET)
-		public ModelAndView selectLoanDt(@RequestParam(name = "rlnum", defaultValue = "1") int rlnum,
+		public ModelAndView selectLoanDt(@RequestParam(name = "rlnum", defaultValue="1") int rlnum ,
 				ModelAndView mv) {
+		System.out.println(rlnum);
 		try {
 			mv.addObject("recommendloan", recommendLoanService.selectLoanDt(rlnum));
 			mv.setViewName("recommendloan/recommendloandt");

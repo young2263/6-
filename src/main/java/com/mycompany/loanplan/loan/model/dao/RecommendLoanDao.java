@@ -20,8 +20,8 @@ public class RecommendLoanDao {
 		return sqlSession.selectOne("RecommendLoan.loanCount");
 	}
 	
-	public RecommendLoan selectLoanDt(int rlnum) {  //대출 세부정보 가져오기
-		return sqlSession.selectOne("RecommendLoan.selectLoanDt", rlnum);
+	public RecommendLoan selectLoanDt(int rlnum) {
+		return sqlSession.selectOne("RecommendLoan.recommendLoanDt", rlnum);
 	}
 	
 //	public List<RecommendLoan> listLoan() {
