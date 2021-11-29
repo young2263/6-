@@ -58,7 +58,7 @@ header .admin {
 }
 
 .body .content .title {
-    width: 100%;
+    width: 50%;
     margin: 0 50rem;
     padding: 2rem 0;
 }
@@ -86,22 +86,22 @@ header .admin {
 
 .body .content .inputBox table {
     width: 80%;
- 
     margin: 0 auto;
 }
 
 .body .content .credit_inputBox input,
 .body .content .guar_inputBox input,
 .body .content .jeon_inputBox input  {
-    width: 100%;
+    width: 50%;
 }
 
 .addBtn {
-    display: inline-block;
     border: 1px solid black;
+    width: 50px;
     padding: 0.5rem;
     cursor: pointer;
     border-radius: 5px;
     margin-left: 85rem;
+    background-color: #59ab6e !important;
 }
 

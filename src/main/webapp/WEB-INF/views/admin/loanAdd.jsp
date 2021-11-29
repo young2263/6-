@@ -1,4 +1,4 @@
-]<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -77,7 +77,9 @@
 							<th>이미지</th>
 							<td><input type="file" name="RL_IMG"/></td>
 						</tr>
-						<input class="addBtn" type="submit">추가</input>
+						<tr>
+                            <td colspan="2"><input class="addBtn" type="submit"></input></td>
+                        </tr>
 					</table>
 					</form>
 			
@@ -181,7 +183,9 @@
 							<th>이미지</th>
 							<td><input type="file" name="RL_CR_IMG" /></td>
 						</tr>
-						<input class="addBtn" type="submit">추가</input>
+						<tr>
+                            <td colspan="2"><input class="addBtn" type="submit"></input></td>
+                        </tr>
 					</table>
 					</form>
 				<form  class="jeon_inputBox" action="jeonAdd" method="post">
@@ -226,7 +230,9 @@
 							<th>이미지</th>
 							<td><input type="file" name="RL_CH_IMG"/></td>
 						</tr>
-						<input class="addBtn" type="submit">추가</input>
+                        <tr>
+                            <td colspan="2"><input class="addBtn" type="submit"></input></td>
+                        </tr>
 					</table>
 					</form>
 			</div>
