@@ -58,14 +58,15 @@ public class RecommendLoanController {
 		public ModelAndView selectLoanDt(@RequestParam(name = "rlnum", defaultValue="1") int rlnum ,
 				ModelAndView mv) {
 		System.out.println(rlnum);
-		try {
-			mv.addObject("recommendloan", recommendLoanService.selectLoanDt(rlnum));
-			mv.setViewName("recommendloan/recommendloandt");
-		} catch (Exception e) {
-			mv.addObject("msg", e.getMessage());
-			mv.setViewName("errorPage");
-		}
-		return mv;	
+	      try {
+	         mv.addObject("recommendloan", recommendLoanService.selectLoanDt(rlnum));
+	         mv.setViewName("recommendloan/recommendloandt");
+	      } catch (Exception e) {
+	         mv.addObject("msg", e.getMessage());
+	         mv.setViewName("errorPage");
+	         e.printStackTrace();
+	      }
+	      return mv;   
 				
 				
 	}

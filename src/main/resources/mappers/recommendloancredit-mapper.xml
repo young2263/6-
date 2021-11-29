@@ -33,8 +33,8 @@
   		select count(*) from RECOMMEND_LOAN_CREDIT
   	</select>
   	
-  	<!-- 대출 세부 정보 -->
-  	<select id="recommendLoanCreditDt" resultMap="recommendloancreditRM">
+  	<!-- 대출 세부 정보 단일 조회 -->
+  	<select id="recommendLoanCreditDt" parameterType="int" resultMap="recommendloancreditRM">
   		select * from RECOMMEND_LOAN_CREDIT where RL_CR_NUM = #{RL_CR_NUM}
   	</select>
 </mapper>

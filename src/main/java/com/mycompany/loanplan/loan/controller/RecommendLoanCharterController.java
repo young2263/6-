@@ -47,9 +47,17 @@ public class RecommendLoanCharterController {
 	}
 	
 	@RequestMapping(value = "/recommendloan/recommendloancharterdt", method = RequestMethod.GET)
-	public ModelAndView recommendLoancharterDt(ModelAndView mv) {
-	System.out.println("recommendloancharterdt 진입");
-	mv.setViewName("recommendloan/recommendloancharterdt");
-	return mv;
+	public ModelAndView recommendLoanCharterDt(@RequestParam(name = "rlchnum", defaultValue = "1") int rlchnum,
+			ModelAndView mv) {
+		System.out.println(rlchnum);
+		try {
+			mv.addObject("recommendloancharter", recommendLoanCharterService.recommendLoanCharterDt(rlchnum));
+			mv.setViewName("recommendloan/recommendloancharterdt");
+		} catch (Exception e) {
+			mv.addObject("msg", e.getMessage());
+			mv.setViewName("errorPage");
+		}
+		return mv;
 	}
+	
 }

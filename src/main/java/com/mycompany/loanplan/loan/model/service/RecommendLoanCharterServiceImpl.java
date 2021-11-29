@@ -15,22 +15,24 @@ public class RecommendLoanCharterServiceImpl implements RecommendLoanCharterServ
 	private RecommendLoanCharterDao recommendLoanCharterDao;
 	
 	@Override
-	public List<RecommendLoanCharter> listLoanCharter() {
-		return recommendLoanCharterDao.listLoanCharter();
+	public int loanCount() {
+		return recommendLoanCharterDao.loanCount();
 	}
+	
+	@Override
+	public RecommendLoanCharter recommendLoanCharterDt(int rlchnum) {
+		return recommendLoanCharterDao.recommendLoanCharterDt(rlchnum);
+	}
+	
+//	@Override
+//	public List<RecommendLoanCharter> listLoanCharter() {
+//		return recommendLoanCharterDao.listLoanCharter();
+//	}
 	
 	@Override
 	public List<RecommendLoanCharter> selectList(int startPage, int limit) {
 		return recommendLoanCharterDao.selectList(startPage, limit);
 	}
 	
-	@Override
-	public int loanCount() {
-		return recommendLoanCharterDao.loanCount();
-	}
 	
-	@Override
-	public int recommendLoanCharterDt(int rlchnum) {
-		return recommendLoanCharterDao.recommendLoanCharterDt(rlchnum);
-	}
 }
