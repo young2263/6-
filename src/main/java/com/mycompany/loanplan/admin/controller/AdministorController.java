@@ -196,5 +196,15 @@ public class AdministorController {
 		}
 		return mv;
 	}
+	
+	@RequestMapping("/advertisement")
+	public ModelAndView advertisement(Administor ad, HttpServletRequest request, ModelAndView mv) {
+		try {
+			mv.setViewName("admin/loanAdd");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
 
 }
