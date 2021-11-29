@@ -7,26 +7,43 @@ import org.springframework.stereotype.Component;
 @Component
 public class RecommendLoanCredit {
 	private static final long serialVersionUID = 1111L;
-	private int RL_CR_NUM;
-	private String RL_CR_IMG;
-	private String RL_CR_URL;
-	private String DCLS_MONTH;
-	private String KOR_CO_NM;
-	private String CRDT_PRDT_TYPE_NM;
-	private String CRDT_GRAD_1;
-	private String CRDT_GRAD_4;
-	private String CRDT_GRAD_5;
-	private String CRDT_GRAD_6;
-	private String CRDT_GRAD_10;
-	private String CRDT_GRAD_12;
-	private String CRDT_GRAD_13;
-	private String CRDT_GRAD_AVG;
+	private int RL_CR_NUM; // 대출 번호
+	private String RL_CR_IMG; // 이미지
+	private String RL_CR_URL; // url
+	private String DCLS_MONTH; // 공시제출월
+	private String KOR_CO_NM; // 금융회사명
+	private String CRDT_PRDT_TYPE_NM; // 대출종류명
+	private String CRDT_GRAD_1; // 900점초과 금리
+	private String CRDT_GRAD_4; // 801~900점 금리
+	private String CRDT_GRAD_5; // 701~800점 금리
+	private String CRDT_GRAD_6; // 601~700점 금리
+	private String CRDT_GRAD_10; // 401~500점 금리
+	private String CRDT_GRAD_12; // 301~400점 금리
+	private String CRDT_GRAD_13; // 300점 이하 금리
+	private String CRDT_GRAD_AVG; // 평균 금리
 	
 	public RecommendLoanCredit() {}
 	
 	public RecommendLoanCredit(int rlcrnum, String rlcrimg, String rlcrurl, String dclsmonth, String korconm, String crdtprdttypenm, String crdtgrad1, String crdtgrad4, String crdtgrad5, String crdtgrad6, String crdtgrad10, String crdtgrad12, String crdtgrad13, String crdtgradavg) {
 		super();
 		this.RL_CR_NUM = rlcrnum;
+		this.RL_CR_IMG = rlcrimg;
+		this.RL_CR_URL = rlcrurl;
+		this.DCLS_MONTH = dclsmonth;
+		this.KOR_CO_NM = korconm;
+		this.CRDT_PRDT_TYPE_NM = crdtprdttypenm;
+		this.CRDT_GRAD_1 = crdtgrad1;
+		this.CRDT_GRAD_4 = crdtgrad4;
+		this.CRDT_GRAD_5 = crdtgrad5;
+		this.CRDT_GRAD_6 = crdtgrad6;
+		this.CRDT_GRAD_10 = crdtgrad10;
+		this.CRDT_GRAD_12 = crdtgrad12;
+		this.CRDT_GRAD_13 = crdtgrad13;
+		this.CRDT_GRAD_AVG = crdtgradavg;
+	}
+	
+	public RecommendLoanCredit(String rlcrimg, String rlcrurl, String dclsmonth, String korconm, String crdtprdttypenm, String crdtgrad1, String crdtgrad4, String crdtgrad5, String crdtgrad6, String crdtgrad10, String crdtgrad12, String crdtgrad13, String crdtgradavg) {
+		super();
 		this.RL_CR_IMG = rlcrimg;
 		this.RL_CR_URL = rlcrurl;
 		this.DCLS_MONTH = dclsmonth;

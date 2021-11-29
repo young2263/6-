@@ -3,6 +3,7 @@ package com.mycompany.loanplan.admin.model.service;
 import java.util.List;
 
 import com.mycompany.loanplan.admin.model.vo.Administor;
+import com.mycompany.loanplan.loan.model.vo.RecommendLoan;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoanCharter;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoanCredit;
 
@@ -16,4 +17,7 @@ public interface AdministorService {
 	int loanCount();
 	int loancreditCount();
 	int loancharterCount();
+	int guarInsert(RecommendLoan rm);
+	int creditInsert(RecommendLoanCredit rmc);
+	int geonInsert(RecommendLoanCharter rmct);
 }

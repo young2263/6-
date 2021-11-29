@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="Administor">
 <!-- 주택담보 대출 매핑 -->
-  <resultMap type="Administor" id="Administor">
+  <resultMap type="RecommendLoan" id="RecommendLoan">
 		<id property="RL_NUM" column="RL_NUM"/>
 		<result property="RL_IMG" column="RL_IMG"/>
 		<result property="RL_URL" column="RL_URL"/>
@@ -16,7 +16,7 @@
 		<result property="LOAN_LMT" column="LOAN_LMT"/>
 	</resultMap>
 	<!-- 전세자금 대출 매핑 -->
-	<resultMap type="RecommendLoanCharter" id="recommendloancharterRM">
+	<resultMap type="RecommendLoanCharter" id="recommendloancharter">
 		<id property="RL_CH_NUM" column="RL_CH_NUM"/>
 		<result property="RL_CH_CATEGORY" column="RL_CH_CATEGORY"/>
 		<result property="RL_CH_IMG" column="RL_CH_IMG"/>
@@ -31,7 +31,7 @@
 		<result property="LOAN_LMT" column="LOAN_LMT"/>
 	</resultMap>
 	<!-- 신용 대출 매핑 -->
-	<resultMap type="RecommendLoanCredit" id="recommendloancreditRM">
+	<resultMap type="RecommendLoanCredit" id="recommendloancredit">
   	<id property="RL_CR_NUM" column="RL_CR_NUM"/>
   	<result property="RL_CR_IMG" column="RL_CR_IMG"/>
   	<result property="RL_CR_URL" column="RL_CR_URL"/>
@@ -50,22 +50,22 @@
 	
 	
 	<!-- 주택 담보 정보 조회 -->
-	<select id="recommendLoan" resultMap="Administor">
+	<select id="recommendLoan" resultMap="RecommendLoan">
 	select * from RECOMMEND_LOAN
 	</select>
 	
 	<!-- 전세자금 정보 조회 -->
-	<select id="recommendLoanCharterList" resultMap="recommendloancharterRM">
+	<select id="recommendLoanCharterList" resultMap="recommendloancharter">
 	select * from RECOMMEND_LOAN_CHARTER
 	</select>
 	
 	<!-- 신용 대출 정보 조회 -->
-	<select id="recommendLoanCreditList" resultMap="recommendloancreditRM">
+	<select id="recommendLoanCreditList" resultMap="recommendloancredit">
 	select * from RECOMMEND_LOAN_CREDIT
 	</select>
 	
 	<!-- 페이지별 모든 대출 정보 조회 -->
-	<select id="selectList" resultMap="Administor">
+	<select id="selectList" resultMap="RecommendLoan">
 	select * from RECOMMEND_LOAN
 	</select>
 	
@@ -85,7 +85,26 @@
 	</select>
 	
 	<!-- 카테고리별 대출 정보 조회 -->
-	<select id="listAdminCategory" resultMap="Administor">
+	<select id="listAdminCategory" resultMap="RecommendLoan">
 		
 	</select>
+	
+	<insert id="guarInsert" parameterType="RecommendLoan">
+	insert into  recommend_loan
+	values(RECOMMEND_LOAN_SEQ.nextval, #{RL_IMG}, #{RL_URL}, #{DCLS_MONTH}, 
+	#{KOR_CO_NM}, #{FIN_PRDT_NM},#{LEND_RATE_TYPE_NM},#{RPAY_TYPE_NM},#{ERLY_RPAY_FEE},#{DLY_RATE},#{LOAN_LMT} )
+	</insert>
+	
+	<insert id="creditInsert" parameterType="recommendloancredit">
+	insert into recommend_loan_credit
+	values(RECOMMEND_LOAN_CREDIT_SEQ.nextval,#{DCLS_MONTH},#{KOR_CO_NM},#{CRDT_PRDT_TYPE_NM},#{CRDT_GRAD_1},
+	#{CRDT_GRAD_4},#{CRDT_GRAD_5},#{CRDT_GRAD_6},#{CRDT_GRAD_10},#{CRDT_GRAD_12},#{CRDT_GRAD_13},
+	#{CRDT_GRAD_AVG},#{RL_CR_IMG},#{RL_CR_URL})
+	</insert>
+	
+	<insert id="geonInsert" parameterType="recommendloancharter">
+	insert into  recommend_loan_charter
+	values(RECOMMEND_LOAN_CHARTER_SEQ.nextval, #{RL_CH_IMG}, #{RL_CH_URL}, #{DCLS_MONTH}, 
+	#{KOR_CO_NM}, #{FIN_PRDT_NM},#{LEND_RATE_TYPE_NM},#{RPAY_TYPE_NM},#{ERLY_RPAY_FEE},#{DLY_RATE},#{LOAN_LMT} )
+	</insert>
 </mapper>

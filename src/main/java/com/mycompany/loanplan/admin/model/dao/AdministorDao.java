@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mycompany.loanplan.admin.model.vo.Administor;
+import com.mycompany.loanplan.loan.model.vo.RecommendLoan;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoanCharter;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoanCredit;
 
@@ -61,4 +62,13 @@ public class AdministorDao {
 		return sqlSession.selectOne("Administor.loancharterCount");
 	}
 	
+	public int guarInsert(RecommendLoan rm) {
+		return sqlSession.insert("Administor.guarInsert", rm);
+	}
+	public int creditInsert(RecommendLoanCredit rmc) {
+		return sqlSession.insert("Administor.creditInsert", rmc);
+	}
+	public int geonInsert(RecommendLoanCharter rmct) {
+		return sqlSession.insert("Administor.geonInsert", rmct);
+	}
 }

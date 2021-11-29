@@ -24,6 +24,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mycompany.loanplan.admin.model.service.AdministorService;
 import com.mycompany.loanplan.admin.model.vo.Administor;
+import com.mycompany.loanplan.loan.model.vo.RecommendLoan;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoanCharter;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoanCredit;
 
@@ -36,6 +37,7 @@ public class AdministorController {
 
 	@Autowired
 	private AdministorService adminService;
+	
 
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView adminList(@RequestParam(name="page",defaultValue = "1") int page,
@@ -119,6 +121,76 @@ public class AdministorController {
 	public ModelAndView addLoan(Administor ad, HttpServletRequest request, ModelAndView mv) {
 		try {
 			mv.setViewName("admin/loanAdd");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value = "/guarAdd", method=RequestMethod.POST)
+	public ModelAndView guarAdd(HttpServletRequest request, ModelAndView mv) {
+		try {
+			String FIN_PRDT_NM = request.getParameter("FIN_PRDT_NM");
+			String KOR_CO_NM = request.getParameter("KOR_CO_NM");
+			String DCLS_MONTH = request.getParameter("DCLS_MONTH");
+			String LEND_RATE_TYPE_NM = request.getParameter("LEND_RATE_TYPE_NM");
+			String RPAY_TYPE_NM = request.getParameter("RPAY_TYPE_NM");
+			String ERLY_RPAY_FEE = request.getParameter("ERLY_RPAY_FEE");
+			String DLY_RATE = request.getParameter("DLY_RATE");
+			String LOAN_LMT = request.getParameter("LOAN_LMT");
+			String RL_URL = request.getParameter("RL_URL");
+			String RL_IMG = request.getParameter("RL_IMG");
+			RecommendLoan guar = new RecommendLoan(RL_IMG, RL_URL, DCLS_MONTH, KOR_CO_NM, FIN_PRDT_NM, LEND_RATE_TYPE_NM, RPAY_TYPE_NM,ERLY_RPAY_FEE, DLY_RATE,LOAN_LMT);
+			int result = adminService.guarInsert(guar);
+			System.out.println(result);
+			mv.setViewName("admin/main");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
+	@RequestMapping(value = "/creditAdd", method=RequestMethod.POST)
+	public ModelAndView creditAdd(HttpServletRequest request, ModelAndView mv) {
+		try {
+			String KOR_CO_NM = request.getParameter("KOR_CO_NM");
+			String DCLS_MONTH = request.getParameter("DCLS_MONTH");
+			String CRDT_PRDT_TYPE_NM = request.getParameter("CRDT_PRDT_TYPE_NM");
+			String CRDT_GRAD_1 = request.getParameter("CRDT_GRAD_1");
+			String CRDT_GRAD_4 = request.getParameter("CRDT_GRAD_4");
+			String CRDT_GRAD_5 = request.getParameter("CRDT_GRAD_5");
+			String CRDT_GRAD_6 = request.getParameter("CRDT_GRAD_6");
+			String CRDT_GRAD_10 = request.getParameter("CRDT_GRAD_10");
+			String CRDT_GRAD_12 = request.getParameter("CRDT_GRAD_12");
+			String CRDT_GRAD_13 = request.getParameter("CRDT_GRAD_13");
+			String CRDT_GRAD_AVG = request.getParameter("CRDT_GRAD_AVG");
+			String RL_CR_URL = request.getParameter("RL_CR_URL");
+			String RL_CR_IMG = request.getParameter("RL_CR_IMG");
+			RecommendLoanCredit credit = new RecommendLoanCredit(RL_CR_IMG, RL_CR_URL, DCLS_MONTH, KOR_CO_NM, CRDT_PRDT_TYPE_NM, CRDT_GRAD_1, CRDT_GRAD_4, CRDT_GRAD_5, CRDT_GRAD_6, CRDT_GRAD_10, CRDT_GRAD_12, CRDT_GRAD_13, CRDT_GRAD_AVG);
+			int result = adminService.creditInsert(credit);
+			System.out.println(result);
+			mv.setViewName("admin/main");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
+	@RequestMapping(value = "/jeonAdd", method=RequestMethod.POST)
+	public ModelAndView jeonAdd(HttpServletRequest request, ModelAndView mv) {
+		try {
+			String FIN_PRDT_NM = request.getParameter("FIN_PRDT_NM");
+			String KOR_CO_NM = request.getParameter("KOR_CO_NM");
+			String DCLS_MONTH = request.getParameter("DCLS_MONTH");
+			String LEND_RATE_TYPE_NM = request.getParameter("LEND_RATE_TYPE_NM");
+			String RPAY_TYPE_NM = request.getParameter("RPAY_TYPE_NM");
+			String ERLY_RPAY_FEE = request.getParameter("ERLY_RPAY_FEE");
+			String DLY_RATE = request.getParameter("DLY_RATE");
+			String LOAN_LMT = request.getParameter("LOAN_LMT");
+			String RL_URL = request.getParameter("RL_CH_URL");
+			String RL_IMG = request.getParameter("RL_CH_IMG");
+			RecommendLoanCharter jeon = new RecommendLoanCharter(RL_IMG, RL_URL, DCLS_MONTH, KOR_CO_NM, FIN_PRDT_NM, LEND_RATE_TYPE_NM, RPAY_TYPE_NM,ERLY_RPAY_FEE, DLY_RATE,LOAN_LMT);
+			int result = adminService.geonInsert(jeon);
+			System.out.println(result);
+			mv.setViewName("admin/main");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

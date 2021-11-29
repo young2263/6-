@@ -7,17 +7,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class RecommendLoanCharter {
 	private static final long serialVersionUID = 1111L;
-	private int RL_CH_NUM;
-	private String RL_CH_IMG;
-	private String RL_CH_URL;
-	private String DCLS_MONTH;
-	private String KOR_CO_NM;
-	private String FIN_PRDT_NM;
-	private String LEND_RATE_TYPE_NM;
-	private String RPAY_TYPE_NM;
-	private String ERLY_RPAY_FEE;
-	private String DLY_RATE;
-	private String LOAN_LMT;
+	private int RL_CH_NUM; // 대출번호
+	private String RL_CH_IMG; // 이미지
+	private String RL_CH_URL; // url
+	private String DCLS_MONTH; // 공시제출월
+	private String KOR_CO_NM; // 금융회사명
+	private String FIN_PRDT_NM; // 금융상품명
+	private String LEND_RATE_TYPE_NM; // 대출금리유형
+	private String RPAY_TYPE_NM; // 대출상환유형
+	private String ERLY_RPAY_FEE; // 중도상환수수료
+	private String DLY_RATE; // 연체이자율
+	private String LOAN_LMT; // 대출한도
 	
 	public RecommendLoanCharter() {
 		
@@ -26,6 +26,20 @@ public class RecommendLoanCharter {
 	public RecommendLoanCharter(int rlchnum, String rlchcategory, String rlchimg, String rlchurl, String dclsmonth, String korconm, String finprdtnm, String lendratetypenm, String rpaytypenm, String erlyrpayfee, String dlyrate, String loanlmt) {
 		super();
 		this.RL_CH_NUM = rlchnum;
+		this.RL_CH_IMG = rlchimg;
+		this.RL_CH_URL = rlchurl;
+		this.DCLS_MONTH = dclsmonth;
+		this.KOR_CO_NM = korconm;
+		this.FIN_PRDT_NM = finprdtnm;
+		this.LEND_RATE_TYPE_NM = lendratetypenm;
+		this.RPAY_TYPE_NM = rpaytypenm;
+		this.ERLY_RPAY_FEE = erlyrpayfee;
+		this.DLY_RATE = dlyrate;
+		this.LOAN_LMT = loanlmt;
+	}
+	
+	public RecommendLoanCharter(String rlchimg, String rlchurl, String dclsmonth, String korconm, String finprdtnm, String lendratetypenm, String rpaytypenm, String erlyrpayfee, String dlyrate, String loanlmt) {
+		super();
 		this.RL_CH_IMG = rlchimg;
 		this.RL_CH_URL = rlchurl;
 		this.DCLS_MONTH = dclsmonth;

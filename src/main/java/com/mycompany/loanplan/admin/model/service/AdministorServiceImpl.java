@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.mycompany.loanplan.admin.model.dao.AdministorDao;
 import com.mycompany.loanplan.admin.model.vo.Administor;
+import com.mycompany.loanplan.loan.model.vo.RecommendLoan;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoanCharter;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoanCredit;
 
@@ -55,5 +56,21 @@ public class AdministorServiceImpl implements AdministorService {
 	public int loancharterCount(){
 		return adminDao.loancharterCount();
 	}
+	
+	@Override
+	public int guarInsert(RecommendLoan rm){
+		return adminDao.guarInsert(rm);
+	}
+	
+	@Override
+	public int creditInsert(RecommendLoanCredit rmc){
+		return adminDao.creditInsert(rmc);
+	}
+	
+	@Override
+	public int geonInsert(RecommendLoanCharter rmct){
+		return adminDao.geonInsert(rmct);
+	}
+	
 	
 }
