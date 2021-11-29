@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,34 +37,20 @@
                         <th>광고 이미지</th>
                         <th>광고 URL</th>
 					</tr>
+					<c:forEach var="vo" items="${advertiseList}" varStatus="status">
 						<tr>
-							<td>광고 제목입니다</td>
-							<td>요런 저런 내용들이 있고 재밌는 내용들이 있지요</textarea></td>
-                            <td>사진 넣고 싶다</td>
-                            <td>www.naver.com</td>
+							<td>${vo.AD_TITLE }</td>
+							<td>${vo.AD_CONTENT }</textarea></td>
+                            <td>${vo.AD_IMG }</td>
+                            <td>${vo.AD_SRC }</td>
                         </tr>
-                        <tr>
-							<td>광고 제목입니다</td>
-							<td>요런 저런 내용들이 있고 재밌는 내용들이 있지요</textarea></td>
-                            <td>사진 넣고 싶다</td>
-                            <td>www.naver.com</td>
-                        </tr>
-                        <tr>
-							<td>광고 제목입니다</td>
-							<td>요런 저런 내용들이 있고 재밌는 내용들이 있지요</textarea></td>
-                            <td>사진 넣고 싶다</td>
-                            <td>www.naver.com</td>
-                        </tr>
+                        </c:forEach>
 				</table>
                 <a href="advertiseAdd">
                     <div class="addBtn">추가</div>
                 </a>
             </div>
             </div>
-			
-
-            
-			
 		</div>
 	</div>
 

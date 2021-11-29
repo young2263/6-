@@ -80,15 +80,13 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./resources/img/advertisement1" alt="">
+                            <img class="img-fluid" src="./resources/img/advertisement1.PNG" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
-                                <h1 class="h1">Proident occaecat</h1>
-                                <h3 class="h2">Aliquip ex ea commodo consequat</h3>
+                                <h1 class="h1">Together Funding</h1>
                                 <p>
-                                    You are permitted to use this Zay CSS template for your commercial websites. 
-                                    You are <strong>not permitted</strong> to re-distribute the template ZIP file in any kind of template collection websites.
+                                   주택 담보대출을 가장 잘해주는 곳입니다. 최저 금리 보장하고 여러가지 혜택을 받을 수 있습니다. 아주 좋은 조건으로 대출을 받을 수 있으니 한번 믿고 보십쇼
                                 </p>
                             </div>
                         </div>
@@ -99,7 +97,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./resources/img/advertisement2" alt="">
+                            <img class="img-fluid" src="./resources/img/advertisement2.PNG" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
@@ -118,7 +116,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./resources/img/advertisement3" alt="">
+                            <img class="img-fluid" src="./resources/img/advertisement3.PNG" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">

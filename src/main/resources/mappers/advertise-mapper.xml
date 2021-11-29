@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Advertise">
+
+<resultMap type="Advertise" id="Advertise">
+		<id property="AD_NUM" column="AD_NUM"/>
+		<result property="AD_TITLE" column="AD_TITLE"/>
+		<result property="AD_CONTENT" column="AD_CONTENT"/>
+		<result property="AD_IMG" column="AD_IMG"/>
+		<result property="AD_SRC" column="AD_SRC"/>
+	</resultMap>
+
+<select id="advertiseList" resultMap="Advertise">
+ 	select * from advertisement
+</select>
+
+</mapper>

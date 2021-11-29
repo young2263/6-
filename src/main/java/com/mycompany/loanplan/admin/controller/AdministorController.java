@@ -23,7 +23,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mycompany.loanplan.admin.model.service.AdministorService;
+import com.mycompany.loanplan.admin.model.service.AdvertiseService;
 import com.mycompany.loanplan.admin.model.vo.Administor;
+import com.mycompany.loanplan.admin.model.vo.Advertise;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoan;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoanCharter;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoanCredit;
@@ -37,6 +39,9 @@ public class AdministorController {
 
 	@Autowired
 	private AdministorService adminService;
+	
+	@Autowired
+	private AdvertiseService advertiseService;
 	
 
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
@@ -200,6 +205,8 @@ public class AdministorController {
 	@RequestMapping("/advertise")
 	public ModelAndView advertisement(Administor ad, HttpServletRequest request, ModelAndView mv) {
 		try {
+			List<Advertise> advertiseList = advertiseService.advertiseList();
+			mv.addObject("advertiseList", advertiseList);
 			mv.setViewName("admin/advertiseMain");
 		} catch (Exception e) {
 			e.printStackTrace();
