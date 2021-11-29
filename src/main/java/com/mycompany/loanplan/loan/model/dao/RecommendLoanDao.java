@@ -16,10 +16,18 @@ public class RecommendLoanDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public List<RecommendLoan> listLoan() {
-		List<RecommendLoan> rm = new ArrayList<RecommendLoan>();
-		return sqlSession.selectList("RecommendLoan.listRecommendLoan");
+	public int loanCount() {  //전체 글 수 조회
+		return sqlSession.selectOne("RecommendLoan.loanCount");
 	}
+	
+	public RecommendLoan selectLoanDt(int rlnum) {  //대출 세부정보 가져오기
+		return sqlSession.selectOne("RecommendLoan.selectLoanDt", rlnum);
+	}
+	
+//	public List<RecommendLoan> listLoan() {
+//		List<RecommendLoan> rm = new ArrayList<RecommendLoan>();
+//		return sqlSession.selectList("RecommendLoan.listRecommendLoan");
+//	}
 	
 	public List<RecommendLoan> selectList(int startPage, int limit) {
 		int startRow = (startPage-1)*limit;
@@ -29,13 +37,7 @@ public class RecommendLoanDao {
 		return volist;
 	}
 	
-	public int loanCount() {
-		return sqlSession.selectOne("RecommendLoan.loanCount");
-	}
 	
-	public List<RecommendLoan> selectLoanDt() {
-		return sqlSession.selectList("RecommendLoan.recommendLoanDt");
-	}
 	
 	
 }
