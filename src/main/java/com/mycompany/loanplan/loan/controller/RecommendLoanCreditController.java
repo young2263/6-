@@ -47,10 +47,17 @@ public class RecommendLoanCreditController {
 	}
 	
 	@RequestMapping(value = "/recommendloan/recommendloancreditdt", method = RequestMethod.GET)
-		public ModelAndView selectLoanDt(ModelAndView mv) {
-		System.out.println("recommendloancreditdt 진입");
-		mv.setViewName("recommendloan/recommendloancreditdt");
-		mv.addObject("volist", recommendLoanCreditService.selectLoanDt());
+	public ModelAndView selectLoanCreditDt(@RequestParam(name = "rlcrnum", defaultValue = "1") int rlcrnum,
+			ModelAndView mv) {
+		System.out.println(rlcrnum);
+		try {
+			mv.addObject("recommendloancredit", recommendLoanCreditService.selectLoanCreditDt(rlcrnum));
+			mv.setViewName("recommendloan/recommendloancreditdt");
+		} catch (Exception e) {
+			mv.addObject("msg", e.getMessage());
+			mv.setViewName("errorPage");
+			e.printStackTrace();
+		}
 		return mv;
 	}
 }

@@ -16,10 +16,19 @@ public class RecommendLoanCharterDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public List<RecommendLoanCharter> listLoanCharter() {
-		List<RecommendLoanCharter> rmc = new ArrayList<RecommendLoanCharter>();
-		return sqlSession.selectList("RecommendLoanCharter.listRecommendLoanCharter");
+	public int loanCount() {
+		return sqlSession.selectOne("RecommendLoanCharter.loanCount");
 	}
+	
+	public RecommendLoanCharter recommendLoanCharterDt(int rlchnum) {
+		return sqlSession.selectOne("RecommendLoanCharter.recommendLoanCharterDt", rlchnum);
+	}
+	
+//	public List<RecommendLoanCharter> listLoanCharter() {
+//		List<RecommendLoanCharter> rmc = new ArrayList<RecommendLoanCharter>();
+//		return sqlSession.selectList("RecommendLoanCharter.listRecommendLoanCharter");
+//	}
+	
 	
 	public List<RecommendLoanCharter> selectList(int startPage, int limit) {
 		int startRow = (startPage-1)*limit;
@@ -29,11 +38,5 @@ public class RecommendLoanCharterDao {
 		return volist;
 	}
 	
-	public int loanCount() {
-		return sqlSession.selectOne("RecommendLoanCharter.loanCount");
-	}
 	
-	public int recommendLoanCharterDt(int rlchnum) {
-		return sqlSession.selectOne("RecommendLoanCharter.recommendLoanCharterDt", rlchnum);
-	}
 }

@@ -314,10 +314,7 @@ Rating.prototype.showMessage = function(type){//경고메시지 표시
 	
 	
 <div class="body">
-	<table align="center" cellpadding="10" cellspacing="0" border="1" width="100%" class="tableBox">
-		<tr align="center" valign="middle">
-			<th colspan="2">${recommendloan.RL_NUM}</th>
-		</tr>
+	<table>
 		<tr><td height="15" width="100"></td>
 			<td>${recommendloan.RL_IMG }</td>
 		</tr>

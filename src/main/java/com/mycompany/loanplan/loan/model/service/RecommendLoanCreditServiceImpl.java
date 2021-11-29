@@ -16,22 +16,23 @@ public class RecommendLoanCreditServiceImpl implements RecommendLoanCreditServic
 	private RecommendLoanCreditDao recommendLoanCreditDao;
 	
 	@Override
-	public List<RecommendLoanCredit> listLoan() {
-		return recommendLoanCreditDao.listLoan();
+	public int loanCount() {
+		return recommendLoanCreditDao.loanCount();
 	}
+	
+	@Override
+	public RecommendLoanCredit selectLoanCreditDt(int rlcrnum) {
+		return recommendLoanCreditDao.selectLoanCreditDt(rlcrnum);
+	}
+	
+//	@Override
+//	public List<RecommendLoanCredit> listLoan() {
+//		return recommendLoanCreditDao.listLoan();
+//	}
 	
 	@Override
 	public List<RecommendLoanCredit> selectList(int startPage, int limit) {
 		return recommendLoanCreditDao.selectList(startPage, limit);
 	}
 	
-	@Override
-	public int loanCount() {
-		return recommendLoanCreditDao.loanCount();
-	}
-	
-	@Override
-	public List<RecommendLoanCredit> selectLoanDt() {
-		return recommendLoanCreditDao.selectLoanDt();
-	}
 }

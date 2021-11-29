@@ -30,8 +30,8 @@
 		select count(*) from RECOMMEND_LOAN_CHARTER
 	</select>
 	
-	<!-- 대출 세부 정보 -->
-	<select id="recommendLoanCharterDt" resultMap="recommendloanCharterRM">
+	<!-- 대출 세부 정보 단일 조회 -->
+	<select id="recommendLoanCharterDt" parameterType="int" resultMap="recommendloanCharterRM">
 		select * from RECOMMEND_LOAN_CHARTER where RL_CH_NUM = #{RL_CH_NUM}
 	</select>
 	
