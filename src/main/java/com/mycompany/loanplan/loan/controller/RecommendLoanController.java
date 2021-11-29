@@ -8,11 +8,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mycompany.loanplan.loan.model.service.RecommendLoanReviewService;
 import com.mycompany.loanplan.loan.model.service.RecommendLoanService;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoan;
 
@@ -26,6 +28,9 @@ public class RecommendLoanController {
 	@Autowired
 	private RecommendLoanService recommendLoanService;
 	
+	@Autowired
+	private RecommendLoanReviewService recommendLoanReviewService;
+	
 	@RequestMapping(value = "/recommendloan/recommendloanlist", method = RequestMethod.GET)
 	public ModelAndView recommendLoanList(
 			@RequestParam(name = "page", defaultValue = "1") int page,
@@ -34,6 +39,7 @@ public class RecommendLoanController {
 		System.out.println("recommendloanlist 진입");
 		try {
 			int currentPage = page;
+			//한 페이지당 출력할 목록 갯수
 			int listCount = recommendLoanService.loanCount();
 			int maxPage = (int)((double) listCount / LIMIT + 0.9);
 			mv.addObject("volist", recommendLoanService.selectList(currentPage, LIMIT));
@@ -49,12 +55,18 @@ public class RecommendLoanController {
 	}
 	
 	@RequestMapping(value = "/recommendloan/recommendloandt", method = RequestMethod.GET)
-		public String selectLoanDt(Model model) {
-			System.out.println("recommendloandt 진입");
-			List<RecommendLoan> volist;
-			volist = recommendLoanService.selectLoanDt();
-			model.addAttribute("volist", volist);
-			return "recommendloan/recommendloandt";
+		public ModelAndView selectLoanDt(@RequestParam(name = "rlnum", defaultValue = "1") int rlnum,
+				ModelAndView mv) {
+		try {
+			mv.addObject("recommendloan", recommendLoanService.selectLoanDt(rlnum));
+			mv.setViewName("recommendloan/recommendloandt");
+		} catch (Exception e) {
+			mv.addObject("msg", e.getMessage());
+			mv.setViewName("errorPage");
+		}
+		return mv;	
+				
+				
 	}
 
 }

@@ -15,22 +15,24 @@ public class RecommendLoanServiceImpl implements RecommendLoanService {
 	private RecommendLoanDao recommendLoanDao;
 	
 	@Override
-	public List<RecommendLoan> listLoan() {
-		return recommendLoanDao.listLoan();
+	public int loanCount() {
+		return recommendLoanDao.loanCount();
 	}
+	
+	@Override
+	public RecommendLoan selectLoanDt(int rlnum) {
+		return recommendLoanDao.selectLoanDt(rlnum);
+	}
+	
+//	@Override
+//	public List<RecommendLoan> listLoan() {
+//		return recommendLoanDao.listLoan();
+//	}
 	
 	@Override
 	public List<RecommendLoan> selectList(int startPage, int limit) {
 		return recommendLoanDao.selectList(startPage, limit);
 	}
 	
-	@Override
-	public int loanCount() {
-		return recommendLoanDao.loanCount();
-	}
 	
-	@Override
-	public List<RecommendLoan> selectLoanDt() {
-		return recommendLoanDao.selectLoanDt();
-	}
 }

@@ -1,6 +1,8 @@
 package com.mycompany.loanplan.loan.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -58,5 +60,14 @@ public class RecommendLoanReviewController {
 			return "redirect:recommendloanreview";
 		}
 		
+//		// 평점 옵션
+//		Map<String, Object> ratingOptions = new HashMap<String, Object>();
+//		ratingOptions.put(0, "☆☆☆☆☆");
+//		ratingOptions.put(1, "★☆☆☆☆");
+//		ratingOptions.put(2, "★★☆☆☆");
+//		ratingOptions.put(3, "★★★☆☆");
+//		ratingOptions.put(4, "★★★★☆");
+//		ratingOptions.put(5, "★★★★★");
+//		model.addAttribute("ratingOptions", ratingOptions);
 
 }
