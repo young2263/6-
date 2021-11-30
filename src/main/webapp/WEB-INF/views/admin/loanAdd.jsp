@@ -22,8 +22,12 @@
 	<div class="body">
 		<div class="navbar">
 			<div class="navbarItem">사용자관리</div>
-			<div class="navbarItem">대출상품관리</div>
-			<div class="navbarItem"><a href="advertisement"></a>광고관리</div>
+			<div class="navbarItem">
+				<a href="admin">대출상품관리</a>
+			</div>
+			<div class="navbarItem">
+				<a href="advertise">광고관리</a>
+			</div>
 			<div class="navbarItem">댓글관리</div>
 		</div>
 		<div class="content">
@@ -36,7 +40,8 @@
 				<div class="jeon_btn">전세자금대출</div>
 			</div>
 			<div class="inputBox">
-				<form action="guarAdd" method="post" class="guar_inputBox"> <!-- 담보대출 input -->
+				<form action="guarAdd" method="post" class="guar_inputBox">
+					<!-- 담보대출 input -->
 					<table>
 						<tr>
 							<th>금융상품명</th>
@@ -48,7 +53,7 @@
 						</tr>
 						<tr>
 							<th>공시제출월</th>
-							<td><input type="text" name="DCLS_MONTH" /></td>
+							<td><input type="date" name="DCLS_MONTH" /></td>
 						</tr>
 						<tr>
 							<th>대출금리유형</th>
@@ -60,7 +65,7 @@
 						</tr>
 						<tr>
 							<th>중도상환수수료</th>
-							<td><textarea rows="8" cols="85" name="ERLY_RPAY_FEE" ></textarea></td>
+							<td><textarea rows="8" cols="85" name="ERLY_RPAY_FEE"></textarea></td>
 						</tr>
 						<tr>
 							<th>연체이자율</th>
@@ -68,24 +73,62 @@
 						</tr>
 						<tr>
 							<th>대출한도</th>
-							<td><input type="text" name="LOAN_LMT"/></td>
-						</tr>
-                        <tr>
-							<th>관련 URL</th>
-							<td><input type="text" name="RL_URL"/></td>
-						</tr>
-                        <tr>
-							<th>이미지</th>
-							<td><input type="file" name="RL_IMG"/></td>
+							<td><input type="text" name="LOAN_LMT" /></td>
 						</tr>
 						<tr>
-                            <td colspan="2"><input class="addBtn" type="submit"></input></td>
-                        </tr>
+							<th>관련 URL</th>
+							<td><input type="text" name="RL_URL" /></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input class="addBtn" type="submit"></input></td>
+						</tr>
 					</table>
-					</form>
-			
+				</form>
+				<form id="fileForm" method="post" class="guar_inputBox"
+					enctype="multipart/form-data">
+					<table>
+						<tr>
+							<th>이미지</th>
+							<td><input class="fileInput0" type="file" name="RL_IMG" /></td>
+						</tr>
+					</table>
+				</form>
 				
-				<form class="credit_inputBox" action="creditAdd" method="post" >
+				<button class="fileInput">
+					button
+				</button>
+
+
+				<script>
+					
+					$(".fileInput").click(function() {
+						var formData = new FormData($("#fileForm")[0]);
+						var fileData = formData.get("RL_IMG")
+						
+						console.log(fileData)
+						console.log(typeof(formData))
+						const test = "test"
+						 $.ajax({
+							type : "post",
+							enctype : "multipart/form-data",
+							url : "upload",
+							data : formData,
+							dataType: 'json',
+							processData : false,
+							contentType : false,
+							cache : false,
+							success : function(result) {
+								alert("사진 업로드 완료"+result)
+							},
+							error : function(request,status,error){
+					             alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+							}
+						}) 
+					})
+				</script>
+
+
+				<form class="credit_inputBox" action="creditAdd" method="post">
 					<table>
 						<tr>
 							<th>금융회사명</th>
@@ -100,7 +143,7 @@
 							<th>공시제출월</th>
 							<td><input type="date" name="DCLS_MONTH" /></td>
 						</tr>
-                        <tr>
+						<tr>
 							<th>대출종류명</th>
 							<td><input type="text" name="CRDT_PRDT_TYPE_NM" /></td>
 						</tr>
@@ -176,20 +219,20 @@
 									<option value="direct">직접입력</option>
 							</select> <input type="text" id="selboxDirect8" name="CRDT_GRAD_AVG" /></td>
 						</tr>
-                        <tr>
+						<tr>
 							<th>관련 URL</th>
-							<td><input type="text" name="RL_CR_URL"/></td>
+							<td><input type="text" name="RL_CR_URL" /></td>
 						</tr>
-                        <tr>
+						<tr>
 							<th>이미지</th>
 							<td><input type="file" name="RL_CR_IMG" /></td>
 						</tr>
 						<tr>
-                            <td colspan="2"><input class="addBtn" type="submit"></input></td>
-                        </tr>
+							<td colspan="2"><input class="addBtn" type="submit"></input></td>
+						</tr>
 					</table>
-					</form>
-				<form  class="jeon_inputBox" action="jeonAdd" method="post">
+				</form>
+				<form class="jeon_inputBox" action="jeonAdd" method="post">
 					<table>
 						<tr>
 							<th>금융상품명</th>
@@ -201,7 +244,7 @@
 						</tr>
 						<tr>
 							<th>공시제출월</th>
-							<td><input type="text" name="DCLS_MONTH" /></td>
+							<td><input type="date" name="DCLS_MONTH" /></td>
 						</tr>
 						<tr>
 							<th>대출금리유형</th>
@@ -213,7 +256,7 @@
 						</tr>
 						<tr>
 							<th>중도상환수수료</th>
-							<td><textarea rows="8" cols="85" name="ERLY_RPAY_FEE" ></textarea></td>
+							<td><textarea rows="8" cols="85" name="ERLY_RPAY_FEE"></textarea></td>
 						</tr>
 						<tr>
 							<th>연체이자율</th>
@@ -221,30 +264,30 @@
 						</tr>
 						<tr>
 							<th>대출한도</th>
-							<td><input type="text" name="LOAN_LMT"/></td>
+							<td><input type="text" name="LOAN_LMT" /></td>
 						</tr>
-                        <tr>
+						<tr>
 							<th>관련 URL</th>
-							<td><input type="text" name="RL_CH_URL"/></td>
+							<td><input type="text" name="RL_CH_URL" /></td>
 						</tr>
-                        <tr>
+						<tr>
 							<th>이미지</th>
-							<td><input type="file" name="RL_CH_IMG"/></td>
+							<td><input type="file" name="RL_CH_IMG" /></td>
 						</tr>
-                        <tr>
-                            <td colspan="2"><input class="addBtn" type="submit"></input></td>
-                        </tr>
+						<tr>
+							<td colspan="2"><input class="addBtn" type="submit"></input></td>
+						</tr>
 					</table>
-					</form>
+				</form>
 			</div>
-			
+
 		</div>
 	</div>
 
 	<script>
-            $(".credit_btn").css("opacity", "1.2");
-			$(".guar_btn").css("opacity", "0.5");
-			$(".jeon_btn").css("opacity", "0.5");
+		$(".credit_btn").css("opacity", "1.2");
+		$(".guar_btn").css("opacity", "0.5");
+		$(".jeon_btn").css("opacity", "0.5");
 
 		$("#selboxDirect").hide();
 		for (let i = 1; i < 9; i++) {
@@ -252,7 +295,7 @@
 		}
 		for (let i = 1; i < 9; i++) {
 			$("#loanrate" + i).change(function() {
-				if ($("#loanrate"+ i).val() == "direct") {
+				if ($("#loanrate" + i).val() == "direct") {
 					$("#selboxDirect" + i).show();
 				} else {
 					$("#selboxDirect" + i).hide();

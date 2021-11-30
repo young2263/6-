@@ -18,5 +18,8 @@ public class AdvertiseDao {
 		return sqlSession.selectList("Advertise.advertiseList");
 	}
 	
+	public int advertiseAdd(Advertise ad) {
+		return sqlSession.insert("Advertise.advertiseAdd",ad);
+	}
 	
 }

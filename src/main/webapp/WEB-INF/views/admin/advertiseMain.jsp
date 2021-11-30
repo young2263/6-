@@ -21,8 +21,13 @@
 	<div class="body">
 		<div class="navbar">
 			<div class="navbarItem">사용자관리</div>
-			<div class="navbarItem">대출상품관리</div>
-			<div class="navbarItem">광고관리</div>
+			<div class="navbarItem">
+				<a href="admin">대출상품관리</a>
+			</div>
+			<div class="navbarItem">
+				<a href="advertise">광고관리</a>
+			</div>
+			<div class="navbarItem">댓글관리</div>
 		</div>
 		<div class="content">
             <div class="title">

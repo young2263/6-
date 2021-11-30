@@ -20,32 +20,37 @@
 	<div class="body">
 		<div class="navbar">
 			<div class="navbarItem">사용자관리</div>
-			<div class="navbarItem">대출상품관리</div>
-			<div class="navbarItem">광고관리</div>
+			<div class="navbarItem">
+				<a href="admin">대출상품관리</a>
+			</div>
+			<div class="navbarItem">
+				<a href="advertise">광고관리</a>
+			</div>
+			<div class="navbarItem">댓글관리</div>
 		</div>
 		<div class="content">
             <div class="title">
                 <h3>광고 추가</h3>
             </div>
 
-            <form action="#" method="post" class="tableBox">
+            <form action="advertiseAdd.do" method="post" class="tableBox">
                 <table>
 					<tr>
 						<th>광고 제목</th>
-						<td><input type="text"></td>
+						<td><input name="AD_TITLE" type="text"></td>
 					</tr>
 						<tr>
 							<th>광고 내용</th>
-							<td><textarea name="" id="" cols="62" rows="5"></textarea></td>
+							<td><textarea name="AD_CONTENT" name="" id="" cols="62" rows="5"></textarea></td>
 						</tr>
                         <tr>
 							<th>광고 이미지</th>
-                            <td><input type="file"></td>
+                            <td><input name="AD_IMG" type="file"></td>
 						</tr>
 
                         <tr>
                             <th>광고 URL</th>
-                            <td><input type="text"></td>
+                            <td><input name="AD_SRC" type="text"></td>
                         </tr>
                         <tr>
                             <td colspan="2"><input class="addBtn" type="submit"></input></td>

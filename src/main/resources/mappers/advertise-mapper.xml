@@ -14,4 +14,8 @@
  	select * from advertisement
 </select>
 
+<insert id="advertiseAdd" parameterType="Advertise">
+insert into ADVERTISEMENT values(ADVERTISEMENT_SEQ.nextval,#{AD_TITLE},#{AD_CONTENT},#{AD_IMG},#{AD_IMG})
+</insert>
+
 </mapper>
