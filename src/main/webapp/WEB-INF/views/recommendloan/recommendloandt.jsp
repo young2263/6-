@@ -16,26 +16,26 @@
 </style>
 
 <style>
-/*
+
 	.body > aside {
 		float:left;
 		width: 100%;
 	}
 	
-	input:nth-of-type(1) {display:none;}
-	input:nth-of-type(1) ~ div:nth-of-type(1) {display:none;}
-	input:nth-of-type(1):checked ~ div:nth-of-type(1) {display:block;}
+	.tabb:nth-of-type(1) {display:none;}
+	.tabb:nth-of-type(1) ~ div:nth-of-type(1) {display:none;}
+	.tabb:nth-of-type(1):checked ~ div:nth-of-type(1) {display:block;}
 	
-	input:nth-of-type(2) {display:none;}
-	input:nth-of-type(2) ~ div:nth-of-type(2) {display:none;}
-	input:nth-of-type(2):checked ~ div:nth-of-type(2) {display:block;}
+	.tabb:nth-of-type(2) {display:none;}
+	.tabb:nth-of-type(2) ~ div:nth-of-type(2) {display:none;}
+	.tabb:nth-of-type(2):checked ~ div:nth-of-type(2) {display:block;}
 	
-	input:nth-of-type(3) {display:none;}
-	input:nth-of-type(3) ~ div:nth-of-type(3) {display:none;}
-	input:nth-of-type(3):checked ~ div:nth-of-type(3) {display:block;}
-*/
+	.tabb:nth-of-type(3) {display:none;}
+	.tabb:nth-of-type(3) ~ div:nth-of-type(3) {display:none;}
+	.tabb:nth-of-type(3):checked ~ div:nth-of-type(3) {display:block;}
+
 /* 탭 모양 */
-/*
+
 	aside > label {
 		display : block;
 		float: left;
@@ -49,22 +49,22 @@
 		background-color:white;
 		color:blue;
 	}
-	input:nth-of-type(1):checked ~ label:nth-of-type(1) {
+	.tabb:nth-of-type(1):checked ~ label:nth-of-type(1) {
 		background-color: blue;
 		color: white;
 	}
-	input:nth-of-type(2):checked ~ label:nth-of-type(2) {
+	.tabb:nth-of-type(2):checked ~ label:nth-of-type(2) {
 		background-color: blue;
 		color: white;
 	}
-	input:nth-of-type(3):checked ~ label:nth-of-type(3) {
+	.tabb:nth-of-type(3):checked ~ label:nth-of-type(3) {
 		background-color: blue;
 		color: white;
 	}
-*/
+
 	
 	/* 탭 목록 */
-/*
+
 	.tab_item .item {
 		overflow: hidden;
 		padding: 10px;
@@ -79,7 +79,7 @@
 		overflow: hidden;
 		text-overflow: eclipsis;
 	} 
-*/	
+
 	
 	.star_rating {font-size:0; letter-spacing:-4px;}
 	.star_rating a {
@@ -201,13 +201,13 @@ $( document ).ready(function() {
 	
 <aside>		
 	<div class="bodyunder">
-    <!-- 
-        <input type="radio" id="detail" name="tab" checked>
-        <input type="radio" id="calculation" name="tab">
-        <input type="radio" id="review" name="tab">
+    
+        <input type="radio" id="detail" class="tabb" name="tab" checked>
+        <input type="radio" id="calculation" class="tabb" name="tab">
+        <input type="radio" id="review" class="tabb" name="tab">
         
         <label for="detail">세부 정보</label><label for="calculation">계산기</label><label for="review">리뷰</label>
-     -->    
+     
         
         <!-- 세부정보 -->
         <div class="tab_item">
