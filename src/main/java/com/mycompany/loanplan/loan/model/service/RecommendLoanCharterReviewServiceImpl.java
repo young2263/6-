@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mycompany.loanplan.loan.model.dao.RecommendLoanCharterDao;
 import com.mycompany.loanplan.loan.model.dao.RecommendLoanCharterReviewDao;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoanCharterReview;
 
@@ -15,22 +16,27 @@ public class RecommendLoanCharterReviewServiceImpl implements RecommendLoanChart
 	private RecommendLoanCharterReviewDao recommendLoanCharterReviewDao;
 	
 	@Override
-	public List<RecommendLoanCharterReview> listLoanCharterReview() {
-		return recommendLoanCharterReviewDao.listLoanCharterReview();
+	public RecommendLoanCharterReview selectRecommendLoanCharterReview(String m_id) {
+		return recommendLoanCharterReviewDao.selectOne(m_id);
 	}
 	
 	@Override
-	public List<RecommendLoanCharterReview> selectCharterReviewList(int startPage, int limit) {
-		return recommendLoanCharterReviewDao.selectCharterReviewList(startPage, limit);
+	public List<RecommendLoanCharterReview> selectList(int rl_ch_num) {
+		return recommendLoanCharterReviewDao.selectList(rl_ch_num);
 	}
 	
 	@Override
-	public int loanCharterReviewCount() {
-		return recommendLoanCharterReviewDao.loanCharterReviewCount();
+	public int insertRecommendLoanCharterReview(RecommendLoanCharterReview rlcr) {
+		return recommendLoanCharterReviewDao.insertRecommendLoanCharterReview(rlcr);
 	}
 	
 	@Override
-	public int insertRecommendLoanCharterReview(int rlchnum) {
-		return recommendLoanCharterReviewDao.insertRecommendLoanCharterReview(rlchnum);
+	public int updateRecommendLoanCharterReview(RecommendLoanCharterReview rlcr) {
+		return recommendLoanCharterReviewDao.updateRecommendLoanCharterReview(rlcr);
+	}
+	
+	@Override
+	public int deleteRecommendLoanCharterReview(RecommendLoanCharterReview rlcr) {
+		return recommendLoanCharterReviewDao.deleteRecommendLoanCharterReview(rlcr);
 	}
 }

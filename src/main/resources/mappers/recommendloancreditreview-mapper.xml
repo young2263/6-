@@ -14,22 +14,27 @@
 		select * from RECOMMEND_LOAN_CR_REVIEW where RL_CR_NUM = #{RL_CR_NUM}
 	</select>
 	
-	<!-- 페이지별 -->
-	<select id="selectCreditReviewList" resultMap="RecommendLoanCreditReview">
-		select * from RECOMMEND_LOAN_CR_REVIEW where RL_CR_NUM = #{RL_CR_NUM}
-	</select>
-	
-	<!-- 리뷰 정보 totalCount -->
-	<select id="loanCreditReviewCount" resultType="int">
-		select count(*) from RECOMMEND_LOAN_CR_REVIEW
+	<!-- 리뷰 단일 조회 -->
+	<select id="selectRecommendLoanCreditReview" parameterType="string" resultMap="RecommendLoanCreditReview">
+		select * from RECOMMEND_LOAN_CR_REVIEW where M_ID = #{M_ID}
 	</select>
 	
 	<!-- 리뷰 입력 -->
-	<insert id="insertRecommendLoanCreditReview" parameterType="RecommendLoanCharterReview" flushCache="true" statementType="PREPARED" timeout="20">
-		insert into RECOMMEND_LOAN_CR_REVIEW VALUES(
-			'RLCRR'||LPAD(RECOMMEND_LOAN_CR_REVIEW_SEQ.NEXTVAL,2,'0'),
-			#{RLR_NUM}, #{RLR_AST}, #{RLR_COMMENT}, #{RL_CR_NUM}, #{M_ID}
-		)
+	<insert id="insertRecommendLoanCreditReview" parameterType="RecommendLoanCreditReview" flushCache="true" statementType="PREPARED" timeout="20">
+		insert into RECOMMEND_LOAN_CR_REVIEW (RLR_NUM, RLR_AST, RLR_COMMENT, RL_CR_NUM, M_ID)
+		values ((select NVL(MAX(RLR_NUM)+1, 1)from RECOMMEND_LOAN_REVIEW), #{RLR_AST}, #{RLR_COMMENT}, #{RL_CR_NUM}, #{M_ID})
 	</insert>
+	
+	<!-- 리뷰 수정 -->
+	<select id="updateRecommendLoanCreditReview" parameterType="RecommendLoanCreditReview" flushCache="true" statementType="PREPARED" timeout="20">
+		update RECOMMEND_LOAN_CR_REVIEW set RLR_COMMENT = #{RLR_COMMENT}
+		where M_ID = #{M_ID}
+	</select>
+	
+	<!-- 리뷰 삭제 -->
+	<delete id="deleteRecommendLoanCreditReview" parameterType="RecommendLoanCreditReview" flushCache="true" statementType="PREPARED" timeout="20">
+		delete from RECOMMEND_LOAN_CR_REVIEW
+		where M_ID = #{M_ID}
+	</delete>
 
 </mapper>
