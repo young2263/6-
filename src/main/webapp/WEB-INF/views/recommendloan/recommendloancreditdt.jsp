@@ -42,10 +42,8 @@
 		width: 100%; height:30px;
 		text-align: center;
 		line-height: 30px;
-		
 		border: 1px solid black;
 		box-sizing: border-box;
-		
 		background-color:white;
 		color:blue;
 	}
@@ -70,7 +68,14 @@
 		padding: 10px;
 		border: 1px solid black;
 		border-top: none;
+		border-bottom: none;
 	}
+	
+	.tab_item h1 {
+        width: 100%;
+        text-align: center;
+    }
+	
 	.item .description {
 		float:left;
 		margin-left: 10px;
@@ -78,9 +83,18 @@
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: eclipsis;
-	} 
-
+		text-align: center;	
+	}
 	
+	.tab_item .loancalcul {
+		margin: auto;
+	}
+	
+	.tab_item .reviewtable {
+        margin: auto;
+        border: none;
+    }
+
 	.star_rating {font-size:0; letter-spacing:-4px;}
 	.star_rating a {
       font-size:22px;
@@ -208,64 +222,65 @@ $( document ).ready(function() {
         <input type="radio" id="review" class="tabb" name="tab">
         
         <label for="detail">세부 정보</label><label for="calculation">계산기</label><label for="review">리뷰</label>
-      
+      <br><br><br><br>
         
         <!-- 세부정보 -->
         <div class="tab_item">
         	<h1>세부정보</h1>
+        	<br><br><br><br>
             <ul>
                 <li class="item">
         		    <div class="description">
 						<b>공시 제출월</b>
-                        <br><p>${recommendloancredit.DCLS_MONTH }</p>
+                        <br><br><p>${recommendloancredit.DCLS_MONTH }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>900점 초과 금리</b>	
-						<br><p>${recommendloancredit.CRDT_GRAD_1 }</p>
+						<br><br><p>${recommendloancredit.CRDT_GRAD_1 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>801 ~ 900점 금리</b>	
-						<br><p>${recommendloancredit.CRDT_GRAD_4 }</p>
+						<br><br><p>${recommendloancredit.CRDT_GRAD_4 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>701 ~ 800점 금리</b>	
-						<br><p>${recommendloancredit.CRDT_GRAD_5 }</p>
+						<br><br><p>${recommendloancredit.CRDT_GRAD_5 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>601 ~ 700점 금리</b>	
-						<br><p>${recommendloancredit.CRDT_GRAD_6 }</p>
+						<br><br><p>${recommendloancredit.CRDT_GRAD_6 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>401 ~ 500점 금리</b>
-						<br><p>${recommendloancredit.CRDT_GRAD_10 }</p>
+						<br><br><p>${recommendloancredit.CRDT_GRAD_10 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>301 ~ 400점 금리</b>
-						<br><p>${recommendloancredit.CRDT_GRAD_12 }</p>
+						<br><br><p>${recommendloancredit.CRDT_GRAD_12 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>300점 이하 금리</b>
-						<br><p>${recommendloancredit.CRDT_GRAD_13 }</p>
+						<br><br><p>${recommendloancredit.CRDT_GRAD_13 }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>평균 금리</b>
-						<br><p>${recommendloancredit.CRDT_GRAD_AVG }</p>
+						<br><br><p>${recommendloancredit.CRDT_GRAD_AVG }</p>
                     </div>
                 </li>
             </ul>
@@ -276,7 +291,8 @@ $( document ).ready(function() {
         <div class="tab_item">
            <form name="loandata">
            <h1>계산기</h1>
-	<table>
+           <br><br><br><br>
+	<table class="loancalcul">
 		<tr>
 			<td colspan="3"><b>대출 금액 및 이자율 입력</b></td>
 		</tr>
@@ -332,13 +348,14 @@ $( document ).ready(function() {
         	<form action="recommendloanreview" method="get">
             	<div class="content">
             		<h1>리뷰</h1>
+            		<br><br>
 				<input type="hidden" name="rl_cr_num" value=${rl_cr_num }>
 				
-			<table border="1" style="width: 80%">
+			<table class="reviewtable" border="1" style="width: 70%">
 	  			<tr>
 	  				<td>내용</td>
 	  				<td>
-	  					<textarea rows="5" cols="50" name="rlr_comment"></textarea>
+	  					<textarea style="resize:none;" rows="10" cols="120" name="rlr_comment"></textarea>
 	  				</td>
 	  			</tr>
 	  			<tr>

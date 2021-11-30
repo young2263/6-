@@ -9,6 +9,22 @@
 <title>주택담보대출</title>
 <link rel="stylesheet" href="./resources/css/admin/templatemo.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<style>
+	* {
+    	padding: 0;
+    	margin: 0;
+    	box-sizing: border-box;
+	}
+
+
+	.body .content .tablebox {
+		width: 100%;
+        margin: auto;
+    }
+
+</style>
+
 </head>
 <body>
 
@@ -92,8 +108,9 @@
 		
 		<div class="content">
 			<div class="listTitle">주택 담보 대출</div>
+			<br><br>
 			<div>
-				<table class="tableBox">
+				<table class="tableBox" >
 					<tr>
 						<th></th>
 						<th>대출상품명</th>
