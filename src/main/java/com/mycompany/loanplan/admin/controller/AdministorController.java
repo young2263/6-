@@ -52,10 +52,10 @@ public class AdministorController {
 	@Autowired
 	private AdvertiseService advertiseService;
 
+	//대출 리스트창 띄우기
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView adminList(@RequestParam(name = "page", defaultValue = "1") int page,
 			@RequestParam(name = "keyword", required = false) String keyword, ModelAndView mv) {
-		System.out.println("admin진입");
 		try {
 
 			int currentPage = page;
@@ -66,6 +66,49 @@ public class AdministorController {
 			mv.addObject("maxPage", maxPage);
 			mv.addObject("listCount", listCount);
 			mv.setViewName("admin/main");
+		} catch (Exception e) {
+			mv.addObject("msg", e.getMessage());
+			e.printStackTrace();
+		}
+
+		return mv;
+	}
+	
+	@RequestMapping(value = "/creditLoan", method = RequestMethod.GET)
+	public ModelAndView creditList(@RequestParam(name = "page", defaultValue = "1") int page,
+			@RequestParam(name = "keyword", required = false) String keyword, ModelAndView mv) {
+		try {
+
+			int currentPage = page;
+			int listCount = adminService.loancreditCount();
+			int maxPage = (int) ((double) listCount / LIMIT + 0.9);
+			List<RecommendLoanCredit> volist = adminService.recommendLoanCreditList(currentPage, LIMIT);
+			mv.addObject("volist", adminService.recommendLoanCreditList(currentPage, LIMIT));
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("maxPage", maxPage);
+			mv.addObject("listCount", listCount);
+			mv.setViewName("admin/creditLoanList");
+		} catch (Exception e) {
+			mv.addObject("msg", e.getMessage());
+			e.printStackTrace();
+		}
+
+		return mv;
+	}
+	
+	@RequestMapping(value = "/charterLoan", method = RequestMethod.GET)
+	public ModelAndView charterList(@RequestParam(name = "page", defaultValue = "1") int page,
+			@RequestParam(name = "keyword", required = false) String keyword, ModelAndView mv) {
+		try {
+
+			int currentPage = page;
+			int listCount = adminService.loancharterCount();
+			int maxPage = (int) ((double) listCount / LIMIT + 0.9);
+			mv.addObject("volist", adminService.recommendLoanCharterList(currentPage, LIMIT));
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("maxPage", maxPage);
+			mv.addObject("listCount", listCount);
+			mv.setViewName("admin/charterLoanList");
 		} catch (Exception e) {
 			mv.addObject("msg", e.getMessage());
 			e.printStackTrace();
@@ -118,18 +161,7 @@ public class AdministorController {
 			e.printStackTrace();
 		}
 	}
-
-	@RequestMapping(value = "/admin/list", method = RequestMethod.GET)
-	public ModelAndView creditlist(ModelAndView mv) {
-		try {
-			mv.setViewName("admin/main");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return mv;
-	}
-
+	// 대출 추가창 띄우기
 	@RequestMapping("/loanAdd")
 	public ModelAndView addLoan(Administor ad, HttpServletRequest request, ModelAndView mv) {
 		try {
@@ -139,10 +171,9 @@ public class AdministorController {
 		}
 		return mv;
 	}
-
+	// 주택담보 대출 추가
 	@RequestMapping(value = "/guarAdd", method = RequestMethod.POST)
-	public ModelAndView guarAdd(HttpServletRequest request, ModelAndView mv,
-			@RequestParam("RL_IMG") MultipartFile file) {
+	public ModelAndView guarAdd(HttpServletRequest request, ModelAndView mv) {
 		try {
 			String FIN_PRDT_NM = request.getParameter("FIN_PRDT_NM");
 			String KOR_CO_NM = request.getParameter("KOR_CO_NM");
@@ -153,25 +184,22 @@ public class AdministorController {
 			String DLY_RATE = request.getParameter("DLY_RATE");
 			String LOAN_LMT = request.getParameter("LOAN_LMT");
 			String RL_URL = request.getParameter("RL_URL");
-			String RL_IMG = "test";
-//			String RL_IMG = request.getParameter("RL_IMG");
+//			String RL_IMG = "test";
+			String RL_IMG = request.getParameter("RL_IMG");
 			System.out.println(FIN_PRDT_NM);
 			RecommendLoan guar = new RecommendLoan(RL_IMG, RL_URL, DCLS_MONTH, KOR_CO_NM, FIN_PRDT_NM,
 					LEND_RATE_TYPE_NM, RPAY_TYPE_NM, ERLY_RPAY_FEE, DLY_RATE, LOAN_LMT);
 
 			int result = adminService.guarInsert(guar);
 
-			// 파일 업로드
-			System.out.println(file.getOriginalFilename());
-
-			System.out.println(result);
+			// 
 			mv.setViewName("admin/main");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return mv;
 	}
-
+	// 신용 대출 추가
 	@RequestMapping(value = "/creditAdd", method = RequestMethod.POST)
 	public ModelAndView creditAdd(HttpServletRequest request, ModelAndView mv) {
 		try {
@@ -199,7 +227,7 @@ public class AdministorController {
 		}
 		return mv;
 	}
-
+	// 전세자금 대출 추가
 	@RequestMapping(value = "/jeonAdd", method = RequestMethod.POST)
 	public ModelAndView jeonAdd(HttpServletRequest request, ModelAndView mv) {
 		try {
@@ -223,7 +251,7 @@ public class AdministorController {
 		}
 		return mv;
 	}
-
+	// 광고 리스트창 띄우기
 	@RequestMapping(value = "/advertise", method = RequestMethod.GET)
 	public ModelAndView advertisement(Administor ad, HttpServletRequest request, ModelAndView mv) {
 		try {
@@ -235,7 +263,8 @@ public class AdministorController {
 		}
 		return mv;
 	}
-
+	
+	//광고 추가창 띄우기
 	@RequestMapping(value = "/advertiseAdd", method = RequestMethod.GET)
 	public ModelAndView advertiseAdd(Administor ad, HttpServletRequest request, ModelAndView mv) {
 		try {
@@ -245,7 +274,7 @@ public class AdministorController {
 		}
 		return mv;
 	}
-
+	//광고 추가
 	@RequestMapping(value = "/advertiseAdd.do", method = RequestMethod.POST)
 	public ModelAndView advertiseAddDo(Administor ad, HttpServletRequest request, ModelAndView mv) {
 		try {
@@ -255,7 +284,7 @@ public class AdministorController {
 			String AD_SRC = request.getParameter("AD_SRC");
 			Advertise adt = new Advertise(AD_TITLE, AD_CONTENT, AD_IMG, AD_SRC);
 			int result = advertiseService.advertiseAdd(adt);
-			System.out.println(result);
+			System.out.println(AD_TITLE);
 			List<Advertise> advertiseList = advertiseService.advertiseList();
 			mv.addObject("advertiseList", advertiseList);
 			mv.setViewName("admin/advertiseMain");
@@ -264,23 +293,174 @@ public class AdministorController {
 		}
 		return mv;
 	}
-
-	@RequestMapping(value = "/upload", method = RequestMethod.POST)
-	@ResponseBody
-	public String upload(MultipartHttpServletRequest request) throws Exception{
-		System.out.println("진입");
-		Iterator itr = request.getFileNames();
-		System.out.println(itr);
-		
-		if(itr.hasNext()) {
-			List mpf = request.getFiles((String) itr.next());
-//			for(int i = 0; i < mpf.size(); i++) 
-//			{ File file = new File(PATH + mpf.get(i).getOriginalFilename());
-//			logger.info(file.getAbsolutePath()); 
-//			mpf.get(i).transferTo(file); 
-//			}
+	// 업로드
+//	@RequestMapping(value = "/upload", method = RequestMethod.POST)
+//	@ResponseBody
+//	public String upload(MultipartHttpServletRequest request) throws Exception{
+//		System.out.println("진입");
+//		Iterator itr = request.getFileNames();
+//		System.out.println(itr);
+//		
+//		if(itr.hasNext()) {
+//			List mpf = request.getFiles((String) itr.next());
+////			for(int i = 0; i < mpf.size(); i++) 
+////			{ File file = new File(PATH + mpf.get(i).getOriginalFilename());
+////			logger.info(file.getAbsolutePath()); 
+////			mpf.get(i).transferTo(file); 
+////			}
+//		}
+//		return "success";
+//	}
+	//주택담보 대출 상품 삭제
+	@RequestMapping(value = "/deleteLoan", method = RequestMethod.GET)
+	public ModelAndView deleteLoan(@RequestParam(name = "page", defaultValue = "1") int page,
+			@RequestParam(name="RL_NUM") int RL_NUM,
+			ModelAndView mv) {
+		try {
+			System.out.println(RL_NUM);
+			int result = adminService.deleteLoan(RL_NUM);
+			int currentPage = page;
+			int listCount = adminService.loanCount();
+			int maxPage = (int) ((double) listCount / LIMIT + 0.9);
+			mv.addObject("volist", adminService.selectList(currentPage, LIMIT));
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("maxPage", maxPage);
+			mv.addObject("listCount", listCount);
+			mv.setViewName("admin/main");
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		return "success";
+		return mv;
+	}
+	//신용 대출 상품 삭제
+	@RequestMapping(value = "/deleteCredit", method = RequestMethod.GET)
+	public ModelAndView deleteCredit(@RequestParam(name = "page", defaultValue = "1") int page,
+			@RequestParam(name="RL_CR_NUM") int RL_CR_NUM,
+			ModelAndView mv) {
+		try {
+			System.out.println(RL_CR_NUM);
+			int result = adminService.deleteCredit(RL_CR_NUM);
+			int currentPage = page;
+			int listCount = adminService.loancreditCount();
+			int maxPage = (int) ((double) listCount / LIMIT + 0.9);
+			mv.addObject("volist", adminService.recommendLoanCreditList(currentPage, LIMIT));
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("maxPage", maxPage);
+			mv.addObject("listCount", listCount);
+			mv.setViewName("admin/creditLoanList");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
+	//전세자금 대출 상품 삭제
+	@RequestMapping(value = "/deleteCharter", method = RequestMethod.GET)
+	public ModelAndView deleteCharter(@RequestParam(name = "page", defaultValue = "1") int page,
+			@RequestParam(name="RL_CH_NUM") int RL_CH_NUM,
+			ModelAndView mv) {
+		try {
+			System.out.println(RL_CH_NUM);
+			int result = adminService.deleteCharter(RL_CH_NUM);
+			System.out.println(result);
+			int currentPage = page;
+			int listCount = adminService.loancharterCount();
+			int maxPage = (int) ((double) listCount / LIMIT + 0.9);
+			mv.addObject("volist", adminService.recommendLoanCharterList(currentPage, LIMIT));
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("maxPage", maxPage);
+			mv.addObject("listCount", listCount);
+			mv.setViewName("admin/charterLoanList");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
+	//광고 삭제
+	@RequestMapping(value = "/deleteAdvertise", method = RequestMethod.GET)
+	public ModelAndView deleteAdvertise(
+			@RequestParam(name="AD_NUM") int AD_NUM,
+			ModelAndView mv) {
+		try {
+			System.out.println(AD_NUM);
+			int result = advertiseService.deleteAdvertise(AD_NUM);
+			System.out.println(result);
+			List<Advertise> advertiseList = advertiseService.advertiseList();
+			System.out.println(advertiseList);
+			mv.addObject("advertiseList",advertiseList);
+			mv.setViewName("admin/advertiseMain");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
+	// 대출 상품 수정
+	@RequestMapping(value = "/loanModify", method = RequestMethod.GET)
+	public ModelAndView recommendLoanDetail(
+			@RequestParam(name="NUM") int NUM,
+			ModelAndView mv) {
+		System.out.println("modify 진입");
+		try {
+			mv.addObject("volist", adminService.recommendLoanDetail(NUM));
+			mv.setViewName("admin/loanModify");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
+	@RequestMapping(value = "/loanModify.do", method = RequestMethod.POST)
+	public ModelAndView loanModify(
+			HttpServletRequest request,
+			ModelAndView mv) {
+		try {
+			int RL_NUM = Integer.parseInt(request.getParameter("RL_NUM"));
+			String FIN_PRDT_NM = request.getParameter("FIN_PRDT_NM");
+			String KOR_CO_NM = request.getParameter("KOR_CO_NM");
+			String DCLS_MONTH = request.getParameter("DCLS_MONTH");
+			String LEND_RATE_TYPE_NM = request.getParameter("LEND_RATE_TYPE_NM");
+			String RPAY_TYPE_NM = request.getParameter("RPAY_TYPE_NM");
+			String ERLY_RPAY_FEE = request.getParameter("ERLY_RPAY_FEE");
+			String DLY_RATE = request.getParameter("DLY_RATE");
+			String LOAN_LMT = request.getParameter("LOAN_LMT");
+			String RL_URL = request.getParameter("RL_URL");
+//			String RL_IMG = "test";
+			String RL_IMG = request.getParameter("RL_IMG");
+			RecommendLoan guar = new RecommendLoan(RL_NUM, RL_IMG, RL_URL, DCLS_MONTH, KOR_CO_NM, FIN_PRDT_NM, LEND_RATE_TYPE_NM, RPAY_TYPE_NM, ERLY_RPAY_FEE, DLY_RATE, LOAN_LMT);
+			adminService.modifyLoan(guar);
+			mv.setViewName("admin/main");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value = "/charterModify", method = RequestMethod.GET)
+	public ModelAndView recommendLoanCharterListDetail(
+			@RequestParam(name="NUM") int NUM,
+			ModelAndView mv) {
+		System.out.println("modify 진입");
+		try {
+			mv.addObject("volist", adminService.recommendLoanCharterListDetail(NUM));
+			mv.setViewName("admin/charterModify");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value = "/creditModify", method = RequestMethod.GET)
+	public ModelAndView recommendLoanCreditListDetail(
+			@RequestParam(name="NUM") int NUM,
+			ModelAndView mv) {
+		System.out.println("modify 진입");
+		System.out.println(adminService.recommendLoanCreditListDetail(NUM));
+		try {
+			List<RecommendLoanCredit> volist = adminService.recommendLoanCreditListDetail(NUM);
+			mv.addObject("volist", volist);
+			mv.setViewName("admin/creditModify");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
 	}
 
 }

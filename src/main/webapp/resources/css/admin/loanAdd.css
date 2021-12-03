@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+a {
+	text-decoration: none;
+	color: black;
+}
+
 ul,li{
     list-style: none;
 }
@@ -34,7 +39,7 @@ header .admin {
 
 .body {
     display: flex;
-    height: 900px;
+    height: 1000px;
 }
 
 .body .navbar {
@@ -64,7 +69,6 @@ header .admin {
 }
 
 .body .content .button {
-   
     margin-left: 70rem;
 }
 

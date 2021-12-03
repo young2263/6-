@@ -8,5 +8,5 @@ public interface AdvertiseService {
 
 	List<Advertise> advertiseList();
 	int advertiseAdd(Advertise ad);
-	
+	int deleteAdvertise(int AD_NUM);
 }

@@ -15,7 +15,7 @@ public class Advertise {
 	public Advertise() {
 		
 	}
-	
+
 	public Advertise(String aD_TITLE, String aD_CONTENT, String aD_IMG, String aD_SRC) {
 		super();
 		AD_TITLE = aD_TITLE;
@@ -63,8 +63,7 @@ public class Advertise {
 	public void setAD_SRC(String aD_SRC) {
 		AD_SRC = aD_SRC;
 	}
-	
-	
-	
+
+
 	
 }

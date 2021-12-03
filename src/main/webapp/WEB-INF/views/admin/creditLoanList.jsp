@@ -30,7 +30,7 @@
 		</div>
 		<div class="content">
 			<div class="listTitle">대출 상품 관리</div>
-			<div class="searchBox">
+			<div class="loanBox">
 				<input type="text">
 				<button>확인</button>
 			</div>
@@ -39,24 +39,28 @@
 				<div class="credit_btn"><a href="creditLoan">신용</a></div>
 				<div class="jeon_btn"><a href="charterLoan">전세자금</a></div>
 			</div>
-			
+			<script>
+			$(".credit_btn").css("opacity", "1.2");
+			$(".guar_btn").css("opacity","0.5");
+			$(".jeon_btn").css("opacity", "0.5");
+			</script>
 			<div>
 				<table class="tableBox">
 					<tr>
-						<th>대출상품명</th>
+						<th>금융회사명</th>
 						<th>대출 유형</th>
-						<th>대출 상환 방식</th>
+						<th>공시제출월</th>
 						<th>이자율</th>
-						<th>은행</th>
+						<th>관련 URL</th>
 					</tr>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
 							<tr class="loanBox1">
-								<td><a href="loanModify?NUM=${vo.RL_NUM}">${vo.FIN_PRDT_NM }</a></td>
-								<td>${vo.LEND_RATE_TYPE_NM }</td>
-								<td>${vo.RPAY_TYPE_NM }</td>
-								<td>${vo.DLY_RATE }</td>
-								<td>${vo.KOR_CO_NM }</td>
-								<td class="deleteBtn"><a href="deleteLoan?RL_NUM=${vo.RL_NUM}">
+								<td><a href="creditModify?NUM=${vo.RL_CR_NUM}">${vo.KOR_CO_NM }</a></td>
+								<td>${vo.CRDT_PRDT_TYPE_NM }</td>
+								<td>${vo.DCLS_MONTH }</td>
+								<td>${vo.CRDT_GRAD_AVG }</td>
+								<td>${vo.RL_CR_URL }</td>
+								<td class="deleteBtn"><a href="deleteCredit?RL_CR_NUM=${vo.RL_CR_NUM}">
 									<button>삭제</button>
 								</a></td>
 							</tr>
@@ -69,7 +73,7 @@
                 [이전]&nbsp;
                 </c:if>
 				<c:if test="${currentPage > 1}">
-					<c:url var="blistST" value="admin">
+					<c:url var="blistST" value="creditLoan">
 						<c:param name="page" value="${currentPage-1}" />
 					</c:url>
 					<a href="${blistST}">[이전]</a>
@@ -80,7 +84,7 @@
 						<font color="red" size="4"><b>[${p}]</b></font>
 					</c:if>
 					<c:if test="${p ne currentPage}">
-						<c:url var="blistchk" value="admin">
+						<c:url var="blistchk" value="creditLoan">
 							<c:param name="page" value="${p}" />
 						</c:url>
 						<a href="${blistchk}">${p}</a>
@@ -90,7 +94,7 @@
  [다음] 
  </c:if>
 				<c:if test="${currentPage < maxPage}">
-					<c:url var="blistEND" value="admin">
+					<c:url var="blistEND" value="creditLoan">
 						<c:param name="page" value="${currentPage+1}" />
 					</c:url>
 					<a href="${blistEND}">[다음]</a>
@@ -104,9 +108,7 @@
 	</div>
 
 	<script>
-			$(".credit_btn").css("opacity", "0.5");
-			$(".guar_btn").css("opacity","1.2");
-			$(".jeon_btn").css("opacity", "0.5");
-			</script>
+		
+	</script>
 </body>
 </html>

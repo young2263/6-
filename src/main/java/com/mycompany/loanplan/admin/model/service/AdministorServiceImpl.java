@@ -43,6 +43,21 @@ public class AdministorServiceImpl implements AdministorService {
 	}
 	
 	@Override
+	public List<RecommendLoanCharter> recommendLoanCharterListDetail(int NUM){
+		return adminDao.recommendLoanCharterListDetail(NUM);
+	}
+	
+	@Override
+	public List<RecommendLoanCredit> recommendLoanCreditListDetail(int NUM){
+		return adminDao.recommendLoanCreditListDetail(NUM);
+	}
+	
+	@Override
+	public List<Administor> recommendLoanDetail(int NUM){
+		return adminDao.recommendLoanDetail(NUM);
+	}
+	
+	@Override
 	public int loanCount(){
 		return adminDao.loanCount();
 	}
@@ -72,5 +87,24 @@ public class AdministorServiceImpl implements AdministorService {
 		return adminDao.geonInsert(rmct);
 	}
 	
+	@Override
+	public int deleteLoan(int RL_NUM){
+		return adminDao.deleteLoan(RL_NUM);
+	}
+	
+	@Override
+	public int deleteCredit(int RL_CR_NUM){
+		return adminDao.deleteCredit(RL_CR_NUM);
+	}
+	
+	@Override
+	public int deleteCharter(int RL_CH_NUM){
+		return adminDao.deleteCharter(RL_CH_NUM);
+	}
+	
+	@Override
+	public int modifyLoan(RecommendLoan list){
+		return adminDao.modifyLoan(list);
+	}
 	
 }

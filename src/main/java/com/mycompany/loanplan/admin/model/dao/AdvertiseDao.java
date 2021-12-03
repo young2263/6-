@@ -22,4 +22,8 @@ public class AdvertiseDao {
 		return sqlSession.insert("Advertise.advertiseAdd",ad);
 	}
 	
+	public int deleteAdvertise(int AD_NUM) {
+		return sqlSession.delete("Advertise.deleteAdvertise",AD_NUM);
+	}
+	
 }

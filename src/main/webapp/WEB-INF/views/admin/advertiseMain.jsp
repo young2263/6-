@@ -48,6 +48,9 @@
 							<td>${vo.AD_CONTENT }</textarea></td>
                             <td>${vo.AD_IMG }</td>
                             <td>${vo.AD_SRC }</td>
+                            <td class="deleteBtn"><a href="deleteAdvertise?AD_NUM=${vo.AD_NUM}">
+									<button>삭제</button>
+								</a></td>
                         </tr>
                         </c:forEach>
 				</table>

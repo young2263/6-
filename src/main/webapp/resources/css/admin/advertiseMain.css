@@ -12,6 +12,10 @@ table, td, th {
     padding: 0.5rem;
 }
 
+table {
+	width: 80rem;
+}
+
 input {
 	height:40px;
 	text-align: center;
@@ -69,13 +73,14 @@ header .admin {
 }
 
 .body .content .title {
-    width: 50%;
-    margin: 5rem 50rem;
+	text-align: center;
+    padding: 3rem 0;
+    margin-bottom: 1rem;
 }
 
 .body .content .tableBox {
-    width: 100%;
-    padding: 0 30rem;
+	display:block;
+  	margin-left: 18.5rem;
 }
 
 .body .content .addBtn {

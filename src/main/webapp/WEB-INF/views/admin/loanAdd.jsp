@@ -82,11 +82,6 @@
 						<tr>
 							<td colspan="2"><input class="addBtn" type="submit"></input></td>
 						</tr>
-					</table>
-				</form>
-				<form id="fileForm" method="post" class="guar_inputBox"
-					enctype="multipart/form-data">
-					<table>
 						<tr>
 							<th>이미지</th>
 							<td><input class="fileInput0" type="file" name="RL_IMG" /></td>
@@ -101,7 +96,7 @@
 
 				<script>
 					
-					$(".fileInput").click(function() {
+				/* 	$(".fileInput").click(function() {
 						var formData = new FormData($("#fileForm")[0]);
 						var fileData = formData.get("RL_IMG")
 						
@@ -124,7 +119,7 @@
 					             alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 							}
 						}) 
-					})
+					}) */
 				</script>
 
 

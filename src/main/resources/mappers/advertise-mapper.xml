@@ -15,7 +15,11 @@
 </select>
 
 <insert id="advertiseAdd" parameterType="Advertise">
-insert into ADVERTISEMENT values(ADVERTISEMENT_SEQ.nextval,#{AD_TITLE},#{AD_CONTENT},#{AD_IMG},#{AD_IMG})
+insert into ADVERTISEMENT values(ADVERTISEMENT_SEQ.nextval,#{AD_TITLE},#{AD_CONTENT},#{AD_IMG},#{AD_SRC})
 </insert>
+
+<delete id="deleteAdvertise" parameterType="int">
+delete from advertisement where AD_NUM=#{AD_NUM}
+</delete>
 
 </mapper>

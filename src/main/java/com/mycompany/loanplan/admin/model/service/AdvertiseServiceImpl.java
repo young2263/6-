@@ -25,4 +25,9 @@ public class AdvertiseServiceImpl implements AdvertiseService {
 		return advertiseDao.advertiseAdd(ad);
 	}
 	
+	@Override
+	public int deleteAdvertise(int AD_NUM){
+		return advertiseDao.deleteAdvertise(AD_NUM);
+	}
+	
 }

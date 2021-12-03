@@ -64,6 +64,21 @@
 	select * from RECOMMEND_LOAN_CREDIT
 	</select>
 	
+	<!-- 주택 담보 수정 상세 정보 조회 -->
+	<select id="recommendLoanDetail" parameterType="int" resultMap="RecommendLoan">
+	select * from RECOMMEND_LOAN where RL_NUM=#{NUM}
+	</select>
+	
+	<!-- 전세자금 수정 상세 정보 조회 -->
+	<select id="recommendLoanCharterListDetail" parameterType="int" resultMap="recommendloancharter">
+	select * from RECOMMEND_LOAN_CHARTER where RL_CH_NUM=#{NUM}
+	</select>
+	
+	<!-- 신용 대출 수정 상세 정보 조회 -->
+	<select id="recommendLoanCreditListDetail" parameterType="int" resultMap="recommendloancredit">
+	select * from RECOMMEND_LOAN_CREDIT where RL_CR_NUM=#{NUM}
+	</select>
+	
 	<!-- 페이지별 모든 대출 정보 조회 -->
 	<select id="selectList" resultMap="RecommendLoan">
 	select * from RECOMMEND_LOAN
@@ -89,12 +104,14 @@
 		
 	</select>
 	
+	<!-- 주택담보 대출 정보 추가 -->
 	<insert id="guarInsert" parameterType="RecommendLoan">
 	insert into  recommend_loan
 	values(RECOMMEND_LOAN_SEQ.nextval, #{RL_IMG}, #{RL_URL}, #{DCLS_MONTH}, 
 	#{KOR_CO_NM}, #{FIN_PRDT_NM},#{LEND_RATE_TYPE_NM},#{RPAY_TYPE_NM},#{ERLY_RPAY_FEE},#{DLY_RATE},#{LOAN_LMT} )
 	</insert>
 	
+	<!-- 신용 대출 정보 추가 -->
 	<insert id="creditInsert" parameterType="recommendloancredit">
 	insert into recommend_loan_credit
 	values(RECOMMEND_LOAN_CREDIT_SEQ.nextval,#{DCLS_MONTH},#{KOR_CO_NM},#{CRDT_PRDT_TYPE_NM},#{CRDT_GRAD_1},
@@ -102,9 +119,35 @@
 	#{CRDT_GRAD_AVG},#{RL_CR_IMG},#{RL_CR_URL})
 	</insert>
 	
+	<!-- 전세자금 대출 정보 추가 -->
 	<insert id="geonInsert" parameterType="recommendloancharter">
 	insert into  recommend_loan_charter
 	values(RECOMMEND_LOAN_CHARTER_SEQ.nextval, #{RL_CH_IMG}, #{RL_CH_URL}, #{DCLS_MONTH}, 
 	#{KOR_CO_NM}, #{FIN_PRDT_NM},#{LEND_RATE_TYPE_NM},#{RPAY_TYPE_NM},#{ERLY_RPAY_FEE},#{DLY_RATE},#{LOAN_LMT} )
 	</insert>
+	
+	<!-- 주택담보 대출 정보 삭제 -->
+	<delete id="deleteLoan" parameterType="int">
+	delete from recommend_loan where RL_NUM=#{RL_NUM}
+	</delete>
+	
+	<!-- 신용 대출 정보 삭제 -->
+	<delete id="deleteCredit" parameterType="int">
+	delete from recommend_loan_credit where rl_cr_num=#{RL_CR_NUM}
+	</delete>
+	
+	<!-- 전세자금 대출 정보 삭제 -->
+	<delete id="deleteCharter" parameterType="int">
+	delete from recommend_loan_charter where RL_CH_NUM=#{RL_CH_NUM}
+	</delete>
+	
+	<update id="updateLoan" parameterType="RecommendLoan">
+	update recommend_loan
+	set
+	RL_IMG=${RL_IMG}, RL_URL=${RL_URL}, DCLS_MONTH=${DCLS_MONTH}, KOR_CO_NM=${KOR_CO_NM},
+	FIN_PRDT_NM=${FIN_PRDT_NM}, LEND_RATE_TYPE_NM=${LEND_RATE_TYPE_NM}, RPAY_TYPE_NM=${RPAY_TYPE_NM}, 
+	ERLY_RPAY_FEE=${ERLY_RPAY_FEE},
+  	DLY_RATE=${DLY_RATE}, LOAN_LMT=${LOAN_LMT}
+  	where RL_NUM=${RL_NUM};
+	</update>
 </mapper>
