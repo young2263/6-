@@ -120,15 +120,5 @@ public class RecommendLoanReviewController {
 			}
 			return mv;
 		}
-		
-//		// 평점 옵션
-//		Map<String, Object> ratingOptions = new HashMap<String, Object>();
-//		ratingOptions.put(0, "☆☆☆☆☆");
-//		ratingOptions.put(1, "★☆☆☆☆");
-//		ratingOptions.put(2, "★★☆☆☆");
-//		ratingOptions.put(3, "★★★☆☆");
-//		ratingOptions.put(4, "★★★★☆");
-//		ratingOptions.put(5, "★★★★★");
-//		model.addAttribute("ratingOptions", ratingOptions);
 
 }

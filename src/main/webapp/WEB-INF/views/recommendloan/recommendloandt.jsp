@@ -371,11 +371,21 @@ $( document ).ready(function() {
 						<td>별점</td>
 						<td>내용</td>
 					</tr>
-					<tr>
-						<td>${recommendloanreview.M_ID }</td>
-						<td>${recommendloanreview.RLR_AST_ }</td>
-						<td>${recommendloanreview.RLR_COMMENT }</td>
-					</tr>
+					
+					<c:if test="${listCount eq 0}">
+						<tr>
+							<td colspan="3" align="center"><br>
+								<br>작성된 리뷰가 없습니다.<br><br>
+							</td>
+							</tr>
+					</c:if>
+					<c:if test="${listCount ne 0}">
+						<tr>
+							<td align="center">${recommendloanreview.M_ID }</td>
+							<td align="center">${recommendloanreview.RLR_AST_ }</td>
+							<td align="center">${recommendloanreview.RLR_COMMENT }</td>
+						</tr>
+					</c:if>
 				</table>
 				</div>
 				
@@ -418,12 +428,15 @@ $( document ).ready(function() {
 			
 			<!-- 리뷰 작성 -->
 			
-			<form action="/recommendloan/recommendloanreviewinsert" method="get">	
+			<form action="/recommendloan/recommendloanreviewinsert" method="get">
+			<input type="hidden" id="rlr_num" name="rlr_num" value="${recommendloanreview.rlr_num}" readonly>
+			<input type="hidden" id="page" value="${currentPage}">
+			<input type="hidden" id="reviews" name="reviews" value>
 			<table class="reviewtable" border="1" style="width: 70%">
 	  			<tr>
 	  				<td>내용</td>
 	  				<td>
-	  					<textarea style="resize:none;" rows="10" cols="120" name="rlr_comment"></textarea>
+	  					<textarea style="resize:none;" rows="10" cols="120" name="rlr_comment" placeholder="내용을 작성해주세요"></textarea>
 	  				</td>
 	  			</tr>
 	  			<tr>
@@ -451,6 +464,24 @@ $( document ).ready(function() {
 </div>
 </aside>
 </div>
+
+
+<script type="text/javascript">
+	$(function() {
+
+		//리뷰 insert script
+		$('#reviewForm').on('submit', function(event) {
+			if($('#review_area').val() == ""){
+				alert("내용을 입력해주세요.");
+				event.preventDefault();
+			} else {
+				$('#reviews').val($('#review_area').val());
+				return true;
+			}
+		});
+	});
+
+</script>
 
 
 <!-- footer -->
