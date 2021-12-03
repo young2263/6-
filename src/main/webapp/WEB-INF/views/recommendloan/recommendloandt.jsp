@@ -21,6 +21,17 @@
 		float:left;
 		width: 100%;
 	}
+
+	.loandt {
+		width: 700px;
+		text-align: center;
+		padding-left: 50px;
+		font-size: 20px;
+		margin: auto;
+		padding-bottom: 40px;
+		border-spacing: 0 40px;
+	}
+
 	
 	.tabb:nth-of-type(1) {display:none;}
 	.tabb:nth-of-type(1) ~ div:nth-of-type(1) {display:none;}
@@ -36,19 +47,21 @@
 
 /* 탭 모양 */
 
-	aside > label {
-		display : block;
-		float: left;
-		width: 100%; height:30px;
+	.bodyunder{
 		text-align: center;
-		line-height: 30px;
-		
-		border: 1px solid black;
-		box-sizing: border-box;
-		
+	}
+
+	aside > label {
+		display : inline-block;
+		width: 100%; line-height:30px;
 		background-color:white;
 		color:blue;
 	}
+
+	.tabtab {
+		font-size: 20px;
+	}
+
 	.tabb:nth-of-type(1):checked ~ label:nth-of-type(1) {
 		background-color: blue;
 		color: white;
@@ -67,10 +80,17 @@
 
 	.tab_item .item {
 		overflow: hidden;
-		padding: 10px;
+		padding: 30px;
 		border: 1px solid black;
 		border-top: none;
+		border-bottom: none;
 	}
+	
+	.tab_item h1 {
+        width: 100%;
+        text-align: center;
+    }
+	
 	.item .description {
 		float:left;
 		margin-left: 10px;
@@ -78,8 +98,29 @@
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: eclipsis;
-	} 
+		text-align: center;	
+	}
+	
+	.description {
+		font-size: 20px;
+	}
+	
+	.tab_item .loancalcul {
+		margin: auto;
+	}
 
+	.tab_item .reviewtable {
+        margin: auto;
+        border: none;
+    }
+    
+    .reviewlist {
+    	margin: auto;
+    	border: none;
+    	border-spacing: 200px;
+    }
+    
+    
 	
 	.star_rating {font-size:0; letter-spacing:-4px;}
 	.star_rating a {
@@ -91,7 +132,7 @@
       text-decoration:none;
   	}
 	.star_rating a:first-child {margin-left:0;}
-	.star_rating a.on {color:rgb(217, 255, 0);}
+	.star_rating a.on {color:rgb(255, 251, 0);}
 </style>
 
 <script type="text/javascript">
@@ -100,7 +141,7 @@ $( document ).ready(function() {
 		$(this).parent().children("a").removeClass("on");
 		$(this).addClass("on").prevAll("a").addClass("on");
 		 var starRate = $(this).attr('id');
-		$("#review_star").val(starRate);
+		$("#rlr_ast").val(starRate);
 		     return false;
 		});
 	});
@@ -187,7 +228,7 @@ $( document ).ready(function() {
 	
 	
 <div class="body">
-	<table>
+	<table class="loandt">
 		<tr><td height="15" width="100"></td>
 			<td>${recommendloan.RL_IMG }</td>
 		</tr>
@@ -201,52 +242,56 @@ $( document ).ready(function() {
 	
 <aside>		
 	<div class="bodyunder">
-    
+		
         <input type="radio" id="detail" class="tabb" name="tab" checked>
         <input type="radio" id="calculation" class="tabb" name="tab">
         <input type="radio" id="review" class="tabb" name="tab">
         
-        <label for="detail">세부 정보</label><label for="calculation">계산기</label><label for="review">리뷰</label>
-     
+        <label class="tabtab" for="detail">세부 정보</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="tabtab" for="calculation">계산기</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="tabtab" for="review">리뷰</label>
+     	 <br><br><br><br>
+        
         
         <!-- 세부정보 -->
         <div class="tab_item">
         	<h1>세부정보</h1>
+        	 <br><br><br><br>
             <ul>
                 <li class="item">
         		    <div class="description">
 						<b>공시 제출월</b>
-                        <br><p>${recommendloan.DCLS_MONTH }</p>
+                        <br><br><p>${recommendloan.DCLS_MONTH }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>대출 금리 유형</b>	
-						<br><p>${recommendloan.LEND_RATE_TYPE_NM }</p>
+						<br><br><p>${recommendloan.LEND_RATE_TYPE_NM }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>대출 상환 유형</b>	
-						<br><p>${recommendloan.RPAY_TYPE_NM }</p>
+						<br><br><p>${recommendloan.RPAY_TYPE_NM }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>중도 상환 수수료</b>	
-						<br><p>${recommendloan.ERLY_RPAY_FEE }</p>
+						<br><br><p>${recommendloan.ERLY_RPAY_FEE }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>연체 이자율</b>	
-						<br><p>${recommendloan.DLY_RATE }</p>
+						<br><br><p>${recommendloan.DLY_RATE }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>대출 한도</b>
-						<br><p>${recommendloan.LOAN_LMT }</p>
+						<br><br><p>${recommendloan.LOAN_LMT }</p>
                     </div>
                 </li>
             </ul>
@@ -257,7 +302,8 @@ $( document ).ready(function() {
         <div class="tab_item">
            <form name="loandata">
            <h1>계산기</h1>
-	<table>
+            <br><br><br><br>
+		<table class="loancalcul">
 		<tr>
 			<td colspan="3"><b>대출 금액 및 이자율 입력</b></td>
 		</tr>
@@ -310,16 +356,74 @@ $( document ).ready(function() {
         
         <!-- 리뷰 -->
         <div class="tab_item">
-        	<form action="recommendloanreview" method="get">
             	<div class="content">
             		<h1>리뷰</h1>
-				<input type="hidden" name="rl_num" value=${rl_num }>
+            		 <br><br>
+			
+			
+			<!-- 리뷰 리스트 -->
+			<div>
+			<form action="/recommendloan/recommendloanreview" method="get">
+			<div class="reviewinsert">
+			<table class="reviewlist" >
+					<tr>
+						<td>아이디</td>
+						<td>별점</td>
+						<td>내용</td>
+					</tr>
+					<tr>
+						<td>${recommendloanreview.M_ID }</td>
+						<td>${recommendloanreview.RLR_AST_ }</td>
+						<td>${recommendloanreview.RLR_COMMENT }</td>
+					</tr>
+				</table>
+				</div>
 				
-			<table border="1" style="width: 80%">
+				<div class="paging">
+				<c:if test="${currentPage<=1}">
+                [이전]&nbsp; 
+                </c:if>
+				<c:if test="${currentPage > 1}">
+					<c:url var="blistST" value="recommendloanlist">
+						<c:param name="page" value="${currentPage-1}" />
+					</c:url>
+					<a href="${blistST}">[이전]</a>
+				</c:if>
+				<c:set var="endPage" value="${maxPage}" />
+				<c:forEach var="p" begin="${startPage+1}" end="${endPage}">
+					<c:if test="${p eq currentPage}">
+						<font color="red" size="4"><b>[${p}]</b></font>
+					</c:if>
+					<c:if test="${p ne currentPage}">
+						<c:url var="blistchk" value="recommendloanlist">
+							<c:param name="page" value="${p}" />
+						</c:url>
+						<a href="${blistchk}">${p}</a>
+					</c:if>
+				</c:forEach>
+				<c:if test="${currentPage >= maxPage}"> 
+ [다음] 
+ </c:if>
+				<c:if test="${currentPage < maxPage}">
+					<c:url var="blistEND" value="recommendloanlist">
+						<c:param name="page" value="${currentPage+1}" />
+					</c:url>
+					<a href="${blistEND}">[다음]</a>
+				</c:if>
+
+			</div>
+			</form> 
+			</div>
+			
+			
+			<!-- 리뷰 작성 -->
+			
+			<form action="/recommendloan/recommendloanreviewinsert" method="get">	
+			<table class="reviewtable" border="1" style="width: 70%">
 	  			<tr>
 	  				<td>내용</td>
 	  				<td>
-	  					<textarea rows="5" cols="50" name="rlr_comment"></textarea>
+	  					<textarea style="resize:none;" rows="10" cols="120" name="rlr_comment"></textarea>
 	  				</td>
 	  			</tr>
 	  			<tr>
@@ -340,9 +444,11 @@ $( document ).ready(function() {
 	  				</td>
 	  			</tr>
 			</table>
-		</div>
-      </form>  
+			</form>
+			
+		</div> 
 	</div>
+</div>
 </aside>
 </div>
 

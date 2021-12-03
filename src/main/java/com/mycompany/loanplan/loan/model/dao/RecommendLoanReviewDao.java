@@ -15,13 +15,19 @@ public class RecommendLoanReviewDao {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
-		
-	public List<RecommendLoanReview> selectList(int rl_num) {  //그 대출에 해당하는 리뷰 조회
-		return sqlSession.selectList("RecommendLoanReview.listRecommendLoanReview", rl_num);
+	
+	public int listCount() {  //전체 글 수 조회
+		return sqlSession.selectOne("RecommendLoanReview.listCount");
 	}
-
-	public RecommendLoanReview selectOne(String m_id) {   //단일 리뷰 조회
-		return sqlSession.selectOne("RecommendLoanReview.selectRecommendLoanReview", m_id);
+		
+	public RecommendLoanReview selectOne(int rlnum) {  //글 가져오기
+		return sqlSession.selectOne("RecommendLoanReview.selectRecommendLoanReview", rlnum);
+	}
+	
+	public List<RecommendLoanReview> selectList(int startPage, int limit) {   //특정 페이지 단위의 게시글 조회
+		int startRow = (startPage-1)*limit;
+		RowBounds row = new RowBounds(startRow, limit);
+		return sqlSession.selectList("RecommendLoanReview.listRecommendLoanReview", null, row);
 	}
 	
 	public int insertRecommendLoanReview(RecommendLoanReview rlr) {  //리뷰 입력 

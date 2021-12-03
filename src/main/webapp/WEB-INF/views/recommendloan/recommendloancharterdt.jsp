@@ -42,10 +42,8 @@
 		width: 100%; height:30px;
 		text-align: center;
 		line-height: 30px;
-		
 		border: 1px solid black;
 		box-sizing: border-box;
-		
 		background-color:white;
 		color:blue;
 	}
@@ -70,7 +68,14 @@
 		padding: 10px;
 		border: 1px solid black;
 		border-top: none;
+		border-bottom: none;
 	}
+	
+	.tab_item h1 {
+        width: 100%;
+        text-align: center;
+    }
+	
 	.item .description {
 		float:left;
 		margin-left: 10px;
@@ -78,7 +83,17 @@
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: eclipsis;
-	} 
+		text-align: center;	
+	}
+	
+	.tab_item .loancalcul {
+		margin: auto;
+	}
+	
+	.tab_item .reviewtable {
+        margin: auto;
+        border: none;
+    }
 	
 	
 	.star_rating {font-size:0; letter-spacing:-4px;}
@@ -208,45 +223,47 @@ $( document ).ready(function() {
         <input type="radio" id="review" class="tabb" name="tab">
         
         <label for="detail">세부 정보</label><label for="calculation">계산기</label><label for="review">리뷰</label>
+        <br><br><br><br>
         
         <!-- 세부정보 -->
         <div class="tab_item">
         	<h1>세부정보</h1>
+        	<br><br><br><br>
             <ul>
                 <li class="item">
         		    <div class="description">
 						<b>공시 제출월</b>
-                        <br><p>${recommendloancharter.DCLS_MONTH }</p>
+                        <br><br><p>${recommendloancharter.DCLS_MONTH }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>대출 금리 유형</b>	
-						<br><p>${recommendloancharter.LEND_RATE_TYPE_NM }</p>
+						<br><br><p>${recommendloancharter.LEND_RATE_TYPE_NM }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>대출 상환 유형</b>	
-						<br><p>${recommendloancharter.RPAY_TYPE_NM }</p>
+						<br><br><p>${recommendloancharter.RPAY_TYPE_NM }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>중도 상환 수수료</b>	
-						<br><p>${recommendloancharter.ERLY_RPAY_FEE }</p>
+						<br><br><p>${recommendloancharter.ERLY_RPAY_FEE }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>연체 이자율</b>	
-						<br><p>${recommendloancharter.DLY_RATE }</p>
+						<br><br><p>${recommendloancharter.DLY_RATE }</p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>대출 한도</b>
-						<br><p>${recommendloancharter.LOAN_LMT }</p>
+						<br><br><p>${recommendloancharter.LOAN_LMT }</p>
                     </div>
                 </li>
             </ul>
@@ -257,7 +274,8 @@ $( document ).ready(function() {
         <div class="tab_item">
            <form name="loandata">
            <h1>계산기</h1>
-	<table>
+           <br><br><br><br>
+	<table class="loancalcul">
 		<tr>
 			<td colspan="3"><b>대출 금액 및 이자율 입력</b></td>
 		</tr>
@@ -313,13 +331,14 @@ $( document ).ready(function() {
         	<form action="recommendloancharterreview" method="get">
             	<div class="content">
             		<h1>리뷰</h1>
+            		<br><br>
 				<input type="hidden" name="rl_ch_num" value=${rl_ch_num }>
 				
-			<table border="1" style="width: 80%">
+			<table class="reviewtable" border="1" style="width: 70%">
 	  			<tr>
 	  				<td>내용</td>
 	  				<td>
-	  					<textarea rows="5" cols="50" name="rlr_comment"></textarea>
+	  					<textarea style="resize:none;" rows="10" cols="120" name="rlr_comment"></textarea>
 	  				</td>
 	  			</tr>
 	  			<tr>
