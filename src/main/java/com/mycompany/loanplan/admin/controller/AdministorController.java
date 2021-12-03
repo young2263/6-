@@ -424,6 +424,8 @@ public class AdministorController {
 			String RL_URL = request.getParameter("RL_URL");
 //			String RL_IMG = "test";
 			String RL_IMG = request.getParameter("RL_IMG");
+			System.out.println(RL_NUM);
+			System.out.println(RL_IMG);
 			RecommendLoan guar = new RecommendLoan(RL_NUM, RL_IMG, RL_URL, DCLS_MONTH, KOR_CO_NM, FIN_PRDT_NM, LEND_RATE_TYPE_NM, RPAY_TYPE_NM, ERLY_RPAY_FEE, DLY_RATE, LOAN_LMT);
 			adminService.modifyLoan(guar);
 			mv.setViewName("admin/main");
