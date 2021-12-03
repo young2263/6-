@@ -21,6 +21,17 @@
 		float:left;
 		width: 100%;
 	}
+
+	.loandt {
+		width: 700px;
+		text-align: center;
+		padding-left: 50px;
+		font-size: 20px;
+		margin: auto;
+		padding-bottom: 40px;
+		border-spacing: 0 40px;
+	}
+
 	
 	.tabb:nth-of-type(1) {display:none;}
 	.tabb:nth-of-type(1) ~ div:nth-of-type(1) {display:none;}
@@ -36,17 +47,21 @@
 
 /* 탭 모양 */
 
-	aside > label {
-		display : block;
-		float: left;
-		width: 100%; height:30px;
+	.bodyunder{
 		text-align: center;
-		line-height: 30px;
-		border: 1px solid black;
-		box-sizing: border-box;
+	}
+
+	aside > label {
+		display : inline-block;
+		width: 100%; line-height:30px;
 		background-color:white;
 		color:blue;
 	}
+
+	.tabtab {
+		font-size: 20px;
+	}
+
 	.tabb:nth-of-type(1):checked ~ label:nth-of-type(1) {
 		background-color: blue;
 		color: white;
@@ -58,10 +73,6 @@
 	.tabb:nth-of-type(3):checked ~ label:nth-of-type(3) {
 		background-color: blue;
 		color: white;
-	}
-	
-	.tabb {
-		
 	}
 
 	
@@ -88,6 +99,10 @@
 		overflow: hidden;
 		text-overflow: eclipsis;
 		text-align: center;	
+	}
+	
+	.description {
+		font-size: 20px;
 	}
 	
 	.tab_item .loancalcul {
@@ -213,7 +228,7 @@ $( document ).ready(function() {
 	
 	
 <div class="body">
-	<table>
+	<table class="loandt">
 		<tr><td height="15" width="100"></td>
 			<td>${recommendloan.RL_IMG }</td>
 		</tr>
@@ -227,13 +242,16 @@ $( document ).ready(function() {
 	
 <aside>		
 	<div class="bodyunder">
-    
+		
         <input type="radio" id="detail" class="tabb" name="tab" checked>
         <input type="radio" id="calculation" class="tabb" name="tab">
         <input type="radio" id="review" class="tabb" name="tab">
         
-        <label for="detail">세부 정보</label><label for="calculation">계산기</label><label for="review">리뷰</label>
+        <label class="tabtab" for="detail">세부 정보</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="tabtab" for="calculation">계산기</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="tabtab" for="review">리뷰</label>
      	 <br><br><br><br>
+        
         
         <!-- 세부정보 -->
         <div class="tab_item">
@@ -338,60 +356,29 @@ $( document ).ready(function() {
         
         <!-- 리뷰 -->
         <div class="tab_item">
-        	<form action="recommendloanreview" method="get">
             	<div class="content">
             		<h1>리뷰</h1>
             		 <br><br>
-				
-			<form action="recommendloanreviewinsert" method="get">	
-			<input type="hidden" name="rl_num" value=${rl_num }>
-			<table class="reviewtable" border="1" style="width: 70%">
-	  			<tr>
-	  				<td>내용</td>
-	  				<td>
-	  					<textarea style="resize:none;" rows="10" cols="120" name="rlr_comment"></textarea>
-	  				</td>
-	  			</tr>
-	  			<tr>
-					<td>별점</td>
-				  	<td class="star_rating">
-     					<a href="#" class="on" id="1">★</a>
-						<a href="#" class="on" id="2">★</a>
-						<a href="#" class="on" id="3">★</a>
-						<a href="#" id="4">★</a>
-						<a href="#" id="5">★</a>
-   						<input type="hidden" id="rlr_ast" name="rlr_ast" value="3">
-					</td>
-				</tr>
-	  			
-	  			<tr>
-	  				<td colspan="2" style="text-align: center;">
-	  					<input type="submit" value="등록">
-	  				</td>
-	  			</tr>
-			</table>
-			</form>
-			<br><br><br><br>
-			<div>
 			
+			
+			<!-- 리뷰 리스트 -->
+			<div>
+			<form action="/recommendloan/recommendloanreview" method="get">
+			<div class="reviewinsert">
 			<table class="reviewlist" >
 					<tr>
 						<td>아이디</td>
 						<td>별점</td>
 						<td>내용</td>
 					</tr>
-					<c:forEach var="vo" items="${volist}" varStatus="status">
-						<tr>
-							<td>${vo.M_ID }</td>
-							<td>${vo.RLR_AST_ }</td>
-							<td>${vo.RLR_COMMENT }</td>
-						</tr>
-						<tr>
-							
-						</tr>
-					</c:forEach>
+					<tr>
+						<td>${recommendloanreview.M_ID }</td>
+						<td>${recommendloanreview.RLR_AST_ }</td>
+						<td>${recommendloanreview.RLR_COMMENT }</td>
+					</tr>
 				</table>
 				</div>
+				
 				<div class="paging">
 				<c:if test="${currentPage<=1}">
                 [이전]&nbsp; 
@@ -425,10 +412,43 @@ $( document ).ready(function() {
 				</c:if>
 
 			</div>
+			</form> 
+			</div>
 			
-		</div>
-      </form>  
+			
+			<!-- 리뷰 작성 -->
+			
+			<form action="/recommendloan/recommendloanreviewinsert" method="get">	
+			<table class="reviewtable" border="1" style="width: 70%">
+	  			<tr>
+	  				<td>내용</td>
+	  				<td>
+	  					<textarea style="resize:none;" rows="10" cols="120" name="rlr_comment"></textarea>
+	  				</td>
+	  			</tr>
+	  			<tr>
+					<td>별점</td>
+				  	<td class="star_rating">
+     					<a href="#" class="on" id="1">★</a>
+						<a href="#" class="on" id="2">★</a>
+						<a href="#" class="on" id="3">★</a>
+						<a href="#" id="4">★</a>
+						<a href="#" id="5">★</a>
+   						<input type="hidden" id="rlr_ast" name="rlr_ast" value="3">
+					</td>
+				</tr>
+	  			
+	  			<tr>
+	  				<td colspan="2" style="text-align: center;">
+	  					<input type="submit" value="등록">
+	  				</td>
+	  			</tr>
+			</table>
+			</form>
+			
+		</div> 
 	</div>
+</div>
 </aside>
 </div>
 

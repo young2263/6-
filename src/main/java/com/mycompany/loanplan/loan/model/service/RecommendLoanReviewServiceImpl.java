@@ -16,13 +16,18 @@ public class RecommendLoanReviewServiceImpl implements RecommendLoanReviewServic
 	private RecommendLoanReviewDao recommendLoanReviewDao;
 	
 	@Override
-	public RecommendLoanReview selectRecommendLoanReview(String m_id) {
-		return recommendLoanReviewDao.selectOne(m_id);
+	public int listCount() {
+		return recommendLoanReviewDao.listCount();
 	}
 	
 	@Override
-	public List<RecommendLoanReview> selectList(int rl_num) {
-		return recommendLoanReviewDao.selectList(rl_num);
+	public RecommendLoanReview selectOne(int rlnum) {
+		return recommendLoanReviewDao.selectOne(rlnum);
+	}
+	
+	@Override
+	public List<RecommendLoanReview> selectList(int startPage, int limit) {
+		return recommendLoanReviewDao.selectList(startPage, limit);
 	}
 	
 	@Override
