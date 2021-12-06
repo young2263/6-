@@ -23,12 +23,45 @@
     	margin: 0;
     	box-sizing: border-box;
 	}
+	
+	header{
+		padding-bottom: 100px;
+	}
 
+	.listTitle{
+		text-align: center;
+	}
 
-	.body .content .tablebox {
-		width: 100%;
-        margin: auto;
+	table {
+		width: 700px;
+		text-align: center;
+		padding-left: 50px;
+		font-size: 20px;
+		margin: auto;
+		padding-bottom: 40px;
+		border-collapse: separate;
+		border-spacing: 30px 40px;
+		border-bottom: 1px solid gray;
     }
+    
+    tr:first-of-type {
+    	font-size: 25px;
+    }
+   
+   td {
+   		white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+   }
+   
+   a {
+   		text-decoration-line: none;
+   }
+   
+   .paging {
+   		padding: 50px 20px;
+   		text-align:center;
+   }
 
 </style>
 
@@ -48,28 +81,31 @@
         </c:when>
     </c:choose>
 	</header>
+	
 	<div class="body">
 		
 		<div class="content">
-			<div class="listTitle">주택 담보 대출</div>
+			<div class="listTitle" style="color: green">주택 담보 대출</div>
 			<br><br>
 			<div>
 				<table class="tableBox" >
 					<tr>
 						<th></th>
-						<th>대출상품명</th>
 						<th>은행</th>
+						<th>대출상품명</th>
 					</tr>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
-							<td><a href="recommendloandt?no=${vo.RL_NUM}">${vo.RL_IMG }</a></td>
-							<td><a href="recommendloandt?no=${vo.RL_NUM}">${vo.FIN_PRDT_NM }</a></td>
-							<td><a href="recommendloandt?no=${vo.RL_NUM}">${vo.KOR_CO_NM }</a></td>
+							<td><a href="recommendloandt?no=${vo.RL_NUM}" style="color: black"><img class="img-fluid" src="${vo.RL_IMG }" alt="test"></a></td>
+							<td><a href="recommendloandt?no=${vo.RL_NUM}" style="color: black">${vo.KOR_CO_NM }</a></td>
+							<td><a href="recommendloandt?no=${vo.RL_NUM}" style="color: black">${vo.FIN_PRDT_NM }</a></td>
 						</tr>
 					</c:forEach>
 				</table>
 			</div>
-			<div>
+			<br><br><br>
+			
+			<div class="paging">
 				<c:if test="${currentPage<=1}">
                 [이전]&nbsp; 
                 </c:if>
@@ -104,7 +140,7 @@
 			</div>
 		</div>
 	</div>
-
+	<br><br><br><br>
 <%@include file="../footer.jsp"%>
 
 </body> 
