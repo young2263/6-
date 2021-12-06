@@ -39,9 +39,6 @@
 					<!-- 담보대출 input -->
 					<table>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
-						<tr class="num">
-							<td><input type="text" name="RL_NUM" value="${vo.RL_NUM}" /></td>
-						</tr>
 						<tr>
 							<th>금융상품명</th>
 							<td><input type="text" name="FIN_PRDT_NM" value="${vo.FIN_PRDT_NM}" /></td>

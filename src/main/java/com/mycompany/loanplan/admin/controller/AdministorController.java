@@ -438,7 +438,7 @@ public class AdministorController {
 		return mv;
 	}
 	@RequestMapping(value = "/loanModify.do", method = RequestMethod.POST)
-	public ModelAndView loanModify(
+	public ModelAndView loanModify(@RequestParam(name = "page", defaultValue = "1") int page,
 			HttpServletRequest request,
 			ModelAndView mv) {
 		System.out.println("수정실행 진입");
@@ -457,6 +457,13 @@ public class AdministorController {
 			RecommendLoan guar = new RecommendLoan(RL_NUM, RL_IMG, RL_URL, DCLS_MONTH, KOR_CO_NM, FIN_PRDT_NM, LEND_RATE_TYPE_NM, RPAY_TYPE_NM, ERLY_RPAY_FEE, DLY_RATE, LOAN_LMT);
 			int result = adminService.modifyLoan(guar);
 			System.out.println(result);
+			int currentPage = page;
+			int listCount = adminService.loanCount();
+			int maxPage = (int) ((double) listCount / LIMIT + 0.9);
+			mv.addObject("volist", adminService.selectList(currentPage, LIMIT));
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("maxPage", maxPage);
+			mv.addObject("listCount", listCount);
 			mv.setViewName("admin/main");
 		} catch (Exception e) {
 			e.printStackTrace();
