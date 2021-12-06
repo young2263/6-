@@ -1,6 +1,8 @@
 package com.mycompany.loanplan.admin.controller;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
@@ -9,8 +11,10 @@ import java.util.Map;
 import javax.print.attribute.standard.PrinterInfo;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.FileUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -18,6 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,7 +49,7 @@ public class AdministorController {
 
 	private static final int LIMIT = 10;
 	
-	
+	private static final String file_path = "resources/img";
 
 	@Autowired
 	private AdministorService adminService;
@@ -100,7 +105,6 @@ public class AdministorController {
 	public ModelAndView charterList(@RequestParam(name = "page", defaultValue = "1") int page,
 			@RequestParam(name = "keyword", required = false) String keyword, ModelAndView mv) {
 		try {
-
 			int currentPage = page;
 			int listCount = adminService.loancharterCount();
 			int maxPage = (int) ((double) listCount / LIMIT + 0.9);
@@ -171,10 +175,20 @@ public class AdministorController {
 		}
 		return mv;
 	}
+
+	
 	// 주택담보 대출 추가
 	@RequestMapping(value = "/guarAdd", method = RequestMethod.POST)
-	public ModelAndView guarAdd(HttpServletRequest request, ModelAndView mv) {
+	public ModelAndView guarAdd(@RequestParam(name = "page", defaultValue = "1") int page, HttpServletRequest request,
+			ModelAndView mv,@RequestParam("RL_IMG") MultipartFile file) {
 		try {
+			String root_path = request.getSession().getServletContext().getRealPath("/");  
+			String fileName = file.getOriginalFilename();
+			System.out.println(fileName);
+			if(!fileName.isEmpty()) {
+				file.transferTo(new File(root_path+file_path,fileName));
+				System.out.println("업로드 성공");
+			}
 			String FIN_PRDT_NM = request.getParameter("FIN_PRDT_NM");
 			String KOR_CO_NM = request.getParameter("KOR_CO_NM");
 			String DCLS_MONTH = request.getParameter("DCLS_MONTH");
@@ -184,15 +198,19 @@ public class AdministorController {
 			String DLY_RATE = request.getParameter("DLY_RATE");
 			String LOAN_LMT = request.getParameter("LOAN_LMT");
 			String RL_URL = request.getParameter("RL_URL");
-//			String RL_IMG = "test";
-			String RL_IMG = request.getParameter("RL_IMG");
-			System.out.println(FIN_PRDT_NM);
+			String RL_IMG = fileName;
 			RecommendLoan guar = new RecommendLoan(RL_IMG, RL_URL, DCLS_MONTH, KOR_CO_NM, FIN_PRDT_NM,
 					LEND_RATE_TYPE_NM, RPAY_TYPE_NM, ERLY_RPAY_FEE, DLY_RATE, LOAN_LMT);
 
 			int result = adminService.guarInsert(guar);
 
-			// 
+			int currentPage = page;
+			int listCount = adminService.loanCount();
+			int maxPage = (int) ((double) listCount / LIMIT + 0.9);
+			mv.addObject("volist", adminService.selectList(currentPage, LIMIT));
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("maxPage", maxPage);
+			mv.addObject("listCount", listCount);
 			mv.setViewName("admin/main");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -201,8 +219,15 @@ public class AdministorController {
 	}
 	// 신용 대출 추가
 	@RequestMapping(value = "/creditAdd", method = RequestMethod.POST)
-	public ModelAndView creditAdd(HttpServletRequest request, ModelAndView mv) {
+	public ModelAndView creditAdd(@RequestParam(name = "page", defaultValue = "1") int page, HttpServletRequest request,
+			ModelAndView mv,@RequestParam("RL_CR_IMG") MultipartFile file) {
 		try {
+			String root_path = request.getSession().getServletContext().getRealPath("/");  
+			String fileName = file.getOriginalFilename();
+			if(!fileName.isEmpty()) {
+				file.transferTo(new File(root_path+file_path,fileName));
+				System.out.println("업로드 성공");
+			}
 			String KOR_CO_NM = request.getParameter("KOR_CO_NM");
 			String DCLS_MONTH = request.getParameter("DCLS_MONTH");
 			String CRDT_PRDT_TYPE_NM = request.getParameter("CRDT_PRDT_TYPE_NM");
@@ -215,13 +240,21 @@ public class AdministorController {
 			String CRDT_GRAD_13 = request.getParameter("CRDT_GRAD_13");
 			String CRDT_GRAD_AVG = request.getParameter("CRDT_GRAD_AVG");
 			String RL_CR_URL = request.getParameter("RL_CR_URL");
-			String RL_CR_IMG = request.getParameter("RL_CR_IMG");
+			String RL_CR_IMG = fileName;
 			RecommendLoanCredit credit = new RecommendLoanCredit(RL_CR_IMG, RL_CR_URL, DCLS_MONTH, KOR_CO_NM,
 					CRDT_PRDT_TYPE_NM, CRDT_GRAD_1, CRDT_GRAD_4, CRDT_GRAD_5, CRDT_GRAD_6, CRDT_GRAD_10, CRDT_GRAD_12,
 					CRDT_GRAD_13, CRDT_GRAD_AVG);
 			int result = adminService.creditInsert(credit);
 			System.out.println(result);
-			mv.setViewName("admin/main");
+			int currentPage = page;
+			int listCount = adminService.loancreditCount();
+			int maxPage = (int) ((double) listCount / LIMIT + 0.9);
+			List<RecommendLoanCredit> volist = adminService.recommendLoanCreditList(currentPage, LIMIT);
+			mv.addObject("volist", adminService.recommendLoanCreditList(currentPage, LIMIT));
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("maxPage", maxPage);
+			mv.addObject("listCount", listCount);
+			mv.setViewName("admin/creditLoanList");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -229,8 +262,15 @@ public class AdministorController {
 	}
 	// 전세자금 대출 추가
 	@RequestMapping(value = "/jeonAdd", method = RequestMethod.POST)
-	public ModelAndView jeonAdd(HttpServletRequest request, ModelAndView mv) {
+	public ModelAndView jeonAdd(@RequestParam(name = "page", defaultValue = "1") int page, HttpServletRequest request, 
+			ModelAndView mv,@RequestParam("RL_CH_IMG") MultipartFile file) {
 		try {
+			String root_path = request.getSession().getServletContext().getRealPath("/");  
+			String fileName = file.getOriginalFilename();
+			if(!fileName.isEmpty()) {
+				file.transferTo(new File(root_path+file_path,fileName));
+				System.out.println("업로드 성공");
+			}
 			String FIN_PRDT_NM = request.getParameter("FIN_PRDT_NM");
 			String KOR_CO_NM = request.getParameter("KOR_CO_NM");
 			String DCLS_MONTH = request.getParameter("DCLS_MONTH");
@@ -240,12 +280,19 @@ public class AdministorController {
 			String DLY_RATE = request.getParameter("DLY_RATE");
 			String LOAN_LMT = request.getParameter("LOAN_LMT");
 			String RL_URL = request.getParameter("RL_CH_URL");
-			String RL_IMG = request.getParameter("RL_CH_IMG");
+			String RL_IMG = fileName;
 			RecommendLoanCharter jeon = new RecommendLoanCharter(RL_IMG, RL_URL, DCLS_MONTH, KOR_CO_NM, FIN_PRDT_NM,
 					LEND_RATE_TYPE_NM, RPAY_TYPE_NM, ERLY_RPAY_FEE, DLY_RATE, LOAN_LMT);
 			int result = adminService.geonInsert(jeon);
 			System.out.println(result);
-			mv.setViewName("admin/main");
+			int currentPage = page;
+			int listCount = adminService.loancharterCount();
+			int maxPage = (int) ((double) listCount / LIMIT + 0.9);
+			mv.addObject("volist", adminService.recommendLoanCharterList(currentPage, LIMIT));
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("maxPage", maxPage);
+			mv.addObject("listCount", listCount);
+			mv.setViewName("admin/charterLoanList");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -293,24 +340,8 @@ public class AdministorController {
 		}
 		return mv;
 	}
-	// 업로드
-//	@RequestMapping(value = "/upload", method = RequestMethod.POST)
-//	@ResponseBody
-//	public String upload(MultipartHttpServletRequest request) throws Exception{
-//		System.out.println("진입");
-//		Iterator itr = request.getFileNames();
-//		System.out.println(itr);
-//		
-//		if(itr.hasNext()) {
-//			List mpf = request.getFiles((String) itr.next());
-////			for(int i = 0; i < mpf.size(); i++) 
-////			{ File file = new File(PATH + mpf.get(i).getOriginalFilename());
-////			logger.info(file.getAbsolutePath()); 
-////			mpf.get(i).transferTo(file); 
-////			}
-//		}
-//		return "success";
-//	}
+	
+
 	//주택담보 대출 상품 삭제
 	@RequestMapping(value = "/deleteLoan", method = RequestMethod.GET)
 	public ModelAndView deleteLoan(@RequestParam(name = "page", defaultValue = "1") int page,

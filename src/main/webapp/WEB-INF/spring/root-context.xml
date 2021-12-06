@@ -56,12 +56,7 @@
 		</tx:attributes>
 	</tx:advice>
 	
-	<!-- Spring 파일 업로드 기능을 사용할수 있도록 해주는 Resolver설정 -->
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="100000000" /> 
-		<property name="maxInMemorySize" value="100000000" />
-	</bean>
+	
 
 	<!-- AOP를 통해 Transaction의 pointcut 설정 <aop:config proxy-target-class="true"> 
 		<aop:pointcut id="daoMethod" expression="execution(*com.mycompany.loanplan..*Impl.*(..)))" 

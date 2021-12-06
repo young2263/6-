@@ -40,7 +40,7 @@
 				<div class="jeon_btn">전세자금대출</div>
 			</div>
 			<div class="inputBox">
-				<form action="guarAdd" method="post" class="guar_inputBox">
+				<form action="guarAdd" method="post" class="guar_inputBox" enctype="multipart/form-data">
 					<!-- 담보대출 input -->
 					<table>
 						<tr>
@@ -84,46 +84,48 @@
 						</tr>
 						<tr>
 							<th>이미지</th>
-							<td><input class="fileInput0" type="file" name="RL_IMG" /></td>
+							<td><input class="fileInput" type="file" name="RL_IMG" /></td>
 						</tr>
 					</table>
 				</form>
-				
-				<button class="fileInput">
-					button
-				</button>
 
 
+				<!-- <form action="upload" method="post" enctype="multipart/form-data">
+				<input type="text" name="test" />
+					Select File : <input type="file" name="uploadFile" />
+					<button type="submit">Upload</button>
+				</form> -->
 				<script>
-					
-				/* 	$(".fileInput").click(function() {
-						var formData = new FormData($("#fileForm")[0]);
-						var fileData = formData.get("RL_IMG")
-						
-						console.log(fileData)
-						console.log(typeof(formData))
-						const test = "test"
-						 $.ajax({
-							type : "post",
-							enctype : "multipart/form-data",
-							url : "upload",
-							data : formData,
-							dataType: 'json',
-							processData : false,
-							contentType : false,
-							cache : false,
-							success : function(result) {
-								alert("사진 업로드 완료"+result)
-							},
-							error : function(request,status,error){
-					             alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-							}
-						}) 
-					}) */
+					/* $(".fileInput").change(
+							function() {
+								console.log("test");
+								var form = $(".fileInput");
+								console.log(form);
+								var formData = new FormData(form[0]);
+								console.log(typeof (formData));
+
+								$.ajax({
+									type : "post",
+									enctype : "multipart/form-data",
+									url : "upload",
+									data : formData,
+									processData : false,
+									contentType : false,
+									success : function(result) {
+										alert("사진 업로드 완료" + result)
+									},
+									error : function(request, status, error) {
+										alert("code:" + request.status + "\n"
+												+ "message:"
+												+ request.responseText + "\n"
+												+ "error:" + error);
+									}
+								})
+							}) */
 				</script>
 
 
-				<form class="credit_inputBox" action="creditAdd" method="post">
+				<form class="credit_inputBox" action="creditAdd" method="post" enctype="multipart/form-data">
 					<table>
 						<tr>
 							<th>금융회사명</th>
@@ -227,7 +229,7 @@
 						</tr>
 					</table>
 				</form>
-				<form class="jeon_inputBox" action="jeonAdd" method="post">
+				<form class="jeon_inputBox" action="jeonAdd" method="post" enctype="multipart/form-data">
 					<table>
 						<tr>
 							<th>금융상품명</th>
