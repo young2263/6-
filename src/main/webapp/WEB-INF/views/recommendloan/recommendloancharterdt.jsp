@@ -177,7 +177,7 @@ $( document ).ready(function() {
 <div class="body">
 	<table>
 		<tr><td height="15" width="100"></td>
-			<td>${recommendloancharter.RL_CH_IMG }</td>
+			<td><img class="img-fluid" src="${recommendloancharter.RL_CH_IMG }" alt="test"></td>
 		</tr>
 		<tr><td height="15" width="100">대출상품명</td>
 			<td>${recommendloancharter.FIN_PRDT_NM }</td>
