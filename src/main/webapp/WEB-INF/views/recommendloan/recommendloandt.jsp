@@ -363,7 +363,7 @@ $( document ).ready(function() {
 			
 			<!-- 리뷰 리스트 -->
 			<div>
-			<form action="/recommendloan/recommendloanreview" method="get">
+			<form action="recommendloan/recommendloanreview" method="get">
 			<div class="reviewinsert">
 			<table class="reviewlist" >
 					<tr>
@@ -428,7 +428,7 @@ $( document ).ready(function() {
 			
 			<!-- 리뷰 작성 -->
 			
-			<form action="/recommendloan/recommendloanreviewinsert" method="get">
+			<form action="recommendloan/recommendloanreviewinsert" method="get">
 			<input type="hidden" id="rlr_num" name="rlr_num" value="${recommendloanreview.rlr_num}" readonly>
 			<input type="hidden" id="page" value="${currentPage}">
 			<input type="hidden" id="reviews" name="reviews" value>

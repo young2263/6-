@@ -379,6 +379,7 @@ $( document ).ready(function() {
 		</div>
       </form>  
 	</div>
+	</div>
 </aside>
 </div>
 

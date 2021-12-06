@@ -49,6 +49,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">공지사항</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">내 정보 관리</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
@@ -59,9 +62,6 @@
                                 <i class="fa fa-fw fa-search"></i>
                             </div>
                         </div>
-                    </div>
-                    <div class="nav-icon d-none d-lg-inline" >
-                        	<p> 내 정보 관리 </p>
                     </div>
                 </div>
             </div>
