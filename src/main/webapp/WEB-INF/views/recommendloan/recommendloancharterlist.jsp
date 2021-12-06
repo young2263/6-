@@ -12,6 +12,59 @@
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="../resources/css/templatemo.css">
 <link rel="stylesheet" href="../resources/css/custom.css">
+
+<style>
+	* {
+    	padding: 0;
+    	margin: 0;
+    	box-sizing: border-box;
+	}
+	
+	header{
+		padding-bottom: 100px;
+	}
+
+	.listTitle{
+		text-align: center;
+	}
+
+	table {
+		width: 700px;
+		text-align: center;
+		padding-left: 50px;
+		font-size: 20px;
+		margin: auto;
+		padding-bottom: 40px;
+		border-collapse: separate;
+		border-spacing: 0 30px;
+		border-bottom: 1px solid gray;
+    }
+    
+    .paging {
+    	text-align: center;
+    }
+    
+    tr:first-of-type {
+    	font-size: 30px;
+    }
+    
+    td {
+   		white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+   }
+   
+   a {
+   		text-decoration-line: none;
+   }
+   
+   .paging {
+   		padding: 50px 20px;
+   		text-align:center;
+   }
+
+</style>
+
 </head>
 <body>
 <%@include file="../header.jsp"%>
@@ -31,19 +84,19 @@
 	<div class="body">
 		
 		<div class="content">
-			<div class="listTitle">전세 자금 대출</div>
+			<div class="listTitle" style="color: green">전세 자금 대출</div>
 			<div>
 				<table class="tableBox">
 					<tr>
 						<th></th>
-						<th>대출상품명</th>
 						<th>은행</th>
+						<th>대출상품명</th>
 					</tr>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
-							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}">${vo.RL_CH_IMG }</a></td>
-							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}">${vo.FIN_PRDT_NM }</a></td>
-							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}">${vo.KOR_CO_NM }</a></td>
+							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}" style="color: black">${vo.RL_CH_IMG }</a></td>
+							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}" style="color: black">${vo.KOR_CO_NM }</a></td>
+							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}" style="color: black">${vo.FIN_PRDT_NM }</a></td>
 						</tr>
 					</c:forEach>
 				</table>
