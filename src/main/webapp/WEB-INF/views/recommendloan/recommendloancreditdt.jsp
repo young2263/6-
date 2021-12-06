@@ -5,10 +5,13 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name='viewpoint' content='width=device-width, initial-scale=1'>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>개인신용대출</title>
-<!-- <link rel="stylesheet" href="./resources/css/admin/templatemo.css">   -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="../resources/css/templatemo.css">
+<link rel="stylesheet" href="../resources/css/custom.css">
 
 <style>
     *{margin:0; padding:0;}
@@ -17,10 +20,25 @@
 
 <style>
 
+	.bodyunder{
+		background-color: white;
+	}
+
 	.body > aside {
 		float:left;
 		width: 100%;
 	}
+
+	.loandt {
+		width: 700px;
+		text-align: center;
+		padding-left: 50px;
+		font-size: 20px;
+		margin: auto;
+		padding-bottom: 40px;
+		border-spacing: 0 40px;
+	}
+
 	
 	.tabb:nth-of-type(1) {display:none;}
 	.tabb:nth-of-type(1) ~ div:nth-of-type(1) {display:none;}
@@ -36,17 +54,21 @@
 
 /* 탭 모양 */
 
-	aside > label {
-		display : block;
-		float: left;
-		width: 100%; height:30px;
+	.bodyunder{
 		text-align: center;
-		line-height: 30px;
-		border: 1px solid black;
-		box-sizing: border-box;
+	}
+
+	aside > label {
+		display : inline-block;
+		width: 100%; line-height:30px;
 		background-color:white;
 		color:blue;
 	}
+
+	.tabtab {
+		font-size: 20px;
+	}
+
 	.tabb:nth-of-type(1):checked ~ label:nth-of-type(1) {
 		background-color: blue;
 		color: white;
@@ -65,7 +87,7 @@
 
 	.tab_item .item {
 		overflow: hidden;
-		padding: 10px;
+		padding: 30px;
 		border: 1px solid black;
 		border-top: none;
 		border-bottom: none;
@@ -86,15 +108,27 @@
 		text-align: center;	
 	}
 	
+	.description {
+		font-size: 20px;
+	}
+	
 	.tab_item .loancalcul {
 		margin: auto;
 	}
-	
+
 	.tab_item .reviewtable {
         margin: auto;
         border: none;
     }
-
+    
+    .reviewlist {
+    	margin: auto;
+    	border: none;
+    	border-spacing: 200px;
+    }
+    
+    
+	
 	.star_rating {font-size:0; letter-spacing:-4px;}
 	.star_rating a {
       font-size:22px;
@@ -105,8 +139,7 @@
       text-decoration:none;
   	}
 	.star_rating a:first-child {margin-left:0;}
-	.star_rating a.on {color:rgb(217, 255, 0);}
-	
+	.star_rating a.on {color:rgb(255, 251, 0);}
 </style>
 
 <script type="text/javascript">
@@ -123,69 +156,8 @@ $( document ).ready(function() {
 
 </head>
 <body>
-	<!-- Open Top Nav -->
-<nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
-        <div class="container text-light">
-            <div class="w-100 d-flex justify-content-between">
-                <div>
-                    <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
-                    <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <!-- Close Top Nav -->
 
-
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow">
-        <div class="container d-flex justify-content-between align-items-center">
-
-            <a class="navbar-brand text-success logo h1 align-self-center" href="#">
-                LOANPLAN
-            </a>
-
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
-                <div class="flex-fill">
-                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">추천 대출</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">계산기</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">내 대출 관리</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">공지사항</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="navbar align-self-center d-flex">
-                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                            <div class="input-group-text">
-                                <i class="fa fa-fw fa-search"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="nav-icon d-none d-lg-inline" >
-                        	<p> 내 정보 관리 </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </nav>
-
+<%@include file="../header.jsp"%>
 
 	<header>
 		<c:choose>
@@ -217,12 +189,14 @@ $( document ).ready(function() {
 <aside>		
 	<div class="bodyunder">
     
-        <input type="radio" id="detail" class="tabb" name="tab" checked>
+         <input type="radio" id="detail" class="tabb" name="tab" checked>
         <input type="radio" id="calculation" class="tabb" name="tab">
         <input type="radio" id="review" class="tabb" name="tab">
         
-        <label for="detail">세부 정보</label><label for="calculation">계산기</label><label for="review">리뷰</label>
-      <br><br><br><br>
+        <label class="tabtab" for="detail">세부 정보</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="tabtab" for="calculation">계산기</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="tabtab" for="review">리뷰</label>
+     	 <br><br><br><br>
         
         <!-- 세부정보 -->
         <div class="tab_item">
@@ -343,19 +317,89 @@ $( document ).ready(function() {
         </div>
         
         
-        <!-- 리뷰 -->
+       <!-- 리뷰 -->
         <div class="tab_item">
-        	<form action="recommendloanreview" method="get">
             	<div class="content">
             		<h1>리뷰</h1>
-            		<br><br>
-				<input type="hidden" name="rl_cr_num" value=${rl_cr_num }>
+            		 <br><br>
+			
+			
+			<!-- 리뷰 리스트 -->
+			<div>
+			<form action="recommendloan/recommendloanreview" method="get">
+			<div class="reviewinsert">
+			<table class="reviewlist" >
+					<tr>
+						<td>아이디</td>
+						<td>별점</td>
+						<td>내용</td>
+					</tr>
+					
+					<c:if test="${listCount eq 0}">
+						<tr>
+							<td colspan="3" align="center"><br>
+								<br>작성된 리뷰가 없습니다.<br><br>
+							</td>
+							</tr>
+					</c:if>
+					<c:if test="${listCount ne 0}">
+						<tr>
+							<td align="center">${recommendloanreview.M_ID }</td>
+							<td align="center">${recommendloanreview.RLR_AST_ }</td>
+							<td align="center">${recommendloanreview.RLR_COMMENT }</td>
+						</tr>
+					</c:if>
+				</table>
+				</div>
 				
+				<div class="paging">
+				<c:if test="${currentPage<=1}">
+                [이전]&nbsp; 
+                </c:if>
+				<c:if test="${currentPage > 1}">
+					<c:url var="blistST" value="recommendloanlist">
+						<c:param name="page" value="${currentPage-1}" />
+					</c:url>
+					<a href="${blistST}">[이전]</a>
+				</c:if>
+				<c:set var="endPage" value="${maxPage}" />
+				<c:forEach var="p" begin="${startPage+1}" end="${endPage}">
+					<c:if test="${p eq currentPage}">
+						<font color="red" size="4"><b>[${p}]</b></font>
+					</c:if>
+					<c:if test="${p ne currentPage}">
+						<c:url var="blistchk" value="recommendloanlist">
+							<c:param name="page" value="${p}" />
+						</c:url>
+						<a href="${blistchk}">${p}</a>
+					</c:if>
+				</c:forEach>
+				<c:if test="${currentPage >= maxPage}"> 
+ [다음] 
+ </c:if>
+				<c:if test="${currentPage < maxPage}">
+					<c:url var="blistEND" value="recommendloanlist">
+						<c:param name="page" value="${currentPage+1}" />
+					</c:url>
+					<a href="${blistEND}">[다음]</a>
+				</c:if>
+
+			</div>
+			</form> 
+			</div>
+			
+			
+			<!-- 리뷰 작성 -->
+			
+			<form action="recommendloan/recommendloanreviewinsert" method="get">
+			<input type="hidden" id="rlr_num" name="rlr_num" value="${recommendloanreview.rlr_num}" readonly>
+			<input type="hidden" id="page" value="${currentPage}">
+			<input type="hidden" id="reviews" name="reviews" value>
 			<table class="reviewtable" border="1" style="width: 70%">
 	  			<tr>
 	  				<td>내용</td>
 	  				<td>
-	  					<textarea style="resize:none;" rows="10" cols="120" name="rlr_comment"></textarea>
+	  					<textarea style="resize:none;" rows="10" cols="120" name="rlr_comment" placeholder="내용을 작성해주세요"></textarea>
 	  				</td>
 	  			</tr>
 	  			<tr>
@@ -376,107 +420,16 @@ $( document ).ready(function() {
 	  				</td>
 	  			</tr>
 			</table>
-		</div>
-      </form>  
+			</form>
+			
+		</div> 
 	</div>
-	</div>
+</div>
 </aside>
 </div>
 
+<%@include file="../footer.jsp"%>
 
-<!-- footer -->
-	<footer class="bg-dark" id="tempaltemo_footer">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">Zay Shop</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li>
-                            <i class="fas fa-map-marker-alt fa-fw"></i>
-                            123 Consectetur at ligula 10660
-                        </li>
-                        <li>
-                            <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="#">Luxury</a></li>
-                        <li><a class="text-decoration-none" href="#">Sport Wear</a></li>
-                        <li><a class="text-decoration-none" href="#">Men's Shoes</a></li>
-                        <li><a class="text-decoration-none" href="#">Women's Shoes</a></li>
-                        <li><a class="text-decoration-none" href="#">Popular Dress</a></li>
-                        <li><a class="text-decoration-none" href="#">Gym Accessories</a></li>
-                        <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="#">Home</a></li>
-                        <li><a class="text-decoration-none" href="#">About Us</a></li>
-                        <li><a class="text-decoration-none" href="#">Shop Locations</a></li>
-                        <li><a class="text-decoration-none" href="#">FAQs</a></li>
-                        <li><a class="text-decoration-none" href="#">Contact</a></li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div class="row text-light mb-4">
-                <div class="col-12 mb-3">
-                    <div class="w-100 my-3 border-top border-light"></div>
-                </div>
-                <div class="col-auto me-auto">
-                    <ul class="list-inline text-left footer-icons">
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
-                        </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
-                        </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
-                        </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-auto">
-                    <label class="sr-only" for="subscribeEmail">Email address</label>
-                    <div class="input-group mb-2">
-                        <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
-                        <div class="input-group-text btn-success text-light">Subscribe</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="w-100 bg-black py-3">
-            <div class="container">
-                <div class="row pt-2">
-                    <div class="col-12">
-                        <p class="text-left text-light">
-                            Copyright &copy; 2021 Company Name 
-                            | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </footer>
 
 </body> 
 </html>
