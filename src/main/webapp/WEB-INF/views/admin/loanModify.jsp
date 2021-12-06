@@ -79,19 +79,15 @@
 							<td><input type="text" name="RL_URL" value="${vo.RL_URL}" /></td>
 						</tr>
 						<tr>
-							<td colspan="2"><input class="addBtn" type="submit"></input></td>
+							<th>이미지</th>
+							<td><input class="fileInput" type="text" value="${vo.RL_IMG}" name="RL_IMG" /></td>
 						</tr>
 						<tr>
-							<th>이미지</th>
-							<td><input class="fileInput0" type="file" name="RL_IMG" /></td>
+							<td colspan="2"><input class="addBtn" type="submit"></input></td>
 						</tr>
 					</table>
 					</c:forEach>
 				</form>
-				
-				<button class="fileInput">
-					button
-				</button>
 			</div>
 
 		</div>

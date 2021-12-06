@@ -198,7 +198,7 @@ public class AdministorController {
 			String DLY_RATE = request.getParameter("DLY_RATE");
 			String LOAN_LMT = request.getParameter("LOAN_LMT");
 			String RL_URL = request.getParameter("RL_URL");
-			String RL_IMG = fileName;
+			String RL_IMG = file_path+"/"+fileName;
 			RecommendLoan guar = new RecommendLoan(RL_IMG, RL_URL, DCLS_MONTH, KOR_CO_NM, FIN_PRDT_NM,
 					LEND_RATE_TYPE_NM, RPAY_TYPE_NM, ERLY_RPAY_FEE, DLY_RATE, LOAN_LMT);
 
@@ -240,7 +240,7 @@ public class AdministorController {
 			String CRDT_GRAD_13 = request.getParameter("CRDT_GRAD_13");
 			String CRDT_GRAD_AVG = request.getParameter("CRDT_GRAD_AVG");
 			String RL_CR_URL = request.getParameter("RL_CR_URL");
-			String RL_CR_IMG = fileName;
+			String RL_CR_IMG = file_path+"/"+fileName;
 			RecommendLoanCredit credit = new RecommendLoanCredit(RL_CR_IMG, RL_CR_URL, DCLS_MONTH, KOR_CO_NM,
 					CRDT_PRDT_TYPE_NM, CRDT_GRAD_1, CRDT_GRAD_4, CRDT_GRAD_5, CRDT_GRAD_6, CRDT_GRAD_10, CRDT_GRAD_12,
 					CRDT_GRAD_13, CRDT_GRAD_AVG);
@@ -280,7 +280,7 @@ public class AdministorController {
 			String DLY_RATE = request.getParameter("DLY_RATE");
 			String LOAN_LMT = request.getParameter("LOAN_LMT");
 			String RL_URL = request.getParameter("RL_CH_URL");
-			String RL_IMG = fileName;
+			String RL_IMG = file_path+"/"+fileName;
 			RecommendLoanCharter jeon = new RecommendLoanCharter(RL_IMG, RL_URL, DCLS_MONTH, KOR_CO_NM, FIN_PRDT_NM,
 					LEND_RATE_TYPE_NM, RPAY_TYPE_NM, ERLY_RPAY_FEE, DLY_RATE, LOAN_LMT);
 			int result = adminService.geonInsert(jeon);
@@ -429,7 +429,6 @@ public class AdministorController {
 	public ModelAndView recommendLoanDetail(
 			@RequestParam(name="NUM") int NUM,
 			ModelAndView mv) {
-		System.out.println("modify 진입");
 		try {
 			mv.addObject("volist", adminService.recommendLoanDetail(NUM));
 			mv.setViewName("admin/loanModify");
@@ -442,6 +441,7 @@ public class AdministorController {
 	public ModelAndView loanModify(
 			HttpServletRequest request,
 			ModelAndView mv) {
+		System.out.println("수정실행 진입");
 		try {
 			int RL_NUM = Integer.parseInt(request.getParameter("RL_NUM"));
 			String FIN_PRDT_NM = request.getParameter("FIN_PRDT_NM");
@@ -453,12 +453,10 @@ public class AdministorController {
 			String DLY_RATE = request.getParameter("DLY_RATE");
 			String LOAN_LMT = request.getParameter("LOAN_LMT");
 			String RL_URL = request.getParameter("RL_URL");
-//			String RL_IMG = "test";
 			String RL_IMG = request.getParameter("RL_IMG");
-			System.out.println(RL_NUM);
-			System.out.println(RL_IMG);
 			RecommendLoan guar = new RecommendLoan(RL_NUM, RL_IMG, RL_URL, DCLS_MONTH, KOR_CO_NM, FIN_PRDT_NM, LEND_RATE_TYPE_NM, RPAY_TYPE_NM, ERLY_RPAY_FEE, DLY_RATE, LOAN_LMT);
-			adminService.modifyLoan(guar);
+			int result = adminService.modifyLoan(guar);
+			System.out.println(result);
 			mv.setViewName("admin/main");
 		} catch (Exception e) {
 			e.printStackTrace();
