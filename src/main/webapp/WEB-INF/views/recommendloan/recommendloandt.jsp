@@ -339,37 +339,28 @@ $( document ).ready(function() {
         
         <!-- 리뷰 -->
         <div class="tab_item">
-            	<div class="content">
-            		<h1>리뷰</h1>
-            		 <br><br>
-			
-			
+            <h1>리뷰</h1>
+            <br><br>
+
 			<!-- 리뷰 리스트 -->
 			<div>
-			<form action="recommendloan/recommendloanreview" method="get">
-			<div class="reviewinsert">
+			<div class="review">
+			<form action="recommendloan/recommendloanreviewlist" method="get">
 			<table class="reviewlist" >
 					<tr>
 						<td>아이디</td>
 						<td>별점</td>
 						<td>내용</td>
 					</tr>
-					
-					<c:if test="${listCount eq 0}">
+					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
-							<td colspan="3" align="center"><br>
-								<br>작성된 리뷰가 없습니다.<br><br>
-							</td>
-							</tr>
-					</c:if>
-					<c:if test="${listCount ne 0}">
-						<tr>
-							<td align="center">${recommendloanreview.M_ID }</td>
-							<td align="center">${recommendloanreview.RLR_AST_ }</td>
-							<td align="center">${recommendloanreview.RLR_COMMENT }</td>
+							<td align="center">${vo.M_ID }</td>
+							<td align="center">${vo.RLR_AST_ }</td>
+							<td align="center">${vo.RLR_COMMENT }</td>
 						</tr>
-					</c:if>
+					</c:forEach>
 				</table>
+				</form>
 				</div>
 				
 				<div class="paging">
@@ -377,7 +368,7 @@ $( document ).ready(function() {
                 [이전]&nbsp; 
                 </c:if>
 				<c:if test="${currentPage > 1}">
-					<c:url var="blistST" value="recommendloanlist">
+					<c:url var="blistST" value="recommendloanreviewlist">
 						<c:param name="page" value="${currentPage-1}" />
 					</c:url>
 					<a href="${blistST}">[이전]</a>
@@ -388,7 +379,7 @@ $( document ).ready(function() {
 						<font color="red" size="4"><b>[${p}]</b></font>
 					</c:if>
 					<c:if test="${p ne currentPage}">
-						<c:url var="blistchk" value="recommendloanlist">
+						<c:url var="blistchk" value="recommendloanreviewlist">
 							<c:param name="page" value="${p}" />
 						</c:url>
 						<a href="${blistchk}">${p}</a>
@@ -398,14 +389,12 @@ $( document ).ready(function() {
  [다음] 
  </c:if>
 				<c:if test="${currentPage < maxPage}">
-					<c:url var="blistEND" value="recommendloanlist">
+					<c:url var="blistEND" value="recommendloanreviewlist">
 						<c:param name="page" value="${currentPage+1}" />
 					</c:url>
 					<a href="${blistEND}">[다음]</a>
-				</c:if>
-
+				</c:if> 
 			</div>
-			</form> 
 			</div>
 			
 			
@@ -444,7 +433,6 @@ $( document ).ready(function() {
 			
 		</div> 
 	</div>
-</div>
 </aside>
 </div>
 
