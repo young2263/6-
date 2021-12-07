@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/templatemo.css">
 <link rel="stylesheet" href="resources/css/custom.css">
-<title>ì¸ì¦</title>
+<title>loanplan ºñ¹Ğ¹øÈ£ Ã£±â</title>
 <style>
 #content_box {
 	width: 460px;
@@ -67,6 +67,45 @@
 	font-weight: bold;
 }
 
+.checkbox ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.checkbox ul li {
+	margin-bottom: 10px;
+}
+
+#content {
+	border: 1px solid #dae1e6;
+	padding: 20px;
+}
+
+button {
+	margin: 0 auto;
+	height: 50px;
+	width: 416px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border: none;
+	border-radius: 5px;
+}
+
+.nextBtn {
+	background: #4bc8a8;
+	color: #ffffff;
+	font-size: 20px;
+}
+
+.nextBtn:hover {
+	background: #62cfb4;
+}
+
+.nextBtn:active {
+	background: #88e0ca;
+	top: 2px;
+}
+
 .phn {
 	border: 1px solid #ccc;
 	border-radius: 10px;
@@ -85,29 +124,6 @@
 	text-align: center;
 	margin-top: 10px;
 	margin-bottom: 10px;
-}
-
-.nextBtn {
-	width: 250px;
-	height: 40px;
-	background-color: rgb(75, 200, 168);
-	border: none;
-	border-radius: 10px;
-	color: #ffffff;
-	font-size: 20px;
-}
-
-.nextBtn:hover {
-	background: #62cfb4;
-}
-
-.nextBtn:active {
-	background: #88e0ca;
-	top: 2px;
-}
-
-.imo {
-	font-size: 40px;
 }
 
 #modal {
@@ -143,52 +159,60 @@
 	<div id="content_box">
 		<div>
 			<h1>LOGO</h1>
-			<p style="color: #656a6e;">LOGOì— ê°€ì…í•˜ê³  ì¦ê±°ì›€ì„ ëˆ„ë¦¬ì„¸ìš”!</p>
+			<p style="color: #656a6e;">LOGO¿¡ °¡ÀÔÇÏ°í Áñ°Å¿òÀ» ´©¸®¼¼¿ä!</p>
 		</div>
 		<ul id="nav_ul">
 			<li>
-				<div class="circle">01 ì•½ê´€ë™ì˜</div>
+				<div class="circle">01 ¾à°üµ¿ÀÇ</div>
 			</li>
 			<li id="rcl">
-				<div class="circle">02 ë³¸ì¸ì¸ì¦</div>
+				<div class="yet circle">02 º»ÀÎÀÎÁõ</div>
 			</li>
 			<li id="rcl">
-				<div class="yet circle">03 ì •ë³´ì…ë ¥</div>
+				<div class="yet circle">03 Á¤º¸ÀÔ·Â</div>
 			</li>
 			<li id="rcl">
-				<div class="yet circle">04 ê°€ì…ì™„ë£Œ</div>
+				<div class="yet circle">04 °¡ÀÔ¿Ï·á</div>
 			</li>
 		</ul>
-		<div>
-			<p>íšŒì›ê°€ì…ì„ ìœ„í•´ ë³¸ì¸ì¸ì¦ì„ ì§„í–‰í•´ì£¼ì„¸ìš”.</p>
-		</div>
-		<div class="phn">
-			<p class="imo">&#128241;</p>
-			<p>í•¸ë“œí°</p>
-			<button class="nextBtn">ì¸ì¦í•˜ê¸°</button>
-		</div>
-		<div class="email">
-			<p class="imo">&#128231;</p>
-			<p>ì´ë©”ì¼</p>
-			<button class="nextBtn" id="email-popup">ì¸ì¦í•˜ê¸°</button>
-		</div>
-		<div id="modal">
-			<div class="modal_body">
-				<h3>LOGO</h3>
-				<p>ì´ë©”ì¼ ì¸ì¦ì„ ì§„í–‰í•´ì£¼ì„¸ìš”</p>
-				<form>
-					<p>ì´ë©”ì¼</p>
-					<input type="text">
-					<button>ì¸ì¦ë²ˆí˜¸ ë°›ê¸°</button>
-					<p>ì¸ì¦ë²ˆí˜¸ ì…ë ¥</p>
-					<input type="text">
-					<button>í™•ì¸</button>
-				</form>
+		<p>È¸¿ø°¡ÀÔ ¾à°ü µ¿ÀÇ</p>
+		<div id="content">
+			<div class="checkbox">
+				<ul>
+					<li><a href="#">¾ÆÀÌµğ Ã£±â</a></li>
+					<li><a href="#">ºñ¹Ğ¹øÈ£ Ã£±â</a></li>
+				</ul>
 			</div>
-		</div>
+			<div>
+				<p>º»ÀÎÈ®ÀÎ ÈÄ ¾ÆÀÌµğ Ã£±â°¡ °¡´ÉÇÕ´Ï´Ù.</p>
+			</div>
+			<div class="phn">
+				<p class="imo">&#128241;</p>
+				<p>ÇÚµåÆù</p>
+				<button class="nextBtn">ÀÎÁõÇÏ±â</button>
+			</div>
+			<div class="email">
+				<p class="imo">&#128231;</p>
+				<p>ÀÌ¸ŞÀÏ</p>
+				<button class="nextBtn" id="email-popup">ÀÎÁõÇÏ±â</button>
+			</div>
+			<div id="modal">
+				<div class="modal_body">
+					<h3>LOGO</h3>
+					<p>ÀÌ¸ŞÀÏ ÀÎÁõÀ» ÁøÇàÇØÁÖ¼¼¿ä</p>
+					<form>
+						<p>ÀÌ¸ŞÀÏ</p>
+						<input type="text">
+						<button>ÀÎÁõ¹øÈ£ ¹Ş±â</button>
+						<p>ÀÎÁõ¹øÈ£ ÀÔ·Â</p>
+						<input type="text">
+						<button>È®ÀÎ</button>
+					</form>
+				</div>
+			</div>
 
-		<!-- modal ì´ë²¤íŠ¸ -->
-		<script>
+			<!-- modal ÀÌº¥Æ® -->
+			<script>
             const body = document.querySelector('body');
             const modal = document.querySelector('#modal');
             const btnOpenPopup = document.querySelector('#email-popup');
@@ -211,6 +235,7 @@
               }
             });
           </script>
+		</div>
 	</div>
 </body>
 

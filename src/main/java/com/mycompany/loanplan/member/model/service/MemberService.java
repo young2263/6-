@@ -61,7 +61,11 @@ public class MemberService {
 		return result;
 	}
 	
-	public Member login(Member vo) {
+	public Member login(Member vo) throws Exception{
 		return memberDao.login(vo);
+	}
+	
+	public int signUp(Member vo) throws Exception {
+		return memberDao.signUp(vo);
 	}
 }

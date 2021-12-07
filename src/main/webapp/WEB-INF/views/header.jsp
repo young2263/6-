@@ -1,10 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	.login_nav ul{
+		list-style : none;
+	}
+	
+	.login_nav a {
+		text-decoration : none;
+	}
+</style>
 </head>
 <body>
  <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
@@ -49,11 +60,30 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">공지사항</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">내 정보 관리</a>
-                        </li>
                     </ul>
                 </div>
+                    <div class="nav-icon d-none d-lg-inline login_nav" >
+                       	<ul>
+				<li>
+					<c:if test="${member != null}">
+						<a href="/loanplan/list">내 정보</a>
+						<a href="/loanplan/logout">로그아웃</a>
+					</c:if>
+				</li>
+				<li>
+								
+					<c:if test="${member == null}">
+						<a href="/loanplan/login.do">로그인</a>
+						<a href="/loanplan/register">회원가입</a>
+					</c:if>
+				</li>
+				<li>
+					<c:if test="${member != null}">
+						<p>${member.m_id}님 안녕하세요.</p>
+					</c:if>
+				</li>
+			</ul>
+                    </div>
                 <div class="navbar align-self-center d-flex">
                     <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
                         <div class="input-group">
@@ -63,6 +93,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 

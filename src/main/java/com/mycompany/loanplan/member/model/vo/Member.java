@@ -2,6 +2,9 @@ package com.mycompany.loanplan.member.model.vo;
 
 import java.sql.Date;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Member {
 //	  M_ID VARCHAR(20) PRIMARY KEY,
 //    M_PWD VARCHAR(20) NOT NULL,
@@ -29,7 +32,7 @@ public class Member {
 	private String m_address;
 	private int m_asset;
 	private int m_debt;
-	private String car;
+	private String m_car;
 	private String m_house;
 	private Date m_cdate;
 	
@@ -37,7 +40,7 @@ public class Member {
 	}
 	
 	public Member(String m_id, String m_pwd, String m_name, String m_email, String m_phn,
-	String m_gender, int m_age, String m_job, String m_address, int m_asset, int m_debt, String car,
+	String m_gender, int m_age, String m_job, String m_address, int m_asset, int m_debt, String m_car,
 	String m_house, Date m_cdate) {
 		super();
 		this.m_id = m_id;
@@ -51,7 +54,7 @@ public class Member {
 		this.m_address = m_address;
 		this.m_asset = m_asset;
 		this.m_debt = m_debt;
-		this.car = car;
+		this.m_car = m_car;
 		this.m_house = m_house;
 		this.m_cdate = m_cdate;
 	}
@@ -60,7 +63,7 @@ public class Member {
 	public String toString() {
 		return "Member [m_id=" + m_id + ", m_pwd=" + m_pwd + ", m_name=" + m_name + ", m_email=" + m_email + ", m_phn="
 				+ m_phn + ", m_gender=" + m_gender + ", m_age=" + m_age + ", m_job=" + m_job + ", m_address="
-				+ m_address + ", m_asset=" + m_asset + ", m_debt=" + m_debt + ", car=" + car + ", m_house=" + m_house
+				+ m_address + ", m_asset=" + m_asset + ", m_debt=" + m_debt + ", m_car=" + m_car + ", m_house=" + m_house
 				+ ", m_cdate=" + m_cdate + "]";
 	}
 
@@ -152,12 +155,12 @@ public class Member {
 		this.m_debt = m_debt;
 	}
 
-	public String getCar() {
-		return car;
+	public String getM_car() {
+		return m_car;
 	}
 
-	public void setCar(String car) {
-		this.car = car;
+	public void setM_car(String m_car) {
+		this.m_car = m_car;
 	}
 
 	public String getM_house() {

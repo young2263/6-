@@ -17,9 +17,10 @@ import com.mycompany.loanplan.member.model.vo.Member;
 
 @Repository("memberDao")
 public class MemberDao {
+	
 	@Autowired
 	private SqlSession sqlSession;
-
+	
 	public MemberDao() {
 	} // Session 객체를 얻어 올 getSqlSessionFactory 메소드 구현
 
@@ -146,7 +147,11 @@ public class MemberDao {
 	public void logout(HttpSession session) {
 	}
 	
-	public Member login(Member vo) {
-		return sqlSession.selectOne("Member.loginMember", vo);
+	public int signUp(Member vo) {
+		return sqlSession.insert("Member.joinMember", vo);
+	}
+	
+	public Member login(Member vo) throws Exception{
+		return sqlSession.selectOne("Member.login", vo);
 	}
 }
