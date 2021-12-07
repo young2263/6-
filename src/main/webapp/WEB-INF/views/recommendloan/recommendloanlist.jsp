@@ -85,7 +85,7 @@
 	<div class="body">
 		
 		<div class="content">
-			<div class="listTitle" style="color: green">주택 담보 대출</div>
+			<div class="listTitle" style="color: green" style="font-size: 30px">주택 담보 대출</div>
 			<br><br>
 			<div>
 				<table class="tableBox" >
@@ -96,7 +96,7 @@
 					</tr>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
-							<td><a href="recommendloandt?no=${vo.RL_NUM}" style="color: black"><img class="img-fluid" src="${vo.RL_IMG }" alt="test"></a></td>
+							<td><a href="recommendloandt?no=${vo.RL_NUM}" style="color: black"><img class="img-fluid" src="../${vo.RL_IMG }" alt="test"></a></td>
 							<td><a href="recommendloandt?no=${vo.RL_NUM}" style="color: black">${vo.KOR_CO_NM }</a></td>
 							<td><a href="recommendloandt?no=${vo.RL_NUM}" style="color: black">${vo.FIN_PRDT_NM }</a></td>
 						</tr>

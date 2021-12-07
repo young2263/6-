@@ -84,7 +84,7 @@
 	<div class="body">
 		
 		<div class="content">
-			<div class="listTitle" style="color: green">전세 자금 대출</div>
+			<div class="listTitle" style="color: green" style="font-size: 30px">전세 자금 대출</div>
 			<div>
 				<table class="tableBox">
 					<tr>
@@ -94,7 +94,7 @@
 					</tr>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
-							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}" style="color: black"><img class="img-fluid" src="${vo.RL_CH_IMG }" alt="test"></a></td>
+							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}" style="color: black"><img class="img-fluid" src="../${vo.RL_CH_IMG }" alt="test"></a></td>
 							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}" style="color: black">${vo.KOR_CO_NM }</a></td>
 							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}" style="color: black">${vo.FIN_PRDT_NM }</a></td>
 						</tr>

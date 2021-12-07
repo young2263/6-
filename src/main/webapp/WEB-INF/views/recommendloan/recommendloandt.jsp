@@ -212,7 +212,7 @@ $( document ).ready(function() {
 <div class="body">
 	<table class="loandt">
 		<tr><td height="15" width="100"></td>
-			<td><img class="img-fluid" src="${recommendloan.RL_IMG }" alt="test"></td>
+			<td><img class="img-fluid" src="../${recommendloan.RL_IMG }" alt="test" width="100px" height="100px"></td>
 		</tr>
 		<tr><td height="15" width="100">대출상품명</td>
 			<td>${recommendloan.FIN_PRDT_NM }</td>
@@ -352,11 +352,11 @@ $( document ).ready(function() {
 						<td>별점</td>
 						<td>내용</td>
 					</tr>
-					<c:forEach var="vo" items="${volist}" varStatus="status">
+					<c:forEach var="rlr" items="${recommendloanreview}" varStatus="status">
 						<tr>
-							<td align="center">${vo.M_ID }</td>
-							<td align="center">${vo.RLR_AST_ }</td>
-							<td align="center">${vo.RLR_COMMENT }</td>
+							<td align="center">${rlr.M_ID }</td>
+							<td align="center">${rlr.RLR_AST_ }</td>
+							<td align="center">${rlr.RLR_COMMENT }</td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -433,6 +433,7 @@ $( document ).ready(function() {
 			
 		</div> 
 	</div>
+</div>
 </aside>
 </div>
 
