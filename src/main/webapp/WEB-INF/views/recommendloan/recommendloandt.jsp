@@ -124,6 +124,16 @@
 	
 	.tab_item .loancalcul {
 		margin: auto;
+		border-collapse: separate;
+		border-spacing: 0 10px;
+	}
+	
+	.loancalcul tr {
+		border-bottom: 10px solid;
+	}
+	
+	.loancalcul td {
+		border-right: 10px;
 	}
 
 	.tab_item .reviewtable {
@@ -433,9 +443,9 @@ $( document ).ready(function() {
 			
 		</div> 
 	</div>
-</div>
 </aside>
 </div>
+
 
 
 <script type="text/javascript">
