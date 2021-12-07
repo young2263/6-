@@ -36,8 +36,20 @@
 		font-size: 20px;
 		margin: auto;
 		padding-bottom: 40px;
-		border-spacing: 0 40px;
+		border-collapse: separate;
+		border-spacing: 30px 40px;
+		border-bottom: 1px solid gray;
 	}
+	
+	td {
+   		white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+   }
+   
+   b {
+   		font-size: 25px;
+   }
 
 	
 	.tabb:nth-of-type(1) {display:none;}
@@ -62,7 +74,7 @@
 		display : inline-block;
 		width: 100%; line-height:30px;
 		background-color:white;
-		color:blue;
+		color: #59ab6e;
 	}
 
 	.tabtab {
@@ -70,18 +82,17 @@
 	}
 
 	.tabb:nth-of-type(1):checked ~ label:nth-of-type(1) {
-		background-color: blue;
+		background-color: #59ab6e;
 		color: white;
 	}
 	.tabb:nth-of-type(2):checked ~ label:nth-of-type(2) {
-		background-color: blue;
+		background-color: #59ab6e;
 		color: white;
 	}
 	.tabb:nth-of-type(3):checked ~ label:nth-of-type(3) {
-		background-color: blue;
+		background-color: #59ab6e;
 		color: white;
 	}
-
 	
 	/* 탭 목록 */
 
@@ -122,12 +133,24 @@
     }
     
     .reviewlist {
-    	margin: auto;
-    	border: none;
-    	border-spacing: 200px;
+    	border-spacing:50px;
+    	border-collapse: separate;
     }
     
+    .reviewlist td {
+    	width: 700px;
+    	background: #59ab6e;
+    }
     
+     .reviewtable {
+    	border-spacing:50px;
+    	border-collapse: separate;
+    }
+    
+    .reviewlist tr {
+    	width: 700px;
+    	background: #ccc;
+    }
 	
 	.star_rating {font-size:0; letter-spacing:-4px;}
 	.star_rating a {
@@ -140,6 +163,21 @@
   	}
 	.star_rating a:first-child {margin-left:0;}
 	.star_rating a.on {color:rgb(255, 251, 0);}
+	
+	.star_rating a {
+		display: inline-block;
+		width: 30px; height: 30px;
+		font-size: 20px;
+	}
+	
+	.btnrv {
+		border: 1px solid #59ab6e;
+		background-color: #59ab6e;
+		font: 20px;
+		font-weight: bold;
+		color: black;
+		width: 150px; height: 40px; 
+	}
 	
 </style>
 
@@ -172,10 +210,10 @@ $( document ).ready(function() {
         </c:when>
     </c:choose>
 	</header>
-	
+	<br><br><br><br>
 	
 <div class="body">
-	<table>
+	<table class="loandt">
 		<tr><td height="15" width="100"></td>
 			<td><img class="img-fluid" src="${recommendloancharter.RL_CH_IMG }" alt="test"></td>
 		</tr>
@@ -242,7 +280,7 @@ $( document ).ready(function() {
                 </li>
             </ul>
 		</div>
-
+		<br><br><br><br>
 
 		<!-- 계산기 -->
         <div class="tab_item">
@@ -298,7 +336,7 @@ $( document ).ready(function() {
 	</table>
 </form>
         </div>
-        
+        <br><br><br><br>
         
         <!-- 리뷰 -->
         <div class="tab_item">
@@ -380,13 +418,13 @@ $( document ).ready(function() {
 			<input type="hidden" id="reviews" name="reviews" value>
 			<table class="reviewtable" border="1" style="width: 70%">
 	  			<tr>
-	  				<td>내용</td>
+	  				<td style="font-size:25px">내용</td>
 	  				<td>
 	  					<textarea style="resize:none;" rows="10" cols="120" name="rlr_comment" placeholder="내용을 작성해주세요"></textarea>
 	  				</td>
 	  			</tr>
 	  			<tr>
-					<td>별점</td>
+					<td style="font-size:25px">별점</td>
 				  	<td class="star_rating">
      					<a href="#" class="on" id="1">★</a>
 						<a href="#" class="on" id="2">★</a>
@@ -399,10 +437,11 @@ $( document ).ready(function() {
 	  			
 	  			<tr>
 	  				<td colspan="2" style="text-align: center;">
-	  					<input type="submit" value="등록">
+	  					<input class="btnrv" type="submit" value="등록">
 	  				</td>
 	  			</tr>
 			</table>
+			<br><br><br><br>
 			</form>
 			
 		</div> 
