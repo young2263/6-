@@ -53,7 +53,8 @@
 
 	<!-- 주택 담보 정보 조회 -->
 	<select id="recommendLoan" resultMap="RecommendLoan">
-		select * from RECOMMEND_LOAN
+		select * from
+		RECOMMEND_LOAN
 	</select>
 
 	<!-- 전세자금 정보 조회 -->
@@ -93,17 +94,20 @@
 
 	<!-- RECOMMEND_LOAN 대출 정보 totalCount -->
 	<select id="loanCount" resultType="int">
-		select count(*) from RECOMMEND_LOAN
+		select count(*) from
+		RECOMMEND_LOAN
 	</select>
 
 	<!-- RECOMMEND_LOAN_credit 대출 정보 totalCount -->
 	<select id="loancreditCount" resultType="int">
-		select count(*) from RECOMMEND_LOAN_credit
+		select count(*) from
+		RECOMMEND_LOAN_credit
 	</select>
 
 	<!-- RECOMMEND_LOAN_charter 대출 정보 totalCount -->
 	<select id="loancharterCount" resultType="int">
-		select count(*) from RECOMMEND_LOAN_charter
+		select count(*) from
+		RECOMMEND_LOAN_charter
 	</select>
 
 	<!-- 카테고리별 대출 정보 조회 -->
@@ -114,7 +118,8 @@
 	<!-- 주택담보 대출 정보 추가 -->
 	<insert id="guarInsert" parameterType="RecommendLoan">
 		insert into recommend_loan
-		values(RECOMMEND_LOAN_SEQ.nextval, #{RL_IMG}, #{RL_URL}, #{DCLS_MONTH},
+		values(RECOMMEND_LOAN_SEQ.nextval, #{RL_IMG}, #{RL_URL},
+		#{DCLS_MONTH},
 		#{KOR_CO_NM},
 		#{FIN_PRDT_NM},#{LEND_RATE_TYPE_NM},#{RPAY_TYPE_NM},#{ERLY_RPAY_FEE},#{DLY_RATE},#{LOAN_LMT}
 		)
@@ -122,7 +127,8 @@
 
 	<!-- 신용 대출 정보 추가 -->
 	<insert id="creditInsert" parameterType="recommendloancredit">
-		insert into recommend_loan_credit
+		insert into
+		recommend_loan_credit
 		values(RECOMMEND_LOAN_CREDIT_SEQ.nextval,#{DCLS_MONTH},#{KOR_CO_NM},#{CRDT_PRDT_TYPE_NM},#{CRDT_GRAD_1},
 		#{CRDT_GRAD_4},#{CRDT_GRAD_5},#{CRDT_GRAD_6},#{CRDT_GRAD_10},#{CRDT_GRAD_12},#{CRDT_GRAD_13},
 		#{CRDT_GRAD_AVG},#{RL_CR_IMG},#{RL_CR_URL})
@@ -130,8 +136,10 @@
 
 	<!-- 전세자금 대출 정보 추가 -->
 	<insert id="geonInsert" parameterType="recommendloancharter">
-		insert into recommend_loan_charter
-		values(RECOMMEND_LOAN_CHARTER_SEQ.nextval, #{RL_CH_IMG}, #{RL_CH_URL},
+		insert into
+		recommend_loan_charter
+		values(RECOMMEND_LOAN_CHARTER_SEQ.nextval,
+		#{RL_CH_IMG}, #{RL_CH_URL},
 		#{DCLS_MONTH},
 		#{KOR_CO_NM},
 		#{FIN_PRDT_NM},#{LEND_RATE_TYPE_NM},#{RPAY_TYPE_NM},#{ERLY_RPAY_FEE},#{DLY_RATE},#{LOAN_LMT}
@@ -140,26 +148,62 @@
 
 	<!-- 주택담보 대출 정보 삭제 -->
 	<delete id="deleteLoan" parameterType="int">
-		delete from recommend_loan where RL_NUM=#{RL_NUM}
+		delete from recommend_loan
+		where RL_NUM=#{RL_NUM}
 	</delete>
 
 	<!-- 신용 대출 정보 삭제 -->
 	<delete id="deleteCredit" parameterType="int">
-		delete from recommend_loan_credit where rl_cr_num=#{RL_CR_NUM}
+		delete from
+		recommend_loan_credit where rl_cr_num=#{RL_CR_NUM}
 	</delete>
 
 	<!-- 전세자금 대출 정보 삭제 -->
 	<delete id="deleteCharter" parameterType="int">
-		delete from recommend_loan_charter where RL_CH_NUM=#{RL_CH_NUM}
+		delete from
+		recommend_loan_charter where RL_CH_NUM=#{RL_CH_NUM}
 	</delete>
 
 	<update id="updateLoan" parameterType="RecommendLoan">
 		update recommend_loan set
 		RL_IMG=#{RL_IMG}, RL_URL=#{RL_URL},
-		DCLS_MONTH=#{DCLS_MONTH}, KOR_CO_NM=#{KOR_CO_NM},
-		FIN_PRDT_NM=#{FIN_PRDT_NM}, LEND_RATE_TYPE_NM=#{LEND_RATE_TYPE_NM}, RPAY_TYPE_NM=#{RPAY_TYPE_NM},
+		DCLS_MONTH=#{DCLS_MONTH},
+		KOR_CO_NM=#{KOR_CO_NM},
+		FIN_PRDT_NM=#{FIN_PRDT_NM},
+		LEND_RATE_TYPE_NM=#{LEND_RATE_TYPE_NM}, RPAY_TYPE_NM=#{RPAY_TYPE_NM},
 		ERLY_RPAY_FEE=#{ERLY_RPAY_FEE},
 		DLY_RATE=#{DLY_RATE},
 		LOAN_LMT=#{LOAN_LMT} where RL_NUM=#{RL_NUM}
+	</update>
+	<update id="updateCredit" parameterType="RecommendLoanCredit">
+		update
+		recommend_loan_credit set
+		RL_CR_IMG=#{RL_CR_IMG},
+		RL_CR_URL=#{RL_CR_URL},
+		DCLS_MONTH=#{DCLS_MONTH},
+		KOR_CO_NM=#{KOR_CO_NM},
+		CRDT_PRDT_TYPE_NM=#{CRDT_PRDT_TYPE_NM},
+		CRDT_GRAD_1=#{CRDT_GRAD_1}, CRDT_GRAD_4=#{CRDT_GRAD_4},
+		CRDT_GRAD_5=#{CRDT_GRAD_5},
+		CRDT_GRAD_6=#{CRDT_GRAD_6},
+		CRDT_GRAD_10=#{CRDT_GRAD_10},
+		CRDT_GRAD_12=#{CRDT_GRAD_12},
+		CRDT_GRAD_13=#{CRDT_GRAD_13},
+		CRDT_GRAD_AVG=#{CRDT_GRAD_AVG} where
+		RL_CR_NUM=#{RL_CR_NUM}
+	</update>
+	<update id="updateCharter" parameterType="RecommendLoanCharter">
+		update
+		recommend_loan_charter
+		set
+		RL_CH_IMG=#{RL_CH_IMG},
+		RL_CH_URL=#{RL_CH_URL},
+		DCLS_MONTH=#{DCLS_MONTH},
+		KOR_CO_NM=#{KOR_CO_NM},
+		FIN_PRDT_NM=#{FIN_PRDT_NM},
+		LEND_RATE_TYPE_NM=#{LEND_RATE_TYPE_NM}, RPAY_TYPE_NM=#{RPAY_TYPE_NM},
+		ERLY_RPAY_FEE=#{ERLY_RPAY_FEE},
+		DLY_RATE=#{DLY_RATE},
+		LOAN_LMT=#{LOAN_LMT} where RL_CH_NUM=#{RL_CH_NUM}
 	</update>
 </mapper>

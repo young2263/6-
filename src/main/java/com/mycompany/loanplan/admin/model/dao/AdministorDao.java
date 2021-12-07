@@ -105,5 +105,15 @@ public class AdministorDao {
 		return sqlSession.update("Administor.updateLoan", list);
 	}
 	
+	public int modifyCredit(RecommendLoanCredit list) {
+		return sqlSession.update("Administor.updateCredit", list);
+	}
+	
+	public int modifyCharter(RecommendLoanCharter list) {
+		return sqlSession.update("Administor.updateCharter", list);
+	}
+	
+	
+	
 	
 }

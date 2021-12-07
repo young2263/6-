@@ -35,16 +35,25 @@
 				<h2>대출 추가</h2>
 			</div>
 			
-				<form class="credit_inputBox" action="creditModify" method="post">
+				<form class="credit_inputBox" action="creditModify.do" method="post">
 					<table>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
+							<th>번호</th>
+							<td><input type="text" name="RL_CR_NUM"
+								value="${vo.RL_CR_NUM}" /></td>
+						</tr>
+						<tr>
 							<th>금융회사명</th>
 							<td><select name="KOR_CO_NM">
-									<option value="shin">신한</option>
-									<option value="kuk">국민</option>
-									<option value="woori">우리</option>
-									<option value="newct">새마을</option>
+									<option value="신한은행">신한은행</option>
+									<option value="국민은행">국민은행</option>
+									<option value="우리은행">우리은행</option>
+									<option value="새마을은행">새마을은행</option>
+									<option value="광주은행">광주은행</option>
+									<option value="제주은행">제주은행</option>
+									<option value="부산은행">부산은행</option>
+									<option value="경남은행">경남은행</option>
 							</select></td>
 						</tr>
 						<tr>
@@ -109,7 +118,7 @@
 						</tr>
 						<tr>
 							<th>이미지</th>
-							<td><input type="file" name="RL_CR_IMG"/></td>
+							<td><input type="text" name="RL_CR_IMG" value="${vo.RL_CR_IMG}"/></td>
 						</tr>
 						<tr>
 							<td colspan="2"><input class="addBtn" type="submit"></input></td>

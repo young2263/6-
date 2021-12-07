@@ -300,7 +300,7 @@ public class AdministorController {
 	}
 	// 광고 리스트창 띄우기
 	@RequestMapping(value = "/advertise", method = RequestMethod.GET)
-	public ModelAndView advertisement(Administor ad, HttpServletRequest request, ModelAndView mv) {
+	public ModelAndView advertisement(HttpServletRequest request, ModelAndView mv) {
 		try {
 			List<Advertise> advertiseList = advertiseService.advertiseList();
 			mv.addObject("advertiseList", advertiseList);
@@ -323,11 +323,19 @@ public class AdministorController {
 	}
 	//광고 추가
 	@RequestMapping(value = "/advertiseAdd.do", method = RequestMethod.POST)
-	public ModelAndView advertiseAddDo(Administor ad, HttpServletRequest request, ModelAndView mv) {
+	public ModelAndView advertiseAddDo(@RequestParam("AD_IMG") MultipartFile file, 
+			HttpServletRequest request, ModelAndView mv) {
 		try {
+			String root_path = request.getSession().getServletContext().getRealPath("/");  
+			String fileName = file.getOriginalFilename();
+			System.out.println(fileName);
+			if(!fileName.isEmpty()) {
+				file.transferTo(new File(root_path+file_path,fileName));
+				System.out.println("업로드 성공");
+			}
 			String AD_TITLE = request.getParameter("AD_TITLE");
 			String AD_CONTENT = request.getParameter("AD_CONTENT");
-			String AD_IMG = request.getParameter("AD_IMG");
+			String AD_IMG = file_path+"/"+fileName;
 			String AD_SRC = request.getParameter("AD_SRC");
 			Advertise adt = new Advertise(AD_TITLE, AD_CONTENT, AD_IMG, AD_SRC);
 			int result = advertiseService.advertiseAdd(adt);
@@ -485,6 +493,42 @@ public class AdministorController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "/charterModify.do", method = RequestMethod.POST)
+	public ModelAndView charterModify(
+			@RequestParam(name = "page", defaultValue = "1") int page,
+			HttpServletRequest request,
+			ModelAndView mv) {
+		System.out.println("수정실행 진입");
+		try {
+			int RL_CH_NUM = Integer.parseInt(request.getParameter("RL_CH_NUM"));
+			String FIN_PRDT_NM = request.getParameter("FIN_PRDT_NM");
+			String KOR_CO_NM = request.getParameter("KOR_CO_NM");
+			String DCLS_MONTH = request.getParameter("DCLS_MONTH");
+			String LEND_RATE_TYPE_NM = request.getParameter("LEND_RATE_TYPE_NM");
+			String RPAY_TYPE_NM = request.getParameter("RPAY_TYPE_NM");
+			String ERLY_RPAY_FEE = request.getParameter("ERLY_RPAY_FEE");
+			String DLY_RATE = request.getParameter("DLY_RATE");
+			String LOAN_LMT = request.getParameter("LOAN_LMT");
+			String RL_CH_URL = request.getParameter("RL_CH_URL");
+			String RL_CH_IMG = request.getParameter("RL_CH_IMG");
+			RecommendLoanCharter charter = new RecommendLoanCharter(RL_CH_NUM, RL_CH_IMG, RL_CH_URL, DCLS_MONTH, KOR_CO_NM,
+					FIN_PRDT_NM, LEND_RATE_TYPE_NM, RPAY_TYPE_NM, ERLY_RPAY_FEE, DLY_RATE, LOAN_LMT);
+			int result = adminService.modifyCharter(charter);
+			System.out.println(result);
+			int currentPage = page;
+			int listCount = adminService.loancharterCount();
+			int maxPage = (int) ((double) listCount / LIMIT + 0.9);
+			mv.addObject("volist", adminService.recommendLoanCharterList(currentPage, LIMIT));
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("maxPage", maxPage);
+			mv.addObject("listCount", listCount);
+			mv.setViewName("admin/charterLoanList");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
+	
 	@RequestMapping(value = "/creditModify", method = RequestMethod.GET)
 	public ModelAndView recommendLoanCreditListDetail(
 			@RequestParam(name="NUM") int NUM,
@@ -495,6 +539,51 @@ public class AdministorController {
 			List<RecommendLoanCredit> volist = adminService.recommendLoanCreditListDetail(NUM);
 			mv.addObject("volist", volist);
 			mv.setViewName("admin/creditModify");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value = "/creditModify.do", method = RequestMethod.POST)
+	public ModelAndView creditModify(
+			@RequestParam(name = "page", defaultValue = "1") int page,
+			HttpServletRequest request,
+			ModelAndView mv) {
+		System.out.println("수정실행 진입");
+		try {
+			int RL_CR_NUM = Integer.parseInt(request.getParameter("RL_CR_NUM"));
+			String KOR_CO_NM = request.getParameter("KOR_CO_NM");
+			String DCLS_MONTH = request.getParameter("DCLS_MONTH");
+			String CRDT_PRDT_TYPE_NM = request.getParameter("CRDT_PRDT_TYPE_NM");
+			//String Page= (request.getParameter("Page") == null) ? "1" : request.getParameter("Page");
+			String CRDT_GRAD_1 = (request.getParameter("CRDT_GRAD_1") == null) ? "0" : request.getParameter("CRDT_GRAD_1");
+			String CRDT_GRAD_4 = (request.getParameter("CRDT_GRAD_4") == null) ? "0" : request.getParameter("CRDT_GRAD_4");
+			String CRDT_GRAD_5 = (request.getParameter("CRDT_GRAD_5") == null) ? "0" : request.getParameter("CRDT_GRAD_5");
+			String CRDT_GRAD_6 = (request.getParameter("CRDT_GRAD_6") == null) ? "0" : request.getParameter("CRDT_GRAD_6");
+			String CRDT_GRAD_10 = (request.getParameter("CRDT_GRAD_10") == null) ? "0" : request.getParameter("CRDT_GRAD_10");
+			String CRDT_GRAD_12 = (request.getParameter("CRDT_GRAD_12") == null) ? "0" : request.getParameter("CRDT_GRAD_12");
+			String CRDT_GRAD_13 = (request.getParameter("CRDT_GRAD_13") == null) ? "0" : request.getParameter("CRDT_GRAD_13");
+			String CRDT_GRAD_AVG = (request.getParameter("CRDT_GRAD_AVG") == null) ? "0" : request.getParameter("CRDT_GRAD_AVG");
+			String RL_CR_URL = request.getParameter("RL_CR_URL");
+			String RL_CR_IMG = request.getParameter("RL_CR_IMG");
+			System.out.println(CRDT_GRAD_1);
+			System.out.println(CRDT_GRAD_10);
+			RecommendLoanCredit credit = new RecommendLoanCredit(RL_CR_NUM, RL_CR_IMG, RL_CR_URL, 
+					DCLS_MONTH, KOR_CO_NM, CRDT_PRDT_TYPE_NM, CRDT_GRAD_1, CRDT_GRAD_4, CRDT_GRAD_5, CRDT_GRAD_6, 
+					CRDT_GRAD_10, CRDT_GRAD_12, CRDT_GRAD_13, CRDT_GRAD_AVG);
+					
+			int result = adminService.modifyCredit(credit);
+			System.out.println(result);
+			int currentPage = page;
+			int listCount = adminService.loancreditCount();
+			int maxPage = (int) ((double) listCount / LIMIT + 0.9);
+			List<RecommendLoanCredit> volist = adminService.recommendLoanCreditList(currentPage, LIMIT);
+			mv.addObject("volist", adminService.recommendLoanCreditList(currentPage, LIMIT));
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("maxPage", maxPage);
+			mv.addObject("listCount", listCount);
+			mv.setViewName("admin/creditLoanList");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

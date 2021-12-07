@@ -23,7 +23,7 @@ public class RecommendLoanCharter {
 		
 	}
 	
-	public RecommendLoanCharter(int rlchnum, String rlchcategory, String rlchimg, String rlchurl, String dclsmonth, String korconm, String finprdtnm, String lendratetypenm, String rpaytypenm, String erlyrpayfee, String dlyrate, String loanlmt) {
+	public RecommendLoanCharter(int rlchnum, String rlchimg, String rlchurl, String dclsmonth, String korconm, String finprdtnm, String lendratetypenm, String rpaytypenm, String erlyrpayfee, String dlyrate, String loanlmt) {
 		super();
 		this.RL_CH_NUM = rlchnum;
 		this.RL_CH_IMG = rlchimg;

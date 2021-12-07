@@ -33,7 +33,7 @@
                 <h3>광고 추가</h3>
             </div>
 
-            <form action="advertiseAdd.do" method="post" class="tableBox">
+            <form action="advertiseAdd.do" method="post" class="tableBox" enctype="multipart/form-data">
                 <table>
 					<tr>
 						<th>광고 제목</th>

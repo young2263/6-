@@ -107,4 +107,14 @@ public class AdministorServiceImpl implements AdministorService {
 		return adminDao.modifyLoan(list);
 	}
 	
+	@Override
+	public int modifyCredit(RecommendLoanCredit list){
+		return adminDao.modifyCredit(list);
+	}
+	
+	@Override
+	public int modifyCharter(RecommendLoanCharter list){
+		return adminDao.modifyCharter(list);
+	}
+	
 }

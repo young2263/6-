@@ -7,7 +7,7 @@ import com.mycompany.loanplan.loan.model.vo.RecommendLoan;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoanCharter;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoanCredit;
 
-public interface AdministorService {
+public interface AdministorService {	
 
 	//리스트
 	List<Administor> listLoan();
@@ -36,4 +36,6 @@ public interface AdministorService {
 	
 	//수정
 	public int modifyLoan(RecommendLoan list);
+	public int modifyCredit(RecommendLoanCredit list);
+	public int modifyCharter(RecommendLoanCharter list);
 }

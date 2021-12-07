@@ -38,50 +38,62 @@
 				<form action="loanModify.do" method="post" class="guar_inputBox">
 					<!-- 담보대출 input -->
 					<table>
-					<c:forEach var="vo" items="${volist}" varStatus="status">
-						<tr>
-							<th>금융상품명</th>
-							<td><input type="text" name="FIN_PRDT_NM" value="${vo.FIN_PRDT_NM}" /></td>
-						</tr>
-						<tr>
-							<th>금융회사명</th>
-							<td><input type="text" name="KOR_CO_NM" value="${vo.KOR_CO_NM}" /></td>
-						</tr>
-						<tr>
-							<th>공시제출월</th>
-							<td><input type="text" name="DCLS_MONTH" value="${vo.DCLS_MONTH}" /></td>
-						</tr>
-						<tr>
-							<th>대출금리유형</th>
-							<td><input type="text" name="LEND_RATE_TYPE_NM" value="${vo.LEND_RATE_TYPE_NM}" /></td>
-						</tr>
-						<tr>
-							<th>대출상환유형</th>
-							<td><input type="text" name="RPAY_TYPE_NM" value="${vo.RPAY_TYPE_NM}" /></td>
-						</tr>
-						<tr>
-							<th>중도상환수수료</th>
-							<td><textarea rows="8" cols="85" name="ERLY_RPAY_FEE">${vo.ERLY_RPAY_FEE}</textarea></td>
-						</tr>
-						<tr>
-							<th>연체이자율</th>
-							<td><textarea rows="8" cols="85" name="DLY_RATE">${vo.DLY_RATE}</textarea></td>
-						</tr>
-						<tr>
-							<th>대출한도</th>
-							<td><input type="text" name="LOAN_LMT" value="${vo.LOAN_LMT}" /></td>
-						</tr>
-						<tr>
-							<th>관련 URL</th>
-							<td><input type="text" name="RL_URL" value="${vo.RL_URL}" /></td>
-						</tr>
-						<tr>
-							<th>이미지</th>
-							<td><input class="fileInput" type="text" value="${vo.RL_IMG}" name="RL_IMG" /></td>
-						</tr>
-						<tr>
-							<td colspan="2"><input class="addBtn" type="submit"></input></td>
-						</tr>
+						<c:forEach var="vo" items="${volist}" varStatus="status">
+							<tr>
+								<th>번호</th>
+								<td><input type="text" name="RL_NUM"
+									value="${vo.RL_NUM}" /></td>
+							</tr>
+							<tr>
+								<th>금융상품명</th>
+								<td><input type="text" name="FIN_PRDT_NM"
+									value="${vo.FIN_PRDT_NM}" /></td>
+							</tr>
+							<tr>
+								<th>금융회사명</th>
+								<td><input type="text" name="KOR_CO_NM"
+									value="${vo.KOR_CO_NM}" /></td>
+							</tr>
+							<tr>
+								<th>공시제출월</th>
+								<td><input type="text" name="DCLS_MONTH"
+									value="${vo.DCLS_MONTH}" /></td>
+							</tr>
+							<tr>
+								<th>대출금리유형</th>
+								<td><input type="text" name="LEND_RATE_TYPE_NM"
+									value="${vo.LEND_RATE_TYPE_NM}" /></td>
+							</tr>
+							<tr>
+								<th>대출상환유형</th>
+								<td><input type="text" name="RPAY_TYPE_NM"
+									value="${vo.RPAY_TYPE_NM}" /></td>
+							</tr>
+							<tr>
+								<th>중도상환수수료</th>
+								<td><textarea rows="8" cols="85" name="ERLY_RPAY_FEE">${vo.ERLY_RPAY_FEE}</textarea></td>
+							</tr>
+							<tr>
+								<th>연체이자율</th>
+								<td><textarea rows="8" cols="85" name="DLY_RATE">${vo.DLY_RATE}</textarea></td>
+							</tr>
+							<tr>
+								<th>대출한도</th>
+								<td><input type="text" name="LOAN_LMT"
+									value="${vo.LOAN_LMT}" /></td>
+							</tr>
+							<tr>
+								<th>관련 URL</th>
+								<td><input type="text" name="RL_URL" value="${vo.RL_URL}" /></td>
+							</tr>
+							<tr>
+								<th>이미지</th>
+								<td><input class="fileInput" type="text"
+									value="${vo.RL_IMG}" name="RL_IMG" /></td>
+							</tr>
+							<tr>
+								<td colspan="2"><input class="addBtn" type="submit"></input></td>
+							</tr>
 					</table>
 					</c:forEach>
 				</form>
