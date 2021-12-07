@@ -27,7 +27,9 @@ public class RecommendLoanReviewDao {
 	public List<RecommendLoanReview> selectList(int startPage, int limit) {   //특정 페이지 단위의 게시글 조회
 		int startRow = (startPage-1)*limit;
 		RowBounds row = new RowBounds(startRow, limit);
-		return sqlSession.selectList("RecommendLoanReview.listRecommendLoanReview", null, row);
+		List<RecommendLoanReview> volist = sqlSession.selectList("RecommendLoanReview.listRecommendLoanReview", null, row);
+		System.out.println(volist);
+		return volist;
 	}
 	
 	public int insertRecommendLoanReview(RecommendLoanReview rlr) {  //리뷰 입력 

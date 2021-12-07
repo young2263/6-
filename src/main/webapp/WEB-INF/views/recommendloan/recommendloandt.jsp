@@ -36,10 +36,21 @@
 		font-size: 20px;
 		margin: auto;
 		padding-bottom: 40px;
-		border-spacing: 0 40px;
+		border-collapse: separate;
+		border-spacing: 30px 40px;
+		border-bottom: 1px solid gray;
 	}
-
 	
+	td {
+   		white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+   }
+   
+   b {
+   		font-size: 25px;
+   }
+   
 	.tabb:nth-of-type(1) {display:none;}
 	.tabb:nth-of-type(1) ~ div:nth-of-type(1) {display:none;}
 	.tabb:nth-of-type(1):checked ~ div:nth-of-type(1) {display:block;}
@@ -62,7 +73,7 @@
 		display : inline-block;
 		width: 100%; line-height:30px;
 		background-color:white;
-		color:blue;
+		color: #59ab6e;
 	}
 
 	.tabtab {
@@ -70,18 +81,17 @@
 	}
 
 	.tabb:nth-of-type(1):checked ~ label:nth-of-type(1) {
-		background-color: blue;
+		background-color: #59ab6e;
 		color: white;
 	}
 	.tabb:nth-of-type(2):checked ~ label:nth-of-type(2) {
-		background-color: blue;
+		background-color: #59ab6e;
 		color: white;
 	}
 	.tabb:nth-of-type(3):checked ~ label:nth-of-type(3) {
-		background-color: blue;
+		background-color: #59ab6e;
 		color: white;
 	}
-
 	
 	/* 탭 목록 */
 
@@ -122,12 +132,24 @@
     }
     
     .reviewlist {
-    	margin: auto;
-    	border: none;
-    	border-spacing: 200px;
+    	border-spacing:50px;
+    	border-collapse: separate;
     }
     
+    .reviewlist td {
+    	width: 700px;
+    	background-color: #59ab6e;
+    }
     
+    .reviewtable {
+    	border-spacing:50px;
+    	border-collapse: separate;
+    }
+    
+    .reviewlist tr {
+    	width: 700px;
+    	background: #ccc;
+    }
 	
 	.star_rating {font-size:0; letter-spacing:-4px;}
 	.star_rating a {
@@ -140,6 +162,21 @@
   	}
 	.star_rating a:first-child {margin-left:0;}
 	.star_rating a.on {color:rgb(255, 251, 0);}
+	
+	.star_rating a {
+		display: inline-block;
+		width: 30px; height: 30px;
+		font-size: 20px;
+	}
+	
+	.btnrv {
+		border: 1px solid #59ab6e;
+		background-color: #59ab6e;
+		font: 20px;
+		font-weight: bold;
+		color: black;
+		width: 150px; height: 40px; 
+	}
 </style>
 
 <script type="text/javascript">
@@ -170,7 +207,7 @@ $( document ).ready(function() {
         </c:when>
     </c:choose>
 	</header>
-	
+	<br><br><br><br>
 	
 <div class="body">
 	<table class="loandt">
@@ -241,7 +278,7 @@ $( document ).ready(function() {
                 </li>
             </ul>
 		</div>
-
+		<br><br><br><br>
 
 		<!-- 계산기 -->
         <div class="tab_item">
@@ -297,41 +334,33 @@ $( document ).ready(function() {
 	</table>
 </form>
         </div>
+        <br><br><br><br>
         
         
         <!-- 리뷰 -->
         <div class="tab_item">
-            	<div class="content">
-            		<h1>리뷰</h1>
-            		 <br><br>
-			
-			
+            <h1>리뷰</h1>
+            <br><br>
+
 			<!-- 리뷰 리스트 -->
 			<div>
-			<form action="recommendloan/recommendloanreview" method="get">
-			<div class="reviewinsert">
+			<div class="review">
+			<form action="recommendloan/recommendloanreviewlist" method="get">
 			<table class="reviewlist" >
 					<tr>
 						<td>아이디</td>
 						<td>별점</td>
 						<td>내용</td>
 					</tr>
-					
-					<c:if test="${listCount eq 0}">
+					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
-							<td colspan="3" align="center"><br>
-								<br>작성된 리뷰가 없습니다.<br><br>
-							</td>
-							</tr>
-					</c:if>
-					<c:if test="${listCount ne 0}">
-						<tr>
-							<td align="center">${recommendloanreview.M_ID }</td>
-							<td align="center">${recommendloanreview.RLR_AST_ }</td>
-							<td align="center">${recommendloanreview.RLR_COMMENT }</td>
+							<td align="center">${vo.M_ID }</td>
+							<td align="center">${vo.RLR_AST_ }</td>
+							<td align="center">${vo.RLR_COMMENT }</td>
 						</tr>
-					</c:if>
+					</c:forEach>
 				</table>
+				</form>
 				</div>
 				
 				<div class="paging">
@@ -339,7 +368,7 @@ $( document ).ready(function() {
                 [이전]&nbsp; 
                 </c:if>
 				<c:if test="${currentPage > 1}">
-					<c:url var="blistST" value="recommendloanlist">
+					<c:url var="blistST" value="recommendloanreviewlist">
 						<c:param name="page" value="${currentPage-1}" />
 					</c:url>
 					<a href="${blistST}">[이전]</a>
@@ -350,7 +379,7 @@ $( document ).ready(function() {
 						<font color="red" size="4"><b>[${p}]</b></font>
 					</c:if>
 					<c:if test="${p ne currentPage}">
-						<c:url var="blistchk" value="recommendloanlist">
+						<c:url var="blistchk" value="recommendloanreviewlist">
 							<c:param name="page" value="${p}" />
 						</c:url>
 						<a href="${blistchk}">${p}</a>
@@ -360,14 +389,12 @@ $( document ).ready(function() {
  [다음] 
  </c:if>
 				<c:if test="${currentPage < maxPage}">
-					<c:url var="blistEND" value="recommendloanlist">
+					<c:url var="blistEND" value="recommendloanreviewlist">
 						<c:param name="page" value="${currentPage+1}" />
 					</c:url>
 					<a href="${blistEND}">[다음]</a>
-				</c:if>
-
+				</c:if> 
 			</div>
-			</form> 
 			</div>
 			
 			
@@ -379,13 +406,13 @@ $( document ).ready(function() {
 			<input type="hidden" id="reviews" name="reviews" value>
 			<table class="reviewtable" border="1" style="width: 70%">
 	  			<tr>
-	  				<td>내용</td>
+	  				<td style="font-size:25px">내용</td>
 	  				<td>
 	  					<textarea style="resize:none;" rows="10" cols="120" name="rlr_comment" placeholder="내용을 작성해주세요"></textarea>
 	  				</td>
 	  			</tr>
 	  			<tr>
-					<td>별점</td>
+					<td style="font-size:25px">별점</td>
 				  	<td class="star_rating">
      					<a href="#" class="on" id="1">★</a>
 						<a href="#" class="on" id="2">★</a>
@@ -395,18 +422,17 @@ $( document ).ready(function() {
    						<input type="hidden" id="rlr_ast" name="rlr_ast" value="3">
 					</td>
 				</tr>
-	  			
 	  			<tr>
 	  				<td colspan="2" style="text-align: center;">
-	  					<input type="submit" value="등록">
+	  					<input class="btnrv" type="submit" value="등록">
 	  				</td>
 	  			</tr>
 			</table>
+			<br><br><br><br>
 			</form>
 			
 		</div> 
 	</div>
-</div>
 </aside>
 </div>
 
@@ -427,6 +453,7 @@ $( document ).ready(function() {
 	});
 
 </script>
+
 
 <%@include file="../footer.jsp"%>
 

@@ -1,19 +1,10 @@
 package com.mycompany.loanplan.loan.controller;
 
-import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,12 +27,15 @@ public class RecommendLoanReviewController {
 		@RequestMapping(value = "/recommendloan/recommendloanreviewlist", method = RequestMethod.GET)
 		public ModelAndView recommendLoanReviewList(
 				@RequestParam(name = "page", defaultValue = "1") int page,
+				@RequestParam(name = "keyword", required = false) String keyword,
 				ModelAndView mv) {
+			System.out.println("recommendloanreviewlist 진입");
 			try {
 				int currentPage = page;
 				//한 페이지 당 출력할 목록 갯수
 				int listCount = recommendLoanReviewService.listCount();
 				int maxPage = (int) ((double) listCount / LIMIT + 0.9);
+				mv.addObject("volist", recommendLoanReviewService.selectList(currentPage, LIMIT));
 				mv.addObject("recommendloanreview", recommendLoanReviewService.selectList(currentPage, LIMIT));
 				mv.addObject("currentPage", currentPage);
 				mv.addObject("maxPage", maxPage);

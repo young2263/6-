@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycompany.loanplan.loan.model.service.RecommendLoanReviewService;
 import com.mycompany.loanplan.loan.model.service.RecommendLoanService;
 
 @Controller
@@ -22,9 +21,6 @@ public class RecommendLoanController {
 	
 	@Autowired
 	private RecommendLoanService recommendLoanService;
-	
-	@Autowired
-	private RecommendLoanReviewService recommendLoanReviewService;
 	
 	@RequestMapping(value = "/recommendloan/recommendloanlist", method = RequestMethod.GET)
 	public ModelAndView recommendLoanList(
