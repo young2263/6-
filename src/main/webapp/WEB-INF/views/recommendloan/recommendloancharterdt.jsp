@@ -430,7 +430,7 @@ $( document ).ready(function() {
 	  			<tr>
 	  				<td style="font-size:25px">내용</td>
 	  				<td>
-	  					<textarea style="resize:none;" rows="10" cols="120" name="rlr_comment" placeholder="내용을 작성해주세요"></textarea>
+	  					<textarea style="width:700px; resize:none;" rows="10" cols="120" name="rlr_comment" placeholder="내용을 작성해주세요"></textarea>
 	  				</td>
 	  			</tr>
 	  			<tr>
