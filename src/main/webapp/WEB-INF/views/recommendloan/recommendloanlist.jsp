@@ -96,7 +96,7 @@
 					</tr>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
-							<td><a href="recommendloandt?no=${vo.RL_NUM}" style="color: black"><img class="img-fluid" src="../${vo.RL_IMG }" alt="test"></a></td>
+							<td><a href="recommendloandt?no=${vo.RL_NUM}" style="color: black"><img class="img-fluid" src="../${vo.RL_IMG }" alt="test" width="100px" height="100px"></a></td>
 							<td><a href="recommendloandt?no=${vo.RL_NUM}" style="color: black">${vo.KOR_CO_NM }</a></td>
 							<td><a href="recommendloandt?no=${vo.RL_NUM}" style="color: black">${vo.FIN_PRDT_NM }</a></td>
 						</tr>

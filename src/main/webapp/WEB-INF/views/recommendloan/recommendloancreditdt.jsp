@@ -213,7 +213,7 @@ $( document ).ready(function() {
 <div class="body">
 	<table class="loandt">
 		<tr><td height="15" width="100"></td>
-			<td><img class="img-fluid" src="../${recommendloancredit.RL_CR_IMG }" alt="test"></td>
+			<td><img class="img-fluid" src="../${recommendloancredit.RL_CR_IMG }" alt="test" width="200px" height="200px"></td>
 		</tr>
 		<tr><td height="15" width="100">대출상품명</td>
 			<td>${recommendloancredit.CRDT_PRDT_TYPE_NM }</td>
