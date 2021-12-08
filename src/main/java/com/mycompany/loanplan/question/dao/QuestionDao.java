@@ -13,27 +13,39 @@ import com.mycompany.loanplan.question.Question;
 public class QuestionDao {
 	@Autowired
 	private SqlSession sqlSession;
-
-
-	public List<Question> selectList() { 
-		return sqlSession.selectList("Question.selectQuestion");
+	
+	public int questionCount() {
+		return sqlSession.selectOne("Question.questionCount");
+	}
+	
+	
+	public Question selectQuestionDt(int qnum) {
+		return sqlSession.selectOne("Question.questionDt", qnum);
+	}
+	
+	public List<Question> selectList(int startPage, int limit) {
+		int startRow = (startPage-1)*limit;
+		RowBounds row = new RowBounds(startRow, limit);
+		List<Question> volist = sqlSession.selectList("Question.selectList", null, row);
+		System.out.println(volist);
+		return volist;
 	}
 
 	public Question selectOne(int question_num) {
 		return sqlSession.selectOne("Question.selectViewQuestion", question_num);
 	}
 	
-	public void insertquestion(Question q) { 
-		sqlSession.insert("Question.insertQuestion",q); 
-	 }
+	public int insertQuestion(Question q) {  
+		return sqlSession.insert("Question.insertQuestion", q);
+	}
 
-	public void updatequestion(Question q) { 
-		 sqlSession.update("Question.updateQuestion", q); 
-		 }
+	public int updateQuestion(Question q) {  
+		return sqlSession.update("Question.updateQuestion", q);
+	}
 
-	public void deletequestion(int question_num) {
-		 sqlSession.delete("Question.deleteQuestion", question_num);
-		 }
+	public int deleteQuestion(Question q) {  
+		return sqlSession.delete("Question.deleteQuestion", q);
+	}
 	
 	public int listCount() {
 		return sqlSession.selectOne("Question.listCount");

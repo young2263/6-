@@ -5,17 +5,17 @@ import java.util.List;
 import com.mycompany.loanplan.question.Question;
 
 public interface QuestionService {
-	public int totalCount();
+	int questionCount();
+	
+	Question selectQuestionDt(int qnum);
 
-	public Question selectquestion(int chk);
-
-	public List<Question> selectList();
+	public List<Question> selectList(int startPage, int limit);
 
 	public List<Question> selectSearch(String keyword);
-
-	public void insertquestion(Question q);
-
-	public void updatequestion(Question q);
-
-	public void deletequestion(int question_num);
+	
+	int insertQuestion(Question q);
+	
+	int updateQuestion(Question q);
+	
+	int deleteQuestion(Question q);
 }

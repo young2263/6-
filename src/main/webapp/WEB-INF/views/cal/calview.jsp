@@ -132,12 +132,12 @@ function calculate() {
 			<td><input type="text" name="years" size="12"
 				onchange="calculate();"> 년</td>
 		</tr>
-		<!-- <tr>
+		<tr>
 			<td>4)</td>
 			<td>거치기간(년)</td>
 			<td><input type="text" name="tyears" size="12"
 				onchange="calculate();"> 년</td>
-		</tr> -->
+		</tr>
 		<tr>
 			<td colspan="3"><input type="button" value="계산"
 				onclick="calculate();"><input type="button" value="다시입력"
@@ -161,6 +161,8 @@ function calculate() {
 			<td>이자금액</td>
 			<td><input type="text" name="totalinterest" size="12"> 원</td>
 		</tr>
+		
+		
 	</table>
 </form>
 

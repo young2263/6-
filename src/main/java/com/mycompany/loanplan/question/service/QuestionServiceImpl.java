@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.mycompany.loanplan.question.Question;
 import com.mycompany.loanplan.question.dao.QuestionDao;
 
@@ -15,14 +16,19 @@ public class QuestionServiceImpl implements QuestionService {
 	public QuestionDao qDao;
 
 	@Override
-	public int totalCount() {
-		int result = qDao.listCount();
-		return result;
+	public int questionCount() {
+		return qDao.questionCount();
 	}
-
+	
 	@Override
-	public List<Question> selectList() {
-		return qDao.selectList();
+	public Question selectQuestionDt(int qnum) {
+		return qDao.selectQuestionDt(qnum);
+	}
+	
+	
+	@Override
+	public List<Question> selectList(int startPage, int limit) {
+		return qDao.selectList(startPage, limit);
 	}
 
 	@Override
@@ -31,22 +37,19 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 
 	@Override
-	public void insertquestion(Question q) {
-		qDao.insertquestion(q);
+	public int insertQuestion(Question q) {
+		return qDao.insertQuestion(q);
+	}
+	
+	@Override
+	public int updateQuestion(Question q) {
+		return qDao.updateQuestion(q);
+	}
+	
+	@Override
+	public int deleteQuestion(Question q) {
+		return qDao.deleteQuestion(q);
 	}
 
-	@Override
-	public void updatequestion(Question q) {
-		qDao.updatequestion(q);
-	}
-
-	@Override
-	public void deletequestion(int question_num) {
-		qDao.deletequestion(question_num);
-	}
-
-	@Override
-	public Question selectquestion(int chk) {
-		return qDao.selectOne(chk);
-	}
+	
 }

@@ -38,11 +38,11 @@
 	<form name="form1" method="post">
 		<div>
 			제목
-			<input name="title" id="title" size="80" value="${Question.Q_title }" >			
+			<input name="title" id="title" size="80" value="${Question.q_title }" >			
 		</div>
 		<div>
 			내용
-			<textarea name="content" id="content" rows="4" cols="80">${Question.Q_CONTENT} </textarea>
+			<textarea name="content" id="content" rows="4" cols="80">${Question.q_CONTENT} </textarea>
 		</div>
 		<div style="width:650px; text-align:center;">
 			<input type="hidden" name="Q_NUM" value="${Question.Q_NUM}">

@@ -8,22 +8,36 @@
 		<result property="Q_CONTENT" column="QUESTION_CONTENT"/>
 		<result property="Q_IMG" column="QUESTION_IMG"/>
 	</resultMap>
-	<!-- 질문게시판 -->
-	<select id="selectQuestion" resultMap="questionRM">
-		select * from QUESTION order by QUESTION_NUM desc
+	<!-- 질문공지 갯수 -->
+	<select id="questionCount" resultType="int">
+		select count(*) from QUESTION
 	</select>
-	<select id="selectViewQuestion" resultType="com.mycompany.loanplan.question.Question">
+	
+	<select id="listQuestion" resultType="arraylist" resultMap="questionRM">
+		select * from QUESTION order by QUESTION_NUM
+	</select>
+	
+	
+	<select id="selectList" resultMap="questionRM">
+		select * from QUESTION order by QUESTION_NUM
+	</select>
+	
+	
+	<select id="questionDt" parameterType="int" resultMap="questionRM">
 		select * from QUESTION where QUESTION_NUM = #{QUESTION_NUM}
 	</select>
-	<insert id="insertQuestion">
+	
+	<insert id="insertQuestion" parameterType="Question">
 		insert into QUESTION (QUESTION_NUM, QUESTION_TITLE, QUESTION_CONTENT) 
 		values ((select NVL(MAX(QUESTION_NUM)+1, 1)from QUESTION), #{QUESTION_TITLE},#{QUESTION_CONTENT})
 	</insert>
+	
 	<update id="updateQuestion">
-		update QUESTION set QUESTION_NUM=?, QUESTION_TITLE=?, QUESTION_CONTENT=?
-		where QUESTION_NUM=?
+		update QUESTION set QUESTION_TITLE=#{QUESTION_TITLE}, QUESTION_CONTENT=#{QUESTION_CONTENT}
+		where QUESTION_NUM=#{Q_NUM}
 	</update>
-	<delete id="deleteQuestion">
-		delete from QUESTION where QUESTION_NUM=?
+	
+	<delete id="deleteQuestion" parameterType="Question">
+		delete from QUESTION where QUESTION_NUM=#{QUESTION_NUM}
 	</delete>
 </mapper>

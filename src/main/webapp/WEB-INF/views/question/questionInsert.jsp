@@ -22,26 +22,29 @@
 				return;
 			}
 			
-			document.for1.submit();
+			
 		});
 	});	
 </script>
 </head>
 <body>
 	<h2>게시글 작성하기</h2>
-	<form name="form1" method="post" action="${path}/quesetion/questionInsert">
-		<div>
-			제목
-			<input name="title" id="title" size="80" placeholder="제목을 입력해주세요">			
-		</div>
-		<div>
-			내용
-			<textarea name="content" id="content" rows="4" cols="80" placeholder="내용을 입력해주세요"></textarea>
-		</div>
-		<div style="width:650px; text-align:center;">
-			<button type="button" id="btnSave">등록</button>
+	<form class="inputBox" method="post" action="questionInsert">
+	<table>
+	<c:forEach var="vo" items="${volist}" varStatus="status">
+		<tr>
+			<th>제목명</th>
+			<td><input type="text" name="Q_TITLE" value="vo.QUESTION_TITLE}" placeholder="제목을 입력해주세요"/></td>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td><input type="text" name="Q_CONTENT" value="vo.QUESTION_CONTENT}" placeholder="내용을 입력해주세요"/></td>
+		</tr>		
+			<button type="submit" id="btnSave">등록</button>
 			<button type="reset">취소</button>
 		</div>
+	</c:forEach>
+	</table>
 	</form>
 
 </body>
