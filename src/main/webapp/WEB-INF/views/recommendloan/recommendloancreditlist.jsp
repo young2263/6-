@@ -48,6 +48,7 @@
    		white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        border-right : 1px solid gray;
    }
    
    a {
@@ -82,13 +83,12 @@
 	<div class="body">
 		
 		<div class="content">
-			<div class="listTitle" style="color: green"><h1>개인 신용 대출</h1></div>
+			<div class="listTitle" style="color: green"><h1 style="font-size: 50px">개인 신용 대출</h1></div>
 			<br><br>
 			<div>
 				<table class="tableBox">
 					<tr>
-						<th></th>
-						<th>은행</th>
+						<th colspan="2">은행</th>
 						<th>대출상품명</th>
 						<th>401 ~ 500점 금리</th>
 					</tr>

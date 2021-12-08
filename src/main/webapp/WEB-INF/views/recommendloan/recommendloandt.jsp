@@ -30,7 +30,7 @@
 	}
 
 	.loandt {
-		width: 700px;
+		width: 100%;
 		text-align: center;
 		padding-left: 50px;
 		font-size: 20px;
@@ -40,6 +40,11 @@
 		border-spacing: 30px 40px;
 	}
 	
+	.loandt td {
+		font-size: 25px;
+		font-weight:bold;
+	}
+	
 	td {
    		white-space: nowrap;
         overflow: hidden;
@@ -47,6 +52,10 @@
    }
    
    b {
+   		font-size: 30px;
+   }
+   
+   .description p {
    		font-size: 25px;
    }
    
@@ -80,7 +89,6 @@
 	}
 
 	.tabtab {
-		font-size: 20px;
 		text-decoration: underline;
 	}
 
@@ -129,7 +137,7 @@
 	.tab_item .loancalcul {
 		margin: auto;
 		border-collapse: separate;
-		border-spacing: 0 10px;
+		border-spacing: 0 20px;
 	}
 	
 	.loancalcul tr {
@@ -154,6 +162,11 @@
     	width: 700px;
     	background-color: #59ab6e;
     	border-radius: 30%;
+    }
+    
+     .reviewlist td {
+    	width: 700px;
+    	background: #59ab6e;
     }
     
     .reviewtable {
@@ -204,7 +217,7 @@ $( document ).ready(function() {
 		     return false;
 		});
 	});
-	
+</script>	
 	
 <script language="JavaScript">
 /* 원리금균등상환 계산기(monthly 일정) */ 
@@ -235,38 +248,7 @@ function calculate() {
         document.loandata.totalinterest.value = "";
     }
 }
-/* 원금균등상환계산기 (납입원금일정) (미완)*/
-function calculate() {
-  
-   var principal = document.loandata.principal.value;	//원금
-   var interest = document.loandata.interest.value / 100 / 12;	//이자
-   var payments = document.loandata.years.value * 12;	//대출상환개월수
 
-  	var x = principal-monthly;
-	var monthly = principal / payments;	//매월갚을 원금금액(fix)
-	var interest = document.loandata.interest.value / 12;
- 	var payment = (principal-monthly) / payments;
-	/* 첫달      이자금액 principal * interest /12 
-	두번쨰달 이자금액 (principal-monthly) * interest / 12 */
-    
-
- 
-    if (!isNaN(monthly) && 
-        (monthly != Number.POSITIVE_INFINITY) &&
-        (monthly != Number.NEGATIVE_INFINITY)) {
-	monthly = tyears * 12 -
-        document.loandata.payment.value = round(monthly+interest);	//매월상환금
-        document.loandata.total.value = round(monthly * payments);
-        document.loandata.totalinterest.value = 
-            round((monthly * payments) - principal);
-    }
-	// 잘못된값 입력시 아무값도 나오지않게
-    else {
-        document.loandata.payment.value = "";
-        document.loandata.total.value = "";
-        document.loandata.totalinterest.value = "";
-    }
-}
 /* 만기일시상환 계산기  */
 function calculate() {
 	
@@ -299,7 +281,7 @@ function calculate() {
 	  return Math.round(x*100)/100;
 	}
 </script>
-</script>
+
 
 </head>
 <body>
@@ -322,12 +304,12 @@ function calculate() {
 <div class="body">
 	<table class="loandt">
 		<tr>
-			<td colspan="2"><img class="img-fluid" src="../${recommendloan.RL_IMG }" alt="test" width="200px" height="200px"></td>
-		</tr>
-		<tr><td height="15" width="100">대출상품명</td>
+			<td rowspan="2"><img class="img-fluid" src="../${recommendloan.RL_IMG }" alt="test" width="300px" height="300px"></td>
+			<td>대출상품명</td>
 			<td>${recommendloan.FIN_PRDT_NM }</td>
 		</tr>
-		<tr><td height="15" width="100">은행명</td>
+		<tr>
+			<td>은행명</td>
 			<td>${recommendloan.KOR_CO_NM }</td>
 		</tr>
 	</table>
@@ -347,6 +329,7 @@ function calculate() {
         
         <!-- 세부정보 -->
         <div class="tab_item">
+        <form action="/recommendloan/recommendloandt" method="get">
         	<h1>세부정보</h1>
         	 <br><br><br><br>
             <ul>
@@ -387,6 +370,7 @@ function calculate() {
                     </div>
                 </li>
             </ul>
+            </form>
 		</div>
 		<br><br><br><br>
 
