@@ -29,7 +29,7 @@
 	}
 
 	table {
-		width: 700px;
+		width: 100%;
 		text-align: center;
 		padding-left: 50px;
 		font-size: 20px;
@@ -38,10 +38,6 @@
 		border-collapse: separate;
 		border-spacing: 0 30px;
 		border-bottom: 1px solid gray;
-    }
-    
-    .paging {
-    	text-align: center;
     }
     
     tr:first-of-type {
@@ -81,27 +77,33 @@
         </c:when>
     </c:choose>
 	</header>
+	
 	<div class="body">
 		
 		<div class="content">
-			<div class="listTitle" style="color: green" style="font-size: 30px">전세 자금 대출</div>
+			<div class="listTitle" style="color: green"><h1>전세 자금 대출</h1></div>
+			<br><br>
 			<div>
 				<table class="tableBox">
 					<tr>
 						<th></th>
 						<th>은행</th>
 						<th>대출상품명</th>
+						<th>대출 금리 유형</th>
 					</tr>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
 							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}" style="color: black"><img class="img-fluid" src="../${vo.RL_CH_IMG }" alt="test" width="100px" height="100px"></a></td>
 							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}" style="color: black">${vo.KOR_CO_NM }</a></td>
 							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}" style="color: black">${vo.FIN_PRDT_NM }</a></td>
+							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}" style="color: black">${vo.LEND_RATE_TYPE_NM }</a></td>
 						</tr>
 					</c:forEach>
 				</table>
 			</div>
-			<div>
+			<br><br><br>
+			
+			<div class="paging">
 				<c:if test="${currentPage<=1}">
                 [이전]&nbsp; 
                 </c:if>

@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +30,7 @@
 	}
 
 	table {
-		width: 700px;
+		width: 100%;
 		text-align: center;
 		padding-left: 50px;
 		font-size: 20px;
@@ -85,7 +82,7 @@
 	<div class="body">
 		
 		<div class="content">
-			<div class="listTitle" style="color: green" style="font-size: 30px">주택 담보 대출</div>
+			<div class="listTitle" style="color: green"><h1>주택 담보 대출</h1></div>
 			<br><br>
 			<div>
 				<table class="tableBox" >
@@ -93,12 +90,14 @@
 						<th></th>
 						<th>은행</th>
 						<th>대출상품명</th>
+						<th>대출 금리 유형</th>
 					</tr>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
 							<td><a href="recommendloandt?no=${vo.RL_NUM}" style="color: black"><img class="img-fluid" src="../${vo.RL_IMG }" alt="test" width="100px" height="100px"></a></td>
 							<td><a href="recommendloandt?no=${vo.RL_NUM}" style="color: black">${vo.KOR_CO_NM }</a></td>
 							<td><a href="recommendloandt?no=${vo.RL_NUM}" style="color: black">${vo.FIN_PRDT_NM }</a></td>
+							<td><a href="recommendloandt?no=${vo.RL_NUM}" style="color: black">${vo.LEND_RATE_TYPE_NM }</a></td>
 						</tr>
 					</c:forEach>
 				</table>
