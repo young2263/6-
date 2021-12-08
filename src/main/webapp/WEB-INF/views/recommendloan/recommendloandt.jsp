@@ -329,7 +329,7 @@ function calculate() {
         
         <!-- 세부정보 -->
         <div class="tab_item">
-        <form action="/recommendloan/recommendloandt" method="get">
+        <form action="recommendloan/recommendloandt" method="get">
         	<h1>세부정보</h1>
         	 <br><br><br><br>
             <ul>
