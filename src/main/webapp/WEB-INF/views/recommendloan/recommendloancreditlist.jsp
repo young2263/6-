@@ -94,10 +94,10 @@
 					</tr>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
-							<td><a href="recommendloancreditdt?no=${vo.RL_CR_NUM}" style="color: black"><img class="img-fluid" src="../${vo.RL_CR_IMG }" alt="test" width="100px" height="100px"></a></td>
-							<td><a href="recommendloancreditdt?no=${vo.RL_CR_NUM}" style="color: black">${vo.KOR_CO_NM }</a></td>
-							<td><a href="recommendloancreditdt?no=${vo.RL_CR_NUM}" style="color: black">${vo.CRDT_PRDT_TYPE_NM }</a></td>
-							<td><a href="recommendloancreditdt?no=${vo.RL_CR_NUM}" style="color: black">${vo.CRDT_GRAD_10 }%</a></td>
+							<td><a href="recommendloancreditdt?rlcrnum=${vo.RL_CR_NUM}" style="color: black"><img class="img-fluid" src="../${vo.RL_CR_IMG }" alt="test" width="100px" height="100px"></a></td>
+							<td><a href="recommendloancreditdt?rlcrnum=${vo.RL_CR_NUM}" style="color: black">${vo.KOR_CO_NM }</a></td>
+							<td><a href="recommendloancreditdt?rlcrnum=${vo.RL_CR_NUM}" style="color: black">${vo.CRDT_PRDT_TYPE_NM }</a></td>
+							<td><a href="recommendloancreditdt?rlcrnum=${vo.RL_CR_NUM}" style="color: black">${vo.CRDT_GRAD_10 }%</a></td>
 						</tr>
 					</c:forEach>
 				</table>
