@@ -43,7 +43,14 @@ a {
     margin-top: 0.2rem;
 }
 
+#loginBox ul li {
+	margin-top: 1rem !important;
+	margin-left: 1rem;
+}
 
+#loginBox ul li a {
+	margin-left: 1rem !important;
+}
 
 /* Typography */
 body, ul, li, p, a, label, input, div {

@@ -62,7 +62,7 @@
                         </li>
                     </ul>
                 </div>
-                    <div class="nav-icon d-none d-lg-inline login_nav" >
+                    <div class="nav-icon d-none d-lg-inline login_nav" id="loginBox" >
                        	<ul>
 				<li>
 					<c:if test="${member != null}">
@@ -70,8 +70,7 @@
 						<a href="/loanplan/logout">로그아웃</a>
 					</c:if>
 				</li>
-				<li>
-								
+				<li>			
 					<c:if test="${member == null}">
 						<a href="/loanplan/login.do">로그인</a>
 						<a href="/loanplan/register">회원가입</a>
