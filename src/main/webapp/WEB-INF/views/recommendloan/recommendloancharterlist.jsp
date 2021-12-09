@@ -48,6 +48,7 @@
    		white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        border-right : 1px solid gray;
    }
    
    a {
@@ -81,22 +82,21 @@
 	<div class="body">
 		
 		<div class="content">
-			<div class="listTitle" style="color: green"><h1>전세 자금 대출</h1></div>
+			<div class="listTitle" style="color: green"><h1 style="font-size: 50px">전세 자금 대출</h1></div>
 			<br><br>
 			<div>
 				<table class="tableBox">
 					<tr>
-						<th></th>
-						<th>은행</th>
+						<th colspan="2">은행</th>
 						<th>대출상품명</th>
 						<th>대출 금리 유형</th>
 					</tr>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
-							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}" style="color: black"><img class="img-fluid" src="../${vo.RL_CH_IMG }" alt="test" width="100px" height="100px"></a></td>
-							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}" style="color: black">${vo.KOR_CO_NM }</a></td>
-							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}" style="color: black">${vo.FIN_PRDT_NM }</a></td>
-							<td><a href="recommendloancharterdt?no=${vo.RL_CH_NUM}" style="color: black">${vo.LEND_RATE_TYPE_NM }</a></td>
+							<td><a href="recommendloancharterdt?rlchnum=${vo.RL_CH_NUM}" style="color: black"><img class="img-fluid" src="../${vo.RL_CH_IMG }" alt="test" width="100px" height="100px"></a></td>
+							<td><a href="recommendloancharterdt?rlchnum=${vo.RL_CH_NUM}" style="color: black">${vo.KOR_CO_NM }</a></td>
+							<td><a href="recommendloancharterdt?rlchnum=${vo.RL_CH_NUM}" style="color: black">${vo.FIN_PRDT_NM }</a></td>
+							<td><a href="recommendloancharterdt?rlchnum=${vo.RL_CH_NUM}" style="color: black">${vo.LEND_RATE_TYPE_NM }</a></td>
 						</tr>
 					</c:forEach>
 				</table>

@@ -30,7 +30,7 @@
 	}
 
 	.loandt {
-		width: 700px;
+		width: 100%;
 		text-align: center;
 		padding-left: 50px;
 		font-size: 20px;
@@ -38,6 +38,11 @@
 		padding-bottom: 40px;
 		border-collapse: separate;
 		border-spacing: 30px 40px;
+	}
+	
+	.loandt td {
+		font-size: 25px;
+		font-weight: bold;
 	}
 
 	td {
@@ -47,9 +52,13 @@
    }
    
    b {
-   		font-size: 25px;
+   		font-size: 30px;
    }
 	
+   .description p {
+   		font-size: 25px;
+   }
+
 	.tabb:nth-of-type(1) {display:none;}
 	.tabb:nth-of-type(1) ~ div:nth-of-type(1) {display:none;}
 	.tabb:nth-of-type(1):checked ~ div:nth-of-type(1) {display:block;}
@@ -129,7 +138,7 @@
 	.tab_item .loancalcul {
 		margin: auto;
 		border-collapse: separate;
-		border-spacing: 0 10px;
+		border-spacing: 0 20px;
 	}
 	
 	.loancalcul tr {
@@ -148,6 +157,12 @@
     .reviewlist {
     	border-spacing:50px;
     	border-collapse: separate;
+    }
+    
+    .reviewlist .rvn {
+    	width: 700px;
+    	background-color: #59ab6e;
+    	border-radius: 30%;
     }
     
     .reviewlist td {
@@ -323,12 +338,12 @@ function calculate() {
 <div class="body">
 	<table class="loandt">
 		<tr>
-			<td colspan="2"><img class="img-fluid" src="../${recommendloancredit.RL_CR_IMG }" alt="test" width="200px" height="200px"></td>
-		</tr>
-		<tr><td height="15" width="100">대출상품명</td>
+			<td rowspan="2"><img class="img-fluid" src="../${recommendloancredit.RL_CR_IMG }" alt="test" width="300px" height="300px"></td>
+			<td>대출상품명</td>
 			<td>${recommendloancredit.CRDT_PRDT_TYPE_NM }</td>
 		</tr>
-		<tr><td height="15" width="100">은행명</td>
+		<tr>
+			<td>은행명</td>
 			<td>${recommendloancredit.KOR_CO_NM }</td>
 		</tr>
 	</table>
