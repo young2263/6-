@@ -79,8 +79,8 @@ https://templatemo.com/tm-559-zay-shop
 				<div class="container">
 					<div class="row p-5">
 						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-							<img class="img-fluid" src="./resources/img/advertisement1.PNG"
-								alt="">
+							<a href="recommendloan/recommendloanlist"><img class="img-fluid" src="./resources/img/advertisement1.PNG"
+								alt=""></a>
 						</div>
 						<div class="col-lg-6 mb-0 d-flex align-items-center">
 							<div class="text-align-left">
@@ -96,8 +96,8 @@ https://templatemo.com/tm-559-zay-shop
 				<div class="container">
 					<div class="row p-5">
 						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-							<img class="img-fluid" src="./resources/img/advertisement3.PNG"
-								alt="">
+							<a href="recommendloan/recommendloancharterlist"><img class="img-fluid" src="./resources/img/advertisement3.PNG"
+								alt=""></a>
 						</div>
 						<div class="col-lg-6 mb-0 d-flex align-items-center">
 							<div class="text-align-left">
@@ -114,8 +114,8 @@ https://templatemo.com/tm-559-zay-shop
 				<div class="container">
 					<div class="row p-5">
 						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-							<img class="img-fluid" src="./resources/img/advertisement2.PNG"
-								alt="">
+							<a href="recommendloan/recommendloancreditlist"><img class="img-fluid" src="./resources/img/advertisement2.PNG"
+								alt=""></a>
 						</div>
 						<div class="col-lg-6 mb-0 d-flex align-items-center">
 							<div class="text-align-left">
