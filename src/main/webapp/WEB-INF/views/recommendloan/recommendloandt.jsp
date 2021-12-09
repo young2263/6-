@@ -30,7 +30,7 @@
 	}
 
 	.loandt {
-		width: 100%;
+		width: 80%;
 		text-align: center;
 		padding-left: 50px;
 		font-size: 20px;
@@ -53,10 +53,6 @@
    
    b {
    		font-size: 30px;
-   }
-   
-   .description p {
-   		font-size: 25px;
    }
    
 	.tabb:nth-of-type(1) {display:none;}
@@ -135,9 +131,10 @@
 	}
 
 	.tab_item .loancalcul {
+		width:80%;
 		margin: auto;
 		border-collapse: separate;
-		border-spacing: 0 20px;
+		border-spacing: 0 30px;
 	}
 	
 	.loancalcul tr {
@@ -148,12 +145,22 @@
 		border-right: 10px;
 	}
 
+	.need {
+		border: 0;
+		border-bottom: 1px solid gray;
+	}
+
+	.result {
+		border-style: none;
+	}
+
 	.tab_item .reviewtable {
         margin: auto;
         border: none;
     }
     
     .reviewlist {
+    	width: 80%;
     	border-spacing:50px;
     	border-collapse: separate;
     }
@@ -321,9 +328,9 @@ function calculate() {
         <input type="radio" id="calculation" class="tabb" name="tab">
         <input type="radio" id="review" class="tabb" name="tab">
         
-        <label class="tabtab" for="detail">세부 정보</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label class="tabtab" for="calculation">계산기</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label class="tabtab" for="review">리뷰</label>
+        <label class="tabtab" for="detail"><font size="5em">세부 정보</font></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="tabtab" for="calculation"><font size="5em">계산기</font></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="tabtab" for="review"><font size="5em">리뷰</font></label>
      	 <br><br><br><br>
         
         
@@ -336,43 +343,44 @@ function calculate() {
                 <li class="item">
         		    <div class="description">
 						<b>공시 제출월</b>
-                        <br><br><p>${recommendloan.DCLS_MONTH }</p>
+                        <br><br><p><font size="5em">${recommendloan.DCLS_MONTH }</font></p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>대출 금리 유형</b>	
-						<br><br><p>${recommendloan.LEND_RATE_TYPE_NM }</p>
+						<br><br><p><font size="5em">${recommendloan.LEND_RATE_TYPE_NM }</font></p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>대출 상환 유형</b>	
-						<br><br><p>${recommendloan.RPAY_TYPE_NM }</p>
+						<br><br><p><font size="5em">${recommendloan.RPAY_TYPE_NM }</font></p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>중도 상환 수수료</b>	
-						<br><br><p>${recommendloan.ERLY_RPAY_FEE }</p>
+						<br><br><p><font size="5em">${recommendloan.ERLY_RPAY_FEE }</font></p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>연체 이자율</b>	
-						<br><br><p>${recommendloan.DLY_RATE }</p>
+						<br><br><p><font size="5em">${recommendloan.DLY_RATE }</font></p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>대출 한도</b>
-						<br><br><p>${recommendloan.LOAN_LMT }</p>
+						<br><br><p><font size="5em">${recommendloan.LOAN_LMT }</font></p>
                     </div>
                 </li>
             </ul>
             </form>
 		</div>
-		<br><br><br><br>
+		<br><br><br>
+
 
 		<!-- 계산기 -->
         <div class="tab_item">
@@ -381,22 +389,19 @@ function calculate() {
             <br><br><br><br>
 		<table class="loancalcul">
 		<tr>
-			<td colspan="3"><b>대출 금액 및 이자율 입력</b></td>
+			<td colspan="2" style="font-size:30px; font-weight: bold;">대출 금액 및 이자율 입력</td>
 		</tr>
 		<tr>
-			<td>1)</td>
-			<td>대출 금액입력</td>
-			<td><input type="text" name="principal" size="12" onchange="calculate();"> 원</td>
+			<td style="font-size:30px;">대출 금액입력</td>
+			<td><input type="text" name="principal" class="need" size="12" style="text-align:center" onchange="calculate();"> 원</td>
 		</tr>
 		<tr>
-			<td>2)</td>
-			<td>이자율(%)</td>
-			<td><input type="text" name="interest" size="12" onchange="calculate();"> %</td>
+			<td style="font-size:30px;">이자율(%)</td>
+			<td><input type="text" name="interest" class="need" size="12" style="text-align:center" onchange="calculate();"> %</td>
 		</tr>
 		<tr>
-			<td>3)</td>
-			<td>대출기간(년)</td>
-			<td><input type="text" name="years" size="12" onchange="calculate();"> 년</td>
+			<td style="font-size:30px;">대출기간(년)</td>
+			<td><input type="text" name="years" class="need" size="12" style="text-align:center" onchange="calculate();"> 년</td>
 		</tr>
 		<!-- <tr>
 			<td>4)</td>
@@ -404,26 +409,23 @@ function calculate() {
 			<td><input type="text" name="tyears" size="12" onchange="calculate();"> 년</td>
 		</tr> -->
 		<tr>
-			<td colspan="3"><input type="button" value="계산" onclick="calculate();">
-			<input type="button" value="다시입력" onclick="reset();"></td>
+			<td colspan="2"><input type="button" class="calcal" value="계산" onclick="calculate();">
+			<input type="button" value="다시입력" class="calcal" onclick="reset();"></td>
 		</tr>
 		<tr>
-			<td colspan="3"><b>상환내역:</b></td>
+			<td colspan="2" style="font-size:30px; font-weight: bold;">상환내역:</td>
 		</tr>
 		<tr>
-			<td>4)</td>
-			<td>월상환금</td>
-			<td><input type="text" name="payment" size="12"> 원</td>
+			<td style="font-size:30px;">월상환금은</td>
+			<td><input type="text" name="payment" class="result" size="15" style="text-align:center"> 원씩 갚으면 되며</td>
 		</tr>
 		<tr>
-			<td>5)</td>
-			<td>원금 및 이자합계</td>
-			<td><input type="text" name="total" size="12"> 원</td>
+			<td style="font-size:30px;">원금 및 이자합계는</td>
+			<td><input type="text" name="total" class="result" size="15" style="text-align:center"> 원 이고</td>
 		</tr>
 		<tr>
-			<td>6)</td>
-			<td>이자금액</td>
-			<td><input type="text" name="totalinterest" size="12"> 원</td>
+			<td style="font-size:30px;">총 이자금액은</td>
+			<td><input type="text" name="totalinterest" class="result" size="15" style="text-align:center"> 원 입니다.</td>
 		</tr>
 	</table>
 </form>

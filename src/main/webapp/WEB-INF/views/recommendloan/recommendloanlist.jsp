@@ -30,7 +30,7 @@
 	}
 
 	table {
-		width: 100%;
+		width: 80%;
 		text-align: center;
 		padding-left: 50px;
 		font-size: 20px;
