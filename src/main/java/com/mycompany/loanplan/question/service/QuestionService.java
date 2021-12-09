@@ -13,6 +13,8 @@ public interface QuestionService {
 
 	public List<Question> selectSearch(String keyword);
 	
+	public List<Question> questionList();
+	
 	int insertQuestion(Question q);
 	
 	int updateQuestion(Question q);

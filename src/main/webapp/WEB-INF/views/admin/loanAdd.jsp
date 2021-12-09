@@ -21,7 +21,9 @@
 	</header>
 	<div class="body">
 		<div class="navbar">
-			<div class="navbarItem">사용자관리</div>
+			<div class="navbarItem">
+				<a href="member">사용자관리</a>
+			</div>
 			<div class="navbarItem">
 				<a href="admin">대출상품관리</a>
 			</div>

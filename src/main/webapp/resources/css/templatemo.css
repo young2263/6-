@@ -27,6 +27,21 @@ Table of contents
 16. Extra large devices (large desktops, 1200px and up)
 --------------------------------------------- */
 
+a {
+    text-decoration: none;
+}
+
+.showNavi {
+    width: 100%;
+    margin: 0 45rem;
+}
+
+.showNavi a {
+    display: block;
+    color: black;
+    padding: 0.5rem;
+    margin-top: 0.2rem;
+}
 
 
 

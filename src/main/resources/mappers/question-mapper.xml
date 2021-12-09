@@ -6,8 +6,12 @@
 		<id property="Q_NUM" column="QUESTION_NUM"/>
 		<result property="Q_TITLE" column="QUESTION_TITLE"/>
 		<result property="Q_CONTENT" column="QUESTION_CONTENT"/>
-		<result property="Q_IMG" column="QUESTION_IMG"/>
 	</resultMap>
+	
+	<select id="questionList" resultMap="questionRM">
+		select * from QUESTION
+	</select>
+	
 	<!-- 질문공지 갯수 -->
 	<select id="questionCount" resultType="int">
 		select count(*) from QUESTION

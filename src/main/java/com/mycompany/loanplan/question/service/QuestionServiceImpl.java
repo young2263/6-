@@ -51,5 +51,9 @@ public class QuestionServiceImpl implements QuestionService {
 		return qDao.deleteQuestion(q);
 	}
 
+	@Override
+	public List<Question> questionList() {
+		return qDao.questionList();
+	}
 	
 }

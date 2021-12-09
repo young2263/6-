@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="./resources/css/admin/advertiseMain.css">
-<title>Document</title>
+<title>LOANPLAN</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
@@ -32,40 +32,48 @@
 			<div class="navbarItem">댓글관리</div>
 		</div>
 		<div class="content">
-            <div class="title">
-                <h3>광고 관리</h3>
-            </div>
+			<div class="title">
+				<h3>광고 관리</h3>
+			</div>
 
-            <div class="tableBox">
-                <table>
+			<div class="tableBox">
+				<table>
 					<tr>
-						<th>광고 제목</th>
-                        <th>광고 내용</th>
-                        <th>광고 이미지</th>
-                        <th>광고 URL</th>
+						<th>아이디</th>
+						<th>이름</th>
+						<th>이메일</th>
+						<th>핸드폰 번호</th>
+						<th>성별</th>
+						<th>나이</th>
+						<th>자산</th>
+						<th>부채</th>
+						<th>자산 소유물</th>
 					</tr>
-					<c:forEach var="vo" items="${advertiseList}" varStatus="status">
+					<c:forEach var="vo" items="${memberlist}" varStatus="status">
 						<tr>
-							<td>${vo.AD_TITLE }</td>
-							<td>${vo.AD_CONTENT }</textarea></td>
-                            <td>${vo.AD_IMG }</td>
-                            <td>${vo.AD_SRC }</td>
-                            <td class="deleteBtn"><a href="deleteAdvertise?AD_NUM=${vo.AD_NUM}">
+							<td>${vo.m_id }</td>
+							<td>${vo.m_name }</td>
+							<td>${vo.m_email }</td>
+							<td>${vo.m_phn }</td>
+							<td>${vo.m_gender }</td>
+							<td>${vo.m_age }</td>
+							<td>${vo.m_address }</td>
+							<td>${vo.m_asset }</td>
+							<td>${vo.m_debt }</td>
+							<td>${vo.m_car }${vo.m_house }</td>
+							<%-- <td class="deleteBtn"><a href="deleteAdvertise?AD_NUM=${vo.AD_NUM}">
 									<button>삭제</button>
-								</a></td>
-                        </tr>
-                        </c:forEach>
+								</a></td> --%>
+						</tr>
+					</c:forEach>
 				</table>
-                <a href="advertiseAdd">
-                    <div class="addBtn">추가</div>
-                </a>
-            </div>
-            </div>
+			</div>
 		</div>
+	</div>
 	</div>
 
 	<script>
-           
+		
 	</script>
 </body>
 </html>

@@ -37,7 +37,7 @@
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
 
-            <a class="navbar-brand text-success logo h1 align-self-center" href="#">
+            <a class="navbar-brand text-success logo h1 align-self-center" href="/loanplan">
                 LOANPLAN
             </a>
 
@@ -49,7 +49,7 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">추천 대출</a>
+                            <a class="nav-link" href="recommendloan/recommendloanlist">추천 대출</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">계산기</a>
@@ -96,8 +96,25 @@
 
                 </div>
             </div>
-
+		<div></div>
         </div>
     </nav>
+    <div class="showNavi">
+        <a href="recommendloanlist">주택담보대출</a>
+        <a href="recommendloancreditlist">신용대출</a>
+        <a href="recommendloancharterlist">전세자금대출</a>
+    </div>
+
+    <script>
+        $(".showNavi").hide();
+        $(".flex-fill").hover(function(){
+            $(".showNavi").slideDown(500);
+        })
+        $(".showNavi").hover(function(){
+            $(".showNavi").slideDown(500);
+        },function(){
+            $(".showNavi").slideUp(500);
+        })
+    </script>
 </body>
 </html>

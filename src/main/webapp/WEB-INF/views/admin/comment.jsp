@@ -39,21 +39,16 @@
             <div class="tableBox">
                 <table>
 					<tr>
-						<th>광고 제목</th>
-                        <th>광고 내용</th>
-                        <th>광고 이미지</th>
-                        <th>광고 URL</th>
+						<th>공지사항 번호</th>
+                        <th>공지사항 제목</th>
+                        <th>공지사항 내용</th>
 					</tr>
-					<c:forEach var="vo" items="${advertiseList}" varStatus="status">
+					<c:forEach var="vo" items="${commentlist }" varStatus="status">
 						<tr>
-							<td>${vo.AD_TITLE }</td>
-							<td>${vo.AD_CONTENT }</textarea></td>
-                            <td>${vo.AD_IMG }</td>
-                            <td>${vo.AD_SRC }</td>
-                            <td class="deleteBtn"><a href="deleteAdvertise?AD_NUM=${vo.AD_NUM}">
-									<button>삭제</button>
-								</a></td>
-                        </tr>
+							<td>${vo.Q_NUM }</td>
+							<td>${vo.Q_TITLE }</td>
+                            <td>${vo.Q_CONTENT }</td>
+             </tr>
                         </c:forEach>
 				</table>
                 <a href="advertiseAdd">

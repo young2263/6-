@@ -30,6 +30,10 @@ public class QuestionDao {
 		System.out.println(volist);
 		return volist;
 	}
+	
+	public List<Question> questionList() {
+		return sqlSession.selectList("Question.questionList");
+	}
 
 	public Question selectOne(int question_num) {
 		return sqlSession.selectOne("Question.selectViewQuestion", question_num);
