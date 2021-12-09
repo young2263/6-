@@ -100,7 +100,7 @@
     </nav>
     <div class="showNavi">
         <a href="recommendloan/recommendloanlist">주택담보대출</a>
-        <a href="recommendloan/recommendloancreditlist">신용대출</a>
+        <a href="recommendloan/recommendloancreditlist">개인신용대출</a>
         <a href="recommendloan/recommendloancharterlist">전세자금대출</a>
     </div>
 
