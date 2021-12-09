@@ -208,7 +208,7 @@ https://templatemo.com/tm-559-zay-shop
 			<div class="row">
 				<div class="col-12 col-md-4 mb-4">
 					<div class="card h-100">
-						<a href="shop-single.html"> <img
+						<a href="recommendloan/recommendloanlist"> <img
 							src="./resources/img/loann.png" class="card-img-top"
 							alt="...">
 						</a>
@@ -228,7 +228,7 @@ https://templatemo.com/tm-559-zay-shop
 				</div>
 				<div class="col-12 col-md-4 mb-4">
 					<div class="card h-100">
-						<a href="shop-single.html"> <img
+						<a href="recommendloan/recommendloancharterlist"> <img
 							src="./resources/img/charterloann.png" class="card-img-top"
 							alt="...">
 						</a>
@@ -248,7 +248,7 @@ https://templatemo.com/tm-559-zay-shop
 				</div>
 				<div class="col-12 col-md-4 mb-4">
 					<div class="card h-100">
-						<a href="shop-single.html"> <img
+						<a href="recommendloan/recommendloancreditlist"> <img
 							src="./resources/img/creditloann.png" class="card-img-top"
 							alt="...">
 						</a>

@@ -550,7 +550,7 @@ function calculate() {
 </script>
 
 
-<%@include file="../footer.jsp"%>
+<%@include file="../listfooter.jsp"%>
 
 </body> 
 </html>

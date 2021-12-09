@@ -139,7 +139,7 @@
 		</div>
 	</div>
 
-<%@include file="../footer.jsp"%>
+<%@include file="../listfooter.jsp"%>
 
 
 </body> 

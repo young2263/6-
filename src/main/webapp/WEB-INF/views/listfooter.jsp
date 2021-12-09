@@ -32,9 +32,9 @@
                 <div class="col-md-4 pt-5">
                     <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="recommendloan/recommendloanlist">주택담보대출</a></li>
-                        <li><a class="text-decoration-none" href="recommendloan/recommendloancharterlist">전세자금대출</a></li>
-                        <li><a class="text-decoration-none" href="recommendloan/recommendloancreditlist">개인신용대출</a></li>
+                        <li><a class="text-decoration-none" href="recommendloanlist">주택담보대출</a></li>
+                        <li><a class="text-decoration-none" href="recommendloancharterlist">전세자금대출</a></li>
+                        <li><a class="text-decoration-none" href="recommendloancreditlist">개인신용대출</a></li>
                     </ul>
                 </div>
 
