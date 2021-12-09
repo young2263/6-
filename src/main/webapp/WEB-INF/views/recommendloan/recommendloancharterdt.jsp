@@ -331,7 +331,7 @@ function calculate() {
 </head>
 <body>
 	
-<%@include file="../header.jsp"%>
+<%@include file="../listheader.jsp"%>
 
 	<header>
 		<c:choose>
