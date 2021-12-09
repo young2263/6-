@@ -84,46 +84,9 @@ https://templatemo.com/tm-559-zay-shop
 						</div>
 						<div class="col-lg-6 mb-0 d-flex align-items-center">
 							<div class="text-align-left">
-								<h1 class="h1">Together Funding</h1>
+								<h1 class="h1">Residential Mortgage</h1>
 								<p>주택 담보대출을 가장 잘해주는 곳입니다. 최저 금리 보장하고 여러가지 혜택을 받을 수 있습니다. 아주
 									좋은 조건으로 대출을 받을 수 있으니 한번 믿고 보십쇼</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<div class="container">
-					<div class="row p-5">
-						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-							<img class="img-fluid" src="./resources/img/advertisement1.PNG"
-								alt="">
-						</div>
-						<div class="col-lg-6 mb-0 d-flex align-items-center">
-							<div class="text-align-left">
-								<h1 class="h1">Together Funding</h1>
-								<p>주택 담보대출을 가장 잘해주는 곳입니다. 최저 금리 보장하고 여러가지 혜택을 받을 수 있습니다. 아주
-									좋은 조건으로 대출을 받을 수 있으니 한번 믿고 보십쇼</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<div class="container">
-					<div class="row p-5">
-						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-							<img class="img-fluid" src="./resources/img/advertisement2.PNG"
-								alt="">
-						</div>
-						<div class="col-lg-6 mb-0 d-flex align-items-center">
-							<div class="text-align-left">
-								<h1 class="h1">Repr in voluptate</h1>
-								<h3 class="h2">Ullamco laboris nisi ut</h3>
-								<p>We bring you 100% free CSS templates for your websites.
-									If you wish to support TemplateMo, please make a small
-									contribution via PayPal or tell your friends about our website.
-									Thank you.</p>
 							</div>
 						</div>
 					</div>
@@ -138,18 +101,52 @@ https://templatemo.com/tm-559-zay-shop
 						</div>
 						<div class="col-lg-6 mb-0 d-flex align-items-center">
 							<div class="text-align-left">
-								<h1 class="h1">Repr in voluptate</h1>
-								<h3 class="h2">Ullamco laboris nisi ut</h3>
-								<p>We bring you 100% free CSS templates for your websites.
-									If you wish to support TemplateMo, please make a small
-									contribution via PayPal or tell your friends about our website.
-									Thank you.</p>
+								<h1 class="h1">Charter funds Facility</h1>
+								<h3 class="h2">다양한 전세자금대출</h3>
+								<p>집을 전세로 살고 싶은데 자금이 부족하다? 전세자금도 저희가 추천해드립니다!
+									각 은행별 전세자금들을 모두 모아놨습니다. 알맞은 대출을 고르는 것, 저희가 도와드리겠습니다</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<div class="container">
+					<div class="row p-5">
+						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+							<img class="img-fluid" src="./resources/img/advertisement2.PNG"
+								alt="">
+						</div>
+						<div class="col-lg-6 mb-0 d-flex align-items-center">
+							<div class="text-align-left">
+								<h1 class="h1">Personal Credit Facility</h1>
+								<h3 class="h2">다양한 개인신용대출</h3>
+								<p>꼭 필요한 개인신용대출! 저희가 추천해드립니다. 최저 금리, 신용등급 별 금리 등 다양한 정보를 제공해드립니다</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<div class="container">
+					<div class="row p-5">
+						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+							<img class="img-fluid" src="./resources/img/loanmainmain.PNG"
+								alt="">
+						</div>
+						<div class="col-lg-6 mb-0 d-flex align-items-center">
+							<div class="text-align-left">
+								<h1 class="h1">Together Funding</h1>
+								<p>주택담보대출 뿐만 아니라 전세자금, 개인신용대출 또한 잘해줍니다. 최저 금리 보장하고 여러가지 혜택을 받을 수 있습니다. 아주
+									좋은 조건으로 대출을 받을 수 있으니 한번 믿고 보십쇼</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+			
+			
 		<a class="carousel-control-prev text-decoration-none w-auto ps-3"
 			href="#template-mo-zay-hero-carousel" role="button"
 			data-bs-slide="prev"> <i class="fas fa-chevron-left"></i>
@@ -165,33 +162,33 @@ https://templatemo.com/tm-559-zay-shop
 	<section class="container py-5">
 		<div class="row text-center pt-3">
 			<div class="col-lg-6 m-auto">
-				<h1 class="h1">언론과 대플</h1>
+				<h1 class="h1">언론과 대출플랜</h1>
 
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-12 col-md-4 p-5 mt-3">
-				<a href="#"><img src="./resources/img/category_img_01.jpg"
+				<a href="https://www.finda.co.kr/post/allnew/7353"><img src="./resources/img/howtoloan.png"
 					class="rounded-circle img-fluid border"></a>
-				<h5 class="text-center mt-3 mb-3">Watches</h5>
+				<h5 class="text-center mt-3 mb-3">똑똑하게 대출받기</h5>
 				<p class="text-center">
-					<a class="btn btn-success">Go Shop</a>
+					<a href="https://www.finda.co.kr/post/allnew/7353" class="btn btn-success">Go Site</a>
 				</p>
 			</div>
 			<div class="col-12 col-md-4 p-5 mt-3">
-				<a href="#"><img src="./resources/img/category_img_02.jpg"
+				<a href="https://www.finda.co.kr/post/allnew/6920"><img src="./resources/img/creditplan.png"
 					class="rounded-circle img-fluid border"></a>
-				<h2 class="h5 text-center mt-3 mb-3">Shoes</h2>
+				<h2 class="h5 text-center mt-3 mb-3">신용등급관리</h2>
 				<p class="text-center">
-					<a class="btn btn-success">Go Shop</a>
+					<a href="https://www.finda.co.kr/post/allnew/6920" class="btn btn-success">Go Site</a>
 				</p>
 			</div>
 			<div class="col-12 col-md-4 p-5 mt-3">
-				<a href="#"><img src="./resources/img/category_img_03.jpg"
+				<a href="https://www.finda.co.kr/post/allnew/6062"><img src="./resources/img/howtohouse.png"
 					class="rounded-circle img-fluid border"></a>
-				<h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
+				<h2 class="h5 text-center mt-3 mb-3">현명한 주택담보대출</h2>
 				<p class="text-center">
-					<a class="btn btn-success">Go Shop</a>
+					<a href="https://www.finda.co.kr/post/allnew/6062" class="btn btn-success">Go Site</a>
 				</p>
 			</div>
 		</div>
@@ -204,63 +201,15 @@ https://templatemo.com/tm-559-zay-shop
 		<div class="container py-5">
 			<div class="row text-center py-3">
 				<div class="col-lg-6 m-auto">
-					<h1 class="h1">Featured Product</h1>
-					<p>Reprehenderit in voluptate velit esse cillum dolore eu
-						fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident.</p>
+					<h1 class="h1">대출 상품 종류</h1>
+					<p>이 사이트에서는 주택담보대출, 전세자금대출, 그리고 개인신용대출 세 가지의 대출 종류를 안내해 드립니다.</p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-12 col-md-4 mb-4">
 					<div class="card h-100">
 						<a href="shop-single.html"> <img
-							src="./resources/img/feature_prod_01.jpg" class="card-img-top"
-							alt="...">
-						</a>
-						<div class="card-body">
-							<ul class="list-unstyled d-flex justify-content-between">
-								<li><i class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i> <i
-									class="text-muted fa fa-star"></i> <i
-									class="text-muted fa fa-star"></i></li>
-								<li class="text-muted text-right">$240.00</li>
-							</ul>
-							<a href="shop-single.html"
-								class="h2 text-decoration-none text-dark">Gym Weight</a>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Sunt in culpa qui officia deserunt.</p>
-							<p class="text-muted">Reviews (24)</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-md-4 mb-4">
-					<div class="card h-100">
-						<a href="shop-single.html"> <img
-							src="./resources/img/feature_prod_02.jpg" class="card-img-top"
-							alt="...">
-						</a>
-						<div class="card-body">
-							<ul class="list-unstyled d-flex justify-content-between">
-								<li><i class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i> <i
-									class="text-muted fa fa-star"></i> <i
-									class="text-muted fa fa-star"></i></li>
-								<li class="text-muted text-right">$480.00</li>
-							</ul>
-							<a href="shop-single.html"
-								class="h2 text-decoration-none text-dark">Cloud Nike Shoes</a>
-							<p class="card-text">Aenean gravida dignissim finibus. Nullam
-								ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.</p>
-							<p class="text-muted">Reviews (48)</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-md-4 mb-4">
-					<div class="card h-100">
-						<a href="shop-single.html"> <img
-							src="./resources/img/feature_prod_03.jpg" class="card-img-top"
+							src="./resources/img/loann.png" class="card-img-top"
 							alt="...">
 						</a>
 						<div class="card-body">
@@ -270,15 +219,50 @@ https://templatemo.com/tm-559-zay-shop
 									class="text-warning fa fa-star"></i> <i
 									class="text-warning fa fa-star"></i> <i
 									class="text-warning fa fa-star"></i></li>
-								<li class="text-muted text-right">$360.00</li>
 							</ul>
-							<a href="shop-single.html"
-								class="h2 text-decoration-none text-dark">Summer Addides
-								Shoes</a>
-							<p class="card-text">Curabitur ac mi sit amet diam luctus
-								porta. Phasellus pulvinar sagittis diam, et scelerisque ipsum
-								lobortis nec.</p>
-							<p class="text-muted">Reviews (74)</p>
+							<a href="recommendloan/recommendloanlist"
+								class="h2 text-decoration-none text-dark">주택담보대출</a>
+							<p class="card-text">주택담보대출 종류와 상세정보를 보여드립니다.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-4 mb-4">
+					<div class="card h-100">
+						<a href="shop-single.html"> <img
+							src="./resources/img/charterloann.png" class="card-img-top"
+							alt="...">
+						</a>
+						<div class="card-body">
+							<ul class="list-unstyled d-flex justify-content-between">
+								<li><i class="text-warning fa fa-star"></i> <i
+									class="text-warning fa fa-star"></i> <i
+									class="text-warning fa fa-star"></i> <i
+									class="text-warning fa fa-star"></i> <i
+									class="text-warning fa fa-star"></i></li>
+							</ul>
+							<a href="recommendloan/recommendloancharterlist"
+								class="h2 text-decoration-none text-dark">전세자금대출</a>
+							<p class="card-text">전세자금대출 종류와 상세정보를 보여드립니다.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-4 mb-4">
+					<div class="card h-100">
+						<a href="shop-single.html"> <img
+							src="./resources/img/creditloann.png" class="card-img-top"
+							alt="...">
+						</a>
+						<div class="card-body">
+							<ul class="list-unstyled d-flex justify-content-between">
+								<li><i class="text-warning fa fa-star"></i> <i
+									class="text-warning fa fa-star"></i> <i
+									class="text-warning fa fa-star"></i> <i
+									class="text-warning fa fa-star"></i> <i
+									class="text-warning fa fa-star"></i></li>
+							</ul>
+							<a href="recommendloan/recommendloancreditlist"
+								class="h2 text-decoration-none text-dark">개인신용대출</a>
+							<p class="card-text">개인신용대출 종류와 상세정보를 보여드립니다.</p>
 						</div>
 					</div>
 				</div>

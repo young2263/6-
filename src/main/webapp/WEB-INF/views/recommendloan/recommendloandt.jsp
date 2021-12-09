@@ -393,15 +393,15 @@ function calculate() {
 		</tr>
 		<tr>
 			<td style="font-size:30px;">대출 금액입력</td>
-			<td><input type="text" name="principal" class="need" size="12" style="text-align:center" onchange="calculate();"> 원</td>
+			<td><input type="text" name="principal" class="need" size="20" style="text-align:center" onchange="calculate();"> 원</td>
 		</tr>
 		<tr>
 			<td style="font-size:30px;">이자율(%)</td>
-			<td><input type="text" name="interest" class="need" size="12" style="text-align:center" onchange="calculate();"> %</td>
+			<td><input type="text" name="interest" class="need" size="20" style="text-align:center" onchange="calculate();"> %</td>
 		</tr>
 		<tr>
 			<td style="font-size:30px;">대출기간(년)</td>
-			<td><input type="text" name="years" class="need" size="12" style="text-align:center" onchange="calculate();"> 년</td>
+			<td><input type="text" name="years" class="need" size="20" style="text-align:center" onchange="calculate();"> 년</td>
 		</tr>
 		<!-- <tr>
 			<td>4)</td>

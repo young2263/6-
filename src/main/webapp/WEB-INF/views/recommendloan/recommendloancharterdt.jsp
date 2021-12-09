@@ -231,11 +231,11 @@ $( document ).ready(function() {
 		     return false;
 		});
 	});
-	
+</script>	
 	
 	
 <script language="JavaScript">
-/* 원리금균등상환 계산기(monthly 일정) */ 
+/* 원리금균등상환 계산기(monthly 일정) */
 function calculate() {
   
     var principal = document.loandata.principal.value;
@@ -263,38 +263,7 @@ function calculate() {
         document.loandata.totalinterest.value = "";
     }
 }
-/* 원금균등상환계산기 (납입원금일정) (미완)*/
-function calculate() {
-  
-   var principal = document.loandata.principal.value;	//원금
-   var interest = document.loandata.interest.value / 100 / 12;	//이자
-   var payments = document.loandata.years.value * 12;	//대출상환개월수
 
-  	var x = principal-monthly;
-	var monthly = principal / payments;	//매월갚을 원금금액(fix)
-	var interest = document.loandata.interest.value / 12;
- 	var payment = (principal-monthly) / payments;
-	/* 첫달      이자금액 principal * interest /12 
-	두번쨰달 이자금액 (principal-monthly) * interest / 12 */
-    
-
- 
-    if (!isNaN(monthly) && 
-        (monthly != Number.POSITIVE_INFINITY) &&
-        (monthly != Number.NEGATIVE_INFINITY)) {
-	monthly = tyears * 12 -
-        document.loandata.payment.value = round(monthly+interest);	//매월상환금
-        document.loandata.total.value = round(monthly * payments);
-        document.loandata.totalinterest.value = 
-            round((monthly * payments) - principal);
-    }
-	// 잘못된값 입력시 아무값도 나오지않게
-    else {
-        document.loandata.payment.value = "";
-        document.loandata.total.value = "";
-        document.loandata.totalinterest.value = "";
-    }
-}
 /* 만기일시상환 계산기  */
 function calculate() {
 	
@@ -365,11 +334,9 @@ function calculate() {
     
         <input type="radio" id="detail" class="tabb" name="tab" checked>
         <input type="radio" id="calculation" class="tabb" name="tab">
-        <input type="radio" id="review" class="tabb" name="tab">
         
         <label class="tabtab" for="detail"><font size="5em">세부 정보</font></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label class="tabtab" for="calculation"><font size="5em">계산기</font></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label class="tabtab" for="review"><font size="5em">리뷰</font></label>
+        <label class="tabtab" for="calculation"><font size="5em">계산기</font></label>
      	 <br><br><br><br>
         
         <!-- 세부정보 -->
@@ -428,15 +395,15 @@ function calculate() {
 		</tr>
 		<tr>
 			<td style="font-size:30px;">대출 금액입력</td>
-			<td><input type="text" name="principal" class="need" size="12" style="text-align:center" onchange="calculate();"> 원</td>
+			<td><input type="text" name="principal" class="need" size="20" style="text-align:center" onchange="calculate();"> 원</td>
 		</tr>
 		<tr>
 			<td style="font-size:30px;">이자율(%)</td>
-			<td><input type="text" name="interest" class="need" size="12" style="text-align:center" onchange="calculate();"> %</td>
+			<td><input type="text" name="interest" class="need" size="20" style="text-align:center" onchange="calculate();"> %</td>
 		</tr>
 		<tr>
 			<td style="font-size:30px;">대출기간(년)</td>
-			<td><input type="text" name="years" class="need" size="12" style="text-align:center" onchange="calculate();"> 년</td>
+			<td><input type="text" name="years" class="need" size="20" style="text-align:center" onchange="calculate();"> 년</td>
 		</tr>
 		<!-- <tr>
 			<td>4)</td>
@@ -467,114 +434,6 @@ function calculate() {
         </div>
         <br><br><br><br>
         
-        <!-- 리뷰 -->
-        <div class="tab_item">
-            	<div class="content">
-            		<h1>리뷰</h1>
-            		 <br><br>
-			
-			
-			<!-- 리뷰 리스트 -->
-			<div>
-			<form action="recommendloan/recommendloanreview" method="get">
-			<div class="reviewinsert">
-			<table class="reviewlist" >
-					<tr>
-						<td>아이디</td>
-						<td>별점</td>
-						<td>내용</td>
-					</tr>
-					
-					<c:if test="${listCount eq 0}">
-						<tr>
-							<td colspan="3" align="center"><br>
-								<br>작성된 리뷰가 없습니다.<br><br>
-							</td>
-							</tr>
-					</c:if>
-					<c:if test="${listCount ne 0}">
-						<tr>
-							<td align="center">${recommendloanreview.M_ID }</td>
-							<td align="center">${recommendloanreview.RLR_AST_ }</td>
-							<td align="center">${recommendloanreview.RLR_COMMENT }</td>
-						</tr>
-					</c:if>
-				</table>
-				</div>
-				
-				<div class="paging">
-				<c:if test="${currentPage<=1}">
-                [이전]&nbsp; 
-                </c:if>
-				<c:if test="${currentPage > 1}">
-					<c:url var="blistST" value="recommendloanlist">
-						<c:param name="page" value="${currentPage-1}" />
-					</c:url>
-					<a href="${blistST}">[이전]</a>
-				</c:if>
-				<c:set var="endPage" value="${maxPage}" />
-				<c:forEach var="p" begin="${startPage+1}" end="${endPage}">
-					<c:if test="${p eq currentPage}">
-						<font color="red" size="4"><b>[${p}]</b></font>
-					</c:if>
-					<c:if test="${p ne currentPage}">
-						<c:url var="blistchk" value="recommendloanlist">
-							<c:param name="page" value="${p}" />
-						</c:url>
-						<a href="${blistchk}">${p}</a>
-					</c:if>
-				</c:forEach>
-				<c:if test="${currentPage >= maxPage}"> 
- [다음] 
- </c:if>
-				<c:if test="${currentPage < maxPage}">
-					<c:url var="blistEND" value="recommendloanlist">
-						<c:param name="page" value="${currentPage+1}" />
-					</c:url>
-					<a href="${blistEND}">[다음]</a>
-				</c:if>
-
-			</div>
-			</form> 
-			</div>
-			
-			
-			<!-- 리뷰 작성 -->
-			
-			<form action="recommendloan/recommendloanreviewinsert" method="get">
-			<input type="hidden" id="rlr_num" name="rlr_num" value="${recommendloanreview.rlr_num}" readonly>
-			<input type="hidden" id="page" value="${currentPage}">
-			<input type="hidden" id="reviews" name="reviews" value>
-			<table class="reviewtable" border="1" style="width: 70%">
-	  			<tr>
-	  				<td style="font-size:25px">내용</td>
-	  				<td>
-	  					<textarea style="width:700px; resize:none;" rows="10" cols="120" name="rlr_comment" placeholder="내용을 작성해주세요"></textarea>
-	  				</td>
-	  			</tr>
-	  			<tr>
-					<td style="font-size:25px">별점</td>
-				  	<td class="star_rating">
-     					<a href="#" class="on" id="1">★</a>
-						<a href="#" class="on" id="2">★</a>
-						<a href="#" class="on" id="3">★</a>
-						<a href="#" id="4">★</a>
-						<a href="#" id="5">★</a>
-   						<input type="hidden" id="rlr_ast" name="rlr_ast" value="3">
-					</td>
-				</tr>
-	  			
-	  			<tr>
-	  				<td colspan="2" style="text-align: center;">
-	  					<input class="btnrv" type="submit" value="등록">
-	  				</td>
-	  			</tr>
-			</table>
-			<br><br><br><br>
-			</form>
-			
-		</div> 
-	</div>
 </div>
 </aside>
 </div>
