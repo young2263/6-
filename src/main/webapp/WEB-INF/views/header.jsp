@@ -49,7 +49,7 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="recommendloan/recommendloanlist">추천 대출</a>
+                            <a id="recommendnavi" class="nav-link" href="recommendloan/recommendloanlist">추천 대출</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">계산기</a>
@@ -99,14 +99,14 @@
         </div>
     </nav>
     <div class="showNavi">
-        <a href="recommendloanlist">주택담보대출</a>
-        <a href="recommendloancreditlist">신용대출</a>
-        <a href="recommendloancharterlist">전세자금대출</a>
+        <a href="recommendloan/recommendloanlist">주택담보대출</a>
+        <a href="recommendloan/recommendloancreditlist">신용대출</a>
+        <a href="recommendloan/recommendloancharterlist">전세자금대출</a>
     </div>
 
     <script>
         $(".showNavi").hide();
-        $(".flex-fill").hover(function(){
+        $("#recommendnavi").hover(function(){
             $(".showNavi").slideDown(500);
         })
         $(".showNavi").hover(function(){
