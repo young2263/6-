@@ -214,17 +214,7 @@
 	}
 </style>
 
-<script type="text/javascript">
-$( document ).ready(function() {
-	$( ".star_rating a" ).click(function() {
-		$(this).parent().children("a").removeClass("on");
-		$(this).addClass("on").prevAll("a").addClass("on");
-		 var starRate = $(this).attr('id');
-		$("#rlr_ast").val(starRate);
-		     return false;
-		});
-	});
-</script>	
+	
 	
 <script language="JavaScript">
 /* 원리금균등상환 계산기(monthly 일정) */ 
@@ -329,8 +319,7 @@ function calculate() {
         <input type="radio" id="review" class="tabb" name="tab">
         
         <label class="tabtab" for="detail"><font size="5em">세부 정보</font></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label class="tabtab" for="calculation"><font size="5em">계산기</font></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label class="tabtab" for="review"><font size="5em">리뷰</font></label>
+        <label class="tabtab" for="calculation"><font size="5em">계산기</font></label>
      	 <br><br><br><br>
         
         
@@ -432,122 +421,11 @@ function calculate() {
         </div>
         <br><br><br>
         
-        
-        <!-- 리뷰 -->
-        <div class="tab_item">
-            <h1>리뷰</h1>
-            <br><br>
-
-			<!-- 리뷰 리스트 -->
-			<div>
-			<div class="review">
-			<form action="recommendloan/recommendloanreviewlist" method="post">
-			<table class="reviewlist" >
-					<tr>
-						<td class="rvn">아이디</td>
-						<td class="rvn">별점</td>
-						<td class="rvn">내용</td>
-					</tr>
-						<tr>
-							<td align="center">${recommendloanreview.M_ID }</td>
-							<td align="center">${recommendloanreview.RLR_AST }</td>
-							<td align="center">${recommendloanreview.RLR_COMMENT }</td>
-						</tr>
-				</table>
-				</form>
-				</div>
-				
-				<div class="paging">
-				<c:if test="${currentPage<=1}">
-                [이전]&nbsp; 
-                </c:if>
-				<c:if test="${currentPage > 1}">
-					<c:url var="blistST" value="recommendloanreviewlist">
-						<c:param name="page" value="${currentPage-1}" />
-					</c:url>
-					<a href="${blistST}">[이전]</a>
-				</c:if>
-				<c:set var="endPage" value="${maxPage}" />
-				<c:forEach var="p" begin="${startPage+1}" end="${endPage}">
-					<c:if test="${p eq currentPage}">
-						<font color="red" size="4"><b>[${p}]</b></font>
-					</c:if>
-					<c:if test="${p ne currentPage}">
-						<c:url var="blistchk" value="recommendloanreviewlist">
-							<c:param name="page" value="${p}" />
-						</c:url>
-						<a href="${blistchk}">${p}</a>
-					</c:if>
-				</c:forEach>
-				<c:if test="${currentPage >= maxPage}"> 
- [다음] 
- </c:if>
-				<c:if test="${currentPage < maxPage}">
-					<c:url var="blistEND" value="recommendloanreviewlist">
-						<c:param name="page" value="${currentPage+1}" />
-					</c:url>
-					<a href="${blistEND}">[다음]</a>
-				</c:if> 
-			</div>
-			</div>
-			
-			
-			<!-- 리뷰 작성 -->
-			
-			<form action="recommendloan/recommendloanreviewinsert" method="get">
-			<input type="hidden" id="rlr_num" name="rlr_num" value="${recommendloanreview.rlr_num}" readonly>
-			<input type="hidden" id="page" value="${currentPage}">
-			<input type="hidden" id="reviews" name="reviews" value>
-			<table class="reviewtable" border="1" style="width: 70%">
-	  			<tr>
-	  				<td style="font-size:25px">내용</td>
-	  				<td>
-	  					<textarea style="width:700px; resize:none;" rows="10" cols="120" name="rlr_comment" placeholder="내용을 작성해주세요"></textarea>
-	  				</td>
-	  			</tr>
-	  			<tr>
-					<td style="font-size:25px">별점</td>
-				  	<td class="star_rating">
-     					<a href="#" class="on" id="1">★</a>
-						<a href="#" class="on" id="2">★</a>
-						<a href="#" class="on" id="3">★</a>
-						<a href="#" id="4">★</a>
-						<a href="#" id="5">★</a>
-   						<input type="hidden" id="rlr_ast" name="rlr_ast" value="3">
-					</td>
-				</tr>
-	  			<tr>
-	  				<td colspan="2" style="text-align: center;">
-	  					<input class="btnrv" type="submit" value="등록">
-	  				</td>
-	  			</tr>
-			</table>
-			<br><br><br><br>
-			</form>
-			
-		</div> 
+       
 	</div>
 </aside>
 </div>
 
-
-
-<script type="text/javascript">
-	$(function() {
-
-		//리뷰 insert script
-		$('#reviewForm').on('submit', function(event) {
-			if($('#review_area').val() == ""){
-				alert("내용을 입력해주세요.");
-				event.preventDefault();
-			} else {
-				$('#reviews').val($('#review_area').val());
-				return true;
-			}
-		});
-	});
-
-</script>
 
 
 <%@include file="../listfooter.jsp"%>
