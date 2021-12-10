@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycompany.loanplan.loan.model.service.RecommendLoanReviewService;
 import com.mycompany.loanplan.loan.model.service.RecommendLoanService;
-import com.mycompany.loanplan.loan.model.vo.RecommendLoanReview;
 
 @Controller
 public class RecommendLoanController {
@@ -27,9 +25,6 @@ public class RecommendLoanController {
 	
 	@Autowired
 	private RecommendLoanService recommendLoanService;
-	
-	@Autowired
-	private RecommendLoanReviewService recommendLoanReviewService;
 	
 	@RequestMapping(value = "/recommendloan/recommendloanlist", method = RequestMethod.GET)
 	public ModelAndView recommendLoanList(
@@ -68,43 +63,4 @@ public class RecommendLoanController {
 	      }
 	      return mv;   			
 	}
-	
-	@RequestMapping(value = "/recommendloan/recommendloanreviewlist", method = RequestMethod.GET)
-		public ModelAndView recommendLoanReviewList(
-				@RequestParam(name = "page", defaultValue = "1") int page,
-				@RequestParam(name = "keyword", required = false) String keyword,
-				ModelAndView mv) {
-		System.out.println("recommendloanreviewlist 진입");
-		try {
-			int currentPage = page;
-			//한 페이지 당 출력할 목록 갯수
-			int listCount = recommendLoanReviewService.listCount();
-			int maxPage = (int) ((double) listCount / LIMIT + 0.9);
-			mv.addObject("recommendloanreview", recommendLoanReviewService.selectList(currentPage, LIMIT));
-			mv.addObject("currentPage", currentPage);
-			mv.addObject("maxPage", maxPage);
-			mv.addObject("listCount", listCount);
-			mv.setViewName("recommendloan.recommendloanreviewlist");
-		} catch (Exception e) {
-			mv.addObject("msg", e.getMessage());
-			e.printStackTrace();
-		}
-		return mv;
-	}
-		
-	@RequestMapping(value = "/recommendloan/recommendloanreviewinsert.do", method = RequestMethod.POST)
-	public ModelAndView recommendLoanReviewInsert(
-			HttpServletRequest request,
-			RecommendLoanReview rlr,
-			ModelAndView mv) {
-		try {
-			recommendLoanReviewService.insertRecommendLoanReview(rlr);
-			mv.setViewName("redirect:recommendloan/recommendloandt");
-		} catch (Exception e) {
-			mv.addObject("msg", e.getMessage());
-			mv.setViewName("errorPage");
-		}
-		return mv;
-	}
-
 }

@@ -1,6 +1,5 @@
 package com.mycompany.loanplan.loan.model.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.RowBounds;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mycompany.loanplan.loan.model.vo.RecommendLoanCharter;
-import com.mycompany.loanplan.loan.model.vo.RecommendLoanCharterReview;
 
 @Repository("recommendLoanCharterDao")
 public class RecommendLoanCharterDao {

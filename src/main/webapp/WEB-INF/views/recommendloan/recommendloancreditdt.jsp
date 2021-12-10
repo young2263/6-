@@ -150,6 +150,19 @@
 		border-right: 10px;
 	}
 	
+	.calcal {
+		border: none;
+		background-color: steelblue;
+		color: white;
+		padding: 15px 30px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+	}
+	
 	.need {
 		border: 0;
 		border-bottom: 1px solid gray;
@@ -219,17 +232,7 @@
 	}
 </style>
 
-<script type="text/javascript">
-$( document ).ready(function() {
-	$( ".star_rating a" ).click(function() {
-		$(this).parent().children("a").removeClass("on");
-		$(this).addClass("on").prevAll("a").addClass("on");
-		 var starRate = $(this).attr('id');
-		$("#review_star").val(starRate);
-		     return false;
-		});
-	});
-</script>	
+
 	
 	
 <script language="JavaScript">
@@ -297,7 +300,7 @@ function calculate() {
 function calculate() {
 	
     var principal = document.loandata.principal.value;
-    var interest = document.loandata.interest.value / 100 / 12;
+    var interest = document.loandata.interest.value /100/ 12;
     var payments = document.loandata.years.value * 12;
 	
   
@@ -331,6 +334,7 @@ function calculate() {
 <body>
 
 <%@include file="../listheader.jsp"%>
+<br><br><br><br>
 	
 <div class="body">
 	<table class="loandt">
@@ -353,8 +357,7 @@ function calculate() {
         <input type="radio" id="review" class="tabb" name="tab">
         
         <label class="tabtab" for="detail"><font size="5em">세부 정보</font></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label class="tabtab" for="calculation"><font size="5em">계산기</font></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label class="tabtab" for="review"><font size="5em">리뷰</font></label>
+        <label class="tabtab" for="calculation"><font size="5em">계산기</font></label>
      	 <br><br><br><br>
         
         <!-- 세부정보 -->
@@ -447,8 +450,8 @@ function calculate() {
 			<td><input type="text" name="tyears" size="12" onchange="calculate();"> 년</td>
 		</tr> -->
 		<tr>
-			<td colspan="2"><input type="button" value="계산" onclick="calculate();">
-			<input type="button" value="다시입력" onclick="reset();"></td>
+			<td colspan="2"><input type="button" class="calcal" value="계산" onclick="calculate();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" class="calcal" value="다시입력" onclick="reset();"></td>
 		</tr>
 		<tr>
 			<td colspan="2" style="font-size:30px; font-weight: bold;">상환내역:</td>
@@ -470,114 +473,7 @@ function calculate() {
         </div>
         <br><br><br><br>
         
-       <!-- 리뷰 -->
-        <div class="tab_item">
-            	<div class="content">
-            		<h1>리뷰</h1>
-            		 <br><br>
-			
-			
-			<!-- 리뷰 리스트 -->
-			<div>
-			<form action="recommendloan/recommendloanreview" method="get">
-			<div class="reviewinsert">
-			<table class="reviewlist" >
-					<tr>
-						<td>아이디</td>
-						<td>별점</td>
-						<td>내용</td>
-					</tr>
-					
-					<c:if test="${listCount eq 0}">
-						<tr>
-							<td colspan="3" align="center"><br>
-								<br>작성된 리뷰가 없습니다.<br><br>
-							</td>
-							</tr>
-					</c:if>
-					<c:if test="${listCount ne 0}">
-						<tr>
-							<td align="center">${recommendloanreview.M_ID }</td>
-							<td align="center">${recommendloanreview.RLR_AST_ }</td>
-							<td align="center">${recommendloanreview.RLR_COMMENT }</td>
-						</tr>
-					</c:if>
-				</table>
-				</div>
-				
-				<div class="paging">
-				<c:if test="${currentPage<=1}">
-                [이전]&nbsp; 
-                </c:if>
-				<c:if test="${currentPage > 1}">
-					<c:url var="blistST" value="recommendloanlist">
-						<c:param name="page" value="${currentPage-1}" />
-					</c:url>
-					<a href="${blistST}">[이전]</a>
-				</c:if>
-				<c:set var="endPage" value="${maxPage}" />
-				<c:forEach var="p" begin="${startPage+1}" end="${endPage}">
-					<c:if test="${p eq currentPage}">
-						<font color="red" size="4"><b>[${p}]</b></font>
-					</c:if>
-					<c:if test="${p ne currentPage}">
-						<c:url var="blistchk" value="recommendloanlist">
-							<c:param name="page" value="${p}" />
-						</c:url>
-						<a href="${blistchk}">${p}</a>
-					</c:if>
-				</c:forEach>
-				<c:if test="${currentPage >= maxPage}"> 
- [다음] 
- </c:if>
-				<c:if test="${currentPage < maxPage}">
-					<c:url var="blistEND" value="recommendloanlist">
-						<c:param name="page" value="${currentPage+1}" />
-					</c:url>
-					<a href="${blistEND}">[다음]</a>
-				</c:if>
-
-			</div>
-			</form> 
-			</div>
-			
-			
-			<!-- 리뷰 작성 -->
-			
-			<form action="recommendloan/recommendloanreviewinsert" method="get">
-			<input type="hidden" id="rlr_num" name="rlr_num" value="${recommendloanreview.rlr_num}" readonly>
-			<input type="hidden" id="page" value="${currentPage}">
-			<input type="hidden" id="reviews" name="reviews" value>
-			<table class="reviewtable" border="1" style="width: 70%">
-	  			<tr>
-	  				<td style="font-size:25px">내용</td>
-	  				<td>
-	  					<textarea style="width:700px; resize:none;" rows="10" cols="120" name="rlr_comment" placeholder="내용을 작성해주세요"></textarea>
-	  				</td>
-	  			</tr>
-	  			<tr>
-					<td style="font-size:25px">별점</td>
-				  	<td class="star_rating">
-     					<a href="#" class="on" id="1">★</a>
-						<a href="#" class="on" id="2">★</a>
-						<a href="#" class="on" id="3">★</a>
-						<a href="#" id="4">★</a>
-						<a href="#" id="5">★</a>
-   						<input type="hidden" id="rlr_ast" name="rlr_ast" value="3">
-					</td>
-				</tr>
-	  			
-	  			<tr>
-	  				<td colspan="2" style="text-align: center;">
-	  					<input class="btnrv" type="submit" value="등록">
-	  				</td>
-	  			</tr>
-			</table>
-			<br><br><br><br>
-			</form>
-			
-		</div> 
-	</div>
+       
 </div>
 </aside>
 </div>

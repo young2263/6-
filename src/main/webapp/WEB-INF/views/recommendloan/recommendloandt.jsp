@@ -144,6 +144,19 @@
 	.loancalcul td {
 		border-right: 10px;
 	}
+	
+	.calcal {
+		border: none;
+		background-color: steelblue;
+		color: white;
+		padding: 15px 30px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+	}
 
 	.need {
 		border: 0;
@@ -185,7 +198,7 @@
     	width: 700px;
     	background: #ccc;
     }
-	
+
 	.star_rating {font-size:0; letter-spacing:-4px;}
 	.star_rating a {
       font-size:22px;
@@ -221,7 +234,7 @@
 function calculate() {
   
     var principal = document.loandata.principal.value;
-    var interest = document.loandata.interest.value / 100 / 12;
+    var interest = document.loandata.interest.value / 100/ 12;
     var payments = (document.loandata.years.value - tyears * 12) * 12;
 
   /* tyears * 12 => 거치기간개월수  */
@@ -250,7 +263,7 @@ function calculate() {
 function calculate() {
 	
     var principal = document.loandata.principal.value;
-    var interest = document.loandata.interest.value / 100 / 12;
+    var interest = document.loandata.interest.value /100/ 12;
     var payments = document.loandata.years.value * 12;
 	
     var monthly = (principal * ( 1+ interest ) * payments  - principal) / payments ;	//월상환금액
@@ -280,7 +293,8 @@ function calculate() {
 </head>
 <body>
 <%@include file="../listheader.jsp"%>
-	
+<br><br><br><br>
+
 <div class="body">
 	<table class="loandt">
 		<tr>
@@ -381,7 +395,7 @@ function calculate() {
 			<td><input type="text" name="tyears" size="12" onchange="calculate();"> 년</td>
 		</tr> -->
 		<tr>
-			<td colspan="2"><input type="button" class="calcal" value="계산" onclick="calculate();">
+			<td colspan="2"><input type="button" class="calcal" value="계산" onclick="calculate();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="button" value="다시입력" class="calcal" onclick="reset();"></td>
 		</tr>
 		<tr>

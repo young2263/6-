@@ -151,6 +151,19 @@
 		border-right: 10px;
 	}
 	
+	.calcal {
+		border: none;
+		background-color: steelblue;
+		color: white;
+		padding: 15px 30px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+	}
+	
 	.need {
 		border: 0;
 		border-bottom: 1px solid gray;
@@ -268,7 +281,7 @@ function calculate() {
 function calculate() {
 	
     var principal = document.loandata.principal.value;
-    var interest = document.loandata.interest.value / 100 / 12;
+    var interest = document.loandata.interest.value /100/ 12;
     var payments = document.loandata.years.value * 12;
 	
   
@@ -301,6 +314,7 @@ function calculate() {
 <body>
 	
 <%@include file="../listheader.jsp"%>
+<br><br><br><br>
 	
 <div class="body">
 	<table class="loandt">
@@ -397,7 +411,7 @@ function calculate() {
 			<td><input type="text" name="tyears" size="12" onchange="calculate();"> 년</td>
 		</tr> -->
 		<tr>
-			<td colspan="2"><input type="button" class="calcal" value="계산" onclick="calculate();">
+			<td colspan="2"><input type="button" class="calcal" value="계산" onclick="calculate();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="button" value="다시입력" class="calcal" onclick="reset();"></td>
 		</tr>
 		<tr>

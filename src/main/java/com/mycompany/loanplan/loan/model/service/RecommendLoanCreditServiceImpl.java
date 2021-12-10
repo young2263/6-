@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.mycompany.loanplan.loan.model.dao.RecommendLoanCreditDao;
 import com.mycompany.loanplan.loan.model.vo.RecommendLoanCredit;
-import com.mycompany.loanplan.loan.model.vo.RecommendLoanCreditReview;
 
 @Service("recommendLoanCreditService")
 public class RecommendLoanCreditServiceImpl implements RecommendLoanCreditService {
