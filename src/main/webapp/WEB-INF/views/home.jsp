@@ -12,6 +12,7 @@
 	crossorigin="anonymous"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <link rel="apple-touch-icon" href="resources/img/apple-icon.png">
 
@@ -149,10 +150,10 @@ https://templatemo.com/tm-559-zay-shop
 			
 		<a class="carousel-control-prev text-decoration-none w-auto ps-3"
 			href="#template-mo-zay-hero-carousel" role="button"
-			data-bs-slide="prev"> <i class="fas fa-chevron-left"></i>
+			data-bs-slide="prev"> <i class="fas fa-angle-left"></i>
 		</a> <a class="carousel-control-next text-decoration-none w-auto pe-3"
 			href="#template-mo-zay-hero-carousel" role="button"
-			data-bs-slide="next"> <i class="fas fa-chevron-right"></i>
+			data-bs-slide="next"> <i class="fas fa-angle-right"></i>
 		</a>
 	</div>
 	<!-- End Banner Hero -->
