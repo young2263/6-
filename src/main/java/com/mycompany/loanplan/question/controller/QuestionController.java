@@ -58,7 +58,7 @@ private static final Logger logger = LoggerFactory.getLogger(QuestionController.
 
 	//게시글상세조회
 	@RequestMapping(value = "/question/questionDview", method = RequestMethod.GET)
-	public ModelAndView selectQuestionDt(@RequestParam(name = "rlnum", defaultValue="1") int qnum , ModelAndView mv) {
+	public ModelAndView selectQuestionDt(@RequestParam(name = "qnum", defaultValue="1") int qnum , ModelAndView mv) {
 	System.out.println(qnum);
       try {
          mv.addObject("question", questionService.selectQuestionDt(qnum));
@@ -76,14 +76,14 @@ private static final Logger logger = LoggerFactory.getLogger(QuestionController.
 	
 	
 	//게시글 작성
-	@RequestMapping(value = "/question/questionInsert", method = RequestMethod.POST)
+	@RequestMapping(value = "/question/questionInsert", method = RequestMethod.GET)
 	public ModelAndView questionInsert(HttpServletRequest request, ModelAndView mv) {
 		try {
 			questionService.insertQuestion(q);
 			mv.setViewName("redirect:question/questionInsert");
 		} catch (Exception e) {
 			mv.addObject("msg", e.getMessage());
-			mv.setViewName("errorPage");
+		
 		}
 		return mv;
 	}
@@ -103,19 +103,24 @@ private static final Logger logger = LoggerFactory.getLogger(QuestionController.
 		
 	}
 	
-	//게시글삭제
-	@RequestMapping(value = "/question/questiondelete.do", method = RequestMethod.POST)
-	public ModelAndView questionDelete(@RequestParam(name = "qnum") int qnum, @RequestParam(name = "page", defaultValue = "1") int page, HttpServletResponse response, ModelAndView mv) {
+	//게시글삭
+	@RequestMapping(value = "/question/questionDelete", method = RequestMethod.GET)
+	public ModelAndView questionDelete(@RequestParam(name = "Q_NUM") int qnum, @RequestParam(name = "page", defaultValue = "1") int page, HttpServletResponse response, ModelAndView mv) {
 		try {
-			questionService.deleteQuestion(q);
-			mv.addObject("currentPage", page);
-			mv.setViewName("redirect:question/questionlist");
-		} catch (Exception e) {
-			mv.addObject("msg", e.getMessage());
-			mv.setViewName("errorPage");
+			int result = questionService.deleteQuestion(q);
+			int currentPage= page;
+			int listCount = questionService.questionCount();
+			int maxPage = (int) ((double) listCount / LIMIT + 0.9);
+			mv.addObject("volist", questionService.selectList(currentPage, LIMIT));
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("maxPage", maxPage);
+			mv.addObject("listCount", listCount);
+			mv.setViewName("question/questionView");
+		}	catch(Exception e) {
+				e.printStackTrace();
+			}
+			return mv;
 		}
-		return mv;
-	}
 
 
 			 

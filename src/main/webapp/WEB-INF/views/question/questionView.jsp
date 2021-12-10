@@ -1,12 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>질문</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="../resources/css/templatemo.css">
+<link rel="stylesheet" href="../resources/css/custom.css">
+
+<style>
+	* {
+    	padding: 0;
+    	margin: 0;
+    	box-sizing: border-box;
+	}
+	
+	header{
+		padding-bottom: 100px;
+	}
+
+	.listTitle{
+		text-align: center;
+	}
+
+	table {
+		width: 80%;
+		text-align: center;
+		padding-left: 50px;
+		font-size: 20px;
+		margin: auto;
+		padding-bottom: 40px;
+		border-collapse: separate;
+		border-spacing: 30px 40px;
+		border-bottom: 1px solid gray;
+    }
+    
+    tr:first-of-type {
+    	font-size: 25px;
+    }
+   
+   td {
+   		white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border-right : 1px solid gray;
+   }
+   
+   a {
+   		text-decoration-line: none;
+   }
+   
+   .paging {
+   		padding: 50px 20px;
+   		text-align:center;
+   }
+
+</style>
 </head>
 <body>
 <%@include file="../header.jsp"%>
@@ -36,17 +90,15 @@
 					</tr>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
-							<td><a href="questiondt?no=${vo.q_NUM}" style="color: black">${row.q_TITLE}</a></td>
+							<td><a href="questiondt?qnum=${Q_NUM}" style="color: black">${Q_TITLE}</a></td>
 						</tr>
+<%-- 							<td class=deleteBtn><a href="deleteQuestion?Q_NUM=${Q_NUM}">
+								<button>삭제</button>
+							</a></td> --%>
 					</c:forEach>
 				</table>
 			</div>
-			<td colspan="2">
-				<button class="btnUpdate">수정</button>
-				<button class="btnDelete">삭제</button>
-			</td>
 			<br><br><br>
-			
 			<div class="paging">
 				<c:if test="${currentPage<=1}">
                 [이전]&nbsp; 
@@ -83,7 +135,7 @@
 		</div>
 	</div>
 	<br><br><br><br>
-<%@include file="../footer.jsp"%>
+<%@include file="/WEB-INF/views/footer.jsp"%>
 		
 </body>
 </html>
