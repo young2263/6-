@@ -301,20 +301,6 @@ function calculate() {
 <body>
 	
 <%@include file="../listheader.jsp"%>
-
-	<header>
-		<c:choose>
-        <c:when test="${voList != null }">
-        <div class="logo">
-        logo<img src="resources/img/logo.png" width="100px" height="100px" />
-        </div>
-        <c:forEach items="${voList}" var="vo">
-        	${vo.M_ID }님
-        </c:forEach>
-        </c:when>
-    </c:choose>
-	</header>
-	<br><br><br><br>
 	
 <div class="body">
 	<table class="loandt">

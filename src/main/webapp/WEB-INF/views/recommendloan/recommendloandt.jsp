@@ -253,11 +253,8 @@ function calculate() {
     var interest = document.loandata.interest.value / 100 / 12;
     var payments = document.loandata.years.value * 12;
 	
-  
-   
     var monthly = (principal * ( 1+ interest ) * payments  - principal) / payments ;	//월상환금액
 
-  
     if (!isNaN(monthly) && 
         (monthly != Number.POSITIVE_INFINITY) &&
         (monthly != Number.NEGATIVE_INFINITY)) {
@@ -283,20 +280,6 @@ function calculate() {
 </head>
 <body>
 <%@include file="../listheader.jsp"%>
-
-	<header>
-		<c:choose>
-        <c:when test="${voList != null }">
-        <div class="logo">
-        logo<img src="resources/img/logo.png" width="100px" height="100px" />
-        </div>
-        <c:forEach items="${voList}" var="vo">
-        	${vo.M_ID }님
-        </c:forEach>
-        </c:when>
-    </c:choose>
-	</header>
-	<br><br><br><br>
 	
 <div class="body">
 	<table class="loandt">
