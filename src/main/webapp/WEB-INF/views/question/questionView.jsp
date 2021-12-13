@@ -79,7 +79,7 @@ a {
 	<div class="body">
 
 		<div class="content">
-			<div class="listTitle" style="color: green">자주 묻는 질문</div>
+			<div class="listTitle" style="color: green"><font size="15px">자주 묻는 질문</font></div>
 			<br>
 			<br>
 			<div>
@@ -91,9 +91,9 @@ a {
 					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
 							<td><a href="questionDview?qnum=${vo.QUESTION_NUM}"
-								style="color: black">${vo.QUESTION_NUM}</a></td>
+								style="color: black"><font size="5px">${vo.QUESTION_NUM}</font></a></td>
 							<td><a href="questionDview?qnum=${vo.QUESTION_NUM}"
-								style="color: black">${vo.QUESTION_TITLE}</a></td>
+								style="color: black"><font size="5px">${vo.QUESTION_TITLE}</font></a></td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -103,34 +103,34 @@ a {
 			<br>
 			<div class="paging">
 				<c:if test="${currentPage<=1}">
-                [이전]&nbsp; 
+                	이전&nbsp;&nbsp;
                 </c:if>
 				<c:if test="${currentPage > 1}">
 					<c:url var="qlistST" value="questionlist">
 						<c:param name="page" value="${currentPage-1}" />
 					</c:url>
-					<a href="${qlistST}">[이전]</a>
+					<a href="${qlistST}">이전</a>&nbsp;
 				</c:if>
 				<c:set var="endPage" value="${maxPage}" />
 				<c:forEach var="p" begin="${startPage+1}" end="${endPage}">
 					<c:if test="${p eq currentPage}">
-						<font color="red" size="4"><b>[${p}]</b></font>
+						<font color="white" size="4"><b style="background-color:green; border-radius: 10px 10px 10px 10px; width:30px; text-align:center;">${p}</b></font>
 					</c:if>
 					<c:if test="${p ne currentPage}">
 						<c:url var="qlistchk" value="questionlist">
 							<c:param name="page" value="${p}" />
 						</c:url>
-						<a href="${qlistchk}">${p}</a>
+						<a href="${qlistchk}" style="color:black;">${p}</a>&nbsp;&nbsp;&nbsp;
 					</c:if>
 				</c:forEach>
 				<c:if test="${currentPage >= maxPage}"> 
-				 [다음] 
+				 다음 
 				 </c:if>
 				<c:if test="${currentPage < maxPage}">
 					<c:url var="qlistEND" value="questionlist">
 						<c:param name="page" value="${currentPage+1}" />
 					</c:url>
-					<a href="${qlistEND}">[다음]</a>
+					<a href="${qlistEND}" style="color:black;">다음</a>&nbsp;&nbsp;&nbsp;
 				</c:if>
 
 			</div>
