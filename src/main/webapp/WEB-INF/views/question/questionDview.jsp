@@ -15,13 +15,13 @@
 			 <li class="item">
         		    <div class="description">
 						<b>제목</b>
-                        <br><br><p><font size="5em">${question.Q_TITLE }</font></p>
+                        <br><br><p><font size="5em">${Q_TITLE }</font></p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>내용</b>	
-						<br><br><p><font size="5em">${question.Q_CONTENT}</font></p>
+						<br><br><p><font size="5em">${Q_CONTENT}</font></p>
                     </div>
                 </li>
 		</ul>

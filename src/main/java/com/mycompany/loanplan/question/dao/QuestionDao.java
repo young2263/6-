@@ -43,12 +43,12 @@ public class QuestionDao {
 		return sqlSession.insert("Question.insertQuestion", q);
 	}
 
-	public int updateQuestion(Question q) {  
-		return sqlSession.update("Question.updateQuestion", q);
+	public int updateQuestion(Question list) {  
+		return sqlSession.update("Question.updateQuestion", list);
 	}
 
-	public int deleteQuestion(Question q) {  
-		return sqlSession.delete("Question.deleteQuestion", q);
+	public int deleteQuestion(int Q_NUM) {  
+		return sqlSession.delete("Question.deleteQuestion", Q_NUM);
 	}
 	
 	public int listCount() {

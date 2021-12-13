@@ -17,7 +17,7 @@ public interface QuestionService {
 	
 	int insertQuestion(Question q);
 	
-	int updateQuestion(Question q);
+	int updateQuestion(Question list);
 	
-	int deleteQuestion(Question q);
+	int deleteQuestion(int Q_NUM);
 }

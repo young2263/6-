@@ -42,13 +42,13 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 	
 	@Override
-	public int updateQuestion(Question q) {
-		return qDao.updateQuestion(q);
+	public int updateQuestion(Question list) {
+		return qDao.updateQuestion(list);
 	}
 	
 	@Override
-	public int deleteQuestion(Question q) {
-		return qDao.deleteQuestion(q);
+	public int deleteQuestion(int Q_NUM) {
+		return qDao.deleteQuestion(Q_NUM);
 	}
 
 	@Override
