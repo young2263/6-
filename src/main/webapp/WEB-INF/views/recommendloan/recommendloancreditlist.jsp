@@ -76,7 +76,8 @@
 			<div>
 				<table class="tableBox">
 					<tr>
-						<th colspan="2">은행</th>
+						<th>로고</th>
+						<th>은행</th>
 						<th>대출상품명</th>
 						<th>401 ~ 500점 금리</th>
 					</tr>
