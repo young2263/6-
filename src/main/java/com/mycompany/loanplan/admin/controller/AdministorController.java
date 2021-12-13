@@ -65,6 +65,7 @@ public class AdministorController {
 
 	@Autowired
 	private QuestionService questionService;
+
 	// 대출 리스트창 띄우기
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView adminList(@RequestParam(name = "page", defaultValue = "1") int page,
@@ -625,5 +626,15 @@ public class AdministorController {
 		}
 		return mv;
 	}
-
+	
+	//공지사항 추가창 띄우기
+	@RequestMapping(value = "/questionAdd", method = RequestMethod.GET)
+	public ModelAndView questionAdd(Administor ad, HttpServletRequest request, ModelAndView mv) {
+		try {
+			mv.setViewName("admin/questionAdd");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
 }

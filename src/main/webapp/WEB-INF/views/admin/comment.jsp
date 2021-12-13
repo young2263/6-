@@ -33,7 +33,7 @@
 		</div>
 		<div class="content">
             <div class="title">
-                <h3>광고 관리</h3>
+                <h3>공지사항 관리</h3>
             </div>
 
             <div class="tableBox">
@@ -51,7 +51,7 @@
              </tr>
                         </c:forEach>
 				</table>
-                <a href="advertiseAdd">
+                <a href="questionAdd">
                     <div class="addBtn">추가</div>
                 </a>
             </div>
