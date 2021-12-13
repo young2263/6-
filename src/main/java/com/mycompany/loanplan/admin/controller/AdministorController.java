@@ -626,8 +626,8 @@ public class AdministorController {
 		}
 		return mv;
 	}
-	
-	//공지사항 추가창 띄우기
+
+	// 공지사항 추가창 띄우기
 	@RequestMapping(value = "/questionAdd", method = RequestMethod.GET)
 	public ModelAndView questionAdd(Administor ad, HttpServletRequest request, ModelAndView mv) {
 		try {
@@ -637,4 +637,34 @@ public class AdministorController {
 		}
 		return mv;
 	}
+
+	// 공지사항 추가
+	@RequestMapping(value = "/questionAdd.do", method = RequestMethod.POST)
+	public ModelAndView questionAddDo(HttpServletRequest request, ModelAndView mv) {
+		try {
+			String QUESTION_TITLE = request.getParameter("QUESTION_TITLE");
+			String QUESTION_CONTENT = request.getParameter("QUESTION_CONTENT");
+			Question q = new Question(QUESTION_TITLE, QUESTION_CONTENT);
+			int result = questionService.insertQuestion(q);
+			System.out.println(result);
+			mv.addObject("commentlist", questionService.questionList());
+			mv.setViewName("admin/comment");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
+	// 공지사항 삭제
+		@RequestMapping(value = "/deleteQuestion", method = RequestMethod.GET)
+		public ModelAndView deleteQuestion(@RequestParam(name = "QUESTION_NUM") int QUESTION_NUM, ModelAndView mv) {
+			try {
+				int result = questionService.deleteQuestion(QUESTION_NUM);
+				System.out.println(result);
+				mv.addObject("commentlist", questionService.questionList());
+				mv.setViewName("admin/comment");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return mv;
+		}
 }

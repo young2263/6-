@@ -17,6 +17,12 @@ public class Question {
 		QUESTION_TITLE = qUESTION_TITLE;
 		QUESTION_CONTENT = qUESTION_CONTENT;
 	}
+	
+	public Question(String qUESTION_TITLE, String qUESTION_CONTENT) {
+		super();
+		QUESTION_TITLE = qUESTION_TITLE;
+		QUESTION_CONTENT = qUESTION_CONTENT;
+	}
 
 	public int getQUESTION_NUM() {
 		return QUESTION_NUM;

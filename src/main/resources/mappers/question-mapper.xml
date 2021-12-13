@@ -33,7 +33,7 @@
 	
 	<insert id="insertQuestion" parameterType="Question">
 		insert into QUESTION (QUESTION_NUM, QUESTION_TITLE, QUESTION_CONTENT) 
-		values ((select NVL(MAX(QUESTION_NUM)+1, 1)from QUESTION), #{QUESTION_TITLE},#{QUESTION_CONTENT})
+		values (question_seq.nextval,#{QUESTION_TITLE},#{QUESTION_CONTENT})
 	</insert>
 	
 	<update id="updateQuestion">

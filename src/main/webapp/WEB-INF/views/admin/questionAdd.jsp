@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="./resources/css/admin/advertiseMain.css">
+<link rel="stylesheet" href="./resources/css/admin/advertiseAdd.css">
 <title>Document</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
@@ -29,36 +28,29 @@
 			<div class="navbarItem">
 				<a href="advertise">광고관리</a>
 			</div>
-			<div class="navbarItem">댓글관리</div>
+			<div class="navbarItem">공지사항관리</div>
 		</div>
 		<div class="content">
 			<div class="title">
-				<h3>공지사항 관리</h3>
+				<h3>공지사항 추가</h3>
 			</div>
 
-			<div class="tableBox">
+			<form action="questionAdd.do" method="post" class="tableBox">
 				<table>
 					<tr>
-						<th>공지사항 번호</th>
-						<th>공지사항 제목</th>
-						<th>공지사항 내용</th>
+						<th>제목</th>
+						<td><input name="QUESTION_TITLE" type="text"></td>
 					</tr>
-					<c:forEach var="vo" items="${commentlist }" varStatus="status">
-						<tr>
-							<td>${vo.QUESTION_NUM }</td>
-							<td>${vo.QUESTION_TITLE }</td>
-							<td>${vo.QUESTION_CONTENT }</td>
-							<td class="deleteBtn"><a
-								href="deleteQuestion?QUESTION_NUM=${vo.QUESTION_NUM}">
-									<button>삭제</button>
-							</a></td>
-						</tr>
-					</c:forEach>
+					<tr>
+						<th>내용</th>
+						<td><textarea name="QUESTION_CONTENT" id="" cols="62"
+								rows="5"></textarea></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input class="addBtn" type="submit"></input></td>
+					</tr>
 				</table>
-				<a href="questionAdd">
-					<div class="addBtn">추가</div>
-				</a>
-			</div>
+			</form>
 		</div>
 	</div>
 	</div>
