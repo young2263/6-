@@ -31,6 +31,7 @@ TemplateMo 559 Zay Shop
 https://templatemo.com/tm-559-zay-shop
 
 -->
+
 </head>
 
 <body>
@@ -202,12 +203,15 @@ https://templatemo.com/tm-559-zay-shop
 		<div class="container py-5">
 			<div class="row text-center py-3">
 				<div class="col-lg-6 m-auto">
-					<h1 class="h1">대출 상품 종류</h1>
-					<p>이 사이트에서는 주택담보대출, 전세자금대출, 그리고 개인신용대출 세 가지의 대출 종류를 안내해 드립니다.</p>
+					<h1 class="h1">회원님에게<br>알맞은대출을<br>추천해드립니다</h1>
+					<p>이 사이트에서는 회원님의 연봉, 자차/자택유무에 따라 주택담보대출, 전세자금대출, 그리고 개인신용대출 세 가지 중 회원님께 알맞은 대출을 안내해 드립니다.</p>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-12 col-md-4 mb-4">
+			<div class="row" style="margin: 0 auto;">
+			
+			<c:choose>
+				<c:when test="${M_HOUSE == 300 }">
+				<div class="col-12 col-md-4 mb-4" style="margin: 0 auto; width: 500px">
 					<div class="card h-100">
 						<a href="recommendloan/recommendloanlist"> <img
 							src="./resources/img/loann.png" class="card-img-top"
@@ -227,7 +231,10 @@ https://templatemo.com/tm-559-zay-shop
 						</div>
 					</div>
 				</div>
-				<div class="col-12 col-md-4 mb-4">
+				</c:when>
+				
+				<c:when test="${M_HOUSE == 0 && M_ASSET <= 300 }">
+				<div class="col-12 col-md-4 mb-4" style="margin: 0 auto; width: 500px">
 					<div class="card h-100">
 						<a href="recommendloan/recommendloancharterlist"> <img
 							src="./resources/img/charterloann.png" class="card-img-top"
@@ -247,7 +254,10 @@ https://templatemo.com/tm-559-zay-shop
 						</div>
 					</div>
 				</div>
-				<div class="col-12 col-md-4 mb-4">
+				</c:when>
+				
+				<c:when test="${M_ASSET <= 200 }">
+				<div class="col-12 col-md-4 mb-4" style="margin: 0 auto; width: 500px">
 					<div class="card h-100">
 						<a href="recommendloan/recommendloancreditlist"> <img
 							src="./resources/img/creditloann.png" class="card-img-top"
@@ -267,6 +277,24 @@ https://templatemo.com/tm-559-zay-shop
 						</div>
 					</div>
 				</div>
+				</c:when>
+				
+				<c:otherwise>
+					<div class="col-12 col-md-4 mb-4" style="margin: 0 auto; width: 500px">
+					<div class="card h-100" style="text-align:center; padding:10px 0">
+						<a href="register"> <button style="border:none; background-color:green; width:400px; height:40px; color:white;">회원가입하고 대출 추천받기</button>
+						</a>
+						<div class="card-body">
+							
+							<p class="h2 text-decoration-none text-dark">회원가입을 해주세요.</p>
+							<p class="card-text">회원가입을 하시면 자산, 자차/자택유무에 맞게 대출을 추천해드립니다.</p>
+						</div>
+					</div>
+				</div>
+				</c:otherwise>
+				
+				</c:choose>
+				
 			</div>
 		</div>
 	</section>
