@@ -233,16 +233,11 @@ button {
 					<br>
 					<input class="input" type="password" id="m_pwd" name="m_pwd" placeholder="비밀번호">
 					<button id="login_submit" class="nextBtn" onclick="loginChk()">로그인</button>
-					
 					<c:if test="${msg == 'failure'}">
 						<div style="color: red">아이디 또는 비밀번호가 일치하지 않습니다.</div>
 					</c:if>
-					<c:if test="${msg ==  'logout'}">
-						<div style="color: red">로그아웃되었습니다.</div>
-					</c:if>
 				</div>
 			</form>
-			
 			<div class="session">
 				<ul>
 					<li>
@@ -282,7 +277,6 @@ button {
 					<img src="resources/img/google.png">
 				</button>
 			</div>
-
 			<script>
 		            function loginChk() {
 		                var form = document.login_frm;
@@ -300,7 +294,6 @@ button {
 		                form.action="/loanplan/login";
 		                form.submit();
 		            }
-
 	        </script>
 			<script>
 					Kakao.init('506da0d75242102b7265d18af802837d'); //발급받은 키 중 javascript키를 사용해준다.
@@ -323,8 +316,9 @@ button {
 					      fail: function (error) {
 					        console.log(error)
 					      },
-					    })
-					  }
+					   })
+					 }
+					
 					//카카오로그아웃  
 					function kakaoLogout() {
 					    if (Kakao.Auth.getAccessToken()) {
@@ -341,6 +335,7 @@ button {
 					    }
 					  }  
 			</script>
+			
 			<div id="ctn">
 				<ul class="text">
 					<li><a href="/loanplan/findId">아이디 찾기</a></li>

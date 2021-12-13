@@ -68,4 +68,17 @@ public class MemberService {
 	public int signUp(Member vo) throws Exception {
 		return memberDao.signUp(vo);
 	}
+	
+	public Member getMember(Member m) throws Exception{
+		Member member = memberDao.getMember(m);
+		return member;
+	}
+	
+	public Member findId(Member vo) throws Exception {
+		return memberDao.findId(vo);
+	}
+	
+	public Member findPwd(Member vo) throws Exception {
+		return memberDao.findPwd(vo);
+	}
 }

@@ -38,6 +38,11 @@ public class MemberDao {
 		}
 		return factory;
 	}
+	
+	public Member getMember(Member m) throws Exception {
+		Member member = sqlSession.selectOne("Member.listMember", m);
+		return member;
+	}
 
 	public List<Member> memberlist() {
 		return sqlSession.selectList("Member.memberlist");
@@ -153,5 +158,13 @@ public class MemberDao {
 	
 	public Member login(Member vo) throws Exception{
 		return sqlSession.selectOne("Member.login", vo);
+	}
+	
+	public Member findId(Member vo) {
+		return sqlSession.selectOne("Member.findId", vo);
+	}
+	
+	public Member findPwd(Member vo) {
+		return sqlSession.selectOne("Member.findPwd", vo);
 	}
 }

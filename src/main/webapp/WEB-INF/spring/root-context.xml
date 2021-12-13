@@ -56,11 +56,26 @@
 		</tx:attributes>
 	</tx:advice>
 	
-	
-
 	<!-- AOP를 통해 Transaction의 pointcut 설정 <aop:config proxy-target-class="true"> 
 		<aop:pointcut id="daoMethod" expression="execution(*com.mycompany.loanplan..*Impl.*(..)))" 
 		/> <aop:advisor id="transactionAdvisor" pointcut-ref="daoMethod" advice-ref="txAdvice"/> 
 		</aop:config> -->
-
+		
+	<!-- email 인증 관련   -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com" />
+        <property name="port" value="587" />
+        <property name="username" value="khfinal06@gmail.com"/>
+        <property name="password" value="rkskek!12"/>
+        <property name="javaMailProperties">
+           <props>
+               <prop key="mail.transport.protocol">smtp</prop>
+               <prop key="mail.smtp.auth">true</prop>
+               <prop key="mail.smtp.starttls.enable">true</prop>
+               <prop key="mail.debug">true</prop>
+               <prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
+			<prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+           </props>
+        </property>
+    </bean>
 </beans>

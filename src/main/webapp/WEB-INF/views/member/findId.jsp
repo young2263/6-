@@ -13,25 +13,22 @@
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/templatemo.css">
 <link rel="stylesheet" href="resources/css/custom.css">
-<title>loanplan ¾ÆÀÌµğ Ã£±â</title>
+<title>loanplan ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°</title>
 <style>
 #content_box {
 	width: 460px;
 	margin: 0 auto;
 }
-
 #nav_ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	text-align: center;
 }
-
 #nav_ul li {
 	position: relative;
 	display: inline-block;
 }
-
 #nav_ul #rcl::after {
 	position: absolute;
 	content: "";
@@ -41,7 +38,6 @@
 	height: 3px;
 	background: rgb(75, 200, 168);
 }
-
 .circle {
 	background-color: #4bc8a8;
 	width: 106px;
@@ -53,7 +49,6 @@
 	color: #FFFFFF;
 	font-weight: bold;
 }
-
 .yet {
 	background-color: #ffffff;
 	border: 1px solid #ccc;
@@ -66,21 +61,17 @@
 	color: #c0c4c9;
 	font-weight: bold;
 }
-
 .checkbox ul {
 	list-style-type: none;
 	padding: 0;
 }
-
 .checkbox ul li {
 	margin-bottom: 10px;
 }
-
 #content {
 	border: 1px solid #dae1e6;
 	padding: 20px;
 }
-
 button {
 	margin: 0 auto;
 	height: 50px;
@@ -90,22 +81,18 @@ button {
 	border: none;
 	border-radius: 5px;
 }
-
 .nextBtn {
 	background: #4bc8a8;
 	color: #ffffff;
 	font-size: 20px;
 }
-
 .nextBtn:hover {
 	background: #62cfb4;
 }
-
 .nextBtn:active {
 	background: #88e0ca;
 	top: 2px;
 }
-
 .phn {
 	border: 1px solid #ccc;
 	border-radius: 10px;
@@ -115,7 +102,6 @@ button {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
-
 .email {
 	border: 1px solid #ccc;
 	border-radius: 10px;
@@ -125,7 +111,6 @@ button {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
-
 #modal {
 	position: absolute;
 	top: 0;
@@ -135,11 +120,9 @@ button {
 	display: none;
 	background-color: rgba(0, 0, 0, 0.4);
 }
-
 #modal.show {
 	display: block;
 }
-
 .modal_body {
 	position: absolute;
 	top: 50%;
@@ -159,59 +142,59 @@ button {
 	<div id="content_box">
 		<div>
 			<h1>LOGO</h1>
-			<p style="color: #656a6e;">LOGO¿¡ °¡ÀÔÇÏ°í Áñ°Å¿òÀ» ´©¸®¼¼¿ä!</p>
+			<p style="color: #656a6e;">LOGOì— ê°€ì…í•˜ê³  ì¦ê±°ì›€ì„ ëˆ„ë¦¬ì„¸ìš”!</p>
 		</div>
 		<ul id="nav_ul">
 			<li>
-				<div class="circle">01 ¾à°üµ¿ÀÇ</div>
+				<div class="circle">01 ì•½ê´€ë™ì˜</div>
 			</li>
 			<li id="rcl">
-				<div class="yet circle">02 º»ÀÎÀÎÁõ</div>
+				<div class="yet circle">02 ë³¸ì¸ì¸ì¦</div>
 			</li>
 			<li id="rcl">
-				<div class="yet circle">03 Á¤º¸ÀÔ·Â</div>
+				<div class="yet circle">03 ì •ë³´ì…ë ¥</div>
 			</li>
 			<li id="rcl">
-				<div class="yet circle">04 °¡ÀÔ¿Ï·á</div>
+				<div class="yet circle">04 ê°€ì…ì™„ë£Œ</div>
 			</li>
 		</ul>
-		<p>È¸¿ø°¡ÀÔ ¾à°ü µ¿ÀÇ</p>
+		<p>íšŒì›ê°€ì… ì•½ê´€ ë™ì˜</p>
 		<div id="content">
 			<div class="checkbox">
 				<ul>
-					<li><a href="#">¾ÆÀÌµğ Ã£±â</a></li>
-					<li><a href="#">ºñ¹Ğ¹øÈ£ Ã£±â</a></li>
+					<li><a href="#">ì•„ì´ë”” ì°¾ê¸°</a></li>
+					<li><a href="#">ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°</a></li>
 				</ul>
 			</div>
 			<div>
-				<p>º»ÀÎÈ®ÀÎ ÈÄ ¾ÆÀÌµğ Ã£±â°¡ °¡´ÉÇÕ´Ï´Ù.</p>
+				<p>ë³¸ì¸í™•ì¸ í›„ ì•„ì´ë”” ì°¾ê¸°ê°€ ê°€ëŠ¥í•©ë‹ˆë‹¤.</p>
 			</div>
 			<div class="phn">
 				<p class="imo">&#128241;</p>
-				<p>ÇÚµåÆù</p>
-				<button class="nextBtn">ÀÎÁõÇÏ±â</button>
+				<p>í•¸ë“œí°</p>
+				<button class="nextBtn">ì¸ì¦í•˜ê¸°</button>
 			</div>
 			<div class="email">
 				<p class="imo">&#128231;</p>
-				<p>ÀÌ¸ŞÀÏ</p>
-				<button class="nextBtn" id="email-popup">ÀÎÁõÇÏ±â</button>
+				<p>ì´ë©”ì¼</p>
+				<button class="nextBtn" id="email-popup">ì¸ì¦í•˜ê¸°</button>
 			</div>
 			<div id="modal">
 				<div class="modal_body">
 					<h3>LOGO</h3>
-					<p>ÀÌ¸ŞÀÏ ÀÎÁõÀ» ÁøÇàÇØÁÖ¼¼¿ä</p>
+					<p>ì´ë©”ì¼ ì¸ì¦ì„ ì§„í–‰í•´ì£¼ì„¸ìš”</p>
 					<form>
-						<p>ÀÌ¸ŞÀÏ</p>
+						<p>ì´ë©”ì¼</p>
 						<input type="text">
-						<button>ÀÎÁõ¹øÈ£ ¹Ş±â</button>
-						<p>ÀÎÁõ¹øÈ£ ÀÔ·Â</p>
+						<button>ì¸ì¦ë²ˆí˜¸ ë°›ê¸°</button>
+						<p>ì¸ì¦ë²ˆí˜¸ ì…ë ¥</p>
 						<input type="text">
-						<button>È®ÀÎ</button>
+						<button>í™•ì¸</button>
 					</form>
 				</div>
 			</div>
 
-			<!-- modal ÀÌº¥Æ® -->
+			<!-- modal ì´ë²¤íŠ¸ -->
 			<script>
             const body = document.querySelector('body');
             const modal = document.querySelector('#modal');

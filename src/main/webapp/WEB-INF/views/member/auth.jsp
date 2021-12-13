@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!-- 이메일 인증 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +20,24 @@
 #content_box {
 	width: 460px;
 	margin: 0 auto;
+}
+
+.logoImg {
+	width: 460px;
+	margin: 0 auto;
+	margin-top: 35px;
+	max-height: 280px;
+	overflow: hidden;
+}
+
+.logoImg img {
+	max-height: initial;
+	margin-top: -15%;
+	margin-bottom: -15%;
+}
+
+.logoImg img {
+	width: 460px;
 }
 
 #nav_ul {
@@ -141,8 +161,10 @@
 <%@include file="../header.jsp"%>
 <body>
 	<div id="content_box">
+		<div class="logoImg">
+			<img src="resources/img/logo.png">
+		</div>
 		<div>
-			<h1>LOGO</h1>
 			<p style="color: #656a6e;">LOGO에 가입하고 즐거움을 누리세요!</p>
 		</div>
 		<ul id="nav_ul">
@@ -178,10 +200,10 @@
 				<p>이메일 인증을 진행해주세요</p>
 				<form>
 					<p>이메일</p>
-					<input type="text">
+					<input type="email" id="mailaddress">
 					<button>인증번호 받기</button>
 					<p>인증번호 입력</p>
-					<input type="text">
+					<input type="text" id="lastChk">
 					<button>확인</button>
 				</form>
 			</div>
@@ -210,6 +232,45 @@
                 }
               }
             });
+          </script>
+          <script>
+          function ajaxm1(){
+        		var memberEmail = $("#mailaddress").html()
+        		var json = {
+        			"memberEmail": memberEmail
+        		}
+        		console.log($("#mailaddress").html());
+        		$.ajax({
+        			url: "<%=request.getContextPath()%>/members/emails",
+        			type: "post",
+        			 // data : 서버(컨트롤러)로 보내는 데이터.
+        			 // json데이터를 JSON.stringify를 이용하여 String으로 형변환
+        			data: JSON.stringify(json),
+        			//이때 전달한 String데이터는 JSON형태의 데이터임을 알려줌.
+        			contentType : "application/json; charset=utf-8",
+        			success: function(result){
+        				console.log(result);
+        				var date = new Date();
+        				 var minutes = 5;
+        				 date.setTime(date.getTime() + (minutes * 60 * 1000));
+        				 $.cookie("email",result, { expires: date }); //쿠키이름, 쿠키값, 언제끝날지
+        		},
+        		error:function(request,status,error){
+        			alert("code:"+request.status+"\n"+"message:"+request.responseText+
+        					"\n"+"error:"+error);
+        		}
+        		});
+        	}
+        	//member테이블에 이메일 인증 YN - N이면 서비스를 주면 안됨. -> 인터셉터 프리핸들에서 처리!(로그인 막기)
+        	function lastCheck(){
+        		if($("#lastChk").val() == $.cookie("email")){
+        			alert("이메일 인증에 성공했습니다.");
+        			location.href="<%=request.getContextPath()%>/member/information";
+        		}else {
+        			alert("이메일 인증 실패");
+        		}
+        		
+        	}
           </script>
 	</div>
 </body>

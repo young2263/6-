@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.mycompany.loanplan.member.model.service.MailSendService;
 //import com.github.scribejava.core.model.OAuth2AccessToken;
 //import com.mycompany.loanplan.member.NaverLoginBO;
 import com.mycompany.loanplan.member.model.service.MemberService;
@@ -31,7 +32,7 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
-	
+	private MailSendService member;
 //	@Autowired
 //	private NaverLoginBO naverloginbo;
 	
@@ -54,12 +55,12 @@ public class MemberController {
 		try {
 			result = memberService.signUp(vo);
 			if (result > 0) {
-				ra.addAttribute("msg", "È¸¿ø°¡ÀÔ ¼º°ø");
+				ra.addAttribute("msg", "íšŒì›ê°€ì… ì„±ê³µ");
 			} else {
-				ra.addAttribute("msg", "È¸¿ø°¡ÀÔ ½ÇÆĞ");
+				ra.addAttribute("msg", "íšŒì›ê°€ì… ì‹¤íŒ¨");
 			}
 		}catch (Exception e) {
-			ra.addAttribute("msg", "È¸¿ø°¡ÀÔ °úÁ¤¿¡¼­ ¿À·ù ¹ß»ı");
+			ra.addAttribute("msg", "íšŒì›ê°€ì… ê³¼ì •ì—ì„œ ì˜¤ë¥˜ ë°œìƒ");
 			e.printStackTrace();
 		}
 		
@@ -78,6 +79,7 @@ public class MemberController {
 		Member login = memberService.login(vo);
 		
 		if(login == null) {
+			System.out.println("ë¡œê·¸ì•„ì›ƒ ì‹¤íŒ¨");
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", false);
 			
@@ -85,14 +87,17 @@ public class MemberController {
 			session.setAttribute("member", login);
 			
 		}
+		System.out.println("ë¡œê·¸ì¸ ì„±ê³µ");
 		System.out.println(login);
 		
 		return "redirect:/";
+//		return "home";
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) throws Exception{
 		session.invalidate();
+		System.out.println("ë¡œê·¸ì•„ì›ƒ");
 		return "redirect:/";
 	}
 	
@@ -138,46 +143,81 @@ public class MemberController {
 		return mv;
 	}
 	
-	//¾à°üµ¿ÀÇ È­¸é
+	@RequestMapping(value = "email", method = RequestMethod.GET)
+	public ModelAndView mailCheck(@RequestParam String Memberemail, Model model) {
+		logger.info("Memberemail: "+Memberemail);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("email",Memberemail);
+		mv.setViewName("member/mail");
+		return mv;
+	}
+	
+	//ì•½ê´€ë™ì˜ í™”ë©´
 	@RequestMapping(value = "register", method = RequestMethod.GET)
 	public String registerMember() throws Exception {
 		return "member/register";
 	}
 	
-	//ÀÎÁõ È­¸é
+	//ì¸ì¦ í™”ë©´
 	@RequestMapping(value = "auth", method = RequestMethod.GET)
 	public String authMember() throws Exception {
 		return "member/auth";
 	}
 	
-	//È¸¿ø °¡ÀÔ Á¤º¸ ÀÔ·Â È­¸é
+	//íšŒì› ê°€ì… ì •ë³´ ì…ë ¥ í™”ë©´
 	@RequestMapping(value="information", method = RequestMethod.GET)
 	public String informationMember() throws Exception {
 		return "member/information";
 	}
 	
-	//È¸¿ø°¡ÀÔ ¿Ï·á È­¸é
+	//íšŒì›ê°€ì… ì™„ë£Œ í™”ë©´
 	@RequestMapping(value = "finish", method = RequestMethod.GET)
 	public String finishMember() throws Exception {
 		return "member/finish";
 	}
 	
-	//¾ÆÀÌµğ Áßº¹ °Ë»ç
+	//ì•„ì´ë”” ì¤‘ë³µ ê²€ì‚¬
 	@RequestMapping(value = "idCheck", method = RequestMethod.GET)
 	@ResponseBody
 	public int idCheck(@RequestParam("m_id") String m_id) {
 		return memberService.userIdCheck(m_id);
 	}
 	
-	//¾ÆÀÌµğ Ã£±â
+	//ì•„ì´ë”” ì°¾ê¸°
 	@RequestMapping(value = "findId", method = RequestMethod.GET)
 	private String findIdMember() throws Exception {
 		return "member/findId";
 	}
 	
-	//ºñ¹Ğ¹øÈ£ Ã£±â
+	//ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°
 	@RequestMapping(value = "findPwd", method = RequestMethod.GET)
 	private String findPwdMember() throws Exception {
 		return "member/findPwd";
+	}
+	
+	//ë§ˆì´í˜ì´ì§€
+	@RequestMapping(value = "myPage", method = RequestMethod.GET)
+	private ModelAndView selectMembers(HttpSession session) throws Exception {
+		String m_id = ((Member)session.getAttribute("loginInfo")).getM_id();
+		Member vo = new Member();
+		vo.setM_id(m_id);
+		ModelAndView mv = new ModelAndView();
+		Member m= memberService.getMember(vo);
+		mv.addObject("vo", m);
+		mv.setViewName("member/myPage");
+		return mv;
+	}
+
+	//ê°œì¸ì •ë³´ìˆ˜ì •
+	@RequestMapping(value = "modify", method = RequestMethod.GET)
+	private ModelAndView editMemberinfo(@RequestParam String m_id) throws Exception { 
+		logger.info("userId: "+m_id);
+		Member vo = new Member();
+		vo.setM_id(m_id);
+		ModelAndView mv = new ModelAndView();
+		Member m = memberService.getMember(vo);
+		mv.addObject("vo", m);
+		mv.setViewName("member/modify");
+		return mv;
 	}
 }

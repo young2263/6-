@@ -135,6 +135,7 @@ button {
 				<input type="checkbox" name="dummy" id="termAll"> <label
 					for="termAll">전체 동의</label>
 				<hr>
+				
 				<ul>
 					<li>
 						<input type="checkbox" name="terms" id="term1">
@@ -192,6 +193,7 @@ button {
                        }
                    });    
                });
+             
 		</script>
 			<hr>
 			<div>
