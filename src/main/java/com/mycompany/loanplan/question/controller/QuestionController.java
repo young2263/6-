@@ -80,7 +80,7 @@ private static final Logger logger = LoggerFactory.getLogger(QuestionController.
 	public ModelAndView questionInsert(HttpServletRequest request, ModelAndView mv) {
 		try {
 			questionService.insertQuestion(q);
-			mv.setViewName("redirect:question/questionInsert");
+			mv.setViewName("question/questionInsert");
 		} catch (Exception e) {
 			mv.addObject("msg", e.getMessage());
 		
@@ -89,12 +89,11 @@ private static final Logger logger = LoggerFactory.getLogger(QuestionController.
 	}
 	
 	//게시글 수정
-	@RequestMapping(value = "/question/questionupdate.do", method = RequestMethod.POST)
-	public ModelAndView questionUpdate(Question q, @RequestParam(name = "page", defaultValue = "1") int page, HttpServletResponse response, ModelAndView mv) {
+	@RequestMapping(value = "/question/questionUpdate", method = RequestMethod.GET)
+	public ModelAndView questionUpdate(@RequestParam(name = "q", defaultValue = "1") int NUM, ModelAndView mv) {
 		try {
 			mv.addObject("qnum", questionService.updateQuestion(q));
-			mv.addObject("currentPage", page);
-			mv.setViewName("redirect:question/questionUpdate");
+			mv.setViewName("question/questionUpdate");
 		} catch (Exception e) {
 			mv.addObject("msg", e.getMessage());
 			mv.setViewName("errorPage");
@@ -102,12 +101,37 @@ private static final Logger logger = LoggerFactory.getLogger(QuestionController.
 		return mv;
 		
 	}
+	@RequestMapping(value= " /question/questionUpdate.do", method=RequestMethod.POST)
+	public ModelAndView questionModify(@RequestParam(name = "page", defaultValue = "1") int page,
+			HttpServletRequest request, ModelAndView mv) {
+		System.out.println("수정실행");
+		try {
+			int Q_NUM = Integer.parseInt(request.getParameter("Q_NUM"));
+			String Q_TITLE = request.getParameter("Q_TITLE");
+			String Q_CONTENT= request.getParameter("Q_CONTENT");
+			Question que = new Question(Q_NUM, Q_TITLE, Q_CONTENT);
+			int result = questionService.updateQuestion(que);
+			System.out.println(result);
+			int currentPage = page;
+			int listCount = questionService.questionCount();
+			int maxPage = (int) ((double) listCount / LIMIT + 0.9);
+			mv.addObject("volist", questionService.selectList(currentPage, LIMIT));
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("maxPage", maxPage);
+			mv.addObject("listCount", listCount);
+			mv.setViewName("question/questionInsert");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mv;
+	}
+		
 	
 	//게시글삭
 	@RequestMapping(value = "/question/questionDelete", method = RequestMethod.GET)
-	public ModelAndView questionDelete(@RequestParam(name = "Q_NUM") int qnum, @RequestParam(name = "page", defaultValue = "1") int page, HttpServletResponse response, ModelAndView mv) {
+	public ModelAndView questionDelete(@RequestParam(name = "Q_NUM") int Q_NUM, @RequestParam(name = "page", defaultValue = "1") int page, HttpServletResponse response, ModelAndView mv) {
 		try {
-			int result = questionService.deleteQuestion(q);
+			int result = questionService.deleteQuestion(Q_NUM);
 			int currentPage= page;
 			int listCount = questionService.questionCount();
 			int maxPage = (int) ((double) listCount / LIMIT + 0.9);

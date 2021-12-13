@@ -92,9 +92,6 @@
 						<tr>
 							<td><a href="questiondt?qnum=${Q_NUM}" style="color: black">${Q_TITLE}</a></td>
 						</tr>
-<%-- 							<td class=deleteBtn><a href="deleteQuestion?Q_NUM=${Q_NUM}">
-								<button>삭제</button>
-							</a></td> --%>
 					</c:forEach>
 				</table>
 			</div>

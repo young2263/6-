@@ -1,14 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>계산기</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="../resources/css/templatemo.css">
+<link rel="stylesheet" href="../resources/css/custom.css">
+
 
 <script language="JavaScript">
 /* 원리금균등상환 계산기(monthly 일정) */ 
@@ -16,18 +20,18 @@ function calculate() {
   
     var principal = document.loandata.principal.value;
     var interest = document.loandata.interest.value / 100 / 12;
-    var payments = (document.loandata.years.value - tyears * 12) * 12;
+    var payments = (document.loandata.years.value * 12;
 
   /* tyears * 12 => 거치기간개월수  */
-    var x = Math.pow(1 + interest, payments- tyears*12);
-    var monthly = (principal*x*interest)/(x-1);
+   
+    var monthly = (principal * interest * Math.pow(( 1+ interest ), payments) / Math.pow((1+interest), payments)- 1);	//월상환금액
 
   
     if (!isNaN(monthly) && 
         (monthly != Number.POSITIVE_INFINITY) &&
         (monthly != Number.NEGATIVE_INFINITY)) {
 
-        document.loandata.payment.value = round(monthly);
+        document.loandata.monthly.value = round(monthly);
         document.loandata.total.value = round(monthly * payments);
         document.loandata.totalinterest.value = 
             round((monthly * payments) - principal);
@@ -39,8 +43,9 @@ function calculate() {
         document.loandata.totalinterest.value = "";
     }
 }
+}
 /* 원금균등상환계산기 (납입원금일정) (미완)*/
-function calculate() {
+/* function calculate() {
   
    var principal = document.loandata.principal.value;	//원금
    var interest = document.loandata.interest.value / 100 / 12;	//이자
@@ -54,7 +59,7 @@ function calculate() {
 	두번쨰달 이자금액 (principal-monthly) * interest / 12 */
     
 
- 
+ /*
     if (!isNaN(monthly) && 
         (monthly != Number.POSITIVE_INFINITY) &&
         (monthly != Number.NEGATIVE_INFINITY)) {
@@ -70,9 +75,9 @@ function calculate() {
         document.loandata.total.value = "";
         document.loandata.totalinterest.value = "";
     }
-}
+} */
 /* 만기일시상환 계산기  */
-function calculate() {
+/* function calculate() {
 	
     var principal = document.loandata.principal.value;
     var interest = document.loandata.interest.value / 100 / 12;
@@ -97,7 +102,7 @@ function calculate() {
         document.loandata.total.value = "";
         document.loandata.totalinterest.value = "";
     }
-}
+} */
 
 	function round(x) {
 	  return Math.round(x*100)/100;
@@ -130,12 +135,6 @@ function calculate() {
 			<td>3)</td>
 			<td>대출기간(년)</td>
 			<td><input type="text" name="years" size="12"
-				onchange="calculate();"> 년</td>
-		</tr>
-		<tr>
-			<td>4)</td>
-			<td>거치기간(년)</td>
-			<td><input type="text" name="tyears" size="12"
 				onchange="calculate();"> 년</td>
 		</tr>
 		<tr>
