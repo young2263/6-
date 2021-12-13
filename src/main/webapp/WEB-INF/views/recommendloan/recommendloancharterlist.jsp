@@ -93,34 +93,34 @@
 			
 			<div class="paging">
 				<c:if test="${currentPage<=1}">
-                [이전]&nbsp; 
+                	이전&nbsp;&nbsp; 
                 </c:if>
 				<c:if test="${currentPage > 1}">
 					<c:url var="blistST" value="recommendloancharterlist">
 						<c:param name="page" value="${currentPage-1}" />
 					</c:url>
-					<a href="${blistST}">[이전]</a>
+					<a href="${blistST}" style="color:black;">이전</a>&nbsp;
 				</c:if>
 				<c:set var="endPage" value="${maxPage}" />
 				<c:forEach var="p" begin="${startPage+1}" end="${endPage}">
 					<c:if test="${p eq currentPage}">
-						<font color="red" size="4"><b>[${p}]</b></font>
+						<font color="white" size="4"><b style="background-color:green; border-radius: 10px 10px 10px 10px; width:30px; text-align:center;">${p}</b></font>&nbsp;&nbsp;&nbsp;
 					</c:if>
 					<c:if test="${p ne currentPage}">
 						<c:url var="blistchk" value="recommendloancharterlist">
 							<c:param name="page" value="${p}" />
 						</c:url>
-						<a href="${blistchk}">${p}</a>
+						<a href="${blistchk}" style="color:black;">${p}</a>&nbsp;&nbsp;&nbsp;
 					</c:if>
 				</c:forEach>
 				<c:if test="${currentPage >= maxPage}"> 
- [다음] 
+ 다음
  </c:if>
 				<c:if test="${currentPage < maxPage}">
 					<c:url var="blistEND" value="recommendloancharterlist">
 						<c:param name="page" value="${currentPage+1}" />
 					</c:url>
-					<a href="${blistEND}">[다음]</a>
+					<a href="${blistEND}" style="color:black;">다음</a>&nbsp;&nbsp;&nbsp;
 				</c:if>
 
 			</div>
