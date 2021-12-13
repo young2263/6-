@@ -1,0 +1,64 @@
+@charset "UTF-8";
+.body {
+    margin-left: 22rem;
+    margin-top: 10rem;
+    margin-bottom: 15rem;
+}
+
+h4 {
+    display: inline;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.body .calBox {
+    margin: 1rem;
+}
+
+.body .calBox button {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.body .calBox .man {
+    margin-right: 1rem;
+}
+
+.body .manBox,
+.body .wonBox {
+    display: flex;
+}
+
+.body .manBox table tr td,
+.body .wonBox table tr td {
+    padding: 1rem;
+}
+
+.body .manBox table tr td button,
+.body .wonBox table tr td button{
+    background-color: white;
+    margin-right: 0.3rem;
+    border-radius: 7px;
+    color: gray;
+    border: 1px solid gray;
+}
+
+.body .manBox table tr td button:hover,
+.body .wonBox table tr td button:hover {
+    color: black;
+    border: 1px solid black;
+}
+
+.body .manBox .resultBox,
+.body .wonBox .resultBox {
+    margin-left: 15rem;
+}
+
+.body .manBox table tr td .btn,
+.body .wonBox table tr td .btn {
+    background-color: white;
+    border: 1px solid black;
+}

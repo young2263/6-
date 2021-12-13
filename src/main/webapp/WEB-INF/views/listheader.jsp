@@ -52,13 +52,10 @@
                             <a class="nav-link" href="${pageContext.request.contextPath}/recommendloan/recommendloanlist">추천 대출</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">계산기</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/calview">계산기</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">내 대출 관리</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">공지사항</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/question/questionView">공지사항</a>
                         </li>
                     </ul>
                 </div>

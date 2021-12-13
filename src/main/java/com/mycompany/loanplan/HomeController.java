@@ -43,7 +43,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/calview", method = RequestMethod.GET)
 	public ModelAndView calview(ModelAndView mv) {
-		mv.setViewName("cal/calview");
+		mv.setViewName("cal/calpage");
 		return mv;
 		
 	}
