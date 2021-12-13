@@ -296,12 +296,12 @@ https://templatemo.com/tm-559-zay-shop
 				<c:otherwise>
 					<div class="col-12 col-md-4 mb-4" style="margin: 0 auto; width: 500px">
 					<div class="card h-100" style="text-align:center; padding:10px 0">
-						<a href="register"> <button style="border:none; background-color:green; width:400px; height:40px; color:white;">내 정보 입력하고 대출 추천받기</button>
+						<a href="question/questionView"> <button style="border:none; background-color:green; width:400px; height:40px; color:white;">궁금한점 알아보기</button>
 						</a>
 						<div class="card-body">
 							
-							<p class="h2 text-decoration-none text-dark">내 정보를 입력해주세요.</p>
-							<p class="card-text">내 정보에 자산, 자차/자택 유무를 작성 하시면 회원님에게 맞는 대출을 추천해드립니다.</p>
+							<p class="h2 text-decoration-none text-dark">궁금한 것이 있으신가요?</p>
+							<p class="card-text">공지사항을 통해 내용을 확인해주세요!</p>
 						</div>
 					</div>
 					</div>
