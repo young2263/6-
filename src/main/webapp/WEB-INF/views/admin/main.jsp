@@ -28,7 +28,9 @@
 			<div class="navbarItem">
 				<a href="advertise">광고관리</a>
 			</div>
-			<div class="navbarItem">댓글관리</div>
+			<div class="navbarItem">
+				<a href="comment">공지사항관리</a>
+			</div>
 		</div>
 		<div class="content">
 			<div class="listTitle">대출 상품 관리</div>
@@ -37,11 +39,17 @@
 				<button>확인</button>
 			</div>
 			<div class="button">
-				<div class="guar_btn"><a href="admin">담보</a></div>
-				<div class="credit_btn"><a href="creditLoan">신용</a></div>
-				<div class="jeon_btn"><a href="charterLoan">전세자금</a></div>
+				<div class="guar_btn">
+					<a href="admin">담보</a>
+				</div>
+				<div class="credit_btn">
+					<a href="creditLoan">신용</a>
+				</div>
+				<div class="jeon_btn">
+					<a href="charterLoan">전세자금</a>
+				</div>
 			</div>
-			
+
 			<div>
 				<table class="tableBox">
 					<tr>
@@ -52,16 +60,17 @@
 						<th>은행</th>
 					</tr>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
-							<tr class="loanBox1">
-								<td><a href="loanModify?NUM=${vo.RL_NUM}">${vo.FIN_PRDT_NM }</a></td>
-								<td>${vo.LEND_RATE_TYPE_NM }</td>
-								<td>${vo.RPAY_TYPE_NM }</td>
-								<td>${vo.DLY_RATE }</td>
-								<td>${vo.KOR_CO_NM }</td>
-								<td class="deleteBtn"><a href="deleteLoan?RL_NUM=${vo.RL_NUM}">
+						<tr class="loanBox1">
+							<td><a href="loanModify?NUM=${vo.RL_NUM}">${vo.FIN_PRDT_NM }</a></td>
+							<td>${vo.LEND_RATE_TYPE_NM }</td>
+							<td>${vo.RPAY_TYPE_NM }</td>
+							<td>${vo.DLY_RATE }</td>
+							<td>${vo.KOR_CO_NM }</td>
+							<td class="deleteBtn"><a
+								href="deleteLoan?RL_NUM=${vo.RL_NUM}">
 									<button>삭제</button>
-								</a></td>
-							</tr>
+							</a></td>
+						</tr>
 					</c:forEach>
 					</div>
 				</table>
@@ -106,9 +115,9 @@
 	</div>
 
 	<script>
-			$(".credit_btn").css("opacity", "0.5");
-			$(".guar_btn").css("opacity","1.2");
-			$(".jeon_btn").css("opacity", "0.5");
-			</script>
+		$(".credit_btn").css("opacity", "0.5");
+		$(".guar_btn").css("opacity", "1.2");
+		$(".jeon_btn").css("opacity", "0.5");
+	</script>
 </body>
 </html>

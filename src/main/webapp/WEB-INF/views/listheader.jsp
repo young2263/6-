@@ -49,7 +49,7 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="recommendloan/recommendloanlist">추천 대출</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/recommendloan/recommendloanlist">추천 대출</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">계산기</a>
