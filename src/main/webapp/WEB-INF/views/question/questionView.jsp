@@ -90,9 +90,9 @@ a {
 					</tr>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
-							<td><a href="questiondt?qnum=${vo.QUESTION_NUM}"
-								style="color: black">${vo.QUESTION_TITLE}</a></td>
-							<td><a href="questiondt?qnum=${vo.QUESTION_NUM}"
+							<td><a href="questionDview?qnum=${vo.QUESTION_NUM}"
+								style="color: black">${vo.QUESTION_NUM}</a></td>
+							<td><a href="questionDview?qnum=${vo.QUESTION_NUM}"
 								style="color: black">${vo.QUESTION_TITLE}</a></td>
 						</tr>
 					</c:forEach>
