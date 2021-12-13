@@ -38,7 +38,6 @@ public class HomeController {
 		mv.addObject("advertiseList", advertiseList);
 		mv.setViewName("home");
 		return mv;
-		
 	}
 	
 	@RequestMapping(value = "/calview", method = RequestMethod.GET)

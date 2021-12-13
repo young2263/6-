@@ -45,9 +45,9 @@
 					</tr>
 					<c:forEach var="vo" items="${commentlist }" varStatus="status">
 						<tr>
-							<td>${vo.Q_NUM }</td>
-							<td>${vo.Q_TITLE }</td>
-                            <td>${vo.Q_CONTENT }</td>
+							<td>${vo.QUESTION_NUM }</td>
+							<td>${vo.QUESTION_TITLE }</td>
+                            <td>${vo.QUESTION_CONTENT }</td>
              </tr>
                         </c:forEach>
 				</table>

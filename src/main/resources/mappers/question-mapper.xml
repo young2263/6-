@@ -3,9 +3,9 @@
 
 <mapper namespace="Question">
 	<resultMap type="Question" id="questionRM">
-		<id property="Q_NUM" column="QUESTION_NUM"/>
-		<result property="Q_TITLE" column="QUESTION_TITLE"/>
-		<result property="Q_CONTENT" column="QUESTION_CONTENT"/>
+		<id property="QUESTION_NUM" column="QUESTION_NUM"/>
+		<result property="QUESTION_TITLE" column="QUESTION_TITLE"/>
+		<result property="QUESTION_CONTENT" column="QUESTION_CONTENT"/>
 	</resultMap>
 	
 	<select id="questionList" resultMap="questionRM">

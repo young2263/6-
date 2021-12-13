@@ -615,6 +615,7 @@ public class AdministorController {
 	// 댓글관리 리스트창 띄우기
 	@RequestMapping(value = "/comment", method = RequestMethod.GET)
 	public ModelAndView comment(HttpServletRequest request, ModelAndView mv) {
+		System.out.println("관리자 공지사항관리 진입");
 		try {
 			System.out.println(questionService.questionList());
 			mv.addObject("commentlist", questionService.questionList());
