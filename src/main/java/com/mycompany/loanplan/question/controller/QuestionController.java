@@ -44,7 +44,6 @@ private static final Logger logger = LoggerFactory.getLogger(QuestionController.
 			//한 페이지당 출력할 목록 갯수
 			int listCount = questionService.questionCount();
 			int maxPage = (int)((double) listCount / LIMIT + 0.9);
-			System.out.println(questionService.selectList(currentPage, LIMIT));
 			mv.addObject("volist", questionService.selectList(currentPage, LIMIT));
 			mv.addObject("currentPage", currentPage);
 			mv.addObject("maxPage", maxPage);
@@ -59,9 +58,10 @@ private static final Logger logger = LoggerFactory.getLogger(QuestionController.
 
 	//게시글상세조회
 	@RequestMapping(value = "/question/questionDview", method = RequestMethod.GET)
-	public ModelAndView selectQuestionDt(@RequestParam(name = "qnum", defaultValue="1") int qnum , ModelAndView mv) {
+	public ModelAndView selectQuestionDt(@RequestParam(name = "qnum") int qnum , ModelAndView mv) {
 	System.out.println(qnum);
       try {
+    	 System.out.println(questionService.selectQuestionDt(qnum));
          mv.addObject("question", questionService.selectQuestionDt(qnum));
          mv.setViewName("question/questionDview");
       } catch (Exception e) {
