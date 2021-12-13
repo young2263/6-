@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,89 +14,93 @@
 <link rel="stylesheet" href="../resources/css/custom.css">
 
 <style>
-	* {
-    	padding: 0;
-    	margin: 0;
-    	box-sizing: border-box;
-	}
-	
-	header{
-		padding-bottom: 100px;
-	}
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
 
-	.listTitle{
-		text-align: center;
-	}
+header {
+	padding-bottom: 100px;
+}
 
-	table {
-		width: 80%;
-		text-align: center;
-		padding-left: 50px;
-		font-size: 20px;
-		margin: auto;
-		padding-bottom: 40px;
-		border-collapse: separate;
-		border-spacing: 30px 40px;
-		border-bottom: 1px solid gray;
-    }
-    
-    tr:first-of-type {
-    	font-size: 25px;
-    }
-   
-   td {
-   		white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        border-right : 1px solid gray;
-   }
-   
-   a {
-   		text-decoration-line: none;
-   }
-   
-   .paging {
-   		padding: 50px 20px;
-   		text-align:center;
-   }
+.listTitle {
+	text-align: center;
+}
 
+table {
+	width: 80%;
+	text-align: center;
+	padding-left: 50px;
+	font-size: 20px;
+	margin: auto;
+	padding-bottom: 40px;
+	border-collapse: separate;
+	border-spacing: 30px 40px;
+	border-bottom: 1px solid gray;
+}
+
+tr:first-of-type {
+	font-size: 25px;
+}
+
+td {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border-right: 1px solid gray;
+}
+
+a {
+	text-decoration-line: none;
+}
+
+.paging {
+	padding: 50px 20px;
+	text-align: center;
+}
 </style>
 </head>
 <body>
-<%@include file="../header.jsp"%>
+	<%@include file="../header.jsp"%>
 
 	<header>
 		<c:choose>
-        <c:when test="${voList != null }">
-        <div class="logo">
-        logo<img src="resources/img/logo.png" width="100px" height="100px" />
-        </div>
-        <c:forEach items="${voList}" var="vo">
+			<c:when test="${voList != null }">
+				<div class="logo">
+					logo<img src="resources/img/logo.png" width="100px" height="100px" />
+				</div>
+				<c:forEach items="${voList}" var="vo">
         	${vo.M_ID }님
         </c:forEach>
-        </c:when>
-    </c:choose>
+			</c:when>
+		</c:choose>
 	</header>
 	<div class="body">
-		
+
 		<div class="content">
 			<div class="listTitle" style="color: green">자주 묻는 질문</div>
-			<br><br>
+			<br>
+			<br>
 			<div>
-				<table class="tableBox" >
+				<table class="tableBox">
 					<tr>
 						<th>글번호</th>
 						<th>글제목</th>
 					</tr>
 					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
-							<td><a href="questionDview?qnum=${vo.QUESTION_NUM}" style="color: black">${vo.QUESTION_NUM}</a></td>
-							<td><a href="questionDview?qnum=${vo.QUESTION_NUM}" style="color: black">${vo.QUESTION_TITLE}</a></td>
+							<td><a href="questiondt?qnum=${vo.QUESTION_NUM}"
+								style="color: black">${vo.QUESTION_TITLE}</a></td>
+							<td><a href="questiondt?qnum=${vo.QUESTION_NUM}"
+								style="color: black">${vo.QUESTION_TITLE}</a></td>
 						</tr>
 					</c:forEach>
 				</table>
 			</div>
-			<br><br><br>
+			<br>
+			<br>
+			<br>
 			<div class="paging">
 				<c:if test="${currentPage<=1}">
                 [이전]&nbsp; 
@@ -132,8 +136,11 @@
 			</div>
 		</div>
 	</div>
-	<br><br><br><br>
-<%@include file="/WEB-INF/views/footer.jsp"%>
-		
+	<br>
+	<br>
+	<br>
+	<br>
+	<%@include file="/WEB-INF/views/footer.jsp"%>
+
 </body>
 </html>
