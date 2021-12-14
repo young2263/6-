@@ -103,8 +103,8 @@ https://templatemo.com/tm-559-zay-shop
 					<div class="container">
 						<div class="row p-5">
 							<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-								<a href="${vo.AD_SRC}"><img
-									class="img-fluid" src="${vo.AD_IMG}" alt=""></a>
+								<a href="${vo.AD_SRC}"><img class="img-fluid"
+									src="${vo.AD_IMG}" alt=""></a>
 							</div>
 							<div class="col-lg-6 mb-0 d-flex align-items-center">
 								<div class="text-align-left">
@@ -188,7 +188,8 @@ https://templatemo.com/tm-559-zay-shop
 				</div>
 			</div>
 			<div class="row" style="margin: 0 auto;">
-
+				<c:set var="m_house" scope="session" value="${m_house}" />
+				<c:set var="m_asset" scope="session" value="${m_asset}" />
 				<c:choose>
 					<c:when test="${member != null &&  m_house == 300 }">
 						<div class="col-12 col-md-4 mb-4"
