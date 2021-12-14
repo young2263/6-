@@ -221,7 +221,7 @@ var smonthly = principal * (1+interest) * payments;	//단리
 			<div class="resultBox">
 				<table>
 					<tr>
-						<td colspan="3"><h3></h3></td>
+						<td colspan="3"><h3>상환 내역</h3></td>
 					</tr>
 					<tr>
 						<td><h4>월상환금</h4></td>
@@ -295,7 +295,7 @@ var smonthly = principal * (1+interest) * payments;	//단리
 						<td colspan="3"><h3>목돈 예상</h3></td>
 					</tr>
 					<tr>
-						<td><h4>월상환</h4></td>
+						<td><h4>예상 목돈 :</h4></td>
 						<td><input type="text" name="payment" size="12">
 						<h4>원</h4></td>
 					</tr>
