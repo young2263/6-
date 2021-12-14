@@ -117,6 +117,8 @@ https://templatemo.com/tm-559-zay-shop
 				</div>
 			</c:forEach>
 		</div>
+
+
 		<a class="carousel-control-prev text-decoration-none w-auto ps-3"
 			href="#template-mo-zay-hero-carousel" role="button"
 			data-bs-slide="prev"> <i class="fas fa-angle-left"></i>
@@ -188,7 +190,7 @@ https://templatemo.com/tm-559-zay-shop
 			<div class="row" style="margin: 0 auto;">
 
 				<c:choose>
-					<c:when test="${M_HOUSE == 300 }">
+					<c:when test="${member != null &&  m_house == 300 }">
 						<div class="col-12 col-md-4 mb-4"
 							style="margin: 0 auto; width: 500px">
 							<div class="card h-100">
@@ -211,7 +213,7 @@ https://templatemo.com/tm-559-zay-shop
 						</div>
 					</c:when>
 
-					<c:when test="${M_HOUSE == 0 && M_ASSET <= 300 }">
+					<c:when test="${member != null &&  m_house == 0 }">
 						<div class="col-12 col-md-4 mb-4"
 							style="margin: 0 auto; width: 500px">
 							<div class="card h-100">
@@ -235,7 +237,7 @@ https://templatemo.com/tm-559-zay-shop
 						</div>
 					</c:when>
 
-					<c:when test="${M_ASSET <= 200 }">
+					<c:when test="${member != null && m_asset <= 200 }">
 						<div class="col-12 col-md-4 mb-4"
 							style="margin: 0 auto; width: 500px">
 							<div class="card h-100">
@@ -259,7 +261,7 @@ https://templatemo.com/tm-559-zay-shop
 						</div>
 					</c:when>
 
-					<c:when test="${M_ID == null }">
+					<c:when test="${member == null }">
 						<div class="col-12 col-md-4 mb-4"
 							style="margin: 0 auto; width: 500px">
 							<div class="card h-100"
