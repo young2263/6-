@@ -29,7 +29,7 @@ function calculate() {
 		
         document.calnum.payment.value = (principal * ( 1+ interest ) * payments  - principal) / payments ;
         document.calnum.total.value = principal * ( 1+ interest ) * payments / 12;	//총원금
-        document.calnum.totalinterest.value = principal * ( 1+ interest ) * payments / 12  - principal / 12; //총이자
+        document.calnum.totalinterest.value = principal * ( 1+ interest ) * (payments / 12)  - (principal / 12); //총이자
     }
 	// 잘못된값 입력시 아무값도 나오지않게
     else {
@@ -117,7 +117,7 @@ var smonthly = principal * (1+interest) * payments;	//단리
 			<button class="won">원리금균등상환</button>
 			<button class="mok">목돈계산기</button>
 		</div>
-		<div class="manBox" name="calnum">
+		<div class="manBox">
 		
 			<table>
 				<tr>
@@ -156,7 +156,7 @@ var smonthly = principal * (1+interest) * payments;	//단리
 				</tr>
 			</table>
 		
-			<div class="resultBox" name="calnum">
+			<div class="resultBox">
 				<table>
 					<tr>
 						<td colspan="3"><h3>상환내역</h3></td>
@@ -221,7 +221,7 @@ var smonthly = principal * (1+interest) * payments;	//단리
 			<div class="resultBox">
 				<table>
 					<tr>
-						<td colspan="3"><h3>상환내역</h3></td>
+						<td colspan="3"><h3></h3></td>
 					</tr>
 					<tr>
 						<td><h4>월상환금</h4></td>
@@ -239,10 +239,10 @@ var smonthly = principal * (1+interest) * payments;	//단리
 						<h4>원</h4></td>
 					</tr>
 				</table>
-		
 			</div>
+			
 		</div>
-		<!-- <div class="mokBox">
+		<div class="mokBox">
 			<table>
 				<tr>
 					<td colspan="3"><h3>목돈계산기</h3></td>
@@ -292,43 +292,47 @@ var smonthly = principal * (1+interest) * payments;	//단리
 			<div class="resultBox">
 				<table>
 					<tr>
-						<td colspan="3"><h3>상환내역</h3></td>
+						<td colspan="3"><h3>목돈 예상</h3></td>
 					</tr>
 					<tr>
-						<td><h4>월상환금</h4></td>
+						<td><h4>월상환</h4></td>
 						<td><input type="text" name="payment" size="12">
 						<h4>원</h4></td>
 					</tr>
-					<tr>
-						<td><h4>원금 및 이자합계</h4></td>
-						<td><input type="text" name="total" size="12">
-						<h4>원</h4></td>
-					</tr>
-					<tr>
-						<td><h4>총 이자액</h4></td>
-						<td><input type="text" name="totalinterest" size="12">
-						<h4>원</h4></td>
-					</tr>
+					
 				</table>
 			</div>
-		</div> -->
+		</div>
 	</div>
 	<%@include file="../footer.jsp"%>
 	<script>
 		$(".wonBox").hide();
+		$(".mokBox").hide();
 		$(".won").css("opacity", "0.4");
 		$(".man").click(function() {
 			$(".manBox").show();
 			$(".wonBox").hide();
+			$(".mokBox").hide();
 			$(".won").css("opacity", "0.4");
 			$(".man").css("opacity", "1");
+			$(".mok").css("opacity", "0.4");
 
 		});
 		$(".won").click(function() {
 			$(".wonBox").show();
 			$(".manBox").hide();
+			$(".mokBox").hide();
 			$(".man").css("opacity", "0.4");
 			$(".won").css("opacity", "1");
+			$(".mok").css("opacity", "0.4");
+		});
+		$(".mok").click(function() {
+			$(".mokBox").show();
+			$(".manBox").hide();
+			$(".wonBox").hide();
+			$(".man").css("opacity", "0.4");
+			$(".mok").css("opacity", "1");
+			$(".won").css("opacity", "0.4");
 		});
 		$(".i1").click(function() {
 			$(".interestInput").val(Number($(".interestInput").val()) + 1)
