@@ -250,6 +250,8 @@ $( document ).ready(function() {
 <script language="JavaScript">
 
 /* 만기일시상환 계산기  */
+
+
 function calculate() {
 	
     var principal = document.loandata.principal.value;
