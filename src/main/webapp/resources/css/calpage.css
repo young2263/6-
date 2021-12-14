@@ -23,22 +23,27 @@ input {
     border-radius: 5px;
 }
 
-.body .calBox .man {
+.body .calBox .man, 
+.body .calBox .won,
+.body .calBox .mok {
     margin-right: 1rem;
 }
 
 .body .manBox,
-.body .wonBox {
+.body .wonBox, 
+.body .mokBox {
     display: flex;
 }
 
 .body .manBox table tr td,
-.body .wonBox table tr td {
+.body .wonBox table tr td,
+.body .mokBox table tr td {
     padding: 1rem;
 }
 
 .body .manBox table tr td button,
-.body .wonBox table tr td button{
+.body .wonBox table tr td button,
+.body .mokBox table tr td button{
     background-color: white;
     margin-right: 0.3rem;
     border-radius: 7px;
@@ -47,7 +52,8 @@ input {
 }
 
 .body .manBox table tr td button:hover,
-.body .wonBox table tr td button:hover {
+.body .wonBox table tr td button:hover,
+.body .mokBox table tr td button:hover {
     color: black;
     border: 1px solid black;
 }
@@ -56,9 +62,13 @@ input {
 .body .wonBox .resultBox {
     margin-left: 15rem;
 }
+.body .mokBox .resultBox{
+	margin-right: 15rem;
+}
 
 .body .manBox table tr td .btn,
-.body .wonBox table tr td .btn {
+.body .wonBox table tr td .btn,
+.body .mokBox table tr td .btn {
     background-color: white;
     border: 1px solid black;
 }
