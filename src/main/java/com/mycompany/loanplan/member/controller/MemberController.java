@@ -77,12 +77,12 @@ public class MemberController {
 		
 		HttpSession session = req.getSession();
 		Member login = memberService.login(vo);
-		
+		String id = req.getParameter("");
+		String passwd = req.getParameter("");
 		if(login == null) {
 			System.out.println("로그아웃 실패");
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", false);
-			
 		}else {
 			session.setAttribute("member", login);
 			
