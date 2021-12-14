@@ -16,69 +16,38 @@
 
 
 <script language="JavaScript">
-function calculate() {
+
+function calculateA() {
 	
-    var principal = document.calnum.principal.value;
-    var interest = document.calnum.interest.value /100;
-    var payments = document.calnum.years.value * 12;
+    var principal = document.loandata.principal.value;
+    var interest = document.loandata.interest.value /100;
+    var payments = document.loandata.years.value * 12;
 	
     var monthly = (principal * interest * Math.pow(( 1+ interest ), payments) / Math.pow((1+interest), payments)- 1);
     if (!isNaN(monthly) && 
         (monthly != Number.POSITIVE_INFINITY) &&
         (monthly != Number.NEGATIVE_INFINITY)) {
 		
-        document.calnum.payment.value = (principal * ( 1+ interest ) * payments  - principal) / payments ;
-        document.calnum.total.value = principal * ( 1+ interest ) * payments / 12;	//총원금
-        document.calnum.totalinterest.value = principal * ( 1+ interest ) * (payments / 12)  - (principal / 12); //총이자
+        document.loandata.payment.value = (principal * ( 1+ interest ) * payments  - principal) / payments ;
+        document.loandata.total.value = principal * ( 1+ interest ) * payments / 12;	//총원금
+        document.loandata.totalinterest.value = principal * ( 1+ interest ) * (payments / 12)  - ( principal / 12); //총이자
     }
-	// 잘못된값 입력시 아무값도 나오지않게
     else {
-        document.calnum.payment.value = "";
-        document.calnum.total.value = "";
-        document.calnum.totalinterest.value = "";
+        document.loandata.payment.value = "";
+        document.loandata.total.value = "";
+        document.loandata.totalinterest.value = "";
     }
 }
+
 
 	function round(x) {
 	  return Math.round(x*100)/100;
 	}
 
-/* var payments = document.loandata.years.value * 12;	//기간
-var pmonthly = principal * Math.pow((1 + interest), payments);	//복리
-var smonthly = principal * (1+interest) * payments;	//단리
- */
-	/* 원리금균등상환 계산기(monthly 일정)  
-	 function calculate() {
-	
-	 var principal = document.loandata.principal.value;
-	 var interest = document.loandata.interest.value / 100 / 12;
-	 var payments = (document.loandata.years.value * 12;
 
-	 /* tyears * 12 => 거치기간개월수  */
-
-	/*    var monthly = (principal * interest * Math.pow(( 1+ interest ), payments) / Math.pow((1+interest), payments)- 1);	//월상환금액
-
-	
-	 if (!isNaN(monthly) && 
-	 (monthly != Number.POSITIVE_INFINITY) &&
-	 (monthly != Number.NEGATIVE_INFINITY)) {
-
-	 document.loandata.monthly.value = round(monthly);
-	 document.loandata.total.value = round(monthly * payments);
-	 document.loandata.totalinterest.value = 
-	 round((monthly * payments) - principal);
-	 }
-	 // 잘못된값 입력시 아무값도 나오지않게
-	 else {
-	 document.loandata.payment.value = "";
-	 document.loandata.total.value = "";
-	 document.loandata.totalinterest.value = "";
-	 }
-	 }
-	 }*/
 	
 	/* 만기일시상환 계산기  */
-	/* function calculate() {
+	function calculateB() {
 	
 	 var principal = document.loandata.principal.value;
 	 var interest = document.loandata.interest.value / 100 / 12;
@@ -97,13 +66,37 @@ var smonthly = principal * (1+interest) * payments;	//단리
 	 document.loandata.total.value = principal * ( 1+ interest ) * payments;	//총원금
 	 document.loandata.totalinterest.value = principal * ( 1+ interest ) * payments  - principal; //총이자
 	 }
-	 // 잘못된값 입력시 아무값도 나오지않게
+	
 	 else {
 	 document.loandata.payment.value = "";
 	 document.loandata.total.value = "";
 	 document.loandata.totalinterest.value = "";
 	 }
-	 } */
+	 } 
+	/* 목돈 계산기 */
+	function calculateC() {
+		
+	    var principal = document.loandata.principal.value;
+	    var interest = document.loandata.interest.value /100;
+	    var payments = document.loandata.years.value * 12;
+		
+	    var smonthly =principal * (1+interest) * payments; //단리
+	    var pmonthly = principal * (1+interest) * payments;	//복리
+	    
+	    if (!isNaN(monthly) && 
+	        (monthly != Number.POSITIVE_INFINITY) &&
+	        (monthly != Number.NEGATIVE_INFINITY)) {
+			
+	        document.loandata.payment.value = (principal * ( 1+ interest ) * payments  - principal) / payments ;
+	        document.loandata.total.value = principal * ( 1+ interest ) * payments / 12;	//총원금
+	        document.loandata.totalinterest.value = principal * ( 1+ interest ) * (payments / 12)  - ( principal / 12); //총이자
+	    }
+	    else {
+	        document.loandata.payment.value = "";
+	        document.loandata.total.value = "";
+	        document.loandata.totalinterest.value = "";
+	    }
+	}
 
 
 </script>
@@ -126,13 +119,13 @@ var smonthly = principal * (1+interest) * payments;	//단리
 				<tr>
 					<td><h4>대출 금액</h4></td>
 					<td><input type="text" name="principal" size="12"
-						onchange="calculate();">
+						onchange="calculateB();">
 					<h4>원</h4></td>
 				</tr>
 				<tr>
 					<td><h4>연 이자율(%)</h4></td>
 					<td><input class="interestInput" type="text" name="interest"
-						value=0 size="12" onchange="calculate();">
+						value=0 size="12" onchange="calculateB();">
 						<h4>%</h4></td>
 					<td><button class="iReset">초기화</button>
 						<button class="i1">+1</button>
@@ -142,7 +135,7 @@ var smonthly = principal * (1+interest) * payments;	//단리
 				<tr>
 					<td><h4>상환기간(년)</h4></td>
 					<td><input class="yearsInput" type="text" value=0 name="years"
-						size="12" onchange="calculate();">
+						size="12" onchange="calculateB();">
 					<h4>년</h4></td>
 					<td><button class="yReset">초기화</button>
 						<button class="p1">+1</button>
@@ -151,7 +144,7 @@ var smonthly = principal * (1+interest) * payments;	//단리
 				</tr>
 				<tr>
 					<td colspan="3"><input class="btn" type="button" value="계산"
-						onclick="calculate();"> <input class="btn" type="button"
+						onclick="calculateB();"> <input class="btn" type="button"
 						value="초기화" onclick="reset();"></td>
 				</tr>
 			</table>
@@ -189,13 +182,13 @@ var smonthly = principal * (1+interest) * payments;	//단리
 				<tr>
 					<td><h4>대출 금액</h4></td>
 					<td><input type="text" name="principal" size="12"
-						onchange="calculate();">
+						onchange="calculateA();">
 					<h4>원</h4></td>
 				</tr>
 				<tr>
 					<td><h4>연 이자율(%)</h4></td>
 					<td><input class="interestInput" type="text" name="interest"
-						value=0 size="12" onchange="calculate();">
+						value=0 size="12" onchange="calculateA();">
 						<h4>%</h4></td>
 					<td><button class="iReset">초기화</button>
 						<button class="i1">+1</button>
@@ -205,7 +198,7 @@ var smonthly = principal * (1+interest) * payments;	//단리
 				<tr>
 					<td><h4>상환기간(년)</h4></td>
 					<td><input class="yearsInput" type="text" value=0 name="years"
-						size="12" onchange="calculate();">
+						size="12" onchange="calculateA();">
 					<h4>년</h4></td>
 					<td><button class="yReset">초기화</button>
 						<button class="p1">+1</button>
@@ -214,7 +207,7 @@ var smonthly = principal * (1+interest) * payments;	//단리
 				</tr>
 				<tr>
 					<td colspan="3"><input class="btn" type="button" value="계산"
-						onclick="calculate();"> <input class="btn" type="button"
+						onclick="calculateA();"> <input class="btn" type="button"
 						value="초기화" onclick="reset();"></td>
 				</tr>
 			</table>
@@ -250,13 +243,13 @@ var smonthly = principal * (1+interest) * payments;	//단리
 				<tr>
 					<td><h4>목표 금액</h4></td>
 					<td><input type="text" name="principal" size="12"
-						onchange="calculate();">
+						onchange="calculateC();">
 					<h4>원</h4></td>
 				</tr>
 				<tr>
 					<td><h4>연 이자율(%)</h4></td>
 					<td><input class="interestInput" type="text" name="interest"
-						value=0 size="12" onchange="calculate();">
+						value=0 size="12" onchange="calculateC();">
 						<h4>%</h4></td>
 					<td><button class="iReset">초기화</button>
 						<button class="i1">+1</button>
@@ -266,7 +259,7 @@ var smonthly = principal * (1+interest) * payments;	//단리
 				<tr>
 					<td><h4>적립 기간(년)</h4></td>
 					<td><input class="yearsInput" type="text" value=0 name="years"
-						size="12" onchange="calculate();">
+						size="12" onchange="calculateC();">
 					<h4>년</h4></td>
 					<td><button class="yReset">초기화</button>
 						<button class="p1">+1</button>
@@ -275,17 +268,15 @@ var smonthly = principal * (1+interest) * payments;	//단리
 				</tr>
 				<tr>
 					<td><h4>금리 방식</h4></td>
-					<td><input class="interestInput" type="text" value=0 name="years"
-						size="12" onchange="calculate();">
 					<h4>방식</h4></td>
-					<td><button class="yReset">초기화</button>
-						<button class="p1">+1</button>
-						<button class="p3">+3</button>
-						<button class="p5">+5</button></td>
+					<td><select name="selinterest">
+						<option value="단리">단리</option>
+						<option value="복리">복리</option>					
+					</select></td>
 				</tr>
 				<tr>
-					<td colspan="3"><input class="btn" type="button" value="계산"
-						onclick="calculate();"> <input class="btn" type="button"
+					<td colspan="4"><input class="btn" type="button" value="계산"
+						onclick="calculateC();"> <input class="btn" type="button"
 						value="초기화" onclick="reset();"></td>
 				</tr>
 			</table>
