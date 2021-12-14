@@ -230,34 +230,6 @@
 	
 	
 <script language="JavaScript">
-/* 원리금균등상환 계산기(monthly 일정) */ 
-function calculate() {
-  
-    var principal = document.loandata.principal.value;
-    var interest = document.loandata.interest.value / 100/ 12;
-    var payments = (document.loandata.years.value - tyears * 12) *12;
-
-  /* tyears * 12 => 거치기간개월수  */
-    var x = Math.pow(1 + interest, payments- tyears*12);
-    var monthly = (principal*x*interest)/(x-1);
-
-  
-    if (!isNaN(monthly) && 
-        (monthly != Number.POSITIVE_INFINITY) &&
-        (monthly != Number.NEGATIVE_INFINITY)) {
-
-        document.loandata.payment.value = round(monthly);
-        document.loandata.total.value = round(monthly * payments);
-        document.loandata.totalinterest.value = 
-            round((monthly * payments) - principal);
-    }
-	// 잘못된값 입력시 아무값도 나오지않게
-    else {
-        document.loandata.payment.value = "";
-        document.loandata.total.value = "";
-        document.loandata.totalinterest.value = "";
-    }
-}
 
 /* 만기일시상환 계산기  */
 function calculate() {
