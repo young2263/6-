@@ -117,8 +117,6 @@ https://templatemo.com/tm-559-zay-shop
 				</div>
 			</c:forEach>
 		</div>
-
-
 		<a class="carousel-control-prev text-decoration-none w-auto ps-3"
 			href="#template-mo-zay-hero-carousel" role="button"
 			data-bs-slide="prev"> <i class="fas fa-angle-left"></i>
