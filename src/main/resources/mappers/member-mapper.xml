@@ -4,6 +4,7 @@
 
 	<select id="memberlist" resultType="Member">
 		select * from member
+		WHERE M
 	</select>
 	
 	<insert id="insertMember" parameterType="Member" statementType="PREPARED">
@@ -39,7 +40,7 @@
 	</insert>
 	
 	<select id="login" parameterType="Member" resultType="Member">
-		SELECT M_ID, M_PWD
+		SELECT *
 		FROM MEMBER
 		WHERE M_ID = #{m_id}
 		AND M_PWD = #{m_pwd}

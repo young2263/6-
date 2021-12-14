@@ -1,10 +1,12 @@
 package com.mycompany.loanplan.member.controller;
 
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -73,25 +75,28 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(Member vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception{
+	public String login(Member vo, HttpServletRequest req, HttpServletResponse res, RedirectAttributes rttr) throws Exception{
 		
+		res.setContentType("text/html; charset=UTF-8");
 		HttpSession session = req.getSession();
 		Member login = memberService.login(vo);
+		PrintWriter out = res.getWriter();
 		
 		if(login == null) {
-			System.out.println("로그아웃 실패");
+			System.out.println("로그인 실패");
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", false);
-			
+			out.println("<script>alert('등록되지 않은 아이디이거나 혹은 비밀번호 오류입니다.'); location.href='login.do';</script>");
+			out.flush();
+			return "member/login";
 		}else {
 			session.setAttribute("member", login);
-			
 		}
+		
 		System.out.println("로그인 성공");
 		System.out.println(login);
 		
 		return "redirect:/";
-//		return "home";
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
