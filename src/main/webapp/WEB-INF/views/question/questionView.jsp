@@ -111,7 +111,7 @@ a {
                 	이전&nbsp;&nbsp;
                 </c:if>
 				<c:if test="${currentPage > 1}">
-					<c:url var="qlistST" value="questionlist">
+					<c:url var="qlistST" value="questionView">
 						<c:param name="page" value="${currentPage-1}" />
 					</c:url>
 					<a href="${qlistST}">이전</a>&nbsp;
@@ -122,7 +122,7 @@ a {
 						<font color="white" size="4"><b style="background-color:green; border-radius: 10px 10px 10px 10px; width:30px; text-align:center;">${p}</b></font>
 					</c:if>
 					<c:if test="${p ne currentPage}">
-						<c:url var="qlistchk" value="questionlist">
+						<c:url var="qlistchk" value="questionView">
 							<c:param name="page" value="${p}" />
 						</c:url>
 						<a href="${qlistchk}" style="color:black;">${p}</a>&nbsp;&nbsp;&nbsp;
@@ -132,7 +132,7 @@ a {
 				 다음 
 				 </c:if>
 				<c:if test="${currentPage < maxPage}">
-					<c:url var="qlistEND" value="questionlist">
+					<c:url var="qlistEND" value="questionView">
 						<c:param name="page" value="${currentPage+1}" />
 					</c:url>
 					<a href="${qlistEND}" style="color:black;">다음</a>&nbsp;&nbsp;&nbsp;
