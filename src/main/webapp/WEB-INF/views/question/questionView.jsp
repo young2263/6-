@@ -35,9 +35,9 @@ table {
 	font-size: 20px;
 	margin: auto;
 	padding-bottom: 40px;
-	border-collapse: separate;
 	border-spacing: 30px 40px;
-	border-bottom: 1px solid gray;
+	border-top: 1px solid gray;
+	border-collapse: collapse;
 }
 
 tr:first-of-type {
@@ -48,7 +48,10 @@ td {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	border-right: 1px solid gray;
+	border-bottom: 1px solid gray;
+}
+th {
+	border-bottom: 1px solid gray;
 }
 
 a {
@@ -62,6 +65,8 @@ a {
 </style>
 </head>
 <body>
+<script src="js/bootstrap.js"></script>
+
 	<%@include file="../header.jsp"%>
 
 	<header>
