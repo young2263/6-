@@ -11,7 +11,10 @@
 	crossorigin="anonymous"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+	integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <link rel="apple-touch-icon" href="resources/img/apple-icon.png">
 
@@ -63,24 +66,25 @@ https://templatemo.com/tm-559-zay-shop
 
 
 	<!-- Start Banner Hero -->
+
 	<div id="template-mo-zay-hero-carousel" class="carousel slide"
 		data-bs-ride="carousel">
 		<ol class="carousel-indicators">
 			<li data-bs-target="#template-mo-zay-hero-carousel"
 				data-bs-slide-to="0" class="active"></li>
-			<li data-bs-target="#template-mo-zay-hero-carousel"
-				data-bs-slide-to="1"></li>
-			<li data-bs-target="#template-mo-zay-hero-carousel"
-				data-bs-slide-to="2"></li>
-			<li data-bs-target="#template-mo-zay-hero-carousel"
-				data-bs-slide-to="3"></li>
+			<c:forEach var="vo" items="${advertiseList}" varStatus="status">
+				<li data-bs-target="#template-mo-zay-hero-carousel"
+					data-bs-slide-to="${vo.AD_NUM}"></li>
+			</c:forEach>
 		</ol>
 		<div class="carousel-inner">
+
 			<div class="carousel-item active">
 				<div class="container">
 					<div class="row p-5">
 						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-							<a href="recommendloan/recommendloanlist"><img class="img-fluid" src="./resources/img/advertisement1.PNG"
+							<a href="recommendloan/recommendloanlist"><img
+								class="img-fluid" src="./resources/img/advertisement1.PNG"
 								alt=""></a>
 						</div>
 						<div class="col-lg-6 mb-0 d-flex align-items-center">
@@ -91,63 +95,30 @@ https://templatemo.com/tm-559-zay-shop
 							</div>
 						</div>
 					</div>
+
 				</div>
 			</div>
-			<div class="carousel-item">
-				<div class="container">
-					<div class="row p-5">
-						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-							<a href="recommendloan/recommendloancharterlist"><img class="img-fluid" src="./resources/img/advertisement3.PNG"
-								alt=""></a>
-						</div>
-						<div class="col-lg-6 mb-0 d-flex align-items-center">
-							<div class="text-align-left">
-								<h1 class="h1">Charter funds Facility</h1>
-								<h3 class="h2">다양한 전세자금대출</h3>
-								<p>집을 전세로 살고 싶은데 자금이 부족하다? 전세자금도 저희가 추천해드립니다!
-									각 은행별 전세자금들을 모두 모아놨습니다. 알맞은 대출을 고르는 것, 저희가 도와드리겠습니다</p>
+			<c:forEach var="vo" items="${advertiseList}" varStatus="status">
+				<div class="carousel-item">
+					<div class="container">
+						<div class="row p-5">
+							<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+								<a href="${vo.AD_SRC}"><img
+									class="img-fluid" src="${vo.AD_IMG}" alt=""></a>
+							</div>
+							<div class="col-lg-6 mb-0 d-flex align-items-center">
+								<div class="text-align-left">
+									<h1 class="h1">${vo.AD_TITLE}</h1>
+									<p>${vo.AD_CONTENT}</p>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="carousel-item">
-				<div class="container">
-					<div class="row p-5">
-						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-							<a href="recommendloan/recommendloancreditlist"><img class="img-fluid" src="./resources/img/advertisement2.PNG"
-								alt=""></a>
-						</div>
-						<div class="col-lg-6 mb-0 d-flex align-items-center">
-							<div class="text-align-left">
-								<h1 class="h1">Personal Credit Facility</h1>
-								<h3 class="h2">다양한 개인신용대출</h3>
-								<p>꼭 필요한 개인신용대출! 저희가 추천해드립니다. 최저 금리, 신용등급 별 금리 등 다양한 정보를 제공해드립니다</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<div class="container">
-					<div class="row p-5">
-						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-							<img class="img-fluid" src="./resources/img/loanmainmain.PNG"
-								alt="">
-						</div>
-						<div class="col-lg-6 mb-0 d-flex align-items-center">
-							<div class="text-align-left">
-								<h1 class="h1">Together Funding</h1>
-								<p>주택담보대출 뿐만 아니라 전세자금, 개인신용대출 또한 잘해줍니다. 최저 금리 보장하고 여러가지 혜택을 받을 수 있습니다. 아주
-									좋은 조건으로 대출을 받을 수 있으니 한번 믿고 보십쇼</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			</c:forEach>
 		</div>
-			
-			
+
+
 		<a class="carousel-control-prev text-decoration-none w-auto ps-3"
 			href="#template-mo-zay-hero-carousel" role="button"
 			data-bs-slide="prev"> <i class="fas fa-angle-left"></i>
@@ -156,6 +127,7 @@ https://templatemo.com/tm-559-zay-shop
 			data-bs-slide="next"> <i class="fas fa-angle-right"></i>
 		</a>
 	</div>
+
 	<!-- End Banner Hero -->
 
 
@@ -169,27 +141,33 @@ https://templatemo.com/tm-559-zay-shop
 		</div>
 		<div class="row">
 			<div class="col-12 col-md-4 p-5 mt-3">
-				<a href="https://www.finda.co.kr/post/allnew/7353"><img src="./resources/img/howtoloan.png"
+				<a href="https://www.finda.co.kr/post/allnew/7353"><img
+					src="./resources/img/howtoloan.png"
 					class="rounded-circle img-fluid border"></a>
 				<h5 class="text-center mt-3 mb-3">똑똑하게 대출받기</h5>
 				<p class="text-center">
-					<a href="https://www.finda.co.kr/post/allnew/7353" class="btn btn-success">Go Site</a>
+					<a href="https://www.finda.co.kr/post/allnew/7353"
+						class="btn btn-success">Go Site</a>
 				</p>
 			</div>
 			<div class="col-12 col-md-4 p-5 mt-3">
-				<a href="https://www.finda.co.kr/post/allnew/6920"><img src="./resources/img/creditplan.png"
+				<a href="https://www.finda.co.kr/post/allnew/6920"><img
+					src="./resources/img/creditplan.png"
 					class="rounded-circle img-fluid border"></a>
 				<h2 class="h5 text-center mt-3 mb-3">신용등급관리</h2>
 				<p class="text-center">
-					<a href="https://www.finda.co.kr/post/allnew/6920" class="btn btn-success">Go Site</a>
+					<a href="https://www.finda.co.kr/post/allnew/6920"
+						class="btn btn-success">Go Site</a>
 				</p>
 			</div>
 			<div class="col-12 col-md-4 p-5 mt-3">
-				<a href="https://www.finda.co.kr/post/allnew/6062"><img src="./resources/img/howtohouse.png"
+				<a href="https://www.finda.co.kr/post/allnew/6062"><img
+					src="./resources/img/howtohouse.png"
 					class="rounded-circle img-fluid border"></a>
 				<h2 class="h5 text-center mt-3 mb-3">현명한 주택담보대출</h2>
 				<p class="text-center">
-					<a href="https://www.finda.co.kr/post/allnew/6062" class="btn btn-success">Go Site</a>
+					<a href="https://www.finda.co.kr/post/allnew/6062"
+						class="btn btn-success">Go Site</a>
 				</p>
 			</div>
 		</div>
@@ -202,112 +180,127 @@ https://templatemo.com/tm-559-zay-shop
 		<div class="container py-5">
 			<div class="row text-center py-3">
 				<div class="col-lg-6 m-auto">
-					<h1 class="h1">회원님에게<br>알맞은대출을<br>추천해드립니다</h1>
-					<p>이 사이트에서는 회원님의 연봉, 자차/자택유무에 따라 주택담보대출, 전세자금대출, 그리고 개인신용대출 세 가지 중 회원님께 알맞은 대출을 안내해 드립니다.</p>
+					<h1 class="h1">
+						회원님에게<br>알맞은대출을<br>추천해드립니다
+					</h1>
+					<p>이 사이트에서는 회원님의 연봉, 자차/자택유무에 따라 주택담보대출, 전세자금대출, 그리고 개인신용대출 세
+						가지 중 회원님께 알맞은 대출을 안내해 드립니다.</p>
 				</div>
 			</div>
 			<div class="row" style="margin: 0 auto;">
-			
-			<c:choose>
-				<c:when test="${M_HOUSE == 300 }">
-				<div class="col-12 col-md-4 mb-4" style="margin: 0 auto; width: 500px">
-					<div class="card h-100">
-						<a href="recommendloan/recommendloanlist"> <img
-							src="./resources/img/loann.png" class="card-img-top"
-							alt="...">
-						</a>
-						<div class="card-body">
-							<ul class="list-unstyled d-flex justify-content-between">
-								<li><i class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i></li>
-							</ul>
-							<a href="recommendloan/recommendloanlist"
-								class="h2 text-decoration-none text-dark">주택담보대출</a>
-							<p class="card-text">주택담보대출 종류와 상세정보를 보여드립니다.</p>
+
+				<c:choose>
+					<c:when test="${M_HOUSE == 300 }">
+						<div class="col-12 col-md-4 mb-4"
+							style="margin: 0 auto; width: 500px">
+							<div class="card h-100">
+								<a href="recommendloan/recommendloanlist"> <img
+									src="./resources/img/loann.png" class="card-img-top" alt="...">
+								</a>
+								<div class="card-body">
+									<ul class="list-unstyled d-flex justify-content-between">
+										<li><i class="text-warning fa fa-star"></i> <i
+											class="text-warning fa fa-star"></i> <i
+											class="text-warning fa fa-star"></i> <i
+											class="text-warning fa fa-star"></i> <i
+											class="text-warning fa fa-star"></i></li>
+									</ul>
+									<a href="recommendloan/recommendloanlist"
+										class="h2 text-decoration-none text-dark">주택담보대출</a>
+									<p class="card-text">주택담보대출 종류와 상세정보를 보여드립니다.</p>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-				</c:when>
-				
-				<c:when test="${M_HOUSE == 0 && M_ASSET <= 300 }">
-				<div class="col-12 col-md-4 mb-4" style="margin: 0 auto; width: 500px">
-					<div class="card h-100">
-						<a href="recommendloan/recommendloancharterlist"> <img
-							src="./resources/img/charterloann.png" class="card-img-top"
-							alt="...">
-						</a>
-						<div class="card-body">
-							<ul class="list-unstyled d-flex justify-content-between">
-								<li><i class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i></li>
-							</ul>
-							<a href="recommendloan/recommendloancharterlist"
-								class="h2 text-decoration-none text-dark">전세자금대출</a>
-							<p class="card-text">전세자금대출 종류와 상세정보를 보여드립니다.</p>
+					</c:when>
+
+					<c:when test="${M_HOUSE == 0 && M_ASSET <= 300 }">
+						<div class="col-12 col-md-4 mb-4"
+							style="margin: 0 auto; width: 500px">
+							<div class="card h-100">
+								<a href="recommendloan/recommendloancharterlist"> <img
+									src="./resources/img/charterloann.png" class="card-img-top"
+									alt="...">
+								</a>
+								<div class="card-body">
+									<ul class="list-unstyled d-flex justify-content-between">
+										<li><i class="text-warning fa fa-star"></i> <i
+											class="text-warning fa fa-star"></i> <i
+											class="text-warning fa fa-star"></i> <i
+											class="text-warning fa fa-star"></i> <i
+											class="text-warning fa fa-star"></i></li>
+									</ul>
+									<a href="recommendloan/recommendloancharterlist"
+										class="h2 text-decoration-none text-dark">전세자금대출</a>
+									<p class="card-text">전세자금대출 종류와 상세정보를 보여드립니다.</p>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-				</c:when>
-				
-				<c:when test="${M_ASSET <= 200 }">
-				<div class="col-12 col-md-4 mb-4" style="margin: 0 auto; width: 500px">
-					<div class="card h-100">
-						<a href="recommendloan/recommendloancreditlist"> <img
-							src="./resources/img/creditloann.png" class="card-img-top"
-							alt="...">
-						</a>
-						<div class="card-body">
-							<ul class="list-unstyled d-flex justify-content-between">
-								<li><i class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i> <i
-									class="text-warning fa fa-star"></i></li>
-							</ul>
-							<a href="recommendloan/recommendloancreditlist"
-								class="h2 text-decoration-none text-dark">개인신용대출</a>
-							<p class="card-text">개인신용대출 종류와 상세정보를 보여드립니다.</p>
+					</c:when>
+
+					<c:when test="${M_ASSET <= 200 }">
+						<div class="col-12 col-md-4 mb-4"
+							style="margin: 0 auto; width: 500px">
+							<div class="card h-100">
+								<a href="recommendloan/recommendloancreditlist"> <img
+									src="./resources/img/creditloann.png" class="card-img-top"
+									alt="...">
+								</a>
+								<div class="card-body">
+									<ul class="list-unstyled d-flex justify-content-between">
+										<li><i class="text-warning fa fa-star"></i> <i
+											class="text-warning fa fa-star"></i> <i
+											class="text-warning fa fa-star"></i> <i
+											class="text-warning fa fa-star"></i> <i
+											class="text-warning fa fa-star"></i></li>
+									</ul>
+									<a href="recommendloan/recommendloancreditlist"
+										class="h2 text-decoration-none text-dark">개인신용대출</a>
+									<p class="card-text">개인신용대출 종류와 상세정보를 보여드립니다.</p>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-				</c:when>
-				
-				<c:when test="${M_ID == null }">
-				<div class="col-12 col-md-4 mb-4" style="margin: 0 auto; width: 500px">
-					<div class="card h-100" style="text-align:center; padding:10px 0">
-						<a href="register"> <button style="border:none; background-color:green; width:400px; height:40px; color:white;">회원가입하고 대출 추천받기</button>
-						</a>
-						<div class="card-body">
-							
-							<p class="h2 text-decoration-none text-dark">회원가입을 해주세요.</p>
-							<p class="card-text">회원가입을 하시면 자산, 자차/자택유무에 맞게 대출을 추천해드립니다.</p>
+					</c:when>
+
+					<c:when test="${M_ID == null }">
+						<div class="col-12 col-md-4 mb-4"
+							style="margin: 0 auto; width: 500px">
+							<div class="card h-100"
+								style="text-align: center; padding: 10px 0">
+								<a href="register">
+									<button
+										style="border: none; background-color: green; width: 400px; height: 40px; color: white;">회원가입하고
+										대출 추천받기</button>
+								</a>
+								<div class="card-body">
+
+									<p class="h2 text-decoration-none text-dark">회원가입을 해주세요.</p>
+									<p class="card-text">회원가입을 하시면 자산, 자차/자택유무에 맞게 대출을 추천해드립니다.</p>
+								</div>
+							</div>
 						</div>
-					</div>
-					</div>
-				</c:when>
-				
-				<c:otherwise>
-					<div class="col-12 col-md-4 mb-4" style="margin: 0 auto; width: 500px">
-					<div class="card h-100" style="text-align:center; padding:10px 0">
-						<a href="question/questionView"> <button style="border:none; background-color:green; width:400px; height:40px; color:white;">궁금한점 알아보기</button>
-						</a>
-						<div class="card-body">
-							
-							<p class="h2 text-decoration-none text-dark">궁금한 것이 있으신가요?</p>
-							<p class="card-text">공지사항을 통해 내용을 확인해주세요!</p>
+					</c:when>
+
+					<c:otherwise>
+						<div class="col-12 col-md-4 mb-4"
+							style="margin: 0 auto; width: 500px">
+							<div class="card h-100"
+								style="text-align: center; padding: 10px 0">
+								<a href="question/questionView">
+									<button
+										style="border: none; background-color: green; width: 400px; height: 40px; color: white;">궁금한점
+										알아보기</button>
+								</a>
+								<div class="card-body">
+
+									<p class="h2 text-decoration-none text-dark">궁금한 것이 있으신가요?</p>
+									<p class="card-text">공지사항을 통해 내용을 확인해주세요!</p>
+								</div>
+							</div>
 						</div>
-					</div>
-					</div>
-				</c:otherwise>
-				
+					</c:otherwise>
+
 				</c:choose>
-				
+
 			</div>
 		</div>
 	</section>
