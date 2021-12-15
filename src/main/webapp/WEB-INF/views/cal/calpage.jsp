@@ -18,10 +18,10 @@
 <script language="JavaScript">
 
 function calculateA() {
-	
-    var principal = document.loandata.principal.value;
-    var interest = document.loandata.interest.value /100;
-    var payments = document.loandata.years.value * 12;
+	console.log("test")
+    var principal = $(".principalInput").val();
+    var interest =  $(".interestInput").val() /100;
+    var payments = $(".yearsInput").val() * 12;
 	
     var monthly = (principal * interest * Math.pow(( 1+ interest ), payments) / Math.pow((1+interest), payments)- 1);
     if (!isNaN(monthly) && 
@@ -49,9 +49,9 @@ function calculateA() {
 	/* 만기일시상환 계산기  */
 	function calculateB() {
 	
-	 var principal = document.loandata.principal.value;
-	 var interest = document.loandata.interest.value / 100 / 12;
-	 var payments = document.loandata.years.value * 12;
+		 var principal = $(".principalInput").val();
+		    var interest =  $(".interestInput").val() /100;
+		    var payments = $(".yearsInput").val() * 12;
 	
 	
 	
@@ -61,10 +61,9 @@ function calculateA() {
 	 if (!isNaN(monthly) && 
 	 (monthly != Number.POSITIVE_INFINITY) &&
 	 (monthly != Number.NEGATIVE_INFINITY)) {
-	
-	 document.loandata.payment.value = round(monthly);
-	 document.loandata.total.value = principal * ( 1+ interest ) * payments;	//총원금
-	 document.loandata.totalinterest.value = principal * ( 1+ interest ) * payments  - principal; //총이자
+		$(".payment").val(round(monthly));
+		$(".totalinterest").val( principal * ( 1+ interest ) * payments  - principal);
+		$(".total").val(principal * ( 1+ interest ) * payments);
 	 }
 	
 	 else {
@@ -104,6 +103,7 @@ function calculateA() {
 <body>
 	<%@include file="../header.jsp"%>
 
+
 	<div class="body">
 		<div class="calBox">
 			<button class="man">만기일시상환</button>
@@ -111,16 +111,16 @@ function calculateA() {
 			<button class="mok">목돈계산기</button>
 		</div>
 		<div class="manBox">
-		
+
 			<table>
 				<tr>
 					<td colspan="3"><h3>만기일사상환</h3></td>
 				</tr>
 				<tr>
 					<td><h4>대출 금액</h4></td>
-					<td><input type="text" name="principal" size="12"
-						onchange="calculateB();">
-					<h4>원</h4></td>
+					<td><input class="principalInput" type="text" name="principal"
+						size="12" onchange="calculateB();">
+						<h4>원</h4></td>
 				</tr>
 				<tr>
 					<td><h4>연 이자율(%)</h4></td>
@@ -136,7 +136,7 @@ function calculateA() {
 					<td><h4>상환기간(년)</h4></td>
 					<td><input class="yearsInput" type="text" value=0 name="years"
 						size="12" onchange="calculateB();">
-					<h4>년</h4></td>
+						<h4>년</h4></td>
 					<td><button class="yReset">초기화</button>
 						<button class="p1">+1</button>
 						<button class="p3">+3</button>
@@ -148,7 +148,7 @@ function calculateA() {
 						value="초기화" onclick="reset();"></td>
 				</tr>
 			</table>
-		
+
 			<div class="resultBox">
 				<table>
 					<tr>
@@ -156,22 +156,22 @@ function calculateA() {
 					</tr>
 					<tr>
 						<td><h4>월상환금</h4></td>
-						<td><input type="text" name="payment" size="12">
-						<h4>원</h4></td>
+						<td><input class="payment" type="text" name="payment" size="12">
+							<h4>원</h4></td>
 					</tr>
 					<tr>
 						<td><h4>원금 및 이자합계</h4></td>
-						<td><input type="text" name="total" size="12">
-						<h4>원</h4></td>
+						<td><input class="total" type="text" name="total" size="12">
+							<h4>원</h4></td>
 					</tr>
 					<tr>
 						<td><h4>총 이자액</h4></td>
-						<td><input type="text" name="totalinterest" size="12">
-						<h4>원</h4></td>
+						<td><input class="totalinterest" type="text" name="totalinterest" size="12">
+							<h4>원</h4></td>
 					</tr>
 				</table>
-		
-			
+
+
 			</div>
 		</div>
 		<div class="wonBox">
@@ -183,7 +183,7 @@ function calculateA() {
 					<td><h4>대출 금액</h4></td>
 					<td><input type="text" name="principal" size="12"
 						onchange="calculateA();">
-					<h4>원</h4></td>
+						<h4>원</h4></td>
 				</tr>
 				<tr>
 					<td><h4>연 이자율(%)</h4></td>
@@ -199,7 +199,7 @@ function calculateA() {
 					<td><h4>상환기간(년)</h4></td>
 					<td><input class="yearsInput" type="text" value=0 name="years"
 						size="12" onchange="calculateA();">
-					<h4>년</h4></td>
+						<h4>년</h4></td>
 					<td><button class="yReset">초기화</button>
 						<button class="p1">+1</button>
 						<button class="p3">+3</button>
@@ -219,21 +219,21 @@ function calculateA() {
 					<tr>
 						<td><h4>월상환금</h4></td>
 						<td><input type="text" name="payment" size="12">
-						<h4>원</h4></td>
+							<h4>원</h4></td>
 					</tr>
 					<tr>
 						<td><h4>원금 및 이자합계</h4></td>
 						<td><input type="text" name="total" size="12">
-						<h4>원</h4></td>
+							<h4>원</h4></td>
 					</tr>
 					<tr>
 						<td><h4>총 이자액</h4></td>
 						<td><input type="text" name="totalinterest" size="12">
-						<h4>원</h4></td>
+							<h4>원</h4></td>
 					</tr>
 				</table>
 			</div>
-			
+
 		</div>
 		<div class="mokBox">
 			<table>
@@ -244,7 +244,7 @@ function calculateA() {
 					<td><h4>목표 금액</h4></td>
 					<td><input type="text" name="principal" size="12"
 						onchange="calculateC();">
-					<h4>원</h4></td>
+						<h4>원</h4></td>
 				</tr>
 				<tr>
 					<td><h4>연 이자율(%)</h4></td>
@@ -260,7 +260,7 @@ function calculateA() {
 					<td><h4>적립 기간(년)</h4></td>
 					<td><input class="yearsInput" type="text" value=0 name="years"
 						size="12" onchange="calculateC();">
-					<h4>년</h4></td>
+						<h4>년</h4></td>
 					<td><button class="yReset">초기화</button>
 						<button class="p1">+1</button>
 						<button class="p3">+3</button>
@@ -268,10 +268,11 @@ function calculateA() {
 				</tr>
 				<tr>
 					<td><h4>금리 방식</h4></td>
-					<h4>방식</h4></td>
+					<h4>방식</h4>
+					</td>
 					<td><select name="selinterest">
-						<option value="단리">단리</option>
-						<option value="복리">복리</option>					
+							<option value="단리">단리</option>
+							<option value="복리">복리</option>
 					</select></td>
 				</tr>
 				<tr>
@@ -288,13 +289,14 @@ function calculateA() {
 					<tr>
 						<td><h4>예상 목돈 :</h4></td>
 						<td><input type="text" name="payment" size="12">
-						<h4>원</h4></td>
+							<h4>원</h4></td>
 					</tr>
-					
+
 				</table>
 			</div>
 		</div>
 	</div>
+
 	<%@include file="../footer.jsp"%>
 	<script>
 		$(".wonBox").hide();
