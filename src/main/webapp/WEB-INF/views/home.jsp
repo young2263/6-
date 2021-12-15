@@ -70,53 +70,61 @@ https://templatemo.com/tm-559-zay-shop
 	<div id="template-mo-zay-hero-carousel" class="carousel slide"
 		data-bs-ride="carousel">
 		<ol class="carousel-indicators">
-			<li data-bs-target="#template-mo-zay-hero-carousel"
-				data-bs-slide-to="0" class="active"></li>
-			<c:forEach var="vo" items="${advertiseList}" varStatus="status">
-				<li data-bs-target="#template-mo-zay-hero-carousel"
-					data-bs-slide-to="${vo.AD_NUM}"></li>
-			</c:forEach>
-		</ol>
-		<div class="carousel-inner">
-
-			<div class="carousel-item active">
-				<div class="container">
-					<div class="row p-5">
-						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-							<a href="recommendloan/recommendloanlist"><img
-								class="img-fluid" src="./resources/img/advertisement1.PNG"
-								alt=""></a>
-						</div>
-						<div class="col-lg-6 mb-0 d-flex align-items-center">
-							<div class="text-align-left">
-								<h1 class="h1">Residential Mortgage</h1>
-								<p>주택 담보대출을 가장 잘해주는 곳입니다. 최저 금리 보장하고 여러가지 혜택을 받을 수 있습니다. 아주
-									좋은 조건으로 대출을 받을 수 있으니 한번 믿고 보십쇼</p>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-			<c:forEach var="vo" items="${advertiseList}" varStatus="status">
-				<div class="carousel-item">
-					<div class="container">
-						<div class="row p-5">
-							<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-								<a href="${vo.AD_SRC}"><img class="img-fluid"
-									src="${vo.AD_IMG}" alt=""></a>
-							</div>
-							<div class="col-lg-6 mb-0 d-flex align-items-center">
-								<div class="text-align-left">
-									<h1 class="h1">${vo.AD_TITLE}</h1>
-									<p>${vo.AD_CONTENT}</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</c:forEach>
-		</div>
+         <c:forEach var="vo" items="${advertiseList}" varStatus="status">
+            <c:choose>
+            <c:when test="${status.count ==1 }">
+               <li data-bs-target="#template-mo-zay-hero-carousel"
+                  data-bs-slide-to="${vo.AD_NUM}" class="active"></li>
+            </c:when>
+            <c:otherwise>
+               <li data-bs-target="#template-mo-zay-hero-carousel"
+                  data-bs-slide-to="${vo.AD_NUM}"></li>
+            </c:otherwise>
+            </c:choose>
+         </c:forEach>
+      </ol>
+      <div class="carousel-inner">
+         <c:forEach var="vo" items="${advertiseList}" varStatus="status">
+            <c:choose>
+            <c:when test="${status.count ==1 }">
+            <div class="carousel-item active">
+               <div class="container">
+                  <div class="row p-5">
+                     <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                        <a href="${vo.AD_SRC}"><img class="img-fluid"
+                           src="${vo.AD_IMG}" alt=""></a>
+                     </div>
+                     <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="text-align-left">
+                           <h1 class="h1">${vo.AD_TITLE}</h1>
+                           <p>${vo.AD_CONTENT}</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            </c:when>
+            <c:otherwise>
+            <div class="carousel-item">
+               <div class="container">
+                  <div class="row p-5">
+                     <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                        <a href="${vo.AD_SRC}"><img class="img-fluid"
+                           src="${vo.AD_IMG}" alt=""></a>
+                     </div>
+                     <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="text-align-left">
+                           <h1 class="h1">${vo.AD_TITLE}</h1>
+                           <p>${vo.AD_CONTENT}</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            </c:otherwise>
+            </c:choose>
+         </c:forEach>
+      </div>
 
 
 		<a class="carousel-control-prev text-decoration-none w-auto ps-3"
