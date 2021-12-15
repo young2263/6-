@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 
 <style>
-	i {
+	#iii i {
 		font-size:50px;
 	}
 </style>
@@ -61,25 +61,25 @@
 				</div>
 				<div class="col-auto me-auto">
 					<ul class="list-inline text-left footer-icons">
-						<li
+						<li id="iii"
 							class="list-inline-item border border-light rounded-circle text-center">
 							<a class="text-light text-decoration-none" target="_blank"
 							href="https://github.com/young2263/"><i
 								class="fab fa-github"></i></a>
 						</li>
-						<li
+						<li id="iii"
 							class="list-inline-item border border-light rounded-circle text-center">
 							<a class="text-light text-decoration-none" target="_blank"
 							href="https://github.com/asdlfkjasldf/"><i
 								class="fab fa-github"></i></a>
 						</li>
-						<li
+						<li id="iii"
 							class="list-inline-item border border-light rounded-circle text-center">
 							<a class="text-light text-decoration-none" target="_blank"
 							href="https://github.com/yongjaejo/"><i
 								class="fab fa-github"></i></a>
 						</li>
-						<li
+						<li id="iii"
 							class="list-inline-item border border-light rounded-circle text-center">
 							<a class="text-light text-decoration-none" target="_blank"
 							href="https://github.com/ByungJun1/"><i
