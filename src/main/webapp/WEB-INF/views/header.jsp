@@ -63,7 +63,7 @@
                        	<ul>
 				<li>
 					<c:if test="${member != null}">
-						<a href="/loanplan/list">내 정보</a>
+						<a href="/loanplan/myPage">내 정보</a>
 						<a href="/loanplan/logout">로그아웃</a>
 					</c:if>
 				</li>
