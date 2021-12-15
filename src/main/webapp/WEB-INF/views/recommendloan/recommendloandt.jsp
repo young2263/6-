@@ -270,13 +270,17 @@ function calculate() {
 <div class="body">
 	<table class="loandt">
 		<tr>
-			<td rowspan="2"><img class="img-fluid" src="../${recommendloan.RL_IMG }" alt="test" width="300px" height="300px"></td>
+			<td rowspan="3"><img class="img-fluid" src="../${recommendloan.RL_IMG }" alt="test" width="300px" height="300px"></td>
 			<td>대출상품명</td>
 			<td>${recommendloan.FIN_PRDT_NM }</td>
 		</tr>
 		<tr>
 			<td>은행명</td>
 			<td>${recommendloan.KOR_CO_NM }</td>
+		</tr>
+		<tr>
+			<td>은행사이트</td>
+			<td><a href="${recommendloan.RL_URL }">${recommendloan.RL_URL } </a></td>
 		</tr>
 	</table>
 	

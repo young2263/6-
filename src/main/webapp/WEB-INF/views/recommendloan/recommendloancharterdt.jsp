@@ -293,13 +293,17 @@ function calculate() {
 <div class="body">
 	<table class="loandt">
 		<tr>
-			<td rowspan="2"><img class="img-fluid" src="../${recommendloancharter.RL_CH_IMG }" alt="test" width="300px" height="300px"></td>
+			<td rowspan="3"><img class="img-fluid" src="../${recommendloancharter.RL_CH_IMG }" alt="test" width="300px" height="300px"></td>
 			<td>대출상품명</td>
 			<td>${recommendloancharter.FIN_PRDT_NM }</td>
 		</tr>
 		<tr>
 			<td>은행명</td>
 			<td>${recommendloancharter.KOR_CO_NM }</td>
+		</tr>
+		<tr>
+			<td>은행사이트</td>
+			<td><a href="${recommendloancharter.RL_CH_URL }">${recommendloancharter.RL_CH_URL } </a></td>
 		</tr>
 	</table>
 	
