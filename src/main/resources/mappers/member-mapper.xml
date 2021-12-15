@@ -12,18 +12,6 @@
 		(#{m_id}, #{m_pwd}, #{m_name}, #{m_email})
 	</insert>
 	
-	<update id="updateMember" parameterType="Member" statementType="PREPARED">
-		UPDATE MEMBER SET
-		M_PWD = #{m_pwd},
-		M_EMAIL = #{m_email}
-		WHERE M_ID = #{m_id}
-	</update>
-	
-	<delete id="deleteMember" parameterType="string" statementType="PREPARED">
-		DELETE FROM MEMBER
-		WHERE M_ID = #{m_id}
-	</delete>
-	
 	<select id="checkOverId" parameterType="String" resultType="int">
 		SELECT COUNT(*) FROM MEMBER
 		WHERE M_ID = #{m_id}
@@ -58,4 +46,39 @@
 		where m_name = #{m_name} and m_email=#{m_email}
 	</select>
 	
+	<!-- 마이페이지 -->
+	<select id="myPage" parameterType="Member" resultType="Member">
+		SELECT M_ID, M_NAME, M_PHN, M_AGE, M_EMAIL,
+		M_GENDER, M_JOB, M_ADDRESS, M_ASSET,
+		M_DEBT, M_CAR, M_HOUSE
+		FROM MEMBER
+		WHERE M_ID = #{m_id}
+	</select>
+
+	<!-- 회원정보 수정 -->
+	<update id="updateMember" parameterType="Member">
+		UPDATE MEMBER SET
+		M_PHN = #{m_phn},
+		M_EMAIL = #{m_email},
+		M_JOB = #{m_job},
+		M_ADDRESS = #{m_address},
+		M_ASSET = #{m_asset},
+		M_DEBT = #{m_debt},
+		M_CAR = #{m_car},
+		M_HOUSE = #{m_house}
+		WHERE M_ID = #{m_id}
+	</update>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="updatePwd" parameterType="Member">
+		UPDATE MEMBER SET
+		M_PWD = #{m_pwd}
+		WHERE M_ID = #{m_id}
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="deleteMember" parameterType="string" statementType="PREPARED">
+		DELETE FROM MEMBER
+		WHERE M_ID = #{m_id}
+	</delete>
 </mapper>

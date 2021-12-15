@@ -27,14 +27,6 @@ public class MemberService {
 		return memberDao.insertMember(m);
 	}
 	
-	public int updateMember(Member m) {
-		return memberDao.updateMember(m);
-	}
-	
-	public int deleteMember(String userid) {
-		return memberDao.deleteMember(userid);
-	}
-	
 	public Member checkIdDup(String userid){
 		return memberDao.checkIdDup(userid);
 	}
@@ -69,9 +61,21 @@ public class MemberService {
 		return memberDao.signUp(vo);
 	}
 	
-	public Member getMember(Member m) throws Exception{
-		Member member = memberDao.getMember(m);
-		return member;
+	public Member myPage(Member vo) throws Exception{
+		Member m = memberDao.myPage(vo);
+		return m;
+	}
+	
+	public int updateMember(Member vo) {
+		return memberDao.updateMember (vo);
+	}
+	
+	public void updatePwd(Member vo) {
+		memberDao.updatePwd(vo);
+	}
+	
+	public int deleteMember(String m_id) {
+		return memberDao.deleteMember(m_id);
 	}
 	
 	public Member findId(Member vo) throws Exception {

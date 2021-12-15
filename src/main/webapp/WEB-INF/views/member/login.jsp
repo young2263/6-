@@ -25,23 +25,29 @@
 
 <title>로그인</title>
 <style>
+#bg {
+	background-color : rgb(247, 250, 249);
+}
+
 #content_box {
 	width: 460px;
 	margin: 0 auto;
+	height : 1100px;
 }
+
 
 .logo {
 	width: 460px;
 	margin: 0 auto;
-	margin-top: 35px;
+	margin-top: 0px;
 	max-height: 280px;
 	overflow: hidden;
 }
 
 .logo img {
 	max-height: initial;
-	margin-top: -15%;
-	margin-bottom: -15%;
+	margin-top: 10%;
+	margin-bottom: 0%;
 }
 
 .logo img {
@@ -107,6 +113,7 @@
 #content {
 	border: 1px solid #dae1e6;
 	padding: 20px;
+	background-color : #ffffff;
 }
 
 .span {
@@ -222,9 +229,10 @@ button {
 </head>
 <%@include file="../header.jsp"%>
 <body>
+<div id="bg">
 	<div id="content_box">
 		<div class="logo">
-			<img src="resources/img/logo.png">
+			<img src="resources/img/loanplan.png">
 		</div>
 		<div id="content">
 			<form method="post" name="login_frm">
@@ -346,6 +354,7 @@ button {
 			<!--</form>-->
 		</div>
 	</div>
+</div>
 </body>
-
+<%@include file="../footer.jsp"%>
 </html>

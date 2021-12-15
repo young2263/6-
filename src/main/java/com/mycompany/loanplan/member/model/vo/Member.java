@@ -35,6 +35,7 @@ public class Member {
 	private String m_car;
 	private String m_house;
 	private Date m_cdate;
+	private String m_key;
 	
 	public Member() {	
 	}
@@ -58,13 +59,13 @@ public class Member {
 		this.m_house = m_house;
 		this.m_cdate = m_cdate;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Member [m_id=" + m_id + ", m_pwd=" + m_pwd + ", m_name=" + m_name + ", m_email=" + m_email + ", m_phn="
 				+ m_phn + ", m_gender=" + m_gender + ", m_age=" + m_age + ", m_job=" + m_job + ", m_address="
-				+ m_address + ", m_asset=" + m_asset + ", m_debt=" + m_debt + ", m_car=" + m_car + ", m_house=" + m_house
-				+ ", m_cdate=" + m_cdate + "]";
+				+ m_address + ", m_asset=" + m_asset + ", m_debt=" + m_debt + ", m_car=" + m_car + ", m_house="
+				+ m_house + ", m_cdate=" + m_cdate + ", m_key=" + m_key + "]";
 	}
 
 	public String getM_id() {
@@ -179,4 +180,11 @@ public class Member {
 		this.m_cdate = m_cdate;
 	}
 	
+	public String getM_key() {
+		return m_key;
+	}
+
+	public void setM_key(String m_key) {
+		this.m_key = m_key;
+	}
 }

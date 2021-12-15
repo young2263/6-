@@ -144,20 +144,7 @@ button {
 			<h1>LOGO</h1>
 			<p style="color: #656a6e;">LOGO에 가입하고 즐거움을 누리세요!</p>
 		</div>
-		<ul id="nav_ul">
-			<li>
-				<div class="circle">01 약관동의</div>
-			</li>
-			<li id="rcl">
-				<div class="yet circle">02 본인인증</div>
-			</li>
-			<li id="rcl">
-				<div class="yet circle">03 정보입력</div>
-			</li>
-			<li id="rcl">
-				<div class="yet circle">04 가입완료</div>
-			</li>
-		</ul>
+		
 		<p>회원가입 약관 동의</p>
 		<div id="content">
 			<div class="checkbox">

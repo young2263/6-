@@ -15,10 +15,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -29,21 +31,15 @@ import com.mycompany.loanplan.member.model.service.MemberService;
 import com.mycompany.loanplan.member.model.vo.Member;
 
 @Controller
+@SessionAttributes("loginSession")
 public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
 	@Autowired
 	private MemberService memberService;
-	private MailSendService member;
+	private MailSendService mss;
 //	@Autowired
 //	private NaverLoginBO naverloginbo;
-	
-//	@RequestMapping(value = "memberlist", method = RequestMethod.GET)
-//	public ModelAndView memberlist(ModelAndView mv) {
-//		mv.setViewName("member/memberlist");
-//		mv.addObject("mlist", memberService.memberlist());
-//		return mv;
-//	}
 	
 //	@RequestMapping(value = "login", method = RequestMethod.GET)
 //	public ModelAndView loginMember(ModelAndView mv) throws Exception{
@@ -56,6 +52,14 @@ public class MemberController {
 		int result = 0;
 		try {
 			result = memberService.signUp(vo);
+			String authKey = mss.sendAuthMail(vo.getM_email());
+			vo.setM_key(authKey);
+			
+			Map<String, String> map = new HashMap<String, String>();
+	        map.put("email", vo.getM_email());
+	        map.put("authKey", vo.getM_key());
+	        System.out.println(map);
+	        
 			if (result > 0) {
 				ra.addAttribute("msg", "회원가입 성공");
 			} else {
@@ -65,7 +69,6 @@ public class MemberController {
 			ra.addAttribute("msg", "회원가입 과정에서 오류 발생");
 			e.printStackTrace();
 		}
-		
 		return "member/finish";
 	}
 	
@@ -74,6 +77,7 @@ public class MemberController {
 		return "member/login";
 	}
 	
+	//로그인
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(Member vo, HttpServletRequest req, HttpServletResponse res, RedirectAttributes rttr) throws Exception{
 		
@@ -91,6 +95,7 @@ public class MemberController {
 			return "member/login";
 		}else {
 			session.setAttribute("member", login);
+			session.setAttribute("loginSession", login);
 		}
 		
 		System.out.println("로그인 성공");
@@ -150,7 +155,6 @@ public class MemberController {
 	
 	@RequestMapping(value = "email", method = RequestMethod.GET)
 	public ModelAndView mailCheck(@RequestParam String Memberemail, Model model) {
-		logger.info("Memberemail: "+Memberemail);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("email",Memberemail);
 		mv.setViewName("member/mail");
@@ -163,11 +167,32 @@ public class MemberController {
 		return "member/register";
 	}
 	
-	//인증 화면
+//	//인증 화면
+//	@RequestMapping(value = "auth", method = RequestMethod.GET)
+//	public String authMember() throws Exception {
+//		return "member/auth";
+//	}
+	
 	@RequestMapping(value = "auth", method = RequestMethod.GET)
-	public String authMember() throws Exception {
-		return "member/auth";
+	public ModelAndView authMember(@RequestParam String m_email, Model model) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("email",m_email);
+		mv.setViewName("member/auth");
+		return mv;
 	}
+	
+	@RequestMapping(value = "auth", method = RequestMethod.POST)
+	 @ResponseBody
+     public String email(@RequestBody Member vo){
+		String authKey = mss.sendAuthMail(vo.getM_email());
+		vo.setM_key(authKey);
+		
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("email", vo.getM_email());
+        map.put("authKey", vo.getM_key());
+        System.out.println(map);
+        return authKey;
+  	}
 	
 	//회원 가입 정보 입력 화면
 	@RequestMapping(value="information", method = RequestMethod.GET)
@@ -202,27 +227,85 @@ public class MemberController {
 	
 	//마이페이지
 	@RequestMapping(value = "myPage", method = RequestMethod.GET)
-	private ModelAndView selectMembers(HttpSession session) throws Exception {
-		String m_id = ((Member)session.getAttribute("loginInfo")).getM_id();
+	private ModelAndView getMember(HttpSession session) throws Exception {
+		String m_id = ((Member)session.getAttribute("loginSession")).getM_id();
 		Member vo = new Member();
 		vo.setM_id(m_id);
 		ModelAndView mv = new ModelAndView();
-		Member m= memberService.getMember(vo);
+		Member m= memberService.myPage(vo);
 		mv.addObject("vo", m);
 		mv.setViewName("member/myPage");
 		return mv;
 	}
-
-	//개인정보수정
-	@RequestMapping(value = "modify", method = RequestMethod.GET)
-	private ModelAndView editMemberinfo(@RequestParam String m_id) throws Exception { 
-		logger.info("userId: "+m_id);
+	
+	
+	@RequestMapping(value = "updateMyPage", method = RequestMethod.GET)
+	private ModelAndView updateMember(HttpSession session) throws Exception {
+		String m_id = ((Member)session.getAttribute("loginSession")).getM_id();
 		Member vo = new Member();
 		vo.setM_id(m_id);
 		ModelAndView mv = new ModelAndView();
-		Member m = memberService.getMember(vo);
+		Member m= memberService.myPage(vo);
 		mv.addObject("vo", m);
-		mv.setViewName("member/modify");
+		mv.setViewName("member/updateMyPage");
 		return mv;
 	}
+	
+	@RequestMapping(value = "/updateMember", method = RequestMethod.POST)
+	private String updateMember(Member vo, HttpSession session, RedirectAttributes ra) throws Exception {
+//		memberService.updateMember(vo);
+		int result = 0;
+		try {
+			result = memberService.updateMember(vo);
+			if (result > 0) {
+				ra.addAttribute("msg", "수정 성공");
+
+			} else {
+				ra.addAttribute("msg", "수정 실패");
+			}
+		}catch (Exception e) {
+			ra.addAttribute("msg", "수정 과정에서 오류 발생");
+			e.printStackTrace();
+		}
+		System.out.println(result);
+		session.invalidate();
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "updatePwd", method = RequestMethod.GET)
+	private ModelAndView updatePwd(HttpSession session) throws Exception {
+		String m_id = ((Member)session.getAttribute("loginSession")).getM_id();
+		Member vo = new Member();
+		vo.setM_id(m_id);
+		ModelAndView mv = new ModelAndView();
+		Member m= memberService.myPage(vo);
+		mv.addObject("vo", m);
+		mv.setViewName("member/updatePwd");
+		return mv;
+	}
+	
+	@RequestMapping(value = "deleteMember", method = RequestMethod.GET)
+	private ModelAndView deleteMember(HttpSession session) throws Exception {
+		String m_id = ((Member)session.getAttribute("loginSession")).getM_id();
+		Member vo = new Member();
+		vo.setM_id(m_id);
+		ModelAndView mv = new ModelAndView();
+		Member m= memberService.myPage(vo);
+		mv.addObject("vo", m);
+		mv.setViewName("member/deleteMember");
+		return mv;
+	}
+	
+//	//회원정보 수정
+//	@RequestMapping(value = "updateMyPage", method = RequestMethod.GET)
+//	private ModelAndView updateMember(@RequestParam String m_id) throws Exception { 
+//		Member vo = new Member();
+//		vo.setM_id(m_id);
+//		ModelAndView mv = new ModelAndView();
+//		Member m = memberService.myPage(vo);
+//		mv.addObject("vo", m);
+//		mv.setViewName("member/modify");
+//		return mv;
+//	}
+	
 }

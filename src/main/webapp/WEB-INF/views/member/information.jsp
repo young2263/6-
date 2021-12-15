@@ -19,6 +19,7 @@
 #content_box {
 	width: 460px;
 	margin: 0 auto;
+	height : 1100px;
 }
 
 #nav_ul {
@@ -280,7 +281,7 @@
 					type="radio" id="woman" name="m_gender" value="W"> <label
 					for="woman">여자</label> <input type="radio" id="Private"
 					name="m_gender" value="N"> <label for="Private">비공개</label>
-					<br> <br> (예상)월수입<br>
+					<br> <br> (예상)연봉<br>
 					<select name = "m_asset">
 						<option value="0">없음</option>
 						<option value="100">1500 ~ 2500 만원</option>
@@ -326,6 +327,5 @@
 			</form>
 		</div>
 	</div>
-	<%@include file="../footer.jsp"%>
 </body>
 </html>

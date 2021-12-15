@@ -15,9 +15,33 @@
 <link rel="stylesheet" href="resources/css/custom.css">
 <title>회원 가입 - 약관 동의</title>
 <style>
+#bg {
+	background-color : rgb(247, 250, 249);
+}
+
 #content_box {
 	width: 460px;
 	margin: 0 auto;
+	height : 1100px;
+}
+
+.logo {
+	width: 460px;
+	margin: 0 auto;
+	margin-top: 0px;
+	max-height: 280px;
+	overflow: hidden;
+}
+
+.logo img {
+	max-height: initial;
+	margin-left : -0.5%;
+	margin-top: 10%;
+	margin-bottom: 0%;
+}
+
+.logo img {
+	width: 200px;
 }
 
 #nav_ul {
@@ -79,6 +103,7 @@
 #content {
 	border: 1px solid #dae1e6;
 	padding: 20px;
+	background-color : #ffffff;
 }
 
 button {
@@ -109,10 +134,13 @@ button {
 </head>
 <%@include file="../header.jsp"%>
 <body>
+<div id="bg">
 	<div id="content_box">
-		<div>
-			<h1>LOGO</h1>
-			<p style="color: #656a6e;">LOGO에 가입하고 즐거움을 누리세요!</p>
+		<div class="logo">
+			<img src="resources/img/loanplan.png">
+		</div>
+		<div id="comment">
+			<p style="color: #656a6e;">회원가입</p>
 		</div>
 		<ul id="nav_ul">
 			<li>
@@ -128,6 +156,7 @@ button {
 				<div class="yet circle">04 가입완료</div>
 			</li>
 		</ul>
+		<br>
 		<p>회원가입 약관 동의</p>
 		<div id="content">
 		<form id="terms_form" method="get" action="/loanplan/information">
@@ -211,7 +240,7 @@ button {
 			</div>
 		</div>
 	</div>
-	<%@include file="../footer.jsp"%>
+</div>
 </body>
-
+<%@include file="../footer.jsp"%>
 </html>

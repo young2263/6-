@@ -39,10 +39,6 @@ public class MemberDao {
 		return factory;
 	}
 	
-	public Member getMember(Member m) throws Exception {
-		Member member = sqlSession.selectOne("Member.listMember", m);
-		return member;
-	}
 
 	public List<Member> memberlist() {
 		return sqlSession.selectList("Member.memberlist");
@@ -71,44 +67,6 @@ public class MemberDao {
 			result = session.insert("Member.insertMember", m);
 
 			// 세션 생성 시 AutoCommit을 false로 설정하였으므로 // commit / rollback을 직접 관리한다.
-			if (result > 0) {
-				session.commit();
-			} else {
-				session.rollback();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
-		return result;
-	}
-
-	public int updateMember(Member m) {
-		int result = 0;
-		SqlSession session = null;
-		try {
-			session = getSqlSessionFactory().openSession(false);
-			result = session.update("Member.updateMember", m);
-			if (result > 0) {
-				session.commit();
-			} else {
-				session.rollback();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
-		return result;
-	}
-
-	public int deleteMember(String m_id) {
-		int result = 0;
-		SqlSession session = null;
-		try {
-			session = getSqlSessionFactory().openSession(false);
-			result = session.delete("Member.deleteMember", m_id);
 			if (result > 0) {
 				session.commit();
 			} else {
@@ -162,6 +120,22 @@ public class MemberDao {
 	
 	public Member findId(Member vo) {
 		return sqlSession.selectOne("Member.findId", vo);
+	}
+	
+	public Member myPage(Member vo) throws Exception {
+		return sqlSession.selectOne("Member.myPage", vo);
+	}
+	
+	public int updateMember(Member vo) {
+		return sqlSession.update("Member.updateMember", vo);
+	}
+	
+	public void updatePwd(Member vo) {
+		sqlSession.update("Member.updatePwd", vo);
+	}
+	
+	public int deleteMember(String m_id) {
+		return sqlSession.delete("Member.deleteMember", m_id);
 	}
 	
 	public Member findPwd(Member vo) {

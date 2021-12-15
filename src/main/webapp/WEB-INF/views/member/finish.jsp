@@ -14,6 +14,7 @@
 #content_box {
 	width: 460px;
 	margin: 0 auto;
+	height : 1100px;
 }
 
 #nav_ul {
