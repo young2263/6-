@@ -52,10 +52,6 @@
    }
    
    b {
-   		font-size: 30px;
-   }
-	
-   .description p {
    		font-size: 25px;
    }
 
@@ -299,11 +295,7 @@ function calculate() {
 		</tr>
 		<tr>
 			<td>은행명</td>
-			<td>${recommendloancharter.KOR_CO_NM }</td>
-		</tr>
-		<tr>
-			<td>은행사이트</td>
-			<td><a href="${recommendloancharter.RL_CH_URL }">${recommendloancharter.RL_CH_URL } </a></td>
+			<td><a href="${recommendloancharter.RL_CH_URL }" style="color:black; font-size:20px;">${recommendloancharter.KOR_CO_NM }</a></td>
 		</tr>
 	</table>
 	
@@ -319,43 +311,43 @@ function calculate() {
         
         <!-- 세부정보 -->
         <div class="tab_item">
-        	<h1>세부정보</h1>
+        	<h1 style="font-size:30px; text-align:center;">세부정보</h1>
         	<br><br><br><br>
             <ul>
                 <li class="item">
         		    <div class="description">
 						<b>공시 제출월</b>
-                        <br><br><p><font size="5em">${recommendloancharter.DCLS_MONTH }</font></p>
+                        <br><br><p><font size="4em">${recommendloancharter.DCLS_MONTH }</font></p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>대출 금리 유형</b>	
-						<br><br><p><font size="5em">${recommendloancharter.LEND_RATE_TYPE_NM }</font></p>
+						<br><br><p><font size="4em">${recommendloancharter.LEND_RATE_TYPE_NM }</font></p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>대출 상환 유형</b>	
-						<br><br><p><font size="5em">${recommendloancharter.RPAY_TYPE_NM }</font></p>
+						<br><br><p><font size="4em">${recommendloancharter.RPAY_TYPE_NM }</font></p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>중도 상환 수수료</b>	
-						<br><br><p><font size="5em">${recommendloancharter.ERLY_RPAY_FEE }</font></p>
+						<br><br><p><font size="4em">${recommendloancharter.ERLY_RPAY_FEE }</font></p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>연체 이자율</b>	
-						<br><br><p><font size="5em">${recommendloancharter.DLY_RATE }</font></p>
+						<br><br><p><font size="4em">${recommendloancharter.DLY_RATE }</font></p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>대출 한도</b>
-						<br><br><p><font size="5em">${recommendloancharter.LOAN_LMT }</font></p>
+						<br><br><p><font size="4em">${recommendloancharter.LOAN_LMT }</font></p>
                     </div>
                 </li>
             </ul>

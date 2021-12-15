@@ -52,10 +52,6 @@
    }
    
    b {
-   		font-size: 30px;
-   }
-	
-   .description p {
    		font-size: 25px;
    }
 
@@ -287,11 +283,7 @@ function calculate() {
 		</tr>
 		<tr>
 			<td>은행명</td>
-			<td>${recommendloancredit.KOR_CO_NM }</td>
-		</tr>
-		<tr>
-			<td>은행사이트</td>
-			<td><a href="${recommendloancredit.RL_CR_URL }">${recommendloancredit.RL_CR_URL } </a></td>
+			<td><a href="${recommendloancredit.RL_CR_URL }">${recommendloancredit.KOR_CO_NM } </a></td>
 		</tr>
 	</table>
 	
@@ -308,49 +300,49 @@ function calculate() {
         
         <!-- 세부정보 -->
         <div class="tab_item">
-        	<h1>세부정보</h1>
+        	<h1 style="font-size:30px; text-align:center;">세부정보</h1>
         	<br><br><br><br>
             <ul>
                 <li class="item">
         		    <div class="description">
 						<b>공시 제출월</b>
-                        <br><br><p><font size="5em">${recommendloancredit.DCLS_MONTH }</font></p>
+                        <br><br><p><font size="4em">${recommendloancredit.DCLS_MONTH }</font></p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>900점 초과 금리</b>	
-						<br><br><p><font size="5em">${recommendloancredit.CRDT_GRAD_1 }</font></p>
+						<br><br><p><font size="4em">${recommendloancredit.CRDT_GRAD_1 }</font></p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>801 ~ 900점 금리</b>	
-						<br><br><p><font size="5em">${recommendloancredit.CRDT_GRAD_4 }</font></p>
+						<br><br><p><font size="4em">${recommendloancredit.CRDT_GRAD_4 }</font></p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>701 ~ 800점 금리</b>	
-						<br><br><p><font size="5em">${recommendloancredit.CRDT_GRAD_5 }</font></p>
+						<br><br><p><font size="4em">${recommendloancredit.CRDT_GRAD_5 }</font></p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>601 ~ 700점 금리</b>	
-						<br><br><p><font size="5em">${recommendloancredit.CRDT_GRAD_6 }</font></p>
+						<br><br><p><font size="4em">${recommendloancredit.CRDT_GRAD_6 }</font></p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>401 ~ 500점 금리</b>
-						<br><br><p><font size="5em">${recommendloancredit.CRDT_GRAD_10 }</font></p>
+						<br><br><p><font size="4em">${recommendloancredit.CRDT_GRAD_10 }</font></p>
                     </div>
                 </li>
                 <li class="item">
         		    <div class="description">
 						<b>301 ~ 400점 금리</b>
-						<br><br><p><font size="5em">${recommendloancredit.CRDT_GRAD_12 }</font></p>
+						<br><br><p><font size="4em">${recommendloancredit.CRDT_GRAD_12 }</font></p>
                     </div>
                 </li>
                 <li class="item">
