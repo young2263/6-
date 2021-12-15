@@ -61,8 +61,14 @@
                 </div>
                     <div class="nav-icon d-none d-lg-inline login_nav" id="loginBox" >
                        	<ul>
+                 <li>
+					<c:if test="${member != null && member.m_id == 'admin'}">
+						<a href="admin">관리자 모드</a>
+						<a href="/loanplan/logout">로그아웃</a>
+					</c:if>
+				</li>
 				<li>
-					<c:if test="${member != null}">
+					<c:if test="${member != null && member.m_id != 'admin'}">
 						<a href="/loanplan/myPage">내 정보</a>
 						<a href="/loanplan/logout">로그아웃</a>
 					</c:if>
@@ -74,10 +80,11 @@
 					</c:if>
 				</li>
 				<li>
-					<c:if test="${member != null}">
+					<c:if test="${member != null  && member.m_id != 'admin'}">
 						<p>${member.m_id}님 안녕하세요.</p>
 					</c:if>
 				</li>
+				
 			</ul>
                     </div>
                 <div class="navbar align-self-center d-flex">
