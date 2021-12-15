@@ -13,9 +13,9 @@
 
 	<header>
 		<div class="logo">
-			logo <img src="resources/img/logo.png" width="100px" height="100px" />
+		<img src="resources/img/loanplan.png" width="200px" height="100px" /> 
 		</div>
-		<div class="admin">관리자 정보</div>
+		<div class="admin"><a href="/loanplan">메인페이지</a></div>
 	</header>
 	<div class="body">
 		<div class="navbar">
@@ -33,11 +33,7 @@
 			</div>
 		</div>
 		<div class="content">
-			<div class="listTitle">대출 상품 관리</div>
-			<div class="searchBox">
-				<input type="text">
-				<button>확인</button>
-			</div>
+			<div class="listTitle"><h2>대출상품 관리</h2></div>
 			<div class="button">
 				<div class="guar_btn">
 					<a href="admin">담보</a>

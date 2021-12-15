@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -40,8 +41,14 @@ public class MemberDao {
 	}
 	
 
-	public List<Member> memberlist() {
-		return sqlSession.selectList("Member.memberlist");
+	public List<Member> memberlist(int currentPage, int LIMIT) {
+		int startRow = (currentPage-1)*LIMIT;
+		RowBounds row = new RowBounds(startRow, LIMIT);
+		return sqlSession.selectList("Member.memberlist",null,row);
+	}
+	
+	public int memberCount() {
+		return sqlSession.selectOne("Member.memberCount");
 	}
 	
 	public Member selectMember(Member m) {

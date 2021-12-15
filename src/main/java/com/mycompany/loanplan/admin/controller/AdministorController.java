@@ -603,9 +603,17 @@ public class AdministorController {
 
 	// 회원관리 리스트창 띄우기
 	@RequestMapping(value = "/member", method = RequestMethod.GET)
-	public ModelAndView member(HttpServletRequest request, ModelAndView mv) {
+	public ModelAndView member(@RequestParam(name = "page", defaultValue = "1") int page,
+			HttpServletRequest request, ModelAndView mv) {
 		try {
-			mv.addObject("memberlist", memberService.memberlist());
+			int currentPage = page;
+			int listCount = memberService.memberCount();
+			int maxPage = (int) ((double) listCount / LIMIT + 0.9);
+			mv.addObject("volist", adminService.recommendLoanCharterList(currentPage, LIMIT));
+			mv.addObject("currentPage", currentPage);
+			mv.addObject("maxPage", maxPage);
+			mv.addObject("listCount", listCount);
+			mv.addObject("memberlist", memberService.memberlist(currentPage, LIMIT));
 			mv.setViewName("admin/member");
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -14,9 +14,9 @@
 <body>
 	<header>
 		<div class="logo">
-			<!-- <img src="resources/img/logo.png" width="100px" height="100px" /> -->
+			<img src="resources/img/loanplan.png" width="200px" height="100px" /> 
 		</div>
-		<div class="admin">관리자 정보</div>
+		<div class="admin"><a href="/loanplan">메인페이지</a></div>
 	</header>
 	<div class="body">
 		<div class="navbar">
@@ -29,11 +29,13 @@
 			<div class="navbarItem">
 				<a href="advertise">광고관리</a>
 			</div>
-			<div class="navbarItem">댓글관리</div>
+			<div class="navbarItem">
+				<a href="comment">공지사항관리</a>
+			</div>
 		</div>
 		<div class="content">
 			<div class="title">
-				<h3>광고 관리</h3>
+				<h2>사용자 관리</h2>
 			</div>
 
 			<div class="tableBox">
@@ -67,11 +69,42 @@
 						</tr>
 					</c:forEach>
 				</table>
+				<div>
+					<c:if test="${currentPage<=1}">
+                [이전]&nbsp;
+                </c:if>
+					<c:if test="${currentPage > 1}">
+						<c:url var="blistST" value="member">
+							<c:param name="page" value="${currentPage-1}" />
+						</c:url>
+						<a href="${blistST}">[이전]</a>
+					</c:if>
+					<c:set var="endPage" value="${maxPage}" />
+					<c:forEach var="p" begin="${startPage+1}" end="${endPage}">
+						<c:if test="${p eq currentPage}">
+							<font color="red" size="4"><b>[${p}]</b></font>
+						</c:if>
+						<c:if test="${p ne currentPage}">
+							<c:url var="blistchk" value="member">
+								<c:param name="page" value="${p}" />
+							</c:url>
+							<a href="${blistchk}">${p}</a>
+						</c:if>
+					</c:forEach>
+					<c:if test="${currentPage >= maxPage}"> 
+ [다음] 
+ </c:if>
+					<c:if test="${currentPage < maxPage}">
+						<c:url var="blistEND" value="member">
+							<c:param name="page" value="${currentPage+1}" />
+						</c:url>
+						<a href="${blistEND}">[다음]</a>
+					</c:if>
+				</div>
 			</div>
 		</div>
 	</div>
 	</div>
-
 	<script>
 		
 	</script>

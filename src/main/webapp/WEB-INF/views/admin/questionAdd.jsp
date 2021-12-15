@@ -13,9 +13,9 @@
 <body>
 	<header>
 		<div class="logo">
-			<!-- <img src="resources/img/logo.png" width="100px" height="100px" /> -->
+			<img src="resources/img/loanplan.png" width="200px" height="100px" /> 
 		</div>
-		<div class="admin">관리자 정보</div>
+		<div class="admin"><a href="/loanplan">메인페이지</a></div>
 	</header>
 	<div class="body">
 		<div class="navbar">
@@ -28,11 +28,13 @@
 			<div class="navbarItem">
 				<a href="advertise">광고관리</a>
 			</div>
-			<div class="navbarItem">공지사항관리</div>
+			<div class="navbarItem">
+				<a href="comment">공지사항관리</a>
+			</div>
 		</div>
 		<div class="content">
 			<div class="title">
-				<h3>공지사항 추가</h3>
+				<h2>공지사항 추가</h2>
 			</div>
 
 			<form action="questionAdd.do" method="post" class="tableBox">

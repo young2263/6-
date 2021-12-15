@@ -16,11 +16,14 @@ public class MemberService {
 	@Autowired
 	private MemberDao memberDao;
 	
-	public List<Member> memberlist(){
-		return memberDao.memberlist();
+	public List<Member> memberlist(int currentPage,int LIMIT){
+		return memberDao.memberlist(currentPage, LIMIT);
 	}
 	public Member selectMember(Member m){
 		return memberDao.selectMember(m);
+	}
+	public int memberCount() {
+		return memberDao.memberCount();
 	}
 	
 	public int insertMember(Member m) {

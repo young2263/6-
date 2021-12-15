@@ -30,6 +30,7 @@ header {
 
 header .logo {
     padding: 1rem;
+    margin-top:0;
 }
 
 header .admin {

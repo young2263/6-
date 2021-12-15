@@ -4,7 +4,10 @@
 
 	<select id="memberlist" resultType="Member">
 		select * from member
-		WHERE M
+	</select>
+	
+	<select id="memberCount" resultType="int">
+	select count(*) from member
 	</select>
 	
 	<insert id="insertMember" parameterType="Member" statementType="PREPARED">
