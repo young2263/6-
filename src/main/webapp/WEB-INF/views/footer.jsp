@@ -48,8 +48,8 @@
 						Info</h2>
 					<ul class="list-unstyled text-light footer-link-list">
 						<li><a class="text-decoration-none" href="">Home</a></li>
-						<li><a class="text-decoration-none" href="#">FAQs</a></li>
-						<li><a class="text-decoration-none" href="#">Contact</a></li>
+						<li><a class="text-decoration-none" href="${pageContext.request.contextPath}/question/questionView">FAQs</a></li>
+						<li><a class="text-decoration-none" href="${pageContext.request.contextPath}/calview">Calculator</a></li>
 					</ul>
 				</div>
 
