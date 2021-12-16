@@ -44,13 +44,13 @@
 	overflow: hidden;
 }
 
-.logo img {
+.lolo {
 	max-height: initial;
 	margin-top: 10%;
 	margin-bottom: 0%;
 }
 
-.logo img {
+.lolo {
 	width: 460px;
 }
 
@@ -227,12 +227,12 @@ button {
 }
 </style>
 </head>
-<%@include file="../header.jsp"%>
 <body>
+<%@include file="../header.jsp"%>
 <div id="bg">
 	<div id="content_box">
 		<div class="logo">
-			<img src="resources/img/loanplan.png">
+			<img class="lolo" src="resources/img/loanplan.png">
 		</div>
 		<div id="content">
 			<form method="post" name="login_frm">
