@@ -199,7 +199,7 @@ https://templatemo.com/tm-559-zay-shop
 				<c:set var="m_house" scope="session" value="${m_house}" />
 				<c:set var="m_asset" scope="session" value="${m_asset}" />
 				<c:choose>
-					<c:when test="${member != null &&  member.m_house == 300 }">
+					<c:when test="${member != null &&  member.m_house == 300 && member.m_asset == 300}">
 						<div class="col-12 col-md-4 mb-4"
 							style="margin: 0 auto; width: 500px">
 							<div class="card h-100">
@@ -222,7 +222,7 @@ https://templatemo.com/tm-559-zay-shop
 						</div>
 					</c:when>
 
-					<c:when test="${member != null && member.m_house == 0 }">
+					<c:when test="${member != null && member.m_house == 0 && member.m_asset == 200}">
 						<div class="col-12 col-md-4 mb-4"
 							style="margin: 0 auto; width: 500px">
 							<div class="card h-100">
@@ -246,7 +246,7 @@ https://templatemo.com/tm-559-zay-shop
 						</div>
 					</c:when>
 
-					<c:when test="${member != null && member.m_asset <= 200 }">
+					<c:when test="${member != null && member.m_asset == 100}">
 						<div class="col-12 col-md-4 mb-4"
 							style="margin: 0 auto; width: 500px">
 							<div class="card h-100">
