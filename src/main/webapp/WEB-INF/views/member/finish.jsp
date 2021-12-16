@@ -127,7 +127,7 @@
 				가입이 <span style="color: #4bc8a8">완료</span>되었습니다.
 			</h1>
 			<p>
-				<span>NICKNAME</span>님 가입을 환영합니다.
+				가입을 환영합니다.
 			</p>
 			<p>다양하고 즐거운 컨텐츠를 경험해보세요.</p>
 			<button class="btn" onclick="location.href='./login.do'">로그인하기</button>
