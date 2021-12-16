@@ -71,7 +71,7 @@
 	<div class="body">
 		
 		<div class="content">
-			<div class="listTitle" style="color: green"><h1 style="font-size: 50px">개인 신용 대출</h1></div>
+			<div class="listTitle" style="color: green"><h1 style="font-size: 30px">개인 신용 대출</h1></div>
 			<br><br>
 			<div>
 				<table class="tableBox">
@@ -84,9 +84,9 @@
 					<c:forEach var="vo" items="${volist}" varStatus="status">
 						<tr>
 							<td><a href="recommendloancreditdt?rlcrnum=${vo.RL_CR_NUM}" style="color: black"><img class="img-fluid" src="../${vo.RL_CR_IMG }" alt="test" width="100px" height="100px"></a></td>
-							<td><a href="recommendloancreditdt?rlcrnum=${vo.RL_CR_NUM}" style="color: black"><font size="5px">${vo.KOR_CO_NM }</font></a></td>
-							<td><a href="recommendloancreditdt?rlcrnum=${vo.RL_CR_NUM}" style="color: black"><font size="5px">${vo.CRDT_PRDT_TYPE_NM }</font></a></td>
-							<td><a href="recommendloancreditdt?rlcrnum=${vo.RL_CR_NUM}" style="color: black"><font size="5px">${vo.CRDT_GRAD_10 }</font></a></td>
+							<td><a href="recommendloancreditdt?rlcrnum=${vo.RL_CR_NUM}" style="color: black"><font size="3px">${vo.KOR_CO_NM }</font></a></td>
+							<td><a href="recommendloancreditdt?rlcrnum=${vo.RL_CR_NUM}" style="color: black"><font size="3px">${vo.CRDT_PRDT_TYPE_NM }</font></a></td>
+							<td><a href="recommendloancreditdt?rlcrnum=${vo.RL_CR_NUM}" style="color: black"><font size="3px">${vo.CRDT_GRAD_10 }</font></a></td>
 						</tr>
 					</c:forEach>
 				</table>

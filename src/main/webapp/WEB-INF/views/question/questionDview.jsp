@@ -26,6 +26,15 @@
 	h1 {
 		text-align: center;
 	}
+	
+	textarea {
+		width: 100%;
+		height: 700px;
+		border:none; 
+		padding:0.3em 1em; 
+		border-radius:2px;
+		font-weight:bold;
+	}
 </style>
 
 </head>
@@ -40,14 +49,14 @@
 		<ul>
 			 <li class="item">
         		    <div class="description">
-						<p style="text-align:center;"><font size="5px">제목</font></p>
-                        <br><br><p style="text-align:center; font-weight:bold;"><font size="5em">${question.QUESTION_TITLE }</font></p>
+						<p style="text-align:left;"><font size="5px">제목</font></p>
+                        <br><br><p style="text-align:left; font-weight:bold;"><font size="5em">${question.QUESTION_TITLE }</font></p>
                     </div>
              </li><br><br><br>
              <li class="item">
         		    <div class="description">
-						<p style="text-align:center;"><font size="5px">내용</font></p>
-						<br><br><p style="border: 5px solid #C9C9C9; padding:0.3em 1em; border-radius:2px; font-weight:bold;"><font size="5em">${question.QUESTION_CONTENT}</font></p>
+						<p style="text-align:left;"><font size="5px">내용</font></p>
+						<br><br><textarea wrap="hard" >${question.QUESTION_CONTENT}</textarea>
                     </div>
              </li>
 		</ul>
