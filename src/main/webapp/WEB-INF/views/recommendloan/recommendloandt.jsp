@@ -264,7 +264,7 @@ function calculate() {
 
 </head>
 <body>
-<%@include file="../listheader.jsp"%>
+<%@include file="../header.jsp"%>
 <br><br><br><br>
 
 <div class="body">
@@ -397,7 +397,7 @@ function calculate() {
 
 
 
-<%@include file="../listfooter.jsp"%>
+<%@include file="../footer.jsp"%>
 
 </body> 
 </html>

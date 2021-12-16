@@ -64,7 +64,7 @@
 
 </head>
 <body>
-<%@include file="../listheader.jsp"%>
+<%@include file="../header.jsp"%>
 <br><br><br><br>
 	
 	<div class="body">
@@ -128,7 +128,7 @@
 		</div>
 	</div>
 
-<%@include file="../listfooter.jsp"%>
+<%@include file="../footer.jsp"%>
 
 
 </body> 
