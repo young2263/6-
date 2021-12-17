@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/templatemo.css">
 <link rel="stylesheet" href="resources/css/custom.css">
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 
 
 <title>로그인</title>

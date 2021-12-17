@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/templatemo.css">
 <link rel="stylesheet" href="resources/css/custom.css">
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 <title>회원 가입 - 약관 동의</title>
 <style>
 #bg {
