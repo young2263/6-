@@ -238,21 +238,18 @@
 function calculate() {
 	
     var principal = document.loandata.principal.value;
-    var interest = document.loandata.interest.value /100/ 12;
-    var payments = document.loandata.years.value * 12;
+    var interest = document.loandata.interest.value /100;
+    var payments = document.loandata.years.value;
 	
-  
-   
-    var monthly = (principal * ( 1+ interest ) * payments  - principal) / payments ;	//월상환금액
+    var monthly = principal * interest / 12;	//월상환금액
 
-  
     if (!isNaN(monthly) && 
         (monthly != Number.POSITIVE_INFINITY) &&
         (monthly != Number.NEGATIVE_INFINITY)) {
 		
         document.loandata.payment.value = round(monthly);
-        document.loandata.total.value = principal * ( 1+ interest ) * payments;	//총원금
-        document.loandata.totalinterest.value = principal * ( 1+ interest ) * payments  - principal; //총이자
+        document.loandata.total.value = Number(principal) + Number(principal * interest / 12 * payments);	// 원금및이자합계
+        document.loandata.totalinterest.value = principal * interest * payments; //총이자
     }
 	// 잘못된값 입력시 아무값도 나오지않게
     else {
@@ -265,7 +262,6 @@ function calculate() {
 	function round(x) {
 	  return Math.round(x*100)/100;
 	}
-</script>
 </script>
 
 </head>
@@ -283,7 +279,7 @@ function calculate() {
 		</tr>
 		<tr>
 			<td>은행명</td>
-			<td><a href="${recommendloancredit.RL_CR_URL }">${recommendloancredit.KOR_CO_NM } </a></td>
+			<td><a href="${recommendloancredit.RL_CR_URL }" style="color:black; font-size:20px;">${recommendloancredit.KOR_CO_NM } </a></td>
 		</tr>
 	</table>
 	
