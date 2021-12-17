@@ -25,6 +25,10 @@ header {
 	padding-bottom: 100px;
 }
 
+#iii i {
+		font-size:100px;
+	}
+	
 .listTitle {
 	text-align: center;
 }

@@ -13,11 +13,18 @@
 <link rel="stylesheet" href="../resources/css/templatemo.css">
 <link rel="stylesheet" href="../resources/css/custom.css">
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+<link rel="stylesheet" href="resources/css/fontawesome.min.css">
 
 <style>
 	
 	ul, li {
 		list-style:none;
+	}
+	
+	#iii i {
+		font-size:50px;
 	}
 	
 	.questiondt {
