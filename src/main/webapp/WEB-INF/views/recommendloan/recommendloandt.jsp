@@ -235,18 +235,18 @@
 function calculate() {
 	
     var principal = document.loandata.principal.value;
-    var interest = document.loandata.interest.value /100/ 12;
-    var payments = document.loandata.years.value * 12;
+    var interest = document.loandata.interest.value /100;
+    var payments = document.loandata.years.value;
 	
-    var monthly = (principal * ( 1+ interest ) * payments  - principal) / payments ;	//월 상환금액
+    var monthly = principal * interest / 12;	//월상환금액
 
     if (!isNaN(monthly) && 
         (monthly != Number.POSITIVE_INFINITY) &&
         (monthly != Number.NEGATIVE_INFINITY)) {
 		
         document.loandata.payment.value = round(monthly);
-        document.loandata.total.value = principal * ( 1+ interest ) * payments;	//총원금
-        document.loandata.totalinterest.value = principal * ( 1+ interest ) * payments  - principal; //총이자
+        document.loandata.total.value = Number(principal) + Number(principal * interest / 12 * payments);	//원금및이자합계
+        document.loandata.totalinterest.value = principal * interest * payments; //총이자
     }
 	// 잘못된값 입력시 아무값도 나오지않게
     else {
@@ -354,12 +354,12 @@ function calculate() {
 			<td><input type="text" name="principal" class="need" size="20" style="text-align:center" onchange="calculate();"> 원</td>
 		</tr>
 		<tr>
-			<td style="font-size:30px;">이자율(%)</td>
+			<td style="font-size:30px;">연 이자율(%)</td>
 			<td><input type="text" name="interest" class="need" size="20" style="text-align:center" onchange="calculate();"> %</td>
 		</tr>
 		<tr>
-			<td style="font-size:30px;">대출기간(년)</td>
-			<td><input type="text" name="years" class="need" size="20" style="text-align:center" onchange="calculate();"> 년</td>
+			<td style="font-size:30px;">대출기간(개월)</td>
+			<td><input type="text" name="years" class="need" size="20" style="text-align:center" onchange="calculate();"> 개월</td>
 		</tr>
 		<!-- <tr>
 			<td>4)</td>
