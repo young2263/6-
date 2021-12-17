@@ -8,8 +8,17 @@
 <link rel="stylesheet" href="resources/css/templatemo.css">
 <link rel="stylesheet" href="resources/css/custom.css">
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <title>Insert title here</title>
 <style>
+	.body {
+		margin: 5rem 40rem;
+	}
+	
+	.body h1 {
+		text-align: center;
+	}
+
 	#nav_ul ul{
 		list-style-type : none;
 		text-align : center;
@@ -20,10 +29,20 @@
 		display : inline-block;
 	}
 	
+	#nav_ul {
+		
+	}
+	
+	#content {
+		
+	}
+	
 </style>
 </head>
-<%@include file="../header.jsp"%>
+
 <body>
+<%@include file="../header.jsp"%>
+<div class="body">
 	<h1>마이 페이지</h1>
 	<ul id="nav_ul">
 		<li><a href="/loanplan/myPage">내 정보</a></li>
@@ -81,6 +100,7 @@
                 <td>${vo.m_house}</td>
             </tr>
         </table>
+    </div>
     </div>
 </body>
 <%@include file="../footer.jsp"%>

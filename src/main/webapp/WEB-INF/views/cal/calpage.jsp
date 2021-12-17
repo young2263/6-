@@ -18,6 +18,7 @@
 
 <script language="JavaScript">
 
+/* 원리금 상환*/
 function calculateA() {
 	console.log("test")
     var principal = $(".principalInput2").val();
