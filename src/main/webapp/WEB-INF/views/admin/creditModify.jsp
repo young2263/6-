@@ -24,7 +24,7 @@
 			<div class="navbarItem">
 				<a href="member">사용자관리</a>
 			</div>
-			<div class="navbarItem">
+			<div class="navbarItem" style="background-color:white;">
 				<a href="admin">대출상품관리</a>
 			</div>
 			<div class="navbarItem">

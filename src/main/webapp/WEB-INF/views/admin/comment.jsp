@@ -29,7 +29,7 @@
 			<div class="navbarItem">
 				<a href="advertise">광고관리</a>
 			</div>
-			<div class="navbarItem">
+			<div class="navbarItem" style="background-color:white;">
 				<a href="comment">공지사항관리</a>
 			</div>
 		</div>
@@ -50,9 +50,9 @@
 							<td>${vo.QUESTION_NUM }</td>
 							<td>${vo.QUESTION_TITLE }</td>
 							<td>${vo.QUESTION_CONTENT }</td>
-							<td class="deleteBtn"><a
+							<td class="deleteBtn"><a class="delete"
 								href="deleteQuestion?QUESTION_NUM=${vo.QUESTION_NUM}">
-									<button>삭제</button>
+									<button class="delete">삭제</button>
 							</a></td>
 						</tr>
 					</c:forEach>

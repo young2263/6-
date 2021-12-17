@@ -20,7 +20,7 @@
 	</header>
 	<div class="body">
 		<div class="navbar">
-			<div class="navbarItem">
+			<div class="navbarItem" style="background-color:white;">
 				<a href="member">사용자관리</a>
 			</div>
 			<div class="navbarItem">

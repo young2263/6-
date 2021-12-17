@@ -12,7 +12,7 @@ ul,li{
 
 a {
 	text-decoration: none;
-	 color: black;
+	color: black;
 }
 
 table, td, th {
@@ -44,7 +44,7 @@ header .admin {
 
 .body {
     display: flex;
-    height: 1000px;
+    height: 1200px;
 }
 
 .body .navbar {
@@ -118,4 +118,18 @@ header .admin {
     cursor: pointer;
     border-radius: 5px;
     margin-bottom: 1rem;
+}
+
+.pageBox {
+	margin: 5rem 55rem;
+}
+.deleteBtn {
+	width: 5rem;
+}
+
+.delete {
+	background-color:white;
+	border:none;
+	cursor:pointer;
+	margin-left:0.5rem;
 }

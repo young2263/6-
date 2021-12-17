@@ -26,7 +26,7 @@
 			<div class="navbarItem">
 				<a href="admin">대출상품관리</a>
 			</div>
-			<div class="navbarItem">
+			<div class="navbarItem" style="background-color:white;">
 				<a href="advertise">광고관리</a>
 			</div>
 			<div class="navbarItem">
@@ -53,7 +53,7 @@
                             <td>${vo.AD_IMG }</td>
                             <td>${vo.AD_SRC }</td>
                             <td class="deleteBtn"><a href="deleteAdvertise?AD_NUM=${vo.AD_NUM}">
-									<button>삭제</button>
+									<button class="delete">삭제</button>
 								</a></td>
                         </tr>
                         </c:forEach>
