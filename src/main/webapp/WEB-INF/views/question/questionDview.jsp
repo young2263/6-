@@ -14,9 +14,17 @@
 <link rel="stylesheet" href="../resources/css/custom.css">
 
 <style>
-
+	
+	ul, li {
+		list-style:none;
+	}
+	
 	.questiondt {
 		width: 100%;
+	}
+	.questiondt form {
+		width: 100%;
+		padding: 0 40rem;
 	}
 	h2 {
 		margin-top: 30px;
@@ -49,13 +57,13 @@
 		<ul>
 			 <li class="item">
         		    <div class="description">
-						<p style="text-align:left;"><font size="5px">제목</font></p>
-                        <br><br><p style="text-align:left; font-weight:bold;"><font size="5em">${question.QUESTION_TITLE }</font></p>
+						<p style="text-align:center;"><font size="5px">제목</font></p>
+                        <br><br><p style="text-align:center; font-weight:bold;"><font size="5em">${question.QUESTION_TITLE }</font></p>
                     </div>
              </li><br><br><br>
              <li class="item">
         		    <div class="description">
-						<p style="text-align:left;"><font size="5px">내용</font></p>
+						<p style="text-align:center;"><font size="5px">내용</font></p>
 						<br><br><textarea wrap="hard" >${question.QUESTION_CONTENT}</textarea>
                     </div>
              </li>
