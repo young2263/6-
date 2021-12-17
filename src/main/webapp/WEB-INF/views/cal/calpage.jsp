@@ -22,7 +22,7 @@ function calculateA() {
 	console.log("test")
     var principal = $(".principalInput2").val();
     var interest =  $(".interestInput2").val() /100;
-    var payments = $(".yearsInput2").val() * 12;
+    var payments = $(".yearsInput2").val();
 	
     var monthly = (principal * interest * Math.pow(( 1+ interest ), payments) / Math.pow((1+interest), payments)- 1);
     if (!isNaN(monthly) && 
@@ -30,8 +30,8 @@ function calculateA() {
         (monthly != Number.NEGATIVE_INFINITY)) {
     	
     	var rPayment2 = round(monthly);
-    	var rtotal2 = round(monthly * payments);
-    	var rtotalinterest2 = round((monthly * payments) - principal);
+    	var rtotal2 = round(Number(principal) + Number(principal * interest / 12 * payments));
+    	var rtotalinterest2 = round(principal * interest * payments);
     	
     	$(".payment2").val(rPayment2.toLocaleString());
 		$(".totalinterest2").val(rtotalinterest2.toLocaleString());
@@ -58,15 +58,15 @@ function calculateA() {
 	
 	
 	
-	 var monthly = principal * interest / 12 ;	//월상환금액
+	 var monthly = roundup(principal * interest / 12);	//월상환금액
 
 	
 	 if (!isNaN(monthly) && 
 	 (monthly != Number.POSITIVE_INFINITY) &&
 	 (monthly != Number.NEGATIVE_INFINITY)) {
 		var rpayment = round(monthly);
-		var rtotalinterest = principal * interest * payments;
-		var rtotal = Number(principal) + Number(principal * interest / 12 * payments);
+		var rtotalinterest = principal * interest * payments;  //총이자
+		var rtotal = Number(principal) + Number(principal * interest / 12 * payments);   //원금및이자합계
 		$(".payment").val(rpayment.toLocaleString());
 		$(".totalinterest").val(rtotalinterest.toLocaleString());
 		$(".total").val(rtotal.toLocaleString());
@@ -199,10 +199,10 @@ function calculateA() {
 						<button class="i5">+5</button></td>
 				</tr>
 				<tr>
-					<td><h4>상환기간(년)</h4></td>
+					<td><h4>상환기간(월)</h4></td>
 					<td><input class="yearsInput2" type="text" value=0 name="years"
 						size="12" onchange="calculateA();">
-						<h4>년</h4></td>
+						<h4>개월</h4></td>
 					<td><button class="yReset">초기화</button>
 						<button class="p1">+1</button>
 						<button class="p3">+3</button>
