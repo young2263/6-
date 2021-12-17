@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +13,9 @@
 <link rel="stylesheet" href="../resources/css/templatemo.css">
 <link rel="stylesheet" href="../resources/css/custom.css">
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+<link rel="stylesheet" href="resources/css/fontawesome.min.css">
 
 
 <style>
@@ -61,7 +64,6 @@
    		padding: 50px 20px;
    		text-align:center;
    }
-
 </style>
 
 </head>

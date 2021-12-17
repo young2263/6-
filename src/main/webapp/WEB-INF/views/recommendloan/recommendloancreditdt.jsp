@@ -192,7 +192,7 @@ function calculate() {
     var interest = document.loandata.interest.value /100;
     var payments = document.loandata.years.value;
 	
-    var monthly = principal * interest / 12;	//월상환금액
+    var monthly = roundup(principal * interest / 12);	//월상환금액
 
     if (!isNaN(monthly) && 
         (monthly != Number.POSITIVE_INFINITY) &&
