@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="./resources/css/templatemo.css">
 <link rel="stylesheet" href="./resources/css/custom.css">
 <link rel="stylesheet" href="./resources/css/calpage.css">
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 
 
 <script language="JavaScript">
