@@ -53,15 +53,10 @@ function calculateA() {
 	/* 만기일시상환 계산기  */
 	function calculateB() {
 	
-		 var principal = $(".principalInput").val();
-		    var interest =  $(".interestInput").val() /100;
-		    var payments = $(".yearsInput").val();
-	
-	
-	
-	 var monthly = roundup(principal * interest / 12);	//월상환금액
-
-	
+	var principal = $(".principalInput").val();
+	var interest =  $(".interestInput").val() /100;
+	var payments = $(".yearsInput").val();
+	 var monthly = round(principal * interest / 12);	//월상환금액
 	 if (!isNaN(monthly) && 
 	 (monthly != Number.POSITIVE_INFINITY) &&
 	 (monthly != Number.NEGATIVE_INFINITY)) {
