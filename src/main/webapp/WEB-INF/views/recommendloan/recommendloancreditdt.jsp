@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="../resources/css/templatemo.css">
 <link rel="stylesheet" href="../resources/css/custom.css">
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 
 <style>
     *{margin:0; padding:0;}
@@ -166,56 +167,6 @@
 
 	.result {
 		border-style: none;
-	}
-
-	.tab_item .reviewtable {
-		width: 80%;
-        margin: auto;
-        border: none;
-    }
-    
-    .reviewlist {
-    	border-spacing:50px;
-    	border-collapse: separate;
-    }
-    
-    .reviewlist .rvn {
-    	width: 700px;
-    	background-color: #59ab6e;
-    	border-radius: 30%;
-    }
-    
-    .reviewlist td {
-    	width: 700px;
-    	background: #59ab6e;
-    }
-    
-     .reviewtable {
-    	border-spacing:50px;
-    	border-collapse: separate;
-    }
-    
-    .reviewlist tr {
-    	width: 700px;
-    	background: #ccc;
-    }
-	
-	.star_rating {font-size:0; letter-spacing:-4px;}
-	.star_rating a {
-      font-size:22px;
-      letter-spacing:0;
-      display:inline-block;
-      margin-left:5px;
-      color:#ccc;
-      text-decoration:none;
-  	}
-	.star_rating a:first-child {margin-left:0;}
-	.star_rating a.on {color:rgb(255, 251, 0);}
-	
-	.star_rating a {
-		display: inline-block;
-		width: 30px; height: 30px;
-		font-size: 20px;
 	}
 	
 	.btnrv {

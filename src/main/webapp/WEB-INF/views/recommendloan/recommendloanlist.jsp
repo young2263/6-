@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="../resources/css/templatemo.css">
 <link rel="stylesheet" href="../resources/css/custom.css">
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 
 
 <style>
@@ -129,6 +130,7 @@
 		</div>
 	</div>
 	<br><br><br><br>
+	
 <%@include file="../footer.jsp"%>
 
 </body> 
