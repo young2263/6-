@@ -41,13 +41,13 @@
 			<div class="tableBox">
 				<table>
 					<tr>
-						<th>공지사항 번호</th>
+						<th style="width:4rem;">번호</th>
 						<th>공지사항 제목</th>
 						<th>공지사항 내용</th>
 					</tr>
 					<c:forEach var="vo" items="${commentlist }" varStatus="status">
 						<tr>
-							<td>${vo.QUESTION_NUM }</td>
+							<td style="text-align:center;">${vo.QUESTION_NUM }</td>
 							<td>${vo.QUESTION_TITLE }</td>
 							<td>${vo.QUESTION_CONTENT }</td>
 							<td class="deleteBtn"><a class="delete"
