@@ -28,9 +28,9 @@ function calculateA() {
         (monthly != Number.POSITIVE_INFINITY) &&
         (monthly != Number.NEGATIVE_INFINITY)) {
 		
-        document.loandata.payment.value = (principal * ( 1+ interest ) * payments  - principal) / payments ;
-        document.loandata.total.value = principal * ( 1+ interest ) * payments / 12;	//총원금
-        document.loandata.totalinterest.value = principal * ( 1+ interest ) * (payments / 12)  - ( principal / 12); //총이자
+        document.loandata.payment.value = rPayment.toLocaleString();
+        document.loandata.total.value = rtotal.toLocaleString();	//총원금
+        document.loandata.totalinterest.value = rtotalinterest.toLocaleString(); //총이자
     }
     else {
         document.loandata.payment.value = "";
@@ -61,9 +61,12 @@ function calculateA() {
 	 if (!isNaN(monthly) && 
 	 (monthly != Number.POSITIVE_INFINITY) &&
 	 (monthly != Number.NEGATIVE_INFINITY)) {
-		$(".payment").val(round(monthly));
-		$(".totalinterest").val( principal * ( 1+ interest ) * payments  - principal);
-		$(".total").val(principal * ( 1+ interest ) * payments);
+		var rpayment = round(monthly);
+		var rtotalinterest =principal * ( 1+ interest ) * payments  - principal;
+		var rtotal = principal * ( 1+ interest ) * payments;
+		$(".payment").val(rpayment.toLocaleString());
+		$(".totalinterest").val(rtotalinterest.toLocaleString());
+		$(".total").val(rtotal.toLocaleString());
 	 }
 	
 	 else {
